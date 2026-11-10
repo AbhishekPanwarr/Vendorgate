@@ -1,5 +1,7 @@
 """S5 geo/address/identity/credibility checks (Phase 1 deterministic subset)."""
 
+from typing import Any
+
 from backend.app.domain.enums import FixedBy
 from backend.app.domain.enums import Outcome
 from backend.app.domain.enums import Severity
@@ -27,10 +29,10 @@ _PO_BOX = ("po box", "p.o. box", "post box", "postbox")
         "company.primary_contact.phone",
     ),
 )
-async def geo_matrix(ctx: object) -> list[Finding]:
-    company = str(ctx.value("company.country") or "")  # type: ignore[attr-defined]
-    tax = str(ctx.value("tax.country") or "")  # type: ignore[attr-defined]
-    bank = str(ctx.value("bank.country") or "")  # type: ignore[attr-defined]
+async def geo_matrix(ctx: Any) -> list[Finding]:
+    company = str(ctx.value("company.country") or "")
+    tax = str(ctx.value("tax.country") or "")
+    bank = str(ctx.value("bank.country") or "")
     findings: list[Finding] = []
     if tax != company:
         findings.append(
@@ -81,10 +83,10 @@ async def geo_matrix(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("company.registered_address", "company.remit_to_address"),
 )
-async def remit_justification(ctx: object) -> list[Finding]:
-    reg = str(ctx.value("company.registered_address") or "")  # type: ignore[attr-defined]
-    remit = ctx.value("company.remit_to_address")  # type: ignore[attr-defined]
-    just = ctx.value("declarations.remit_address_justification")  # type: ignore[attr-defined]
+async def remit_justification(ctx: Any) -> list[Finding]:
+    reg = str(ctx.value("company.registered_address") or "")
+    remit = ctx.value("company.remit_to_address")
+    just = ctx.value("declarations.remit_address_justification")
     if remit and str(remit) != reg and not just:
         return [
             make_finding(
@@ -109,8 +111,8 @@ async def remit_justification(ctx: object) -> list[Finding]:
 
 
 @check(id="C-ADDR-01", stage="S5", version=1, mandatory=True, reads=("company.registered_address",))
-async def po_box(ctx: object) -> list[Finding]:
-    addr = str(ctx.value("company.registered_address") or "").lower()  # type: ignore[attr-defined]
+async def po_box(ctx: Any) -> list[Finding]:
+    addr = str(ctx.value("company.registered_address") or "").lower()
     if any(p in addr for p in _PO_BOX):
         return [
             make_finding(
@@ -141,10 +143,10 @@ async def po_box(ctx: object) -> list[Finding]:
     mandatory=False,
     reads=("company.website", "company.primary_contact.email"),
 )
-async def domain_checks(ctx: object) -> list[Finding]:
+async def domain_checks(ctx: Any) -> list[Finding]:
     findings: list[Finding] = []
-    site = canon_domain(str(ctx.value("company.website") or ""))  # type: ignore[attr-defined]
-    email = str(ctx.value("company.primary_contact.email") or "")  # type: ignore[attr-defined]
+    site = canon_domain(str(ctx.value("company.website") or ""))
+    email = str(ctx.value("company.primary_contact.email") or "")
     domain = canon_domain(email)
     if site and domain and domain != site:
         findings.append(
@@ -178,7 +180,7 @@ async def domain_checks(ctx: object) -> list[Finding]:
                 score_tags={"BANK_ID": 0.15},
             )
         )
-    legal = str(ctx.value("company.legal_name") or "")  # type: ignore[attr-defined]
+    legal = str(ctx.value("company.legal_name") or "")
     if any(has_mixed_script(tok) for tok in legal.split()) or has_mixed_script(domain):
         findings.append(
             make_finding(
@@ -201,15 +203,15 @@ async def domain_checks(ctx: object) -> list[Finding]:
 
 
 @check(id="C-CRD-01", stage="S5", version=1, mandatory=True, reads=("company.incorporation_date",))
-async def entity_age(ctx: object) -> list[Finding]:
+async def entity_age(ctx: Any) -> list[Finding]:
     from datetime import date
 
-    raw = str(ctx.value("company.incorporation_date") or "")  # type: ignore[attr-defined]
+    raw = str(ctx.value("company.incorporation_date") or "")
     try:
         incorp = date.fromisoformat(raw)
     except ValueError:
         return []
-    now = ctx.clock.now().date()  # type: ignore[attr-defined]  # W-2: clock, never datetime.now()
+    now = ctx.clock.now().date()  # W-2: clock, never datetime.now()
     age_days = (now - incorp).days
     if age_days < 365:
         return [

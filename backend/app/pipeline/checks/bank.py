@@ -1,5 +1,7 @@
 """S3 bank + contact checks C-BNK-01..03, C-CON-01."""
 
+from typing import Any
+
 import re
 
 from backend.app.domain.enums import FixedBy
@@ -40,8 +42,8 @@ def _fail(
     )
 
 
-def _val(ctx: object, path: str) -> str:
-    return str(ctx.value(path) or "")  # type: ignore[attr-defined]
+def _val(ctx: Any, path: str) -> str:
+    return str(ctx.value(path) or "")
 
 
 @check(
@@ -58,7 +60,7 @@ def _val(ctx: object, path: str) -> str:
         "bank.country",
     ),
 )
-async def bank_format(ctx: object) -> list[Finding]:
+async def bank_format(ctx: Any) -> list[Finding]:
     country = _val(ctx, "bank.country")
     findings: list[Finding] = []
     if country == "US":
@@ -118,7 +120,7 @@ async def bank_format(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("bank.routing_number", "bank.ifsc", "bank.iban", "bank.country"),
 )
-async def bank_checksum(ctx: object) -> list[Finding]:
+async def bank_checksum(ctx: Any) -> list[Finding]:
     country = _val(ctx, "bank.country")
     if country == "US":
         raw_routing = _val(ctx, "bank.routing_number")
@@ -156,7 +158,7 @@ async def bank_checksum(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("bank.iban", "bank.swift_bic", "bank.country", "bank.currency"),
 )
-async def bank_coherence(ctx: object) -> list[Finding]:
+async def bank_coherence(ctx: Any) -> list[Finding]:
     raw_iban = _val(ctx, "bank.iban")
     raw_swift = _val(ctx, "bank.swift_bic")
     if raw_iban and raw_swift:
@@ -186,7 +188,7 @@ async def bank_coherence(ctx: object) -> list[Finding]:
         "company.country",
     ),
 )
-async def contact_format(ctx: object) -> list[Finding]:
+async def contact_format(ctx: Any) -> list[Finding]:
     findings: list[Finding] = []
     country = _val(ctx, "company.country")
     for role in ("company.primary_contact.email", "company.ap_contact.email"):

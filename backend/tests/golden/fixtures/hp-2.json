@@ -158,11 +158,95 @@
    "AP_ANALYST"
   ],
   "counterfactuals": [],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "81e7ff53ca6f664402a8ee597c7f440c2947969546d1e0d165ade007ca2aabe1"
+  "reproducibility_hash": "bea770f08417f7813d34ae9df17287e5262e54c5c468bdc020b241a37ec6fa77"
  },
  "findings": [
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "GSTIN active",
+   "detail": "GSTIN active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "gst",
+     "summary": "gst call 263d4e389fca",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "18c9133434115452d24d3523182d0abb09775df59fab85eeec4aba27a4c954d6",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry call 7b80707e46fb",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call 8ebee85bf078",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
   {
    "check_id": "C-CRD-01",
    "stage": "S5",
@@ -188,7 +272,7 @@
    "reads": [
     "company.incorporation_date"
    ],
-   "fingerprint": "e59e6b33434991e0e645770707a09371cb278c17ebc2c4f53133368691689e34",
+   "fingerprint": "5abd2f1096a761833e186f32f39fc350ab72129ed43084975df927cbd85a2ade",
    "score_tags": {
     "REGISTRY_MEDIA": 0.2
    },

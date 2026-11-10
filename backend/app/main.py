@@ -139,12 +139,89 @@ def create_app() -> FastAPI:
         return {"ok": True, "case_id": case_id, "actor": actor, "role": role}
 
     @app.post("/api/v1/cases/{case_id}/callback")
-    def record_callback(case_id: str):  # noqa: ANN201, ANN001
-        return JSONResponse(status_code=422, content={"type": "no-callback-required"})
+    async def record_callback(case_id: str, request: Request):  # noqa: ANN201
+        from backend.app.core.policy import load_policy
+        from backend.app.decision.routing import check_callback
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        body = await request.json()
+        if not body.get("attested"):
+            return JSONResponse(status_code=422, content={"type": "attestation-required"})
+        policy = load_policy("policy")
+        min_age = int(policy.raw["base"]["lifecycle"].get("callback_number_min_age_days", 30))
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        phones = [
+            c.get("value", "") for c in run.get("claims", []) if c.get("path", "").endswith("phone")
+        ]
+        verdict = check_callback(
+            str(body.get("number_used", "")),
+            str(body.get("number_source", "")),
+            [str(p) for p in phones],
+            int(body.get("number_age_days", 0)),
+            min_age,
+            bool(body.get("attested")),
+        )
+        repo.STORE.setdefault("callbacks", []).append(
+            {
+                "case_id": case_id,
+                "number_used": body.get("number_used"),
+                "number_source": body.get("number_source"),
+                "outcome": body.get("outcome", ""),
+                "independent": verdict["ok"],
+                "actor": request.headers.get("X-Actor", ""),
+                "attested": True,
+            }
+        )
+        if not verdict["ok"]:
+            return {"ok": False, "reason": verdict["reason"]}
+        return {
+            "ok": True,
+            "case_id": case_id,
+            "cleared": ["BANK_CHANGE_REQUIRES_CALLBACK", "CALLBACK_REQUIRED"],
+        }
 
     @app.get("/api/v1/vendors")
     def list_vendors():  # noqa: ANN202
         return [c for c in repo.STORE["cases"].values() if c.get("vendor_id")]
+
+    @app.get("/api/v1/cases/{case_id}/messages")
+    def get_messages(case_id: str):  # noqa: ANN201
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        return run.get("message", {})
+
+    @app.get("/api/v1/approvals")
+    def approvals_queue(role: str = ""):  # noqa: ANN201, ANN001
+        out = []
+        for c in repo.STORE["cases"].values():
+            run = repo.STORE["runs"].get(c.get("run_id", ""), {})
+            route = (run.get("decision", {}) or {}).get("approval_route", [])
+            if not role or role in route:
+                out.append({**c, "approval_route": route})
+        return out
+
+    @app.post("/api/v1/cases/{case_id}/retry-verification")
+    async def retry_verification(case_id: str):  # noqa: ANN201
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        unverifiable = [f for f in run.get("findings", []) if f.get("outcome") == "UNVERIFIABLE"]
+        if not unverifiable:
+            return {
+                "ok": True,
+                "retried": 0,
+                "status": (run.get("decision", {}) or {}).get("status"),
+            }
+        return {
+            "ok": True,
+            "retried": len(unverifiable),
+            "note": "clear the adapter fault and resubmit; delta re-run is Phase 4",
+        }
 
     @app.get("/api/v1/metrics/dashboard")
     def dashboard_metrics():  # noqa: ANN202

@@ -1,0 +1,356 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 30000,
+    "currency": "USD"
+   },
+   "category": "CONSULTING",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Meridian Shipping Svcs LLC",
+   "trading_name": null,
+   "entity_type": "LTD",
+   "country": "PA",
+   "incorporation_date": "2009-04-01",
+   "registered_address": {
+    "line1": "10 Harbour Rd",
+    "line2": null,
+    "city": "Panama City",
+    "region": "Panama",
+    "postal_code": "0801",
+    "country": "PA"
+   },
+   "remit_to_address": null,
+   "website": "https://meridian-shipping.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@meridian-shipping.example",
+    "phone": "+442071234567"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@meridian-shipping.example",
+    "phone": "+442071234568"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "GB",
+   "tax_id_type": "VAT",
+   "tax_id": "GB999999973",
+   "secondary_ids": {},
+   "tax_classification": "LTD",
+   "form_type": "VAT_CERT",
+   "vat_id": "GB999999973"
+  },
+  "bank": {
+   "country": "PA",
+   "currency": "GBP",
+   "account_holder_name": "Meridian Shipping Svcs LLC",
+   "bank_name": "Test Bank",
+   "account_number": "31926819",
+   "routing_number": null,
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": null,
+   "sort_code": "60-16-13"
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "VAT_CERT",
+    "filename": "v.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "b.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "i.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "REJECTED",
+  "awaiting": [],
+  "tier": "BLOCKED",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.5,
+     "points": 12.5,
+     "drivers": [
+      "spend_usd=30000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.55,
+     "points": 11.0,
+     "drivers": [
+      "country=PA"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.6,
+     "points": 9.0,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.4,
+     "points": 4.0,
+     "drivers": [
+      "category=CONSULTING"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 36.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "BANK_ACCOUNT_NOT_FOUND",
+   "SANCTIONS_MATCH",
+   "TAX_COUNTRY_MISMATCH"
+  ],
+  "blocking_finding_ids": [
+   "C-GEO-01",
+   "C-SAN-01",
+   "C-VER-05"
+  ],
+  "required_actions": [
+   {
+    "code": "CONFIRM_TAX_COUNTRY",
+    "field_paths": [
+     "tax.country"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "PROVIDE_BANK_PROOF",
+    "field_paths": [
+     "bank.account_number"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [],
+  "counterfactuals": [],
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "83a601e22eeaba6f45ed92ce08aeceed34c3d41b25116b32ece37190bd251bdb"
+ },
+ "findings": [
+  {
+   "check_id": "C-SAN-01",
+   "stage": "S7",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 3,
+   "reason_code": "SANCTIONS_MATCH",
+   "title": "Sanctions match confirmed",
+   "detail": "Compliance hold; legal review required.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.legal_name",
+     "summary": "claim company.legal_name",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.legal_name"
+   ],
+   "fingerprint": "496b9b6116e1dc1933ba623cba624c0b6b3e7b181793af5280c2194c8ae9baf6",
+   "score_tags": {},
+   "duration_ms": 7,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-03",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "VAT valid",
+   "detail": "VAT valid",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "vies",
+     "summary": "vies call cff3158c0d26",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "acec2fa16cd9acc93857df1380df43245646ba4385d5d321e9239d3452a6c207",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry call 00217176cc68",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "072d289f2c98f23a35dbc3c6f19273afd90320524aabf6bb419ef67044fba38d",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "BANK_ACCOUNT_NOT_FOUND",
+   "title": "Bank account not found",
+   "detail": "Ownership validation found no such account.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "bank.account_number",
+     "summary": "claim bank.account_number",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_BANK_PROOF",
+    "field_paths": [
+     "bank.account_number"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "bank.account_number"
+   ],
+   "fingerprint": "6f8bd1d4ec37b1e4d9ccc4ee168da83a0dfe2ef9311037503983f6cdd9df6183",
+   "score_tags": {
+    "BANK_ID": 0.5
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-GEO-01",
+   "stage": "S5",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "TAX_COUNTRY_MISMATCH",
+   "title": "Tax country differs from company country",
+   "detail": "Company is PA but tax country is GB.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.country",
+     "summary": "claim company.country",
+     "data": {}
+    },
+    {
+     "kind": "claim",
+     "ref": "tax.country",
+     "summary": "claim tax.country",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "CONFIRM_TAX_COUNTRY",
+    "field_paths": [
+     "tax.country"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.country",
+    "tax.country"
+   ],
+   "fingerprint": "e6104d0c9c965ab508564d083b9e48c1092aa3e907f7c57a51f0fc7d7c2c5485",
+   "score_tags": {
+    "GEO": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

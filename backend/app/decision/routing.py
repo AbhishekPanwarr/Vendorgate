@@ -14,3 +14,26 @@ def resolve_allowed(reason_code: str, role: str, policy: object) -> bool:
     if allowed is None:
         return role in ("AP_ANALYST", "CONTROLLER", "COMPLIANCE")
     return role in allowed
+
+
+ALLOWED_SOURCES = {"VENDOR_MASTER", "REGISTRY", "PUBLIC_DIRECTORY"}
+
+
+def check_callback(
+    number_used: str,
+    number_source: str,
+    request_phones: list[str],
+    number_age_days: int,
+    min_age_days: int,
+    attested: bool,
+) -> dict[str, object]:
+    """Pure independence rule (enforced here, not in the API layer)."""
+    if not attested:
+        return {"ok": False, "reason": "ATTESTATION_REQUIRED"}
+    if number_used in set(request_phones):
+        return {"ok": False, "reason": "CALLBACK_NOT_INDEPENDENT"}
+    if number_source not in ALLOWED_SOURCES:
+        return {"ok": False, "reason": "CALLBACK_NOT_INDEPENDENT"}
+    if number_age_days < min_age_days:
+        return {"ok": False, "reason": "CALLBACK_NUMBER_TOO_NEW"}
+    return {"ok": True, "reason": ""}

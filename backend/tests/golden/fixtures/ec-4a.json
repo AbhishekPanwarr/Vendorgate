@@ -1,0 +1,276 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 30000,
+    "currency": "USD"
+   },
+   "category": "CONSULTING",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Meridian Shipping Svcs LLC",
+   "trading_name": null,
+   "entity_type": "LTD",
+   "country": "GB",
+   "incorporation_date": "2021-04-01",
+   "registered_address": {
+    "line1": "10 Harbour Rd",
+    "line2": null,
+    "city": "London",
+    "region": "London",
+    "postal_code": "E1 6AN",
+    "country": "GB"
+   },
+   "remit_to_address": null,
+   "website": "https://meridian-shipping.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@meridian-shipping.example",
+    "phone": "+442071234567"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@meridian-shipping.example",
+    "phone": "+442071234568"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "GB",
+   "tax_id_type": "VAT",
+   "tax_id": "GB999999973",
+   "secondary_ids": {},
+   "tax_classification": "LTD",
+   "form_type": "VAT_CERT",
+   "vat_id": "GB999999973"
+  },
+  "bank": {
+   "country": "GB",
+   "currency": "GBP",
+   "account_holder_name": "Meridian Shipping Svcs LLC",
+   "bank_name": "Test Bank",
+   "account_number": "31926819",
+   "routing_number": null,
+   "iban": "GB29NWBK60161331926819",
+   "swift_bic": "NWBKGB2L",
+   "ifsc": null,
+   "sort_code": "60-16-13"
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "VAT_CERT",
+    "filename": "v.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "b.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "i.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "APPROVED",
+  "awaiting": [],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.5,
+     "points": 12.5,
+     "drivers": [
+      "spend_usd=30000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.1,
+     "points": 2.0,
+     "drivers": [
+      "country=GB"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.4,
+     "points": 4.0,
+     "drivers": [
+      "category=CONSULTING"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 20.0,
+   "band": "LOW"
+  },
+  "reason_codes": [],
+  "blocking_finding_ids": [],
+  "required_actions": [],
+  "approval_route": [],
+  "counterfactuals": [],
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "da27174872a2e25ee8c04d4f95ce31bbca6d587563d9da61734a46bf7ccb20f9"
+ },
+ "findings": [
+  {
+   "check_id": "C-SAN-01",
+   "stage": "S7",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Sanctions decoy cleared",
+   "detail": "High name similarity but contradicting identifiers.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.legal_name",
+     "summary": "claim company.legal_name",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.legal_name"
+   ],
+   "fingerprint": "e1355b4ec08a908fe194f300c154844d04d975ae79f10af31f1633d1e1fdd18a",
+   "score_tags": {
+    "GEO": 0.1
+   },
+   "duration_ms": 7,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-03",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "VAT valid",
+   "detail": "VAT valid",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "vies",
+     "summary": "vies call 7c4420305fc6",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "acec2fa16cd9acc93857df1380df43245646ba4385d5d321e9239d3452a6c207",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry call 3f3e7039dc64",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "c329570270848d6bff73feb3899ebd97bf7db96f8043187d0cdc9b940f005d4f",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call a2d292eee061",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "e2a6de5b39cb4ee7b8e959adec50109688d70560da6b15f8c9c75adeb0a78311",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

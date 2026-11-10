@@ -71,6 +71,44 @@
     "summary": "Admin Reset"
    }
   },
+  "/api/v1/approvals": {
+   "get": {
+    "operationId": "approvals_queue_api_v1_approvals_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "role",
+      "required": false,
+      "schema": {
+       "default": "",
+       "title": "Role",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Approvals Queue"
+   }
+  },
   "/api/v1/cases": {
    "get": {
     "operationId": "list_cases_api_v1_cases_get",
@@ -272,6 +310,43 @@
     "summary": "Record Callback"
    }
   },
+  "/api/v1/cases/{case_id}/messages": {
+   "get": {
+    "operationId": "get_messages_api_v1_cases__case_id__messages_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "case_id",
+      "required": true,
+      "schema": {
+       "title": "Case Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Get Messages"
+   }
+  },
   "/api/v1/cases/{case_id}/resolutions": {
    "post": {
     "operationId": "add_resolution_api_v1_cases__case_id__resolutions_post",
@@ -307,6 +382,43 @@
      }
     },
     "summary": "Add Resolution"
+   }
+  },
+  "/api/v1/cases/{case_id}/retry-verification": {
+   "post": {
+    "operationId": "retry_verification_api_v1_cases__case_id__retry_verification_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "case_id",
+      "required": true,
+      "schema": {
+       "title": "Case Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Retry Verification"
    }
   },
   "/api/v1/metrics/dashboard": {

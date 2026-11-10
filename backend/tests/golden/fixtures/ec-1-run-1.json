@@ -47,7 +47,7 @@
   "tax": {
    "country": "US",
    "tax_id_type": "EIN",
-   "tax_id": "84-1234567",
+   "tax_id": "84-7654321",
    "secondary_ids": {},
    "tax_classification": "LLC",
    "form_type": "W9",
@@ -173,11 +173,67 @@
     "score_delta": null
    }
   ],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "47d94a60999fa6c140acbd43177218b6f79e501c98a53e7d807683cd137e8b25"
+  "reproducibility_hash": "fa7d7fff78e24cf3189867cdae76ad36cb2af960126035dd5784b29f02e0ea1b"
  },
  "findings": [
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs call d16a13d6bb93",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "877f409b18dbf0c0d9c27b638bbae775f013059c2e36673ee64779b99c5366b6",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call c3b2132703a8",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "5a8290e315444a6a52feacb60599d77c078ff02f15b88ed60a93f0b5cd13f61a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
   {
    "check_id": "C-NAME-02",
    "stage": "S5",
@@ -218,11 +274,11 @@
     "company.legal_name",
     "bank.account_holder_name"
    ],
-   "fingerprint": "297590836fb4acd0b5454d1d859f0dce4c8f12ea3175128d9eb0c3232863766a",
+   "fingerprint": "4877c942e483ea1a1c0bbdf2260121df21060f365820aa5d917282e8ce860be2",
    "score_tags": {
     "BANK_ID": 0.5
    },
-   "duration_ms": 2,
+   "duration_ms": 1,
    "cached": false
   }
  ]

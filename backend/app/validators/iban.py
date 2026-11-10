@@ -12,6 +12,7 @@ IBAN_LEN = {
     "ES": 24,
     "NL": 18,
     "IE": 22,
+    "CH": 21,
     "US": 0,
     "IN": 0,
 }
@@ -24,6 +25,7 @@ IBAN_BBAN = {
     "ES": re.compile(r"^\d{20}$"),
     "NL": re.compile(r"^[A-Z]{4}\d{10}$"),
     "IE": re.compile(r"^[A-Z0-9]{4}\d{14}$"),
+    "CH": re.compile(r"^\d{17}$"),
 }
 _SWIFT_RE = re.compile(r"^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$")
 

@@ -74,11 +74,14 @@ def save_run(result: dict[str, Any]) -> None:
         "claims": result.get("claims", []),
         "audit": result.get("audit", []),
         "vendor_id": result.get("vendor_id"),
+        "message": result.get("message", {}),
     }
     STORE["cases"][case_id] = {
         "case_id": case_id,
         "run_id": run_id,
         "requester": result.get("requester", ""),
+        "submission_type": result.get("submission_type", "NEW_VENDOR"),
+        "existing_vendor_id": result.get("existing_vendor_id"),
         "status": decision.get("status"),
         "tier": decision.get("tier"),
         "score": score.get("total"),

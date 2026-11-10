@@ -15,10 +15,13 @@ from backend.app.persistence import repo
 from backend.app.persistence.audit_chain import GENESIS
 from backend.app.persistence.audit_chain import append_event
 from backend.app.pipeline.checks import bank as _bank  # noqa: F401  (register checks)
+from backend.app.pipeline.checks import dup as _dup  # noqa: F401
 from backend.app.pipeline.checks import geo as _geo  # noqa: F401
 from backend.app.pipeline.checks import name as _name  # noqa: F401
 from backend.app.pipeline.checks import req as _req  # noqa: F401
+from backend.app.pipeline.checks import san as _san  # noqa: F401
 from backend.app.pipeline.checks import tax as _tax  # noqa: F401
+from backend.app.pipeline.checks import ver as _ver  # noqa: F401
 from backend.app.pipeline.context import CheckCache
 from backend.app.pipeline.context import RunContext
 from backend.app.pipeline.orchestrator import DagOrchestrator
@@ -34,6 +37,9 @@ def _now_iso(clock: Clock) -> str:
 
 
 async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[str, Any]:
+    from backend.app.network.graph import seed_master
+
+    seed_master()
     submission = VendorSubmission.model_validate(payload)
     policy = _load_policy()
     clock = clock or RealClock()
@@ -59,7 +65,15 @@ async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[
         ctx.add_claim(claim)
 
     await DagOrchestrator().run(ctx, RunMode.FULL)
+    from backend.app.comms.messages import compose as compose_message
+
     decision = decide(findings=ctx.findings, resolutions=[], submission_facts=ctx, policy=policy)
+    message = compose_message(
+        {"status": decision.status.value, "reason_codes": decision.reason_codes},
+        [f.model_dump(mode="json") for f in ctx.findings],
+        submission.company.legal_name,
+        due="in 14 days",
+    )
 
     # audit chain
     prev = GENESIS
@@ -88,6 +102,7 @@ async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[
             "score": decision.score.total,
         },
     )
+    log("message.queued", {"subject": message["subject"]})
 
     vendor_id = None
     if decision.status == Status.APPROVED:
@@ -99,11 +114,14 @@ async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[
         "case_id": case_id,
         "mode": "FULL",
         "requester": submission.requester.name,
+        "submission_type": submission.submission_type.value,
+        "existing_vendor_id": submission.existing_vendor_id,
         "decision": decision.model_dump(mode="json"),
         "findings": [f.model_dump(mode="json") for f in ctx.findings],
         "claims": [c.model_dump(mode="json") for c in ctx.claims.values()],
         "audit": audit,
         "vendor_id": vendor_id,
+        "message": message,
         "events": events,
     }
     repo.save_run(result)

@@ -1,0 +1,5 @@
+{"id": "S-001", "type": "entity", "names": ["Meridian Shipping Svcs LLC"], "aliases": ["Meridian Shipping Services"], "country": "PA", "reg_no": "PA-2009-118", "incorporation_year": 2009, "addresses": ["Balboa Ave, Panama City"], "program": "MOCK-SDN"}
+{"id": "S-002", "type": "entity", "names": ["Nordvik Trading AB"], "aliases": [], "country": "SE", "reg_no": "SE-556677", "incorporation_year": 2018, "addresses": ["Stockholm"], "program": "MOCK-SDN"}
+{"id": "S-003", "type": "person", "names": ["Jonas Weber"], "aliases": ["J Weber"], "country": "DE", "reg_no": "", "incorporation_year": 0, "addresses": ["Hamburg"], "program": "MOCK-SDN"}
+{"id": "S-004", "type": "entity", "names": ["Caspian Energy Holdings"], "aliases": ["Caspian Energy"], "country": "AZ", "reg_no": "AZ-2001-55", "incorporation_year": 2001, "addresses": ["Baku"], "program": "MOCK-SDN"}
+{"id": "S-005", "type": "entity", "names": ["Rhein Bay GmbH"], "aliases": [], "country": "DE", "reg_no": "DE-2016-88", "incorporation_year": 2016, "addresses": ["Dusseldorf"], "program": "MOCK-SDN"}

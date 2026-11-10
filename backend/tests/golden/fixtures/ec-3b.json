@@ -1,0 +1,385 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "CHANGE_REQUEST",
+  "existing_vendor_id": "V-000017",
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 18000,
+    "currency": "USD"
+   },
+   "category": "OFFICE_SUPPLIES",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Beacon Retail Group Inc",
+   "trading_name": null,
+   "entity_type": "CORP",
+   "country": "US",
+   "incorporation_date": "2016-04-12",
+   "registered_address": {
+    "line1": "410 Market St",
+    "line2": null,
+    "city": "Columbus",
+    "region": "OH",
+    "postal_code": "43215",
+    "country": "US"
+   },
+   "remit_to_address": null,
+   "website": "https://brightline-office.example",
+   "primary_contact": {
+    "name": "Ravi Khanna",
+    "email": "ravi@brightline-office.example",
+    "phone": "+1 614 555 0142"
+   },
+   "ap_contact": {
+    "name": "Meera Das",
+    "email": "ap@brightline-office.example",
+    "phone": "+1 614 555 0143"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "US",
+   "tax_id_type": "EIN",
+   "tax_id": "52-7654321",
+   "secondary_ids": {},
+   "tax_classification": "CORP",
+   "form_type": "W9",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "GB",
+   "currency": "GBP",
+   "account_holder_name": "Beacon Retail Group Inc",
+   "bank_name": "Test Bank",
+   "account_number": "31926819",
+   "routing_number": null,
+   "iban": "GB29NWBK60161331926819",
+   "swift_bic": "NWBKGB2L",
+   "ifsc": null,
+   "sort_code": "60-16-13"
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "W9",
+    "filename": "w.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "b.pdf",
+    "sha256": "y"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL",
+   "VENDOR"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.2,
+     "points": 5.0,
+     "drivers": [
+      "spend_usd=18000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.6,
+     "points": 12.0,
+     "drivers": [
+      "country=US",
+      "bank_country!=company_country +0.3"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.4,
+     "points": 6.0,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.1,
+     "points": 1.0,
+     "drivers": [
+      "category=OFFICE_SUPPLIES"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 24.0,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "BANK_CHANGE_REQUIRES_CALLBACK",
+   "BANK_COUNTRY_MISMATCH",
+   "CALLBACK_REQUIRED"
+  ],
+  "blocking_finding_ids": [
+   "C-DUP-05",
+   "C-GEO-01",
+   "C-POL-02"
+  ],
+  "required_actions": [
+   {
+    "code": "RECORD_CALLBACK",
+    "field_paths": [
+     "bank.account_number"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "PROVIDE_BANK_COUNTRY_JUSTIFICATION",
+    "field_paths": [
+     "declarations.bank_change_justification"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "RECORD_CALLBACK",
+    "field_paths": [
+     "bank.country"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [
+   "AP_ANALYST"
+  ],
+  "counterfactuals": [
+   {
+    "fix_set": [
+     "PROVIDE_BANK_COUNTRY_JUSTIFICATION"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 24.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by BANK_CHANGE_REQUIRES_CALLBACK, CALLBACK_REQUIRED",
+    "score_delta": null
+   }
+  ],
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "1cdd747f13a7ab4cc77010a3d87af2712efacf333422c3500b7be9b238217793"
+ },
+ "findings": [
+  {
+   "check_id": "C-DUP-05",
+   "stage": "S6",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "BANK_CHANGE_REQUIRES_CALLBACK",
+   "title": "Bank change requires independent callback",
+   "detail": "New bank details need callback verification.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "bank.account_number",
+     "summary": "claim bank.account_number",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "RECORD_CALLBACK",
+    "field_paths": [
+     "bank.account_number"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "INTERNAL",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "bank.account_number"
+   ],
+   "fingerprint": "84f487180370e63926433511d43b321e0adfec3a5b72d265b93da0a7987d48b3",
+   "score_tags": {
+    "BANK_ID": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs call 6a2a52b43d93",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "1b48ceedce00c5d3374adb4cd139854496d9b3d608acaf973fd6e6a7b894b9a4",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call d86650c31cfa",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "e2a6de5b39cb4ee7b8e959adec50109688d70560da6b15f8c9c75adeb0a78311",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-GEO-01",
+   "stage": "S5",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "BANK_COUNTRY_MISMATCH",
+   "title": "Bank country differs from company country",
+   "detail": "Company is US but bank is GB. Justification required.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.country",
+     "summary": "claim company.country",
+     "data": {}
+    },
+    {
+     "kind": "claim",
+     "ref": "bank.country",
+     "summary": "claim bank.country",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_BANK_COUNTRY_JUSTIFICATION",
+    "field_paths": [
+     "declarations.bank_change_justification"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.country",
+    "bank.country"
+   ],
+   "fingerprint": "28b2fde8998c14aad84e269ffc3287f04e2e4a109b737bf0e5563994442b1f31",
+   "score_tags": {
+    "GEO": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-POL-02",
+   "stage": "S10",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "CALLBACK_REQUIRED",
+   "title": "Independent callback required",
+   "detail": "Policy requires an independent callback before approval.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "bank.country",
+     "summary": "claim bank.country",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "RECORD_CALLBACK",
+    "field_paths": [
+     "bank.country"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "INTERNAL",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "bank.country"
+   ],
+   "fingerprint": "269236419a7ede3e6a4e11d87a54f5ae65848f7ad4e933a142cf0bafa4124606",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

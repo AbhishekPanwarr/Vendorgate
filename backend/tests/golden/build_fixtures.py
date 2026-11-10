@@ -151,6 +151,7 @@ def ec1():
     e = copy.deepcopy(HP1)
     e["company"]["legal_name"] = "Acme Trading Co"
     e["bank"]["account_holder_name"] = "ACME TRADING COMPANY LLC"
+    e["tax"]["tax_id"] = "84-7654321"
     return e
 
 

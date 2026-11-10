@@ -1,5 +1,7 @@
 """S3 tax checks C-TAX-01..07."""
 
+from typing import Any
+
 import re
 
 from backend.app.domain.enums import FixedBy
@@ -59,9 +61,9 @@ def _fail(
 
 
 @check(id="C-TAX-01", stage="S3", version=1, mandatory=True, reads=("tax.tax_id", "tax.country"))
-async def tax_format(ctx: object) -> list[Finding]:
-    country = str(ctx.value("tax.country"))  # type: ignore[attr-defined]
-    tax_id = str(ctx.value("tax.tax_id") or "")  # type: ignore[attr-defined]
+async def tax_format(ctx: Any) -> list[Finding]:
+    country = str(ctx.value("tax.country"))
+    tax_id = str(ctx.value("tax.tax_id") or "")
     findings: list[Finding] = []
     if country == "US":
         res = validate_ein(tax_id)
@@ -106,9 +108,9 @@ async def tax_format(ctx: object) -> list[Finding]:
 
 
 @check(id="C-TAX-02", stage="S3", version=1, mandatory=True, reads=("tax.tax_id", "tax.country"))
-async def tax_checksum(ctx: object) -> list[Finding]:
-    country = str(ctx.value("tax.country"))  # type: ignore[attr-defined]
-    tax_id = str(ctx.value("tax.tax_id") or "")  # type: ignore[attr-defined]
+async def tax_checksum(ctx: Any) -> list[Finding]:
+    country = str(ctx.value("tax.country"))
+    tax_id = str(ctx.value("tax.tax_id") or "")
     findings: list[Finding] = []
     if country == "IN":
         res = validate_gstin(tax_id)
@@ -140,9 +142,9 @@ async def tax_checksum(ctx: object) -> list[Finding]:
 
 
 @check(id="C-TAX-03", stage="S3", version=1, mandatory=True, reads=("tax.tax_id", "tax.country"))
-async def tax_country_shape(ctx: object) -> list[Finding]:
-    country = str(ctx.value("tax.country"))  # type: ignore[attr-defined]
-    tax_id = str(ctx.value("tax.tax_id") or "")  # type: ignore[attr-defined]
+async def tax_country_shape(ctx: Any) -> list[Finding]:
+    country = str(ctx.value("tax.country"))
+    tax_id = str(ctx.value("tax.tax_id") or "")
     shape = _looks_like(tax_id)
     expected = {"US": "EIN", "IN": "GSTIN", "GB": "VAT", "DE": "VAT"}.get(country)
     if shape and expected and shape != expected:
@@ -170,9 +172,9 @@ async def tax_country_shape(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("tax.tax_id", "tax.secondary_ids.PAN"),
 )
-async def gstin_pan(ctx: object) -> list[Finding]:
-    tax_id = str(ctx.value("tax.tax_id") or "")  # type: ignore[attr-defined]
-    pan = str(ctx.value("tax.secondary_ids.PAN") or "")  # type: ignore[attr-defined]
+async def gstin_pan(ctx: Any) -> list[Finding]:
+    tax_id = str(ctx.value("tax.tax_id") or "")
+    pan = str(ctx.value("tax.secondary_ids.PAN") or "")
     if len(tax_id) == 15 and pan and tax_id[2:12].upper() != pan.upper():
         f = _fail(
             ctx,
@@ -195,8 +197,8 @@ async def gstin_pan(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("tax.tax_id", "company.registered_address.region"),
 )
-async def gstin_state(ctx: object) -> list[Finding]:
-    tax_id = str(ctx.value("tax.tax_id") or "")  # type: ignore[attr-defined]
+async def gstin_state(ctx: Any) -> list[Finding]:
+    tax_id = str(ctx.value("tax.tax_id") or "")
     if len(tax_id) == 15:
         return []  # region free-text can't be mapped to state code in Phase 1
     return []
@@ -209,10 +211,10 @@ async def gstin_state(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("tax.form_type", "tax.country", "company.country"),
 )
-async def tax_form(ctx: object) -> list[Finding]:
-    form = str(ctx.value("tax.form_type") or "")  # type: ignore[attr-defined]
-    country = str(ctx.value("tax.country") or "")  # type: ignore[attr-defined]
-    company = str(ctx.value("company.country") or "")  # type: ignore[attr-defined]
+async def tax_form(ctx: Any) -> list[Finding]:
+    form = str(ctx.value("tax.form_type") or "")
+    country = str(ctx.value("tax.country") or "")
+    company = str(ctx.value("company.country") or "")
     if company == "US" and country == "US" and form.startswith("W8"):
         return [
             _fail(
@@ -245,9 +247,9 @@ async def tax_form(ctx: object) -> list[Finding]:
     mandatory=True,
     reads=("tax.secondary_ids.PAN", "company.entity_type"),
 )
-async def pan_entity(ctx: object) -> list[Finding]:
-    pan = str(ctx.value("tax.secondary_ids.PAN") or "")  # type: ignore[attr-defined]
-    entity = str(ctx.value("company.entity_type") or "").upper()  # type: ignore[attr-defined]
+async def pan_entity(ctx: Any) -> list[Finding]:
+    pan = str(ctx.value("tax.secondary_ids.PAN") or "")
+    entity = str(ctx.value("company.entity_type") or "").upper()
     if len(pan) == 10:
         res = validate_pan(pan)
         if res.valid:

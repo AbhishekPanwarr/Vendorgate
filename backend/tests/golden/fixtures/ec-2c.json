@@ -181,9 +181,9 @@
     "score_delta": null
    }
   ],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "3b3930363339c1ff92c8b977ecad7d316bf00282306cc2694ad948e816ad5c52"
+  "reproducibility_hash": "3e282e7d2760e4f921c07beb0f80d9e4c00307fe29c69146665c85265163e33d"
  },
  "findings": [
   {
@@ -226,10 +226,94 @@
     "tax.tax_id",
     "tax.secondary_ids.PAN"
    ],
-   "fingerprint": "a5410f0cc39a82b5359acc98571d7cc60f8aef58e3a604e3524ad8ca30a445b8",
+   "fingerprint": "70314bb2151711e9233eaf2a5b54e39db46f1bdc9c65040287ea6a5f9c699661",
    "score_tags": {
     "BANK_ID": 0.3
    },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "GSTIN active",
+   "detail": "GSTIN active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "gst",
+     "summary": "gst call ff28838c44be",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "18c9133434115452d24d3523182d0abb09775df59fab85eeec4aba27a4c954d6",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry call a9300737019a",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call 61b53309266b",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
+   "score_tags": {},
    "duration_ms": 0,
    "cached": false
   }

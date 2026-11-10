@@ -1,0 +1,6 @@
+{"fixture_id": "bank-hp1", "key": "US|011000015|000123456789", "status": "OK", "data": {"holder_name": "Brightline Office Supply LLC", "verified": true}}
+{"fixture_id": "bank-hp2", "key": "IN|HDFC0001234|123456789012", "status": "OK", "data": {"holder_name": "Nimbus Technologies Pvt Ltd", "verified": true}}
+{"fixture_id": "bank-hp3", "key": "DE|COBADEFF|4053201300", "status": "OK", "data": {"holder_name": "Hafen Logistik GmbH", "verified": true}}
+{"fixture_id": "bank-ec3b-new", "key": "GB|NWBKGB2L|31926819", "status": "OK", "data": {"holder_name": "Beacon Retail Group Inc", "verified": true}}
+{"fixture_id": "bank-helios", "key": "IN|HDFC0001234|987654321098", "status": "OK", "data": {"holder_name": "Helios Freight Pvt Ltd", "verified": true}}
+{"fixture_id": "bank-rhein-ch", "key": "CH|RAIFCH22|5271368760195207651", "status": "OK", "data": {"holder_name": "Rhein Bau GmbH", "verified": true}}

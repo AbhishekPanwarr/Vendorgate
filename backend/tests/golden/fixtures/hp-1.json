@@ -145,9 +145,66 @@
   "required_actions": [],
   "approval_route": [],
   "counterfactuals": [],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "61e3feb9ec3b1b8fc047ecff981036df2df197352c1cd7626bd8ece3f0296ba0"
+  "reproducibility_hash": "45937defe633d9f31c14c63922fc5c082a3cf8fb29b6d7ed4f984611a78b3a4f"
  },
- "findings": []
+ "findings": [
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs call 364f89152732",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "39c9651e040cc2f78a1504bd9ac86cf1564902e98ef4669154036e24ddfc4a8c",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call e4f1b414068c",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "5a8290e315444a6a52feacb60599d77c078ff02f15b88ed60a93f0b5cd13f61a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
 }

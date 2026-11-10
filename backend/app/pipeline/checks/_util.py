@@ -1,5 +1,7 @@
 """Check authoring helper."""
 
+from typing import Any
+
 from backend.app.domain.enums import FixedBy
 from backend.app.domain.enums import Outcome
 from backend.app.domain.enums import Severity
@@ -49,7 +51,7 @@ def make_finding(
     )
 
 
-def check_reads(ctx: object, paths: list[str]) -> list[str]:
+def check_reads(ctx: Any, paths: list[str]) -> list[str]:
     return list(paths)
 
 

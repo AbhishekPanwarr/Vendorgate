@@ -151,14 +151,24 @@
    "band": "LOW"
   },
   "reason_codes": [
+   "GSTIN_NOT_FOUND",
    "TAX_CHECKSUM_INVALID"
   ],
   "blocking_finding_ids": [
-   "C-TAX-02"
+   "C-TAX-02",
+   "C-VER-02"
   ],
   "required_actions": [
    {
     "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "PROVIDE_GSTIN",
     "field_paths": [
      "tax.tax_id"
     ],
@@ -172,17 +182,32 @@
     "fix_set": [
      "PROVIDE_TAX_ID"
     ],
-    "status": "APPROVED",
+    "status": "PENDING",
     "tier": "LOW",
-    "score": 0.0,
-    "awaiting": [],
-    "note": "assumes no new issues are found",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by GSTIN_NOT_FOUND",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "PROVIDE_GSTIN"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by TAX_CHECKSUM_INVALID",
     "score_delta": null
    }
   ],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "0ec514fe32743e0010b53bb17ae7aa766ae00e7b559ef7913b3f55e3f0ab967f"
+  "reproducibility_hash": "e6143f384ee87c6ab162110097d8475ad19289c533c102484ca5544713de784c"
  },
  "findings": [
   {
@@ -217,7 +242,100 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "616bff1849607c68b4fadbcc0a7f66509447cceb92bf592f0ca23bbc5c289fd5",
+   "fingerprint": "87407bed4dd2ff1b379220f20eea04cc1151085203d07f895c64d3bf74cc16d6",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "GSTIN_NOT_FOUND",
+   "title": "GSTIN not found",
+   "detail": "No GST registry record.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.tax_id",
+     "summary": "claim tax.tax_id",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.tax_id"
+   ],
+   "fingerprint": "6d4a9cc3d57c52716836114ac5b71baa8d5828f70d9df14756147d9d2f8b86a9",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry call db7e37a0dd52",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call 51ce9aff6e35",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

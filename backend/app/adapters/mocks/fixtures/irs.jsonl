@@ -1,0 +1,5 @@
+{"fixture_id": "irs-hp1", "key": "841234567", "status": "OK", "data": {"code": 0, "name": "Brightline Office Supply LLC", "tin_type": "EIN"}}
+{"fixture_id": "irs-ec3b", "key": "527654321", "status": "OK", "data": {"code": 0, "name": "Beacon Retail Group Inc", "tin_type": "EIN"}}
+{"fixture_id": "irs-mismatch", "key": "111111111", "status": "MISMATCH", "data": {"code": 3, "name": "Registered Legal Name LLC"}}
+{"fixture_id": "irs-unissued", "key": "000000000", "status": "MISMATCH", "data": {"code": 2}}
+{"fixture_id": "irs-ec1", "key": "847654321", "status": "OK", "data": {"code": 0, "name": "Acme Trading Co", "tin_type": "EIN"}}

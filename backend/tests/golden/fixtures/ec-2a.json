@@ -145,6 +145,7 @@
    "band": "LOW"
   },
   "reason_codes": [
+   "GSTIN_NOT_FOUND",
    "MISSING_DOC",
    "MISSING_FIELD",
    "TAX_FORMAT_INVALID",
@@ -154,7 +155,8 @@
    "C-REQ-01",
    "C-REQ-02",
    "C-TAX-01",
-   "C-TAX-03"
+   "C-TAX-03",
+   "C-VER-02"
   ],
   "required_actions": [
    {
@@ -187,6 +189,14 @@
     ],
     "doc_type": null,
     "params": {}
+   },
+   {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
    }
   ],
   "approval_route": [],
@@ -201,7 +211,7 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by MISSING_DOC, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
+    "note": "still blocked by GSTIN_NOT_FOUND, MISSING_DOC, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
     "score_delta": null
    },
    {
@@ -214,7 +224,7 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
+    "note": "still blocked by GSTIN_NOT_FOUND, MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
     "score_delta": null
    },
    {
@@ -227,7 +237,7 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by MISSING_DOC, MISSING_FIELD, TAX_FORMAT_MISMATCH",
+    "note": "still blocked by GSTIN_NOT_FOUND, MISSING_DOC, MISSING_FIELD, TAX_FORMAT_MISMATCH",
     "score_delta": null
    },
    {
@@ -240,13 +250,26 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by MISSING_DOC, MISSING_FIELD, TAX_FORMAT_INVALID",
+    "note": "still blocked by GSTIN_NOT_FOUND, MISSING_DOC, MISSING_FIELD, TAX_FORMAT_INVALID",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "PROVIDE_GSTIN"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 35.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by MISSING_DOC, MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
     "score_delta": null
    }
   ],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "708a51caad8ff7256ddd5841b0c5cecbb49ccf7b419afae607f295d6f3ce1120"
+  "reproducibility_hash": "12808148c66ec300612ca565937db9ffddd7917bbf8007214d5be412cd209a32"
  },
  "findings": [
   {
@@ -281,7 +304,7 @@
    "reads": [
     "tax.secondary_ids.PAN"
    ],
-   "fingerprint": "d93850d8bb09c7a715e38f78217d2902613f0aa393d1715cf0302a549092512f",
+   "fingerprint": "f0ebebefe99b079ba2826a1f0adeba9a26b5c464919606f218cae3a3545e6b06",
    "score_tags": {
     "DOCS": 0.1
    },
@@ -316,7 +339,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "d4379e5dba02d6a8e76c3316c3a26ab7b3730c844c6a490d3731adf31f16ecfa",
+   "fingerprint": "f6d4b2b3952f8a20104c5f14100e6908ea8d24d4ee0ee2b648c6d72f0bac6ce2",
    "score_tags": {
     "DOCS": 0.5
    },
@@ -355,7 +378,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "a7e3eb326429ddc083884d12717f0ab217810a0d2ab9bb4dbdace029086d406e",
+   "fingerprint": "8a53d601013a15dec7dba47093e4022eefea3cdc724f28711d2603daa1fc7114",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -400,7 +423,100 @@
     "tax.tax_id",
     "tax.country"
    ],
-   "fingerprint": "79ba9e288940788e2112c62dfdbf38beac885deb6b7e8201ee71934eeb3d472f",
+   "fingerprint": "0bd3c875ee9c0cb11ab7c442b2d9ce86fea267ec1353e66ed1730c8aa1ef7a1f",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "GSTIN_NOT_FOUND",
+   "title": "GSTIN not found",
+   "detail": "No GST registry record.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.tax_id",
+     "summary": "claim tax.tax_id",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.tax_id"
+   ],
+   "fingerprint": "a1521aef16e50b197315db37bdedf47d9d8695f1bf9b2687ff923d72e776b6e8",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry call 719ad53e7154",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call e2147299ffb9",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate, useParams, Link } from "react-router-dom";
 import CasePage from "./Case";
 import Dashboard from "./Dashboard";
+import Approvals from "./Approvals";
 
 function Submit() {
   const nav = useNavigate();
@@ -91,6 +92,7 @@ export default function App() {
         <Route path="/submit" element={<Submit />} />
         <Route path="/runs/:runId" element={<Run />} />
         <Route path="/cases/:caseId" element={<CasePage />} />
+        <Route path="/approvals" element={<Approvals />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>

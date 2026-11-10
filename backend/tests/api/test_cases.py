@@ -78,7 +78,7 @@ def test_resolutions_role_gate():
 
 def test_callback_422_and_metrics():
     r = _submit(_hp1()).json()
-    assert client.post(f"/api/v1/cases/{r['case_id']}/callback").status_code == 422
+    assert client.post(f"/api/v1/cases/{r['case_id']}/callback", json={}).status_code == 422
     m = client.get("/api/v1/metrics/dashboard").json()
     assert m["volume"] >= 1 and "by_status" in m
     vendors = client.get("/api/v1/vendors").json()

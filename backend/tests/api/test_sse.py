@@ -85,4 +85,4 @@ def test_sse_reconnect():
     run_id = _submit()["run_id"]
     r = client.get(f"/api/v1/runs/{run_id}/events", headers={"Last-Event-ID": "2"})
     assert "id: 3" in r.text
-    assert "id: 1" not in r.text
+    assert "\nid: 1\n" not in r.text and "\nid: 2\n" not in r.text

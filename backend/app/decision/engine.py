@@ -119,10 +119,13 @@ def decide(
         status, tier, awaiting = Status.PENDING, Tier(risk.band.value), {Awaiting.INTERNAL}
 
     route: list[str] = []
-    if status == Status.PENDING and Awaiting.INTERNAL in awaiting and not blocking:
-        route = approvers_for(tier.value, policy)
+    if status == Status.PENDING and Awaiting.INTERNAL in awaiting:
+        # Show the full approval route upfront, even while vendor items are
+        # still open (approvers act after vendor fixes land).
         if tier == Tier.LOW:
             route = ["AP_ANALYST"]
+        else:
+            route = approvers_for(tier.value, policy)
 
     cfs = (
         _counterfactuals(blocking, policy, risk)

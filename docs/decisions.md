@@ -68,3 +68,19 @@
   `ctx.clock.now()` in geo.py). V-2: mixed_script on NFC raw pre-unidecode.
   V-3: SoD test uses fresh case + second actor.
 - Phase 0 stays RED (G-1/G-3/G-8/G-15 need Render); Phase 1 gate is unaffected.
+
+## Phase 1 → Phase 2 handoff (P-1..P-5)
+
+- P-1: no approvals UI (frontend/src has App/Case/Dashboard/main only). D-2.11 builds it.
+- P-2: no Message/Network placeholders in Case.tsx. D-2.11 builds tabs fresh.
+- P-3: POST /cases/any/callback → 422 today. D-2.8 replaces with functional logic.
+- P-4: "callback" already in openapi.json snapshot. Phase 2 changes behavior only
+  for that route; snapshot regen needed only for new routes (retry-verification,
+  messages, approvals queue).
+- P-5: adapter_faults count = 0. D-2.14 populates for chaos tests.
+
+## Phase 2 mock fixture strategy
+
+Hand-crafted JSONL fixtures keyed by stable business key (tax_id, GSTIN, ...),
+NOT by request hash. Phase 5 datagen will replace with generated fixtures using
+the same schema. Mock adapter interface must not change.

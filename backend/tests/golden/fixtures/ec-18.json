@@ -172,9 +172,9 @@
     "score_delta": null
    }
   ],
-  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "77f1767b45fe88f468b6e1e9b380c5d2043594b6f9bbf4cd0fc7cb6da92f68e0"
+  "reproducibility_hash": "f63365cb2f80532c68242c5f5f0a16d219f294359fb6278c3f5f8f9f00cfee39"
  },
  "findings": [
   {
@@ -209,7 +209,63 @@
    "reads": [
     "tax.form_type"
    ],
-   "fingerprint": "e3f8c433e208d364e3afc20b425f0f3cde97f29dc58edeedba08fb81eabb0398",
+   "fingerprint": "f3891cb1c1c32f93de3c42c8c4a077cb183df7351d0fa834f49a4627cbde56c4",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs call c6fb94b6ffb0",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "39c9651e040cc2f78a1504bd9ac86cf1564902e98ef4669154036e24ddfc4a8c",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call e332619a87b9",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "5a8290e315444a6a52feacb60599d77c078ff02f15b88ed60a93f0b5cd13f61a",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

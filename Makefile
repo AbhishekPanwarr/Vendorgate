@@ -12,13 +12,13 @@ dev:
 lint:
 	ruff check .
 	ruff format --check .
-	mypy backend/app/domain backend/app/core backend/app/pipeline backend/app/decision backend/app/adapters backend/app/matching backend/app/risk backend/app/persistence backend/app/validators backend/app/api
+	mypy backend/app/domain backend/app/core backend/app/pipeline backend/app/decision backend/app/adapters backend/app/matching backend/app/risk backend/app/persistence backend/app/validators backend/app/api backend/app/comms backend/app/screening backend/app/network
 
 test:
 	pytest -q
 
 coverage:
-	pytest -q --cov=backend/app/validators --cov=backend/app/matching --cov=backend/app/risk --cov=backend/app/decision --cov-report=term --cov-fail-under=90
+	pytest -q --cov=backend/app/validators --cov=backend/app/matching --cov=backend/app/risk --cov=backend/app/decision --cov=backend/app/adapters --cov=backend/app/network --cov=backend/app/comms --cov=backend/app/screening --cov-report=term --cov-fail-under=90
 
 test-all: test e2e
 

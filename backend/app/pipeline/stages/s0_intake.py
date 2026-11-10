@@ -67,6 +67,7 @@ def build_claims(sub: VendorSubmission) -> list[Claim]:
     for i, o in enumerate(c.owners):
         n, _ = canon_text(o.name)
         claims.append(_claim(f"company.owners.{i}.name", o.name, n))
+        claims.append(_claim(f"company.owners.{i}.ownership_pct", o.ownership_pct, o.ownership_pct))
 
     t = sub.tax
     claims.append(_claim("tax.country", t.country, (t.country or "").upper()))
