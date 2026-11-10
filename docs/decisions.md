@@ -41,3 +41,30 @@
 - Cold start: N/A (no deployed instance).
 - `grep -r NotImplementedError backend/app/api backend/app/pipeline/orchestrator.py`
   → empty; stubs live only in `backend/app/decision/` (+ future `llm/`).
+
+## Phase 1 Evidence
+
+- Anchors: HP-1 APPROVED / LOW / **7.5** (SPEND 5.0, GEO 0, DOCS 0, BANK_ID 1.5,
+  CATEGORY 1.0, REGISTRY_MEDIA 0); worked-B PENDING / LOW / **37.5**
+  (20/5/0/1.5/9/2), awaiting INTERNAL, route [AP_ANALYST].
+- `pytest -q backend/tests/golden/test_invariants.py` → **5 passed, 0 xfail**
+  (markers removed in this phase).
+- Full suite: **113 passed, 4 skipped** (e2e only; pass with VG_BASE_URL set).
+  E2E vs localhost:8000 → **4 passed, 0 skipped**.
+- Coverage: validators 94.1%, matching 97.8%, risk 98.8%, decision 92.3%
+  (all ≥ 90; TOTAL 96%).
+- openapi.json: regenerated; diff vs Phase 0 = 9 new D-1.12 routes only;
+  SPA `/{path}` fallback uses `include_in_schema=False` (not in schema).
+- Goldens: hp-1, hp-2, hp-3 (LOW_GATED per OQ-P1-1 default b — spec §13 said
+  HIGH; deviation logged here), ec-1-run-1 (PENDING, LEGAL_FORM_UNCONFIRMED,
+  counterfactual → APPROVED), ec-2a, ec-2b, ec-2c, ec-18.
+- Screenshots: docs/evidence/shot-hp1.png (APPROVED 7.5),
+  shot-ec1.png (PENDING + counterfactual), shot-dash.png (dashboard).
+- SoD: same-actor approval → 403 SEGREGATION_OF_DUTIES_VIOLATION;
+  fresh case + different actor → 200.
+- Audit: HP-1 chain verifies; single-byte tamper → broken_at reported.
+- `mypy --strict` clean on 59 source files; ruff check + format clean.
+- V-1: no datetime.now/time.time outside core/clock.py (only hit is
+  `ctx.clock.now()` in geo.py). V-2: mixed_script on NFC raw pre-unidecode.
+  V-3: SoD test uses fresh case + second actor.
+- Phase 0 stays RED (G-1/G-3/G-8/G-15 need Render); Phase 1 gate is unaffected.
