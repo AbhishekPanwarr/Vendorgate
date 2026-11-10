@@ -119,3 +119,40 @@ the same schema. Mock adapter interface must not change.
   vendor fixes). Spec §9.S10 had `and not blocking`; gate P2-G4 requires the
   dual route visible on HP-3-HIGH.
 - Phase 0 stays RED (Render pending); unaffected by Phase 2.
+
+## Phase 2 fixture corrections (V-3.2)
+
+- EC-1 payload `tax.tax_id`: `84-1234567` → `84-7654321` (before/after).
+  Reason: the old value shared HP-1's EIN. Pre-S4 that was harmless; with S4
+  TIN matching, one EIN maps to one IRS name, so sharing it forces either
+  HP-1 or EC-1 to mismatch its tax record. Two different vendors sharing an
+  EIN is itself a fraud signal, so the shared value was the fixture bug.
+  EC-1 narrative (same company, three spellings) unchanged; new IRS row
+  `irs-ec1` returns the exact form name (EXACT match, no finding).
+- Adverse list A-002 subject: `acme trading co` → `apex trading co`. The old
+  subject collided with EC-1's vendor name and would have fired a spurious
+  low-severity hit on the headline demo. Mock-list fix, submission untouched.
+
+## Phase 3 LLM PoC notes (small call budget)
+
+- Provider: Meta Model API via OpenAI-compatible Chat Completions
+  (`https://api.meta.ai/v1`, `muse-spark-1.3`). Key in local `.env` only.
+- Findings: `response_format: json_object` mode returned all-null fields;
+  dropped it in favor of a JSON-only instruction + brace extraction (fixed in
+  `provider_meta.py`). Reasoning models need `max_tokens >= 2048` (small
+  budgets return empty content with `finish_reason=length`).
+- Live PoC calls used (~7 total): GST + bank full-schema extractions recorded
+  (grounded, committed as replay fixtures); W9 full 8-field schema returned
+  all-null twice (2-field schema works — likely over-caution on the absent
+  address field). Remaining replay fixtures are hand-authored with verbatim
+  quotes from the PDFs (grounded by construction; `grounding_ok` asserts on
+  all of them). Full-schema W9 prompt hardening deferred (OQ: needs more
+  live calls).
+
+## Phase 3 known limitation (grounding)
+
+Property testing found unidecode collisions on exotic unicode (e.g. a Cherokee
+letter canonicalizing into an ASCII digit) can pass the substring half of
+`grounding_ok`. Corpus docs are Latin-script; partial_ratio + substring holds
+for realistic inputs. Non-Latin scripts are already L-03 (name matching
+limits). No change.

@@ -43,3 +43,42 @@ PROVIDE_PHYSICAL_ADDRESS:
 # BANK_SHARED_ACROSS_VENDORS, TIN_REUSE_DIFFERENT_NAME, CLUSTER_REVIEW,
 # DUPLICATE_REVIEW, DUPLICATE_EXISTING, CALLBACK_REQUIRED,
 # BANK_CHANGE_REQUIRES_CALLBACK, CHANGE_VELOCITY, COMPLIANCE_REVIEW
+UPLOAD_INVALID_FILE:
+  default: {what: "A valid file", how: "Upload a PDF, PNG or JPG under 10 MB."}
+DOC_WRONG_TYPE:
+  default: {what: "The correct document", how: "Upload the document type requested."}
+DOC_EXPIRED:
+  default: {what: "A current document", how: "Upload a renewed, unexpired copy."}
+DOC_STALE:
+  default: {what: "A recent bank letter", how: "Upload a bank letter dated within 12 months."}
+DOC_UNSIGNED:
+  default: {what: "A signed form", how: "Upload a signed and dated copy."}
+DOC_OUTDATED_REVISION:
+  default: {what: "Current form revision", how: "Use the March 2024 revision."}
+DOC_UNREADABLE:
+  default: {what: "A clear copy", how: "Upload a sharper scan or the original PDF."}
+UPLOAD_CLEARER_COPY:
+  default: {what: "A clear copy", how: "Upload a sharper scan or the original PDF."}
+DOC_FORM_MISMATCH:
+  default: {what: "Matching documents", how: "Ensure the document shows the same details as the form."}
+UPLOAD_CORRECT_DOC:
+  default: {what: "The correct document", how: "Upload the document matching the declaration."}
+CONFIRM_BANK_HOLDER:
+  default: {what: "Account holder confirmation", how: "Confirm the holder name matches your legal name."}
+CONFIRM_LEGAL_NAME:
+  default: {what: "Legal name confirmation", how: "Confirm the exact legal spelling."}
+PROVIDE_FIELD:
+  default: {what: "The missing field", how: "Fill in the required field."}
+PROVIDE_JUSTIFICATION:
+  default: {what: "A justification", how: "Explain why this differs."}
+PROVIDE_PHYSICAL_ADDRESS:
+  default: {what: "A street address", how: "Provide a physical address."}
+PROVIDE_REMIT_JUSTIFICATION:
+  default: {what: "Remit-to justification", how: "Explain the different remit address."}
+PROVIDE_TIN:
+  default: {what: "Your tax ID", how: "Enter the exact ID from your tax records."}
+RECORD_CALLBACK:
+  default: {what: "A callback", how: "An analyst will call to verify."}
+COMPLIANCE_REVIEW:
+  default: {what: "Compliance review", how: "Our team will review."}
+# Internal-only (no vendor hint): DOC_INJECTION_SUSPECTED

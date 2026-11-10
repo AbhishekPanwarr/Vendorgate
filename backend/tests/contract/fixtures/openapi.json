@@ -310,6 +310,52 @@
     "summary": "Record Callback"
    }
   },
+  "/api/v1/cases/{case_id}/docs/{doc_id}": {
+   "get": {
+    "operationId": "get_doc_api_v1_cases__case_id__docs__doc_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "case_id",
+      "required": true,
+      "schema": {
+       "title": "Case Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "path",
+      "name": "doc_id",
+      "required": true,
+      "schema": {
+       "title": "Doc Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Get Doc"
+   }
+  },
   "/api/v1/cases/{case_id}/messages": {
    "get": {
     "operationId": "get_messages_api_v1_cases__case_id__messages_get",

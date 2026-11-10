@@ -1,0 +1,92 @@
+{
+ "456b72238c9fd42732fe2ba0044b955849fc742038f2598d43e03c474d8b6b5d": {
+  "legal_name": {
+   "value": "Nimbus Technologies Pvt Ltd",
+   "quote": "Legal Name: Nimbus Technologies Pvt Ltd",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "trade_name": {
+   "value": "Nimbus",
+   "quote": "Trade Name: Nimbus",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "gstin": {
+   "value": "29AAPCA1234F1ZR",
+   "quote": "GSTIN: 29AAPCA1234F1ZR",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "state": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "registration_date": {
+   "value": "2020-05-01",
+   "quote": "Registration Date: 2020-05-01",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "status": {
+   "value": "Active",
+   "quote": "Status: Active",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "address": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "_tokens_used": 2235
+ },
+ "3cc53ca436ba780fa1b92e3af87784ff4f44b921e4b0878b0fadb391e3c6e059": {
+  "bank_name": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "account_holder": {
+   "value": "Brightline Office Supply LLC",
+   "quote": "Account Holder: Brightline Office Supply LLC",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "account_number": {
+   "value": "000123456789",
+   "quote": "Account Number: 000123456789",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "routing": {
+   "value": "011000015",
+   "quote": "Routing: 011000015",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "letter_date": {
+   "value": "2026-09-15",
+   "quote": "Letter Date: 2026-09-15",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signatory": {
+   "value": "Branch Manager",
+   "quote": "Signatory: Branch Manager",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "letterhead_present": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "_tokens_used": 2270
+ }
+}

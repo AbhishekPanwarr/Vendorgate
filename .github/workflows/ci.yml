@@ -13,7 +13,7 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: ruff check .
       - run: ruff format --check .
-      - run: mypy backend/app/domain backend/app/core backend/app/pipeline backend/app/decision backend/app/adapters backend/app/matching backend/app/risk backend/app/persistence backend/app/validators backend/app/api backend/app/comms backend/app/screening backend/app/network
+      - run: mypy backend/app/domain backend/app/core backend/app/pipeline backend/app/decision backend/app/adapters backend/app/matching backend/app/risk backend/app/persistence backend/app/validators backend/app/api backend/app/comms backend/app/screening backend/app/network backend/app/llm backend/app/ingest
 
   unit-property-contract:
     runs-on: ubuntu-latest
@@ -40,7 +40,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install -e ".[dev]"
-      - run: pytest -q --cov=backend/app/validators --cov=backend/app/matching --cov=backend/app/risk --cov=backend/app/decision --cov=backend/app/adapters --cov=backend/app/network --cov=backend/app/comms --cov=backend/app/screening --cov-report=term --cov-fail-under=90
+      - run: pytest -q --cov=backend/app/validators --cov=backend/app/matching --cov=backend/app/risk --cov=backend/app/decision --cov=backend/app/adapters --cov=backend/app/network --cov=backend/app/comms --cov=backend/app/screening --cov=backend/app/ingest --cov=backend/app/llm --cov-report=term --cov-fail-under=90
+
+  llm-replay:
+    runs-on: ubuntu-latest
+    needs: unit-property-contract
+    container: {image: python:3.12-slim}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -e ".[dev]"
+      - run: LLM_MODE=replay pytest -q backend/tests/unit/llm backend/tests/property/test_grounding.py backend/tests/determinism
+
+  determinism:
+    runs-on: ubuntu-latest
+    needs: llm-replay
+    container: {image: python:3.12-slim}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -e ".[dev]"
+      - run: LLM_MODE=replay pytest -q backend/tests/determinism/
 
   chaos:
     runs-on: ubuntu-latest

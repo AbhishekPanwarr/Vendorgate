@@ -180,7 +180,12 @@ async def domain_checks(ctx: Any) -> list[Finding]:
                 score_tags={"BANK_ID": 0.15},
             )
         )
-    legal = str(ctx.value("company.legal_name") or "")
+    legal_raw = ""
+    for path, claim in ctx.claims.items():
+        if path == "company.legal_name" and claim.raw:
+            legal_raw = claim.raw
+            break
+    legal = legal_raw or str(ctx.value("company.legal_name") or "")
     if any(has_mixed_script(tok) for tok in legal.split()) or has_mixed_script(domain):
         findings.append(
             make_finding(

@@ -38,7 +38,10 @@ def _unverifiable(check_id: str, detail: str) -> Finding:
     )
 
 
-def _pass(check_id: str, title: str, ref: str, call_id: str) -> Finding:
+def _pass(
+    check_id: str, title: str, ref: str, call_id: str, fixture_id: str | None = None
+) -> Finding:
+    stable = fixture_id or "live"  # stable across repeats (E15); call_id is random
     return Finding(
         check_id=check_id,
         stage="S4",
@@ -47,7 +50,7 @@ def _pass(check_id: str, title: str, ref: str, call_id: str) -> Finding:
         severity=Severity.INFO,
         title=title,
         detail=title,
-        evidence=[Evidence(kind="adapter", ref=ref, summary=f"{ref} call {call_id}")],
+        evidence=[Evidence(kind="adapter", ref=ref, summary=f"{ref} fixture {stable}")],
         deterministic=True,
         reads=[],
     )
@@ -88,7 +91,7 @@ async def tin_match(ctx: Any) -> list[Finding]:
         ]
     code = (res.data or {}).get("code")
     if code in (0, 6, 7, 8):
-        return [_pass("C-VER-01", "TIN match", "irs", res.call_id)]
+        return [_pass("C-VER-01", "TIN match", "irs", res.call_id, res.fixture_id)]
     if code == 1:
         return [
             make_finding(
@@ -180,7 +183,7 @@ async def gst_registry(ctx: Any) -> list[Finding]:
         ]
     state = (res.data or {}).get("state")
     if state == "Active":
-        return [_pass("C-VER-02", "GSTIN active", "gst", res.call_id)]
+        return [_pass("C-VER-02", "GSTIN active", "gst", res.call_id, res.fixture_id)]
     return [
         make_finding(
             ctx,
@@ -232,7 +235,7 @@ async def vies_check(ctx: Any) -> list[Finding]:
                 fixed_by=FixedBy.VENDOR,
             )
         ]
-    return [_pass("C-VER-03", "VAT valid", "vies", res.call_id)]
+    return [_pass("C-VER-03", "VAT valid", "vies", res.call_id, res.fixture_id)]
 
 
 @check(
@@ -282,7 +285,7 @@ async def registry_check(ctx: Any) -> list[Finding]:
         ]
     status = (res.data or {}).get("status")
     if status == "Active":
-        return [_pass("C-VER-04", "Entity active", "registry", res.call_id)]
+        return [_pass("C-VER-04", "Entity active", "registry", res.call_id, res.fixture_id)]
     if status in ("Dissolved", "StruckOff"):
         return [
             make_finding(
@@ -355,4 +358,4 @@ async def bank_ownership(ctx: Any) -> list[Finding]:
                 score_tags={"BANK_ID": 0.5},
             )
         ]
-    return [_pass("C-VER-05", "Bank ownership verified", "bank", res.call_id)]
+    return [_pass("C-VER-05", "Bank ownership verified", "bank", res.call_id, res.fixture_id)]

@@ -173,9 +173,9 @@
     "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "fa7d7fff78e24cf3189867cdae76ad36cb2af960126035dd5784b29f02e0ea1b"
+  "reproducibility_hash": "43f91c5846cbf36aa602670d076c7ad4573ca21b4ef371fe4fc46b17121b4ef0"
  },
  "findings": [
   {
@@ -192,7 +192,7 @@
     {
      "kind": "adapter",
      "ref": "irs",
-     "summary": "irs call d16a13d6bb93",
+     "summary": "irs call f60ad2d4c045",
      "data": {}
     }
    ],
@@ -201,7 +201,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "877f409b18dbf0c0d9c27b638bbae775f013059c2e36673ee64779b99c5366b6",
+   "fingerprint": "36d6cf3d2ab65b770565c16c5cd80931af8c43eed0ea989c4371e8450bc5ff3e",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -220,7 +220,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call c3b2132703a8",
+     "summary": "bank call 069024212dd0",
      "data": {}
     }
    ],
@@ -229,7 +229,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "5a8290e315444a6a52feacb60599d77c078ff02f15b88ed60a93f0b5cd13f61a",
+   "fingerprint": "060cb4be721746a30f531839e89822532cf7c9639ddd5dc33ff94cbb874b01b6",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -256,6 +256,16 @@
      "ref": "bank.account_holder_name",
      "summary": "claim bank.account_holder_name",
      "data": {}
+    },
+    {
+     "kind": "llm",
+     "ref": "L3",
+     "summary": "adjudication SAME conf 0.85",
+     "data": {
+      "label": "SAME",
+      "confidence": 0.85,
+      "order_swap_consistent": true
+     }
     }
    ],
    "fix": {
@@ -274,7 +284,7 @@
     "company.legal_name",
     "bank.account_holder_name"
    ],
-   "fingerprint": "4877c942e483ea1a1c0bbdf2260121df21060f365820aa5d917282e8ce860be2",
+   "fingerprint": "91b568029c581163669e60bd1d837acd89909dceb9ae6dc20624d3ad34b8178d",
    "score_tags": {
     "BANK_ID": 0.5
    },

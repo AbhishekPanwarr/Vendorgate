@@ -15,6 +15,7 @@ from backend.app.persistence import repo
 from backend.app.persistence.audit_chain import GENESIS
 from backend.app.persistence.audit_chain import append_event
 from backend.app.pipeline.checks import bank as _bank  # noqa: F401  (register checks)
+from backend.app.pipeline.checks import doc as _doc  # noqa: F401
 from backend.app.pipeline.checks import dup as _dup  # noqa: F401
 from backend.app.pipeline.checks import geo as _geo  # noqa: F401
 from backend.app.pipeline.checks import name as _name  # noqa: F401
@@ -36,8 +37,35 @@ def _now_iso(clock: Clock) -> str:
     return clock.now().isoformat()
 
 
-async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[str, Any]:
+def _map_freshness(rep: dict[str, Any], dtype: str, fields: dict[str, Any]) -> None:
+    def _val(name: str) -> str:
+        f = fields.get(name, {})
+        return str(f.get("value") or "") if isinstance(f, dict) else ""
+
+    fr = rep.setdefault("freshness", {})
+    if dtype == "W9":
+        fr["signed"] = bool(_val("signature_present")) and bool(_val("signature_date"))
+    if dtype == "COI":
+        for fname, f in fields.items():
+            if isinstance(f, dict) and "expiry" in fname.lower() and f.get("value"):
+                fr["coi_expiry"] = f["value"]
+    if dtype in ("BANK_LETTER", "VOIDED_CHEQUE"):
+        for fname, f in fields.items():
+            if isinstance(f, dict) and "date" in fname.lower() and f.get("value"):
+                fr["bank_letter_date"] = f["value"]
+                break
+
+
+async def run_full(
+    payload: dict[str, Any],
+    clock: Clock | None = None,
+    files: dict[str, tuple[str, bytes]] | None = None,
+    llm: Any = None,
+) -> dict[str, Any]:
+    from backend.app.llm.factory import llm_model
+    from backend.app.llm.factory import make_llm
     from backend.app.network.graph import seed_master
+    from backend.app.pipeline.stages.s1_docs import ingest_document
 
     seed_master()
     submission = VendorSubmission.model_validate(payload)
@@ -56,7 +84,7 @@ async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[
         submission=submission,
         policy=policy,
         adapters={},
-        llm=None,
+        llm=llm or make_llm(),
         clock=clock,
         cache=CheckCache(),
         emit=emit,
@@ -64,9 +92,50 @@ async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[
     for claim in build_claims(submission):
         ctx.add_claim(claim)
 
+    # S1: ingest declared documents with attached file bytes
+    from backend.app.domain.enums import Source
+    from backend.app.llm.tasks_extract import grounding_ok
+    from backend.app.llm.tasks_l1 import extract_doc
+    from backend.app.pipeline.stages.s0_intake import _claim as _mkclaim
+
+    ctx.doc_reports = {}
+    declared_by_id = {d.doc_id: d.doc_type.value for d in submission.documents}
+    for doc_id, (filename, data) in (files or {}).items():
+        rep = ingest_document(
+            doc_id, declared_by_id.get(doc_id, "UNKNOWN"), filename, data, clock.now().date()
+        )
+        if rep.get("upload_ok") and rep.get("text_pages"):
+            dtype = rep["detected_type"] if rep["detect_confident"] else rep["declared"]
+            try:
+                out = await extract_doc(ctx.llm, llm_model(), dtype, rep["text_pages"])
+                fields = out.model_dump()
+                text = "\n".join(rep["text_pages"])
+                for fname, f in fields.items():
+                    if not isinstance(f, dict):
+                        continue
+                    if not grounding_ok(f.get("value"), f.get("quote"), text):
+                        rep.setdefault("ungrounded", []).append(fname)
+                        continue
+                    if f.get("value") is not None:
+                        claim = _mkclaim(f"doc:{doc_id}.{fname}", f.get("value"), f.get("value"))
+                        claim.source = Source.DOC
+                        claim.doc_id = doc_id
+                        claim.page = f.get("page")
+                        claim.quote = (f.get("quote") or "")[:200]
+                        claim.confidence = float(f.get("confidence") or 0)
+                        ctx.add_claim(claim)
+                _map_freshness(rep, dtype, fields)
+            except Exception:
+                rep.setdefault("ungrounded", []).append("*l1-unavailable*")
+        for claim in rep.get("claims", []):
+            ctx.add_claim(claim)
+        ctx.doc_reports[doc_id] = rep
+
     await DagOrchestrator().run(ctx, RunMode.FULL)
     from backend.app.comms.messages import compose as compose_message
+    from backend.app.pipeline.stages.s8 import run_s8
 
+    adjudications = await run_s8(ctx)
     decision = decide(findings=ctx.findings, resolutions=[], submission_facts=ctx, policy=policy)
     message = compose_message(
         {"status": decision.status.value, "reason_codes": decision.reason_codes},
@@ -116,12 +185,17 @@ async def run_full(payload: dict[str, Any], clock: Clock | None = None) -> dict[
         "requester": submission.requester.name,
         "submission_type": submission.submission_type.value,
         "existing_vendor_id": submission.existing_vendor_id,
+        "files": {
+            k: [fn, __import__("base64").b64encode(data).decode()]
+            for k, (fn, data) in (files or {}).items()
+        },
         "decision": decision.model_dump(mode="json"),
         "findings": [f.model_dump(mode="json") for f in ctx.findings],
         "claims": [c.model_dump(mode="json") for c in ctx.claims.values()],
         "audit": audit,
         "vendor_id": vendor_id,
         "message": message,
+        "adjudications": adjudications,
         "events": events,
     }
     repo.save_run(result)

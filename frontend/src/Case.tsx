@@ -33,6 +33,7 @@ export default function CasePage() {
     setCbResult(r);
   }
   const dupPair = findings.filter((f) => f.check_id === "C-DUP-02");
+  const adjudications: any[] = data.run?.adjudications ?? [];
   return (
     <div style={{ fontFamily: "system-ui", maxWidth: 960, margin: "0 auto", padding: 16 }}>
       <h1>
@@ -48,6 +49,7 @@ export default function CasePage() {
         <div>
           <h2>Message</h2>
           {msg ? <div><h3>{msg.subject}</h3><pre style={{ whiteSpace: "pre-wrap" }}>{msg.body}</pre>
+            <p>rendered from template (LLM polish runs best-effort only)</p>
             <p>checker: {(msg.checker_errors ?? []).length === 0 ? "✅ clean" : `⛔ ${(msg.checker_errors ?? []).join("; ")}`}</p>
             <ul>{(msg.items ?? []).map((it: any, i: number) => <li key={i}>{it.fix_code}: {it.title}</li>)}</ul>
           </div> : <p>Loading…</p>}
@@ -56,6 +58,11 @@ export default function CasePage() {
       {tab === "network" && (
         <div>
           <h2>Network</h2>
+          {(data.run?.claims ?? []).filter((c: any) => c.doc_id).slice(0, 1).map((c: any) => (
+            <div key={c.doc_id}>
+              <embed src={`/api/v1/cases/${caseId}/docs/${c.doc_id}`} type="application/pdf" width="100%" height="400px" />
+            </div>
+          ))}
           {dupPair.length > 0 ? <div>
             <p>Shared bank account links this submission to <b>{dupPair[0].detail}</b></p>
             <ul>{findings.filter((f) => f.check_id.startsWith("C-DUP")).map((f, i) => <li key={i}>{f.check_id}: {f.title}</li>)}</ul>
@@ -89,6 +96,12 @@ export default function CasePage() {
         {cbResult && <div role="status">{cbResult.ok ? "✅ independent — findings cleared" : `⛔ ${cbResult.reason}`}</div>}
       </div>
       {tab === "findings" && (<div>
+      {adjudications.length > 0 && (<div>
+        <h3>Adjudication</h3>
+        {adjudications.map((a: any, i: number) => (
+          <div key={i}>{a.llm_unavailable ? "S8 adjudication: LLM unavailable — deterministic stands" : `S8 adjudication: ${a.label} (explain-only unless corroborated)`}</div>
+        ))}
+      </div>)}
       <h2>Score waterfall</h2>
       {Object.entries(comps).map(([k, v]: [string, any]) => (
         <div key={k}>{k} <progress value={v.points} max={25} /> {v.points} <small>{(v.drivers ?? []).join("; ")}</small></div>
@@ -108,7 +121,10 @@ export default function CasePage() {
         const f = findings.find((x, i) => x.check_id + i === open);
         return f ? <div style={{ border: "1px solid #ccc", padding: 8, marginTop: 8 }}>
           <b>{f.title}</b><p>{f.detail}</p>
-          <ul>{f.evidence.map((e, j) => <li key={j}>[{e.kind}] {e.ref}: {e.summary}</li>)}</ul>
+          <ul>{f.evidence.map((e, j) => <li key={j}>[{e.kind}] {e.ref}: {e.summary}{e.kind === "llm" ? " (explain-only)" : ""}</li>)}</ul>
+          {(data.run?.claims ?? []).filter((c: any) => c.doc_id && f.evidence.some((e: any) => e.ref === c.id || e.ref === c.path)).slice(0, 3).map((c: any, k: number) => (
+            <div key={k}><small>doc {c.doc_id} p{c.page}: “{c.quote}”</small></div>
+          ))}
         </div> : null;
       })()}
       </div>)}

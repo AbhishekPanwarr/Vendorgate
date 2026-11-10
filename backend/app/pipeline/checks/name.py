@@ -34,6 +34,14 @@ async def name_bank(ctx: Any) -> list[Finding]:
     if comp.relation in ("EXACT", "EQUIVALENT"):
         return []
     if comp.relation == "FORM_CONFLICT":
+        _enqueue(
+            ctx,
+            "C-NAME-02",
+            legal,
+            holder,
+            _k3_corrobators(ctx, holder),
+            {"core_similarity": comp.core_sim, "legal_form_relation": comp.form_rel},
+        )
         return [
             make_finding(
                 ctx,
@@ -62,6 +70,15 @@ async def name_bank(ctx: Any) -> list[Finding]:
                 return []  # sole prop: holder is the declared owner (M-14 control)
     sev = Severity.HARD if comp.relation == "DIFFERENT" else Severity.SOFT
     code = "NAME_MISMATCH_BANK" if comp.relation == "DIFFERENT" else "NAME_UNCONFIRMED"
+    if comp.relation == "CORE_FUZZY":
+        _enqueue(
+            ctx,
+            "C-NAME-02",
+            legal,
+            holder,
+            _k3_corrobators(ctx, holder),
+            {"core_similarity": comp.core_sim, "legal_form_relation": comp.form_rel},
+        )
     return [
         make_finding(
             ctx,
@@ -212,3 +229,75 @@ async def callback_required(ctx: Any) -> list[Finding]:
             )
         ]
     return []
+
+
+@check(id="C-NAME-01", stage="S5", version=1, mandatory=True, reads=("company.legal_name",))
+async def name_taxdoc(ctx: Any) -> list[Finding]:
+    legal = str(ctx.value("company.legal_name") or "")
+    docs = [
+        c
+        for p, c in ctx.claims.items()
+        if p.startswith("doc:") and p.endswith(("business_name", ".name"))
+    ]
+    if not docs:
+        return []
+    cfg = dict(ctx.policy.raw["base"]["matching"]["name"])
+    out = []
+    for claim in docs:
+        comp = compare_names(parse_name(legal), parse_name(str(claim.value or "")), cfg)
+        if comp.relation in ("EXACT", "EQUIVALENT"):
+            continue
+        out.append(
+            make_finding(
+                ctx,
+                "C-NAME-01",
+                "S5",
+                1,
+                outcome=Outcome.FAIL,
+                severity=Severity.SOFT,
+                reason_code="NAME_UNCONFIRMED",
+                title="Name differs from tax document",
+                detail=f"Form says {legal!r}, tax doc says {claim.value!r}.",
+                claim_paths=["company.legal_name", claim.path],
+                fix=FixAction(code="CONFIRM_LEGAL_NAME", field_paths=["company.legal_name"]),
+                fixed_by=FixedBy.VENDOR,
+            )
+        )
+    return out
+
+
+def _k3_corrobators(ctx: Any, variant: str) -> list[dict[str, str]]:
+    """K3: official registration doc whose grounded legal name ~= variant."""
+    from backend.app.matching.name_compare import compare_names as _cmp
+    from backend.app.matching.name_compare import parse_name as _parse
+
+    cfg = dict(ctx.policy.raw["base"]["matching"]["name"])
+    out = []
+    for path, claim in ctx.claims.items():
+        if not path.startswith("doc:"):
+            continue
+        if path.split(".")[-1] not in ("legal_name", "business_name"):
+            continue
+        if not claim.value:
+            continue
+        if _cmp(_parse(variant), _parse(str(claim.value)), cfg).relation in ("EXACT", "EQUIVALENT"):
+            out.append({"name": "K3", "summary": f"{path} names {claim.value!r}"})
+    return out
+
+
+def _enqueue(
+    ctx: Any, check_id: str, a: str, b: str, corrs: list[dict[str, str]], det: dict[str, object]
+) -> None:
+    ctx.adjudications.append(
+        {
+            "check_id": check_id,
+            "a": a,
+            "source_a": "form",
+            "b": b,
+            "source_b": "bank",
+            "country": str(ctx.value("company.country") or ""),
+            "subject": None,
+            "corroborators": corrs,
+            "deterministic": det,
+        }
+    )

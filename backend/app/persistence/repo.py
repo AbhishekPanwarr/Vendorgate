@@ -75,6 +75,7 @@ def save_run(result: dict[str, Any]) -> None:
         "audit": result.get("audit", []),
         "vendor_id": result.get("vendor_id"),
         "message": result.get("message", {}),
+        "adjudications": result.get("adjudications", []),
     }
     STORE["cases"][case_id] = {
         "case_id": case_id,
@@ -100,3 +101,5 @@ def save_run(result: dict[str, Any]) -> None:
     )
     seq_events.append({"seq": seq + 2, "type": "run.completed", "data": {}})
     STORE["events"][run_id] = seq_events
+    files = result.get("files", {})
+    STORE.setdefault("docs", {})[run_id] = files

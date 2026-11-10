@@ -47,6 +47,8 @@ class RunContext:
         self.emit = emit
         self.claims: dict[str, Claim] = {}  # noqa: F841
         self.findings: list[Finding] = []
+        self.doc_reports: dict[str, Any] = {}
+        self.adjudications: list[dict[str, Any]] = []
         self.mode = submission.submission_type.value
 
     def add_claim(self, claim: Claim) -> None:

@@ -1,0 +1,293 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 18000,
+    "currency": "USD"
+   },
+   "category": "OFFICE_SUPPLIES",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Acme Trading Co",
+   "trading_name": null,
+   "entity_type": "LLC",
+   "country": "US",
+   "incorporation_date": "2016-04-12",
+   "registered_address": {
+    "line1": "410 Market St",
+    "line2": null,
+    "city": "Columbus",
+    "region": "OH",
+    "postal_code": "43215",
+    "country": "US"
+   },
+   "remit_to_address": null,
+   "website": "https://brightline-office.example",
+   "primary_contact": {
+    "name": "Ravi Khanna",
+    "email": "ravi@brightline-office.example",
+    "phone": "+1 614 555 0142"
+   },
+   "ap_contact": {
+    "name": "Meera Das",
+    "email": "ap@brightline-office.example",
+    "phone": "+1 614 555 0143"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "US",
+   "tax_id_type": "EIN",
+   "tax_id": "84-7654321",
+   "secondary_ids": {},
+   "tax_classification": "LLC",
+   "form_type": "W9",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "US",
+   "currency": "USD",
+   "account_holder_name": "ACME TRADING COMPANY LLC",
+   "bank_name": "Synthetic National Bank",
+   "account_number": "000123456789",
+   "routing_number": "011000015",
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": null,
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "w9",
+    "doc_type": "W9",
+    "filename": "w9_ec1.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "bank",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank_hp1.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "inc",
+    "doc_type": "INCORP_CERT",
+    "filename": "incorp_ec1_resubmit.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "files": {
+  "w9": [
+   "w9_ec1.pdf",
+   "JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0NvbnRlbnRzIDcgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCA2IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNiAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL0F1dGhvciAoYW5vbnltb3VzKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYxMTEwMTYxMjA2KzA1JzAwJykgL0NyZWF0b3IgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjExMTAxNjEyMDYrMDUnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDMgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM5MAo+PgpzdHJlYW0KR2FzMkU7Lz0kJiEvMDguKCYsM0k+KzZANW1ALzBfUSJeQzwoXiIsUzlmOWhjWSJjdDdwUFclXDEkZi9rRSxdMEUzcypfTGRiSk9IZ2lJUV4hXmFeWiZFWWI7LjQyXUtkN0wsLT5sKDRaMVcma3RvS0RbYDJbZkZmYks6cVg4b1g9MihDKyhlPzsjLTdWR15pJVRvbWsjOHNac0VEcj5oQDpkKk8qVTgjbSVpWEUqIWUuMz9POzVSUG9PMFtrYV06I25DUzs6RkVhS1ZacFYuRVlcKG86OWxWLSM3XV83NEdnJmNVLXEmSEJjXTBqbWM3cEs8UT9HI1UwKlRUSlMwPElJZTQ5TkE2Uz5oYD5dZTR1RWElQC1DOTUuJmY6O29kNCFVUDVbPyk1Oj5YWiNLNj8naj9OPSw8SWRaK0g2IUcjKDs4T05xWHBxRVRQI1ZqSXRtSGgzYWJKSW5mXnVLWkBSUi4xTUJfM0NYPjs7JiMpT2QxanVVMSZELERrNm03WlQoYH4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNzMgMDAwMDAgbiAKMDAwMDAwMDEwNCAwMDAwMCBuIAowMDAwMDAwMjExIDAwMDAwIG4gCjAwMDAwMDA0MDQgMDAwMDAgbiAKMDAwMDAwMDQ3MiAwMDAwMCBuIAowMDAwMDAwNzY4IDAwMDAwIG4gCjAwMDAwMDA4MjcgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8ZGQ3NDEwNTRlNjZhNzg2ODIxZDIzY2RmYjkzM2IxYjI+PGRkNzQxMDU0ZTY2YTc4NjgyMWQyM2NkZmI5MzNiMWIyPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKGh0dHA6Ly93d3cucmVwb3J0bGFiLmNvbSkKCi9JbmZvIDUgMCBSCi9Sb290IDQgMCBSCi9TaXplIDgKPj4Kc3RhcnR4cmVmCjEzMDcKJSVFT0YK"
+  ],
+  "bank": [
+   "bank_hp1.pdf",
+   "JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0NvbnRlbnRzIDcgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCA2IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNiAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL0F1dGhvciAoYW5vbnltb3VzKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYxMTEwMTYxMjA2KzA1JzAwJykgL0NyZWF0b3IgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjExMTAxNjEyMDYrMDUnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDMgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM3Ngo+PgpzdHJlYW0KR2FzMkViQVAwTidMX1xDYEBUY0Q6dGwsLllRSUsjO0ZpKSZWR10/alJZUCpWVVhXLyteTWIwcXFAS1dCR3FsbU9GP011V1JSPVxHL3FCNSZTUE1OaDZqaTNRKi9GUzYxJkI9NFZiXF0sPkduKSE6PmpEJzciTUQoZT85LGpDUW48LWlXXD8oX1gqTTBaYmtXYDJbLEY3K2AjImNhJTw3S0A8OypyayQhQyxZVVphbzhfUlNvRlpTQTdOX1E/JVtjWzRQUFJGUWJRMCVfOEZGa284PExodUxTXjQyUDYqTURgRUtDLU9LaVJabV8/XzxMOXE8L0drTUVHclNUajRLV049Tk5qLl9kRmNJb0ZVcFZITmppRWs1SyFDZG5KJzYhZkBjZm1lWldfPyckYi5AUFRlOF5NXmUyJG4/SXA6bUVEOiJkQU1abDA/KVRSVjBDYz5oNGBabnRHX0ZTJlAsNGJdZ0hGRj1AN3UuJFIwTGQtKikzUGd+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDczIDAwMDAwIG4gCjAwMDAwMDAxMDQgMDAwMDAgbiAKMDAwMDAwMDIxMSAwMDAwMCBuIAowMDAwMDAwNDA0IDAwMDAwIG4gCjAwMDAwMDA0NzIgMDAwMDAgbiAKMDAwMDAwMDc2OCAwMDAwMCBuIAowMDAwMDAwODI3IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDUxYjQwNzVkOGU5ODViY2Q5OTZmMjE0YWZmMTQ3ZTI4Pjw1MWI0MDc1ZDhlOTg1YmNkOTk2ZjIxNGFmZjE0N2UyOD5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChodHRwOi8vd3d3LnJlcG9ydGxhYi5jb20pCgovSW5mbyA1IDAgUgovUm9vdCA0IDAgUgovU2l6ZSA4Cj4+CnN0YXJ0eHJlZgoxMjkzCiUlRU9GCg=="
+  ],
+  "inc": [
+   "incorp_ec1_resubmit.pdf",
+   "JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0NvbnRlbnRzIDcgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCA2IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNiAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL0F1dGhvciAoYW5vbnltb3VzKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYxMTEwMTYxMjA2KzA1JzAwJykgL0NyZWF0b3IgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjExMTAxNjEyMDYrMDUnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDMgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDMxMgo+PgpzdHJlYW0KR2FzMkQ1dTMrdSY7QlRPKCU4KEplRDlMIS9OO0k6LSVYJV5cTVdoQ2FPNElsKHFUU0BLcm1oNlp0PkldXVpnK15rJklXMVxFZThCNDsuJnElUEMhVVw9PzJnTDZ1UjszZDpGMC9xLnNCRDtkOFIlaC10SDdbXyokOWo6XU1UUG9vNWxAKyFITFdbKChpPjIlbV0iN3FxS1MpKGVZTVBxUWNAaCFRKmVWVUtTYSVUJCwoR1hGJVUjWzNScklVYzkhYEdzcDlZRkMlb0kuKl83N2Y6KEtZJHBqWkU4KD9FRDEjNjs0VyhWIllyUC8wMkk0UTJOXCZhNEljdTIhPG10THMlNmJlX0luVlRmYVgyaC5iVF1QVWE8TyZPNy5jOD5BXz08MkVISFVhWWghYGdEL1RFNWxnTX4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNzMgMDAwMDAgbiAKMDAwMDAwMDEwNCAwMDAwMCBuIAowMDAwMDAwMjExIDAwMDAwIG4gCjAwMDAwMDA0MDQgMDAwMDAgbiAKMDAwMDAwMDQ3MiAwMDAwMCBuIAowMDAwMDAwNzY4IDAwMDAwIG4gCjAwMDAwMDA4MjcgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8M2VmM2JmMDVkMWIzNzVkNDc4MjQ1NTg4MGZmYjcxZjE+PDNlZjNiZjA1ZDFiMzc1ZDQ3ODI0NTU4ODBmZmI3MWYxPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKGh0dHA6Ly93d3cucmVwb3J0bGFiLmNvbSkKCi9JbmZvIDUgMCBSCi9Sb290IDQgMCBSCi9TaXplIDgKPj4Kc3RhcnR4cmVmCjEyMjkKJSVFT0YK"
+  ]
+ },
+ "decision": {
+  "status": "APPROVED",
+  "awaiting": [],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.2,
+     "points": 5.0,
+     "drivers": [
+      "spend_usd=18000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": [
+      "country=US"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.25,
+     "points": 3.75,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.1,
+     "points": 1.0,
+     "drivers": [
+      "category=OFFICE_SUPPLIES"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 9.75,
+   "band": "LOW"
+  },
+  "reason_codes": [],
+  "blocking_finding_ids": [],
+  "required_actions": [],
+  "approval_route": [],
+  "counterfactuals": [],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "43f91c5846cbf36aa602670d076c7ad4573ca21b4ef371fe4fc46b17121b4ef0"
+ },
+ "findings": [
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs call f78a517d2e5f",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "36d6cf3d2ab65b770565c16c5cd80931af8c43eed0ea989c4371e8450bc5ff3e",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank call db318c0d2125",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "060cb4be721746a30f531839e89822532cf7c9639ddd5dc33ff94cbb874b01b6",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-NAME-02",
+   "stage": "S5",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "WARN",
+   "severity": 0,
+   "reason_code": "NAME_VARIANT_EXPLAINED",
+   "title": "Name \u2194 bank holder: legal form unconfirmed",
+   "detail": "Form says 'acme trading co', bank account is held by 'acme trading company llc'. They look like the same business but the legal form is unconfirmed.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.legal_name",
+     "summary": "claim company.legal_name",
+     "data": {}
+    },
+    {
+     "kind": "claim",
+     "ref": "bank.account_holder_name",
+     "summary": "claim bank.account_holder_name",
+     "data": {}
+    },
+    {
+     "kind": "llm",
+     "ref": "L3",
+     "summary": "adjudication SAME conf 0.85",
+     "data": {
+      "label": "SAME",
+      "confidence": 0.85,
+      "order_swap_consistent": true
+     }
+    },
+    {
+     "kind": "claim",
+     "ref": "K3",
+     "summary": "doc:inc.legal_name names 'ACME TRADING COMPANY LLC'",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_DBA_PROOF",
+    "field_paths": [
+     "company.legal_name",
+     "bank.account_holder_name"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": false,
+   "reads": [
+    "company.legal_name",
+    "bank.account_holder_name"
+   ],
+   "fingerprint": "91b568029c581163669e60bd1d837acd89909dceb9ae6dc20624d3ad34b8178d",
+   "score_tags": {
+    "BANK_ID": 0.15
+   },
+   "duration_ms": 4,
+   "cached": false
+  }
+ ]
+}

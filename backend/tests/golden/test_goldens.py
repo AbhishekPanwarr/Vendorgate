@@ -13,6 +13,7 @@ NAMES = [
     "hp-3",
     "hp-3-high",
     "ec-1-run-1",
+    "ec-1-resubmit",
     "ec-2a",
     "ec-2b",
     "ec-2c",
@@ -20,14 +21,21 @@ NAMES = [
     "ec-3b",
     "ec-4a",
     "ec-4b",
+    "ec-4c",
     "ec-4d-outage",
+    "ec-5",
+    "ec-6",
+    "ec-16",
     "ec-18",
 ]
 
 
 def strip_volatile(result: dict) -> dict:
     out = {"decision": result["decision"], "findings": []}
-    for f in result["findings"]:
+    ordered = sorted(
+        result["findings"], key=lambda f: (f.get("check_id", ""), f.get("subject") or "")
+    )
+    for f in ordered:
         g = {k: v for k, v in f.items() if k not in ("duration_ms", "cached", "fingerprint")}
         # call_ids/fixture runs vary per execution; keep shape only
         g["evidence"] = sorted((e.get("kind"), e.get("ref")) for e in f.get("evidence", []))
@@ -51,14 +59,17 @@ def strip_fixture(fx: dict) -> dict:
 
 @pytest.mark.parametrize("name", NAMES)
 def test_golden(name, request):
+    import base64
+
     from backend.app.adapters.faults import clear_faults, set_fault
 
     with open(f"backend/tests/golden/fixtures/{name}.json") as fh:
         fx = json.load(fh)
+    files = {k: (fn, base64.b64decode(data)) for k, (fn, data) in fx.get("files", {}).items()}
     if name == "ec-4d-outage":
         set_fault("registry", "TIMEOUT")  # documented precondition for this golden
     try:
-        result = asyncio.run(run_full(fx["payload"]))
+        result = asyncio.run(run_full(fx["payload"], files=files or None))
     finally:
         clear_faults()
     if request.config.getoption("--update-goldens"):

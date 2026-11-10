@@ -27,3 +27,5 @@ resolvable_by:
   CLUSTER_REVIEW: [COMPLIANCE]
   DOC_INJECTION_SUSPECTED: [AP_ANALYST]
   LIQUIDATION_REVIEW: [CONTROLLER]
+doc_ingest: {max_mb: 10, max_pages: 20, text_layer_min_chars: 40, ocr_dpi: 300, classifier_tau: 0.60, classifier_delta: 0.15}
+grounding: {partial_ratio_min: 92}

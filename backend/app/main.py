@@ -52,7 +52,12 @@ def create_app() -> FastAPI:
             return repo.STORE["idempotency"][idempotency_key]
         from backend.app.pipeline.pipeline import run_full
 
-        result = await run_full(payload)
+        files: dict[str, tuple[str, bytes]] = {}
+        for key, item in form.items():
+            if key.startswith("file:") and hasattr(item, "read"):
+                data = await item.read()
+                files[key[5:]] = (item.filename or key[5:], bytes(data))
+        result = await run_full(payload, files=files or None)
         out = {"case_id": result["case_id"], "run_id": result["run_id"]}
         if idempotency_key:
             repo.STORE["idempotency"][idempotency_key] = out
@@ -185,6 +190,23 @@ def create_app() -> FastAPI:
     @app.get("/api/v1/vendors")
     def list_vendors():  # noqa: ANN202
         return [c for c in repo.STORE["cases"].values() if c.get("vendor_id")]
+
+    @app.get("/api/v1/cases/{case_id}/docs/{doc_id}")
+    def get_doc(case_id: str, doc_id: str):  # noqa: ANN201
+        from fastapi.responses import Response
+
+        import base64
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        docs = (repo.STORE.get("docs", {}) or {}).get(run.get("run_id", ""), {})
+        _ = run
+        entry = docs.get(doc_id)
+        if not entry:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        return Response(content=base64.b64decode(entry[1]), media_type="application/pdf")
 
     @app.get("/api/v1/cases/{case_id}/messages")
     def get_messages(case_id: str):  # noqa: ANN201
