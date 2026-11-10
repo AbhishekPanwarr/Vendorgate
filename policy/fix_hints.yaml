@@ -1,0 +1,6 @@
+PROVIDE_GSTIN:
+  IN: {what: "Your 15-character GSTIN", how: "Find it on your GST registration certificate (format 22AAAAA0000A1Z5)."}
+TAX_FORMAT_MISMATCH:
+  IN: {what: "Indian tax identifiers", how: "India vendors provide a GSTIN (15 characters) and a PAN (10 characters). The value entered looks like a US EIN."}
+UPLOAD_DBA_PROOF:
+  default: {what: "Proof of your trading name", how: "Upload a registration certificate or IRS letter showing the legal name and the name you trade under."}

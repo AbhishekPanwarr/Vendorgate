@@ -1,0 +1,4 @@
+country: GB
+tax_ids: {primary: VAT, secondary: []}
+bank_countries_allowed: [GB]
+requirements: {fields: [], docs: [], conditional: []}
