@@ -48,7 +48,15 @@ def create_app() -> FastAPI:
                 content={"type": "validation-error", "title": "Invalid submission"},
                 headers={"content-type": "application/problem+json"},
             )
-        return repo.create_submission_stub(payload, idem_key=idempotency_key)
+        if idempotency_key and idempotency_key in repo.STORE["idempotency"]:
+            return repo.STORE["idempotency"][idempotency_key]
+        from backend.app.pipeline.pipeline import run_full
+
+        result = await run_full(payload)
+        out = {"case_id": result["case_id"], "run_id": result["run_id"]}
+        if idempotency_key:
+            repo.STORE["idempotency"][idempotency_key] = out
+        return out
 
     @app.get("/api/v1/runs/{run_id}")
     def get_run(run_id: str):  # noqa: ANN201
@@ -69,6 +77,88 @@ def create_app() -> FastAPI:
 
         return StreamingResponse(gen(), media_type="text/event-stream")
 
+    @app.get("/api/v1/cases")
+    def list_cases():  # noqa: ANN202
+        return list(repo.STORE["cases"].values())
+
+    @app.get("/api/v1/cases/{case_id}")
+    def get_case(case_id: str):  # noqa: ANN201
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        return {**case, "run": run}
+
+    @app.get("/api/v1/cases/{case_id}/audit")
+    def get_audit(case_id: str):  # noqa: ANN201
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        return run.get("audit", [])
+
+    @app.get("/api/v1/cases/{case_id}/audit/verify")
+    def verify_audit(case_id: str):  # noqa: ANN201
+        from backend.app.persistence.audit_chain import verify_chain
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        run = repo.STORE["runs"].get(case["run_id"], {})
+        return verify_chain(run.get("audit", []))
+
+    @app.post("/api/v1/cases/{case_id}/resolutions")
+    async def add_resolution(case_id: str, request: Request):  # noqa: ANN201
+        from backend.app.decision.routing import resolve_allowed
+
+        from backend.app.core.policy import load_policy
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        body = await request.json()
+        role = request.headers.get("X-Role", "")
+        if not resolve_allowed(body.get("reason_code", ""), role, load_policy("policy")):
+            return JSONResponse(status_code=403, content={"type": "role-not-allowed"})
+        return {"ok": True, "note": "resolutions take effect in Phase 2 runs"}
+
+    @app.post("/api/v1/cases/{case_id}/approvals")
+    async def add_approval(case_id: str, request: Request):  # noqa: ANN201
+        from backend.app.decision.routing import check_sod
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        actor = request.headers.get("X-Actor", "")
+        role = request.headers.get("X-Role", "")
+        requester = case.get("requester") or actor
+        if not check_sod(requester, actor, role):
+            return JSONResponse(
+                status_code=403, content={"type": "SEGREGATION_OF_DUTIES_VIOLATION"}
+            )
+        return {"ok": True, "case_id": case_id, "actor": actor, "role": role}
+
+    @app.post("/api/v1/cases/{case_id}/callback")
+    def record_callback(case_id: str):  # noqa: ANN201, ANN001
+        return JSONResponse(status_code=422, content={"type": "no-callback-required"})
+
+    @app.get("/api/v1/vendors")
+    def list_vendors():  # noqa: ANN202
+        return [c for c in repo.STORE["cases"].values() if c.get("vendor_id")]
+
+    @app.get("/api/v1/metrics/dashboard")
+    def dashboard_metrics():  # noqa: ANN202
+        cases = list(repo.STORE["cases"].values())
+        by_status: dict[str, int] = {}
+        for c in cases:
+            by_status[c.get("status", "?")] = by_status.get(c.get("status", "?"), 0) + 1
+        auto = sum(1 for c in cases if c.get("status") == "APPROVED")
+        return {
+            "volume": len(cases),
+            "by_status": by_status,
+            "auto_approve_rate": (auto / len(cases)) if cases else 0.0,
+        }
+
     @app.post("/api/v1/admin/reset")
     def admin_reset():  # noqa: ANN202
         ms = repo.reset_store()
@@ -76,7 +166,15 @@ def create_app() -> FastAPI:
 
     dist = Path("frontend/dist")
     if dist.exists():
-        app.mount("/", StaticFiles(directory=str(dist), html=True), name="spa")
+        app.mount("/assets", StaticFiles(directory=str(dist / "assets")), name="assets")
+
+        @app.get("/{path:path}", include_in_schema=False)
+        def spa(path: str):  # noqa: ANN201, ANN001
+            from fastapi.responses import FileResponse
+
+            if path.startswith("api/"):
+                return JSONResponse(status_code=404, content={"type": "not-found"})
+            return FileResponse(str(dist / "index.html"))
 
     return app
 

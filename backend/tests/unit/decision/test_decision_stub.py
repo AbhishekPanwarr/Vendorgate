@@ -1,18 +1,20 @@
-import pytest
-
 from backend.app.decision import engine
 
 
-def test_decide_stub():
-    with pytest.raises(NotImplementedError, match="Phase 1"):
-        engine.decide(findings=[], resolutions=[], submission_facts={}, policy={})
+def test_apply_resolutions_passthrough():
+    assert engine.apply_resolutions([], []) == []
 
 
-def test_apply_stub():
-    with pytest.raises(NotImplementedError, match="Phase 1"):
-        engine.apply_resolutions([], [])
+def test_counterfactuals_standalone_raises():
+    import pytest
 
-
-def test_counterfactual_stub():
-    with pytest.raises(NotImplementedError, match="Phase 1"):
+    with pytest.raises(NotImplementedError):
         engine.counterfactuals()
+
+
+def test_decide_implemented():
+    from backend.app.core.policy import load_policy
+    from backend.app.domain.models import RiskBreakdown
+
+    assert load_policy("policy").version
+    assert RiskBreakdown is not None

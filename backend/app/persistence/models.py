@@ -9,6 +9,8 @@ from sqlalchemy import JSON
 from sqlalchemy import String
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
+from typing import Any
+
 from sqlalchemy.orm import mapped_column
 
 
@@ -30,7 +32,7 @@ class Case(Base):
     vendor_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
     type: Mapped[str] = mapped_column(String(32), default="NEW")
     status: Mapped[str] = mapped_column(String(32), default="PENDING")
-    awaiting: Mapped[dict] = mapped_column(JSON, default=dict)
+    awaiting: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     tier: Mapped[str] = mapped_column(String(32), default="LOW")
     score: Mapped[float] = mapped_column(default=0.0)
     attempt_count: Mapped[int] = mapped_column(default=0)
@@ -46,7 +48,7 @@ class SubmissionVersion(Base):
     id: Mapped[str] = mapped_column(String(64), primary_key=True, default=_uid)
     case_id: Mapped[str] = mapped_column(String(64))
     version: Mapped[int] = mapped_column(default=1)
-    payload: Mapped[dict] = mapped_column(JSON, default=dict)
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     payload_hash: Mapped[str] = mapped_column(String(128), default="")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     created_by: Mapped[str] = mapped_column(String(64), default="system")
@@ -62,7 +64,7 @@ class Document(Base):
     path: Mapped[str] = mapped_column(String(512), default="")
     pages: Mapped[int] = mapped_column(default=1)
     text_layer: Mapped[bool] = mapped_column(default=True)
-    extracted: Mapped[dict] = mapped_column(JSON, default=dict)
+    extracted: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
 
 
 class Run(Base):
@@ -75,7 +77,7 @@ class Run(Base):
     llm_mode: Mapped[str] = mapped_column(String(16), default="replay")
     started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-    timings: Mapped[dict] = mapped_column(JSON, default=dict)
+    timings: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     cache_hits: Mapped[int] = mapped_column(default=0)
     cache_misses: Mapped[int] = mapped_column(default=0)
     llm_tokens: Mapped[int] = mapped_column(default=0)
@@ -109,7 +111,7 @@ class FindingRow(Base):
     deterministic: Mapped[bool] = mapped_column(default=True)
     cached: Mapped[bool] = mapped_column(default=False)
     fingerprint: Mapped[str] = mapped_column(String(128), default="")
-    body: Mapped[dict] = mapped_column(JSON, default=dict)
+    body: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
 
 
 class DecisionRow(Base):
@@ -117,12 +119,12 @@ class DecisionRow(Base):
     id: Mapped[str] = mapped_column(String(64), primary_key=True, default=_uid)
     run_id: Mapped[str] = mapped_column(String(64))
     status: Mapped[str] = mapped_column(String(32))
-    awaiting: Mapped[dict] = mapped_column(JSON, default=dict)
+    awaiting: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     tier: Mapped[str] = mapped_column(String(32))
     score_total: Mapped[float] = mapped_column(default=0.0)
-    score_breakdown: Mapped[dict] = mapped_column(JSON, default=dict)
-    reason_codes: Mapped[dict] = mapped_column(JSON, default=dict)
-    counterfactuals: Mapped[dict] = mapped_column(JSON, default=dict)
+    score_breakdown: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    reason_codes: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    counterfactuals: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     reproducibility_hash: Mapped[str] = mapped_column(String(128), default="")
 
 
@@ -130,7 +132,7 @@ class CheckCacheRow(Base):
     __tablename__ = "check_cache"
     fingerprint: Mapped[str] = mapped_column(String(128), primary_key=True)
     check_id: Mapped[str] = mapped_column(String(64))
-    result: Mapped[dict] = mapped_column(JSON, default=dict)
+    result: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
 
 
@@ -142,7 +144,7 @@ class CaseEvent(Base):
     ts: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     actor: Mapped[str] = mapped_column(String(64), default="system")
     type: Mapped[str] = mapped_column(String(64))
-    payload: Mapped[dict] = mapped_column(JSON, default=dict)
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     prev_hash: Mapped[str] = mapped_column(String(128), default="GENESIS")
     entry_hash: Mapped[str] = mapped_column(String(128), default="")
 
@@ -206,7 +208,7 @@ class Message(Base):
     kind: Mapped[str] = mapped_column(String(32))
     subject: Mapped[str] = mapped_column(String(512))
     body: Mapped[str] = mapped_column(String(8192))
-    items: Mapped[dict] = mapped_column(JSON, default=dict)
+    items: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
@@ -220,7 +222,7 @@ class Vendor(Base):
     status: Mapped[str] = mapped_column(String(32), default="ACTIVE")
     risk_tier: Mapped[str] = mapped_column(String(32), default="LOW")
     created_from_case: Mapped[str] = mapped_column(String(64), default="")
-    attrs: Mapped[dict] = mapped_column(JSON, default=dict)
+    attrs: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
 
 
 class VendorBankAccount(Base):
@@ -238,7 +240,7 @@ class ErpOutbox(Base):
     __tablename__ = "erp_outbox"
     id: Mapped[str] = mapped_column(String(64), primary_key=True, default=_uid)
     vendor_id: Mapped[str] = mapped_column(String(64))
-    payload: Mapped[dict] = mapped_column(JSON, default=dict)
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     delivered: Mapped[bool] = mapped_column(default=False)
 
@@ -250,7 +252,7 @@ class EvalRun(Base):
     split: Mapped[str] = mapped_column(String(32))
     seed: Mapped[int] = mapped_column(default=0)
     dataset_hash: Mapped[str] = mapped_column(String(128), default="")
-    metrics: Mapped[dict] = mapped_column(JSON, default=dict)
+    metrics: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
 
 
 class EvalCaseResult(Base):
@@ -258,8 +260,8 @@ class EvalCaseResult(Base):
     id: Mapped[str] = mapped_column(String(64), primary_key=True, default=_uid)
     eval_run_id: Mapped[str] = mapped_column(String(64))
     case_id: Mapped[str] = mapped_column(String(64))
-    expected: Mapped[dict] = mapped_column(JSON, default=dict)
-    actual: Mapped[dict] = mapped_column(JSON, default=dict)
+    expected: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    actual: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     correct: Mapped[bool] = mapped_column(default=False)
     latency_ms: Mapped[int] = mapped_column(default=0)
 

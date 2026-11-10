@@ -1,0 +1,153 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 18000,
+    "currency": "USD"
+   },
+   "category": "OFFICE_SUPPLIES",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Brightline Office Supply LLC",
+   "trading_name": null,
+   "entity_type": "LLC",
+   "country": "US",
+   "incorporation_date": "2016-04-12",
+   "registered_address": {
+    "line1": "410 Market St",
+    "line2": null,
+    "city": "Columbus",
+    "region": "OH",
+    "postal_code": "43215",
+    "country": "US"
+   },
+   "remit_to_address": null,
+   "website": "https://brightline-office.example",
+   "primary_contact": {
+    "name": "Ravi Khanna",
+    "email": "ravi@brightline-office.example",
+    "phone": "+1 614 555 0142"
+   },
+   "ap_contact": {
+    "name": "Meera Das",
+    "email": "ap@brightline-office.example",
+    "phone": "+1 614 555 0143"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "US",
+   "tax_id_type": "EIN",
+   "tax_id": "84-1234567",
+   "secondary_ids": {},
+   "tax_classification": "LLC",
+   "form_type": "W9",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "US",
+   "currency": "USD",
+   "account_holder_name": "Brightline Office Supply LLC",
+   "bank_name": "Synthetic National Bank",
+   "account_number": "000123456789",
+   "routing_number": "011000015",
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": null,
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "W9",
+    "filename": "w9.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "APPROVED",
+  "awaiting": [],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.2,
+     "points": 5.0,
+     "drivers": [
+      "spend_usd=18000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": [
+      "country=US"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.1,
+     "points": 1.0,
+     "drivers": [
+      "category=OFFICE_SUPPLIES"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 7.5,
+   "band": "LOW"
+  },
+  "reason_codes": [],
+  "blocking_finding_ids": [],
+  "required_actions": [],
+  "approval_route": [],
+  "counterfactuals": [],
+  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "61e3feb9ec3b1b8fc047ecff981036df2df197352c1cd7626bd8ece3f0296ba0"
+ },
+ "findings": []
+}

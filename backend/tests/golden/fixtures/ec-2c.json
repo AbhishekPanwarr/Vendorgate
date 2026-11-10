@@ -1,0 +1,237 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 30000,
+    "currency": "USD"
+   },
+   "category": "CONSULTING",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Nimbus Technologies Pvt Ltd",
+   "trading_name": null,
+   "entity_type": "PVT_LTD",
+   "country": "IN",
+   "incorporation_date": "2019-03-10",
+   "registered_address": {
+    "line1": "44 Residency Rd",
+    "line2": null,
+    "city": "Bengaluru",
+    "region": "Karnataka",
+    "postal_code": "560025",
+    "country": "IN"
+   },
+   "remit_to_address": null,
+   "website": "https://nimbus-tech.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@nimbus-tech.example",
+    "phone": "+91 98765 43210"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@nimbus-tech.example",
+    "phone": "+91 98765 43211"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "IN",
+   "tax_id_type": "GSTIN",
+   "tax_id": "29AAPCA1234F1ZR",
+   "secondary_ids": {
+    "PAN": "BBBBB1111B"
+   },
+   "tax_classification": "PVT_LTD",
+   "form_type": "GST_CERT",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "IN",
+   "currency": "INR",
+   "account_holder_name": "Nimbus Technologies Pvt Ltd",
+   "bank_name": "Test Bank",
+   "account_number": "123456789012",
+   "routing_number": null,
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": "HDFC0001234",
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "GST_CERT",
+    "filename": "gst.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "inc.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.5,
+     "points": 12.5,
+     "drivers": [
+      "spend_usd=30000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.25,
+     "points": 5.0,
+     "drivers": [
+      "country=IN"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.4,
+     "points": 6.0,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.4,
+     "points": 4.0,
+     "drivers": [
+      "category=CONSULTING"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 27.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "GSTIN_PAN_MISMATCH"
+  ],
+  "blocking_finding_ids": [
+   "C-TAX-04"
+  ],
+  "required_actions": [
+   {
+    "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.tax_id",
+     "tax.secondary_ids.PAN"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [],
+  "counterfactuals": [
+   {
+    "fix_set": [
+     "PROVIDE_TAX_ID"
+    ],
+    "status": "APPROVED",
+    "tier": "LOW",
+    "score": 0.0,
+    "awaiting": [],
+    "note": "assumes no new issues are found",
+    "score_delta": null
+   }
+  ],
+  "policy_version": "bb54745c9a7900fd14d18794dca8b1f55e52a2cf7dfd24455ad77737fcbd4b89",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "3b3930363339c1ff92c8b977ecad7d316bf00282306cc2694ad948e816ad5c52"
+ },
+ "findings": [
+  {
+   "check_id": "C-TAX-04",
+   "stage": "S3",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "GSTIN_PAN_MISMATCH",
+   "title": "GSTIN-embedded PAN differs from declared PAN",
+   "detail": "GSTIN chars 3-12 are 'AAPCA1234F' but declared PAN is 'BBBBB1111B'.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.tax_id",
+     "summary": "claim tax.tax_id",
+     "data": {}
+    },
+    {
+     "kind": "claim",
+     "ref": "tax.secondary_ids.PAN",
+     "summary": "claim tax.secondary_ids.PAN",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.tax_id",
+     "tax.secondary_ids.PAN"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.tax_id",
+    "tax.secondary_ids.PAN"
+   ],
+   "fingerprint": "a5410f0cc39a82b5359acc98571d7cc60f8aef58e3a604e3524ad8ca30a445b8",
+   "score_tags": {
+    "BANK_ID": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useParams, Link } from "react-router-dom";
+import CasePage from "./Case";
+import Dashboard from "./Dashboard";
 
 function Submit() {
   const nav = useNavigate();
@@ -85,8 +87,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Submit />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/submit" element={<Submit />} />
         <Route path="/runs/:runId" element={<Run />} />
+        <Route path="/cases/:caseId" element={<CasePage />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>

@@ -9,4 +9,4 @@ requirements:
     - {doc_type: W9, when: "tax.form_type == 'W9'", fix: UPLOAD_W9}
     - {any_of: [BANK_LETTER, VOIDED_CHEQUE], when: "true", fix: UPLOAD_BANK_PROOF}
     - {doc_type: COI, when: "category in ['LOGISTICS','CONSTRUCTION']", fix: UPLOAD_COI}
-    - {doc_type: INCORP_CERT, when: "entity_type != 'SOLE_PROP'", fix: UPLOAD_INCORP_CERT}
+    - {doc_type: INCORP_CERT, when: "entity_type != 'SOLE_PROP' and provisional_tier != 'LOW'", fix: UPLOAD_INCORP_CERT}
