@@ -84,3 +84,38 @@
 Hand-crafted JSONL fixtures keyed by stable business key (tax_id, GSTIN, ...),
 NOT by request hash. Phase 5 datagen will replace with generated fixtures using
 the same schema. Mock adapter interface must not change.
+
+## Phase 2 Evidence
+
+- HP-1 APPROVED/LOW/7.5, HP-2 PENDING/LOW/37.5, HP-3 PENDING/LOW/30.5 — all
+  scores unchanged from Phase 1 (only policy_version/repro hashes + new PASS
+  findings in diffs).
+- HP-3-HIGH PENDING/HIGH/77.5, route [CONTROLLER, COMPLIANCE].
+  (OQ-P1-1 default b kept: base HP-3 stays LOW_GATED.)
+- EC-3a REJECTED/BLOCKED, BANK_SHARED_ACROSS_VENDORS (CRITICAL).
+- EC-3b PENDING, BANK_CHANGE_REQUIRES_CALLBACK + CALLBACK_REQUIRED;
+  request-number callback → CALLBACK_NOT_INDEPENDENT; vendor-master number
+  (60d old) → ok + cleared list.
+- EC-4a decoy → no sanctions finding, APPROVED. EC-4b → SANCTIONS_MATCH,
+  REJECTED/BLOCKED, vendor email neutral ("compliance review").
+- EC-4d (registry TIMEOUT fault) → VERIFIER_UNAVAILABLE, PENDING(INTERNAL).
+- Chaos: irs/bank TIMEOUT+ERROR → PENDING(INTERNAL), never APPROVED;
+  fault cleared → rerun APPROVED.
+- Message checker: exact-once, extra-item, forbidden-term, resubmit-link,
+  350-word properties green. Forbidden-term scan over EC-1/EC-3a/EC-4b
+  vendor emails: 0 hits.
+- Coverage: validators 94.6%, matching 97.8%, risk 98.8%, decision 93.1%,
+  adapters 94.3%, network 97.4%, comms 98.2%, screening 95.2% (all ≥ 90).
+- Full suite: 142 passed, 8 skipped (e2e; 8/8 pass with VG_BASE_URL set).
+  mypy strict clean (70 files); ruff check + format clean.
+- openapi.json: +3 routes (approvals queue, messages, retry-verification);
+  callback route behavior-only change; SPA fallback excluded via
+  include_in_schema=False.
+- Screenshots: docs/evidence/shot-ec3a-network.png,
+  shot-ec3b-cb-bad.png, shot-ec3b-cb-good.png, shot-ec4b-msg.png,
+  shot-approvals.png.
+- Route display change (decisions.md note): approval route now shows whenever
+  INTERNAL is awaiting, even with vendor items still open (approvers act after
+  vendor fixes). Spec §9.S10 had `and not blocking`; gate P2-G4 requires the
+  dual route visible on HP-3-HIGH.
+- Phase 0 stays RED (Render pending); unaffected by Phase 2.
