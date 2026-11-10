@@ -156,3 +156,31 @@ letter canonicalizing into an ASCII digit) can pass the substring half of
 `grounding_ok`. Corpus docs are Latin-script; partial_ratio + substring holds
 for realistic inputs. Non-Latin scripts are already L-03 (name matching
 limits). No change.
+
+## Phase 3 Evidence
+
+- HP-1/HP-2/HP-3 scores unchanged (7.5/37.5/30.5); HP-3-HIGH unchanged (77.5).
+  New PASS findings (C-DOC-*, C-NAME-01, C-VER-*) in goldens, no score impact.
+- EC-1-resubmit APPROVED/LOW/9.75, WARN NAME_VARIANT_EXPLAINED, K3 cited.
+- EC-4c PENDING with awaiting VENDOR+INTERNAL (DOC_EXPIRED + SANCTIONS_REVIEW).
+- EC-5 (hidden + text variants) DOC_INJECTION_SUSPECTED, PENDING(INTERNAL).
+- EC-6 HOMOGLYPH_SUSPECT (raw pre-unidecode check). EC-16 DOC_UNREADABLE.
+- Asymmetric authority T1-T6 green; no ctx.llm in san/dup/routing.
+- Chaos: LLM off/budget/miss paths covered; adapter+LLM down still completes.
+- Replay determinism 5x5 green. Grounding precision on committed cache: 100%
+  of filled fields carry verbatim quotes (E11-style check in component test).
+- Injection scan: hidden tiny-text + visible instruction both fire; clean PDFs
+  silent. Corpus: 14 hand-authored PDFs, all classify correctly.
+- Coverage (10 pkgs): validators 94.6, matching 97.8, risk 98.8, decision
+  92.7, adapters 94.3, network 97.4, comms 98.2, screening 95.2, ingest 94.4,
+  llm 90.3 (all ≥ 90).
+- Full suite: 185 passed, 10 skipped (e2e; 10/10 pass with VG_BASE_URL set).
+  mypy strict clean (91 files); ruff clean.
+- Screenshots: docs/evidence/shot-ec1-resubmit.png (APPROVED 9.75 + SAME
+  badge), shot-ec5.png (PENDING + injection).
+- ADRs 0010 (Meta Model API pinning, max_tokens ≥ 2048) and 0011 (injection
+  patterns v1.0). Live LLM PoC ≈ 7 calls total (GST+bank recorded; W9
+  full-schema over-caution deferred as OQ; rest hand-authored, grounded).
+- Known limitation: unidecode collisions on exotic unicode can pass substring
+  grounding (Latin-script corpus unaffected; see non-Latin L-03).
+- Phase 0 stays RED (Render pending); Phase 1/2 gates unaffected.
