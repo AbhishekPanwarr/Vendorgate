@@ -162,9 +162,9 @@
   ],
   "approval_route": [],
   "counterfactuals": [],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "eb48dfb0be0975a1d3012446eb25f1432c186866d83b9878a868114f5820e71e"
+  "reproducibility_hash": "6e99415ff47975e3a2dc74cbd61a07d85c6f2a6bd400e72dcd78ee45aa328678"
  },
  "findings": [
   {
@@ -192,7 +192,7 @@
    "reads": [
     "bank.account_number"
    ],
-   "fingerprint": "b34b27980b73c04e52a037a0151ff8825749b27761952db6f9ade971d1c486a6",
+   "fingerprint": "2839d6489072e51f06b957a08bd9975d9f8f3e2404cee1a1698f8b5cd9dcbdc0",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -229,7 +229,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "407de532b5714947da7b9d86e118880cab05edf58e77a73aeca44e708597ce87",
+   "fingerprint": "2c890ff456b4fae9dbf00a37735874722d85a394ce87e1cfc93ac1da80afcfd3",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -248,7 +248,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call da88ad9197b7",
+     "summary": "bank fixture bank-helios",
      "data": {}
     }
    ],
@@ -257,7 +257,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "939e386671aed5a25d4ed1e835dbf2cb53d6f3567dbad5a72d7fcefb3485d858",
+   "fingerprint": "528bc74e5ddd22773225a348b2dfd1f9149d09a51047fb3a949ed14e4a7ea874",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

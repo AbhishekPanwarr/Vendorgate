@@ -63,6 +63,74 @@ def create_app() -> FastAPI:
             repo.STORE["idempotency"][idempotency_key] = out
         return out
 
+    @app.post("/api/v1/cases/{case_id}/resubmit", status_code=202)
+    async def resubmit(case_id: str, request: Request,  # noqa: ANN201
+                       idempotency_key: str | None = Header(default=None),
+                       if_match: str | None = Header(default=None, alias="If-Match")):
+        from backend.app.core.hashing import canonical_json
+        from backend.app.core.hashing import sha256_hex
+        from backend.app.persistence.store import append_case_event
+        from backend.app.pipeline.pipeline import run_full
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        if case.get("status") != "PENDING":
+            return JSONResponse(status_code=403,
+                                content={"type": "NOT_RESUBMITTABLE",
+                                         "status": case.get("status")})
+        current = int(case.get("current_version", 1))
+        if idempotency_key and idempotency_key in repo.STORE["idempotency"]:
+            return JSONResponse(
+                status_code=202,
+                content=repo.STORE["idempotency"][idempotency_key],
+                headers={"Idempotent-Replayed": "true"},
+            )
+        if if_match is not None and if_match != str(current):
+            return JSONResponse(status_code=412,
+                                content={"type": "VERSION_MISMATCH",
+                                         "current_version": current})
+        form = await request.form()
+        raw = form.get("payload", "{}")
+        try:
+            payload = json.loads(raw) if isinstance(raw, str) else {}
+            sub = VendorSubmission.model_validate(payload)
+            payload = sub.model_dump(mode="json")
+        except Exception:
+            return JSONResponse(
+                status_code=422,
+                content={"type": "validation-error", "title": "Invalid submission"},
+                headers={"content-type": "application/problem+json"},
+            )
+        new_hash = sha256_hex(canonical_json(payload))
+        from backend.app.persistence.store import session as open_db_session
+
+        with open_db_session() as s:
+            from backend.app.persistence import models as _m
+
+            row = (s.query(_m.SubmissionVersion)
+                   .filter_by(case_id=case_id, version=current).first())
+            cur_hash = row.payload_hash if row else ""
+        if new_hash == cur_hash:
+            return JSONResponse(status_code=409,
+                                content={"type": "NO_CHANGES",
+                                         "current_version": current})
+        files: dict[str, tuple[str, bytes]] = {}
+        for key, item in form.items():
+            if key.startswith("file:") and hasattr(item, "read"):
+                data = await item.read()
+                files[key[5:]] = (item.filename or key[5:], bytes(data))
+        result = await run_full(payload, files=files or None, version=current + 1,
+                                case_id=case_id)
+        for code in result["decision"].get("reason_codes", []):
+            append_case_event(case_id, "attempt.recorded",
+                              {"reason_code": code, "version": current + 1})
+        out = {"case_id": case_id, "run_id": result["run_id"],
+               "new_version": current + 1}
+        if idempotency_key:
+            repo.STORE["idempotency"][idempotency_key] = out
+        return out
+
     @app.get("/api/v1/runs/{run_id}")
     def get_run(run_id: str):  # noqa: ANN201
         if run_id not in repo.STORE["runs"]:

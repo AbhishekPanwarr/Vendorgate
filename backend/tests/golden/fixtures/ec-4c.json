@@ -205,19 +205,6 @@
   "counterfactuals": [
    {
     "fix_set": [
-     "UPLOAD_COI"
-    ],
-    "status": "PENDING",
-    "tier": "MEDIUM",
-    "score": 55.5,
-    "awaiting": [
-     "VENDOR"
-    ],
-    "note": "still blocked by BANK_ACCOUNT_NOT_FOUND, SANCTIONS_REVIEW, TAX_COUNTRY_MISMATCH, UPLOAD_INCORP_CERT",
-    "score_delta": null
-   },
-   {
-    "fix_set": [
      "CONFIRM_TAX_COUNTRY"
     ],
     "status": "PENDING",
@@ -231,19 +218,6 @@
    },
    {
     "fix_set": [
-     "UPLOAD_INCORP_CERT"
-    ],
-    "status": "PENDING",
-    "tier": "MEDIUM",
-    "score": 55.5,
-    "awaiting": [
-     "VENDOR"
-    ],
-    "note": "still blocked by BANK_ACCOUNT_NOT_FOUND, DOC_EXPIRED, SANCTIONS_REVIEW, TAX_COUNTRY_MISMATCH",
-    "score_delta": null
-   },
-   {
-    "fix_set": [
      "PROVIDE_BANK_PROOF"
     ],
     "status": "PENDING",
@@ -253,6 +227,32 @@
      "VENDOR"
     ],
     "note": "still blocked by DOC_EXPIRED, SANCTIONS_REVIEW, TAX_COUNTRY_MISMATCH, UPLOAD_INCORP_CERT",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_COI"
+    ],
+    "status": "PENDING",
+    "tier": "MEDIUM",
+    "score": 55.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by BANK_ACCOUNT_NOT_FOUND, SANCTIONS_REVIEW, TAX_COUNTRY_MISMATCH, UPLOAD_INCORP_CERT",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_INCORP_CERT"
+    ],
+    "status": "PENDING",
+    "tier": "MEDIUM",
+    "score": 55.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by BANK_ACCOUNT_NOT_FOUND, DOC_EXPIRED, SANCTIONS_REVIEW, TAX_COUNTRY_MISMATCH",
     "score_delta": null
    }
   ],
@@ -289,7 +289,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "95b4dca273656b55205baae83555acb054f249aee2be1f181a448b3a5c79ee79",
+   "fingerprint": "623260cd8520f4241112fe881f0728c4fa14e31d0fcca000007a63812fe86079",
    "score_tags": {
     "DOCS": 0.5
    },
@@ -328,7 +328,7 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "fc8fad88e720ae996e2e6ca7554328977c1e9e9b11d8600023ce30262f870482",
+   "fingerprint": "33dfabf687476acf78182ca737fda81805654922d062fccf49b0b1cfd4a8d7a6",
    "score_tags": {
     "GEO": 0.5
    },
@@ -349,7 +349,7 @@
     {
      "kind": "adapter",
      "ref": "vies",
-     "summary": "vies call f57fbc5c1c18",
+     "summary": "vies fixture vies-gb",
      "data": {}
     }
    ],
@@ -358,10 +358,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "a7b2d0baece40efd4e78a0cddad9f3601b02c87d6da1ef315029f85e1832c774",
+   "fingerprint": "09a055e23992699d649014d50ef3df25d64fed28a6ddb4d5303b1ca7ea26ac12",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-04",
@@ -395,7 +395,7 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "0f79d35214f93a0ecfac69fb714463918ddb26fc2f443537831e7be6db91f5e9",
+   "fingerprint": "34bbe6b1a514230268f3894d2d2a45f59246488d72b95b74ab5984ba106d7a10",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -432,12 +432,12 @@
    "reads": [
     "bank.account_number"
    ],
-   "fingerprint": "f21428164df3a07f9fe2765757a809bac905dec61340b16406915276117c0bba",
+   "fingerprint": "4ecdbd36f5dbff08c175c97ea8f2214a1a4a1c83fc4eecd4018bd47e0ed50d4c",
    "score_tags": {
     "BANK_ID": 0.5
    },
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-GEO-01",
@@ -483,7 +483,7 @@
     "GEO": 0.3
    },
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   }
  ]
 }

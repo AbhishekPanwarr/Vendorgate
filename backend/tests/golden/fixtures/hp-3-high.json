@@ -253,19 +253,6 @@
    },
    {
     "fix_set": [
-     "UPLOAD_COI"
-    ],
-    "status": "PENDING",
-    "tier": "HIGH",
-    "score": 77.5,
-    "awaiting": [
-     "VENDOR"
-    ],
-    "note": "still blocked by ADVERSE_MEDIA_REVIEW, BANK_COUNTRY_MISMATCH, CALLBACK_REQUIRED, MISSING_CONDITIONAL, PEP_REVIEW, SANCTIONS_REVIEW",
-    "score_delta": null
-   },
-   {
-    "fix_set": [
      "PROVIDE_JUSTIFICATION"
     ],
     "status": "PENDING",
@@ -276,11 +263,24 @@
     ],
     "note": "still blocked by ADVERSE_MEDIA_REVIEW, BANK_COUNTRY_MISMATCH, CALLBACK_REQUIRED, MISSING_DOC, PEP_REVIEW, SANCTIONS_REVIEW",
     "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_COI"
+    ],
+    "status": "PENDING",
+    "tier": "HIGH",
+    "score": 77.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by ADVERSE_MEDIA_REVIEW, BANK_COUNTRY_MISMATCH, CALLBACK_REQUIRED, MISSING_CONDITIONAL, PEP_REVIEW, SANCTIONS_REVIEW",
+    "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "c4eebff12c48d5c52ef0b126b8bd82fd3a62671057deb6405d13bced9b550321"
+  "reproducibility_hash": "ab13cb5d25a20c410ff0b07cb20dccef5ba9ca2fc2ee5f051773093eb87f4ce6"
  },
  "findings": [
   {
@@ -315,11 +315,11 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "42d7852b42414fd733fa45d03379346c3efb0818f71812c9e9a2e74f2c7e97cb",
+   "fingerprint": "2c5d5c3c063e7e49587c8f1e1749584ea5e8be90c69fe7baf945f88989d1f91a",
    "score_tags": {
     "GEO": 0.5
    },
-   "duration_ms": 7,
+   "duration_ms": 8,
    "cached": false
   },
   {
@@ -354,11 +354,11 @@
    "reads": [
     "company.owners.0.name"
    ],
-   "fingerprint": "96afe60ac5a8027773641ae743f190212ad1c5dd98cdd6d858fe948b2fb3cd7f",
+   "fingerprint": "724a8e272c7a75531b1445b4d4ff3544baa486e9f40b8e20c2ba9b077ea20fb1",
    "score_tags": {
     "GEO": 0.3
    },
-   "duration_ms": 2,
+   "duration_ms": 3,
    "cached": false
   },
   {
@@ -393,7 +393,7 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "a3a35c7a210c91dec48f5be7d8b926d101462f6d6354082cefe97e2dcccfd5d8",
+   "fingerprint": "baf7c71141a6f9be9e6a2597315856d9a90aefdc0302c7b2eeb57d6df23fb0cc",
    "score_tags": {
     "REGISTRY_MEDIA": 1.0
    },
@@ -432,7 +432,7 @@
    "reads": [
     "declarations.bank_country_justification"
    ],
-   "fingerprint": "088f64328f31736f4dce52b48fddecebf9ab48be7508e51dc8d7d111954c312c",
+   "fingerprint": "85671a38fd6fe84cf869854ecb68337b0211787d051065d76b39867bc61279df",
    "score_tags": {
     "DOCS": 0.1
    },
@@ -467,7 +467,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "070eb7b9bdcee5a55c66363672313ad005e166f0c0b532899fb85cdddd5b2143",
+   "fingerprint": "bcd61836df6624af5ea38344f088fe7db1922cad3c19331fa47efa05e90a2b56",
    "score_tags": {
     "DOCS": 0.5
    },
@@ -488,7 +488,7 @@
     {
      "kind": "adapter",
      "ref": "vies",
-     "summary": "vies call d22b5d3ac321",
+     "summary": "vies fixture vies-rhein",
      "data": {}
     }
    ],
@@ -497,7 +497,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "de3cfa9a91ea005c5aeb92fd3c3d0f78e4ffea7cb1647cf3259497dc9891b5d5",
+   "fingerprint": "75b40448cae21237ab1af5f0a077a0b924be20b7603b09947c5d689f669c4cc6",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -516,7 +516,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call a7979fea0932",
+     "summary": "registry fixture reg-rhein",
      "data": {}
     }
    ],
@@ -525,7 +525,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "543ebb2bc16562ec2e58264a3984edd44aa4dbd9ebf7c1e6d67e63962909108c",
+   "fingerprint": "602798290da8a46ccc029ebc7c643b9c5434c7356455ab455d7ddaa6701653b2",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -544,7 +544,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call 98ac04640cc2",
+     "summary": "bank fixture bank-rhein-ch",
      "data": {}
     }
    ],
@@ -553,7 +553,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "d3d5f48985dfff4a8b96bc091143ae3cefb75a65bd3cb41b97b74ffce2a855a7",
+   "fingerprint": "bb5ea5d9ff7ff90c75075d7453b3d3fc08c74c7b28be9799756bee25965b9c69",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -597,7 +597,7 @@
     "company.country",
     "bank.country"
    ],
-   "fingerprint": "4320e0c1f0d93479043a6f61d1f2910655429248750249daac64cc4af1de79f4",
+   "fingerprint": "c5ce60ee989e3bfe8b9337f373f8b17c4d6b81158646ae0b23e38a220bd11f81",
    "score_tags": {
     "GEO": 0.3
    },
@@ -636,7 +636,7 @@
    "reads": [
     "bank.country"
    ],
-   "fingerprint": "c866b81a79867502a36da857768dde5bed54256c45f17f32961aa80ea2695e7d",
+   "fingerprint": "2c992af23e2f8004e13a7c938d6d93657495e77f06a09295e9419076b6310e42",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

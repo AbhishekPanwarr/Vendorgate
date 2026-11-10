@@ -184,7 +184,7 @@
     {
      "kind": "adapter",
      "ref": "irs",
-     "summary": "irs call f78a517d2e5f",
+     "summary": "irs fixture irs-ec1",
      "data": {}
     }
    ],
@@ -193,10 +193,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "36d6cf3d2ab65b770565c16c5cd80931af8c43eed0ea989c4371e8450bc5ff3e",
+   "fingerprint": "cac45d3ca6504d258655b9abd5dd8510141a587edddf56d76b18fe0bbdaa5c6b",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-05",
@@ -212,7 +212,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call db318c0d2125",
+     "summary": "bank fixture bank-hp1",
      "data": {}
     }
    ],
@@ -221,10 +221,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "060cb4be721746a30f531839e89822532cf7c9639ddd5dc33ff94cbb874b01b6",
+   "fingerprint": "712e73761e9d5497cc9c0cb269f55647e00b53ecfca468c7aeb602822df5dbfd",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-NAME-02",
@@ -286,8 +286,8 @@
    "score_tags": {
     "BANK_ID": 0.15
    },
-   "duration_ms": 4,
-   "cached": false
+   "duration_ms": 2,
+   "cached": true
   }
  ]
 }

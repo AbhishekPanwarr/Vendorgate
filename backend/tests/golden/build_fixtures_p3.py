@@ -95,28 +95,35 @@ CASES = {
     "ec-6": ec6(),
     "ec-16": ec16(),
 }
-for name, (payload, files) in CASES.items():
-    r = asyncio.run(run_full(payload, files=files))
-    d = r["decision"]
-    print(
-        name,
-        d["status"],
-        d["tier"],
-        d["score"]["total"],
-        d["reason_codes"],
-        "| awaiting:",
-        d["awaiting"],
-    )
-    import base64
 
-    json.dump(
-        {
-            "payload": payload,
-            "files": {k: [fn, base64.b64encode(data).decode()] for k, (fn, data) in files.items()},
-            "decision": d,
-            "findings": r["findings"],
-        },
-        open(f"backend/tests/golden/fixtures/{name}.json", "w"),
-        indent=1,
-    )
-print("phase3 fixtures written")
+
+def main() -> None:
+    for name, (payload, files) in CASES.items():
+        r = asyncio.run(run_full(payload, files=files))
+        d = r["decision"]
+        print(
+            name,
+            d["status"],
+            d["tier"],
+            d["score"]["total"],
+            d["reason_codes"],
+            "| awaiting:",
+            d["awaiting"],
+        )
+        import base64
+
+        json.dump(
+            {
+                "payload": payload,
+                "files": {k: [fn, base64.b64encode(data).decode()] for k, (fn, data) in files.items()},
+                "decision": d,
+                "findings": r["findings"],
+            },
+            open(f"backend/tests/golden/fixtures/{name}.json", "w"),
+            indent=1,
+        )
+    print("phase3 fixtures written")
+
+
+if __name__ == "__main__":
+    main()

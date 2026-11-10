@@ -159,9 +159,9 @@
    "AP_ANALYST"
   ],
   "counterfactuals": [],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "da27174872a2e25ee8c04d4f95ce31bbca6d587563d9da61734a46bf7ccb20f9"
+  "reproducibility_hash": "654994114393216647514be1b6af51769fbeded7d0fb1b16e70ca07ccb9dc56a"
  },
  "findings": [
   {
@@ -189,12 +189,12 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "e1355b4ec08a908fe194f300c154844d04d975ae79f10af31f1633d1e1fdd18a",
+   "fingerprint": "651ee86a0f0dd73a22092515e1df62d02589bb3f921cbe01f483910df819bb84",
    "score_tags": {
     "GEO": 0.1
    },
-   "duration_ms": 7,
-   "cached": false
+   "duration_ms": 8,
+   "cached": true
   },
   {
    "check_id": "C-VER-03",
@@ -210,7 +210,7 @@
     {
      "kind": "adapter",
      "ref": "vies",
-     "summary": "vies call b4c1ff11cb16",
+     "summary": "vies fixture vies-gb",
      "data": {}
     }
    ],
@@ -219,10 +219,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "acec2fa16cd9acc93857df1380df43245646ba4385d5d321e9239d3452a6c207",
+   "fingerprint": "09a055e23992699d649014d50ef3df25d64fed28a6ddb4d5303b1ca7ea26ac12",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-04",
@@ -247,7 +247,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "c329570270848d6bff73feb3899ebd97bf7db96f8043187d0cdc9b940f005d4f",
+   "fingerprint": "0896563d68215b42380563863f37e6c5414086884fd70077ff500a30dfd19c6f",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -266,7 +266,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call 755fb049b0d0",
+     "summary": "bank fixture bank-ec3b-new",
      "data": {}
     }
    ],
@@ -275,10 +275,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "e2a6de5b39cb4ee7b8e959adec50109688d70560da6b15f8c9c75adeb0a78311",
+   "fingerprint": "ad7fc8c0a7798ffa93a5c94a485c013ceebc83f671608cfe3798e34896affbba",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   }
  ]
 }

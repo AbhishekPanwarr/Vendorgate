@@ -1,11 +1,21 @@
-"""In-memory case store (Phase 1 skeleton persistence; DB tables via Alembic)."""
+"""Persistence facade: SQLite-backed store (D-4.0).
+
+Same STORE partitions as before (cases, runs, events, idempotency,
+callbacks, docs) so call sites are unchanged, plus durable writes of
+submission versions, case events, messages, and check-cache rows that the
+resubmit/delta/scheduler machinery reads.
+"""
 
 from typing import Any
 
 import time
 import uuid
 
-STORE: dict[str, dict[str, Any]] = {"cases": {}, "runs": {}, "events": {}, "idempotency": {}}
+from backend.app.persistence import models
+from backend.app.persistence.store import SQLiteStore
+from backend.app.persistence.store import session
+
+STORE = SQLiteStore()
 
 
 def create_submission_stub(payload: dict[str, Any], idem_key: str | None = None) -> dict[str, str]:
@@ -51,8 +61,11 @@ def create_submission_stub(payload: dict[str, Any], idem_key: str | None = None)
 
 def reset_store() -> float:
     t0 = time.time()
-    for k in STORE:
-        STORE[k].clear()
+    with session() as s:
+        for table in reversed(models.Base.metadata.sorted_tables):
+            if table.name == "alembic_version":
+                continue
+            s.execute(table.delete())
     return (time.time() - t0) * 1000
 
 
@@ -88,6 +101,7 @@ def save_run(result: dict[str, Any]) -> None:
         "score": score.get("total"),
         "reason_codes": decision.get("reason_codes"),
         "vendor_id": result.get("vendor_id"),
+        "current_version": int(result.get("version", 1)),
     }
     seq_events: list[dict[str, Any]] = []
     seq = 0
@@ -97,9 +111,59 @@ def save_run(result: dict[str, Any]) -> None:
         seq += 1
         seq_events.append({"seq": seq, "type": item.get("type"), "data": item.get("payload")})
     seq_events.append(
-        {"seq": seq + 1, "type": "decision.made", "data": {"status": decision.get("status")}}
+        {"seq": seq + 1, "type": "decision.made",
+         "data": {"status": decision.get("status")}}
     )
     seq_events.append({"seq": seq + 2, "type": "run.completed", "data": {}})
     STORE["events"][run_id] = seq_events
     files = result.get("files", {})
     STORE.setdefault("docs", {})[run_id] = files
+    # durable normalized rows for resubmit/delta/scheduler queries
+    _write_submission_version(result)
+    _write_case_events(case_id, audit)
+    _write_message(case_id, run_id, result.get("message", {}), decision)
+
+
+def _write_submission_version(result: dict[str, Any]) -> None:
+    from backend.app.core.hashing import canonical_json
+    from backend.app.core.hashing import sha256_hex
+
+    payload = _as_dict(result.get("payload", {}))
+    version = int(result.get("version", 1))
+    with session() as s:
+        existing = (
+            s.query(models.SubmissionVersion)
+            .filter_by(case_id=str(result["case_id"]), version=version)
+            .first()
+        )
+        if existing is None:
+            s.add(models.SubmissionVersion(
+                case_id=str(result["case_id"]), version=version, payload=payload,
+                payload_hash=sha256_hex(canonical_json(payload)),
+                created_by=str(result.get("requester", "system"))))
+
+
+def _write_case_events(case_id: str, audit: Any) -> None:
+    with session() as s:
+        for e in audit if isinstance(audit, list) else []:
+            item = _as_dict(e)
+            s.add(models.CaseEvent(
+                case_id=case_id, seq=int(item.get("seq", 0)),
+                actor=str(item.get("actor", "system")), type=str(item.get("type", "")),
+                payload=_as_dict(item.get("payload")),
+                prev_hash=str(item.get("prev_hash", "GENESIS")),
+                entry_hash=str(item.get("entry_hash", ""))))
+
+
+def _write_message(case_id: str, run_id: str, message: Any, decision: dict[str, Any]) -> None:
+    msg = _as_dict(message)
+    if not msg:
+        return
+    status = str(decision.get("status", "PENDING"))
+    kind = {"APPROVED": "APPROVED", "REJECTED": "REJECTED"}.get(status, "PENDING")
+    with session() as s:
+        s.add(models.Message(
+            case_id=case_id, run_id=run_id, audience="VENDOR", kind=kind,
+            subject=str(msg.get("subject", ""))[:512],
+            body=str(msg.get("body", ""))[:8192],
+            items={"items": msg.get("items", [])}))

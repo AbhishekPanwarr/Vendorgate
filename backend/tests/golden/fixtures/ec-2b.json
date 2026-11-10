@@ -180,19 +180,6 @@
   "counterfactuals": [
    {
     "fix_set": [
-     "PROVIDE_TAX_ID"
-    ],
-    "status": "PENDING",
-    "tier": "LOW",
-    "score": 23.0,
-    "awaiting": [
-     "VENDOR"
-    ],
-    "note": "still blocked by GSTIN_NOT_FOUND",
-    "score_delta": null
-   },
-   {
-    "fix_set": [
      "PROVIDE_GSTIN"
     ],
     "status": "PENDING",
@@ -203,11 +190,24 @@
     ],
     "note": "still blocked by TAX_CHECKSUM_INVALID",
     "score_delta": null
+   },
+   {
+    "fix_set": [
+     "PROVIDE_TAX_ID"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by GSTIN_NOT_FOUND",
+    "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "e6143f384ee87c6ab162110097d8475ad19289c533c102484ca5544713de784c"
+  "reproducibility_hash": "db9b78d025cbc36d3b3e36ded23b5d2373721e8d5b345ac8e411c76bf3452426"
  },
  "findings": [
   {
@@ -242,7 +242,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "87407bed4dd2ff1b379220f20eea04cc1151085203d07f895c64d3bf74cc16d6",
+   "fingerprint": "381a333c63bb4e401a3c85ec21244e07ac141e709b60a46c832a1d08922e5491",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -279,7 +279,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "6d4a9cc3d57c52716836114ac5b71baa8d5828f70d9df14756147d9d2f8b86a9",
+   "fingerprint": "7ba70ccfb94d952f19268d67593e0abf8413c685544db3260c1c8b2d57fa1fb2",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -298,7 +298,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call db7e37a0dd52",
+     "summary": "registry fixture reg-nimbus",
      "data": {}
     }
    ],
@@ -307,10 +307,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "fingerprint": "6531c357fd88b6ba8bb0a2952423a8239063034770a78d6e715bc53b5d728465",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-05",
@@ -326,7 +326,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call 51ce9aff6e35",
+     "summary": "bank fixture bank-hp2",
      "data": {}
     }
    ],
@@ -335,10 +335,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
+   "fingerprint": "f3682ce432dacd5d7289e05657f02ae09e328e14eda5d348a668b3167c64ad7c",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   }
  ]
 }

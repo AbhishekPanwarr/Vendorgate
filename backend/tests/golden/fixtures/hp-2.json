@@ -158,9 +158,9 @@
    "AP_ANALYST"
   ],
   "counterfactuals": [],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "bea770f08417f7813d34ae9df17287e5262e54c5c468bdc020b241a37ec6fa77"
+  "reproducibility_hash": "30c44c5186e09f86e92b8f716ea316d0f99dc70155635946a62634be3797707f"
  },
  "findings": [
   {
@@ -177,7 +177,7 @@
     {
      "kind": "adapter",
      "ref": "gst",
-     "summary": "gst call 263d4e389fca",
+     "summary": "gst fixture gst-hp2",
      "data": {}
     }
    ],
@@ -186,7 +186,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "18c9133434115452d24d3523182d0abb09775df59fab85eeec4aba27a4c954d6",
+   "fingerprint": "07035b346a856a6b76c6a0d1501585b40586d5cd3d641787f11e0f3d3960fd3e",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -205,7 +205,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call 7b80707e46fb",
+     "summary": "registry fixture reg-nimbus",
      "data": {}
     }
    ],
@@ -214,7 +214,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "fingerprint": "6531c357fd88b6ba8bb0a2952423a8239063034770a78d6e715bc53b5d728465",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -233,7 +233,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call 8ebee85bf078",
+     "summary": "bank fixture bank-hp2",
      "data": {}
     }
    ],
@@ -242,7 +242,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
+   "fingerprint": "f3682ce432dacd5d7289e05657f02ae09e328e14eda5d348a668b3167c64ad7c",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -272,7 +272,7 @@
    "reads": [
     "company.incorporation_date"
    ],
-   "fingerprint": "5abd2f1096a761833e186f32f39fc350ab72129ed43084975df927cbd85a2ade",
+   "fingerprint": "59fa2da511c305ede7f877abd2050fccfcbb31d674436a191daef0862a8c0f16",
    "score_tags": {
     "REGISTRY_MEDIA": 0.2
    },

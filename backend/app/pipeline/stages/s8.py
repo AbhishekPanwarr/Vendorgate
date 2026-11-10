@@ -4,6 +4,25 @@ from typing import Any
 
 from backend.app.decision.adjudication import apply_adjudication
 from backend.app.decision.adjudication import corroborator_evidence
+from backend.app.domain.models import Evidence
+
+
+def _k3(ctx: Any, variant: str, cfg: dict) -> list[dict[str, str]]:
+    """K3: official registration doc whose grounded legal name ~= variant."""
+    from backend.app.matching.name_compare import compare_names as _cmp
+    from backend.app.matching.name_compare import parse_name as _parse
+
+    out: list[dict[str, str]] = []
+    for path, claim in ctx.claims.items():
+        if not path.startswith("doc:"):
+            continue
+        if path.split(".")[-1] not in ("legal_name", "business_name"):
+            continue
+        if not claim.value:
+            continue
+        if _cmp(_parse(variant), _parse(str(claim.value)), cfg).relation in ("EXACT", "EQUIVALENT"):
+            out.append({"name": "K3", "summary": f"{path} names {claim.value!r}"})
+    return out
 
 
 async def resolve_request(ctx: Any, req: dict[str, Any], model: str) -> dict[str, Any]:
@@ -49,11 +68,41 @@ async def resolve_request(ctx: Any, req: dict[str, Any], model: str) -> dict[str
 
 
 async def run_s8(ctx: Any) -> list[dict[str, Any]]:
-    """Apply adjudication to queued requests; returns per-request reports."""
-    from backend.app.llm.factory import llm_model
+    """Derive adjudication requests from gray-zone findings, then resolve them.
 
+    Derivation (not the S5 checks) owns enqueueing so cache hits, which skip
+    check bodies, still adjudicate identically.
+    """
+    from backend.app.llm.factory import llm_model
+    from backend.app.matching.name_compare import compare_names
+    from backend.app.matching.name_compare import parse_name
+
+    derived: list[dict[str, Any]] = []
+    for f in ctx.findings:
+        if f.check_id == "C-NAME-02" and f.reason_code in (
+                "LEGAL_FORM_UNCONFIRMED", "NAME_UNCONFIRMED"):
+            claims = {c.path: c for c in ctx.claims.values()}
+            legal = claims.get("company.legal_name")
+            holder = claims.get("bank.account_holder_name")
+            if legal is None or holder is None:
+                continue
+            cfg = dict(ctx.policy.raw["base"]["matching"]["name"])
+            comp = compare_names(parse_name(str(legal.value or "")),
+                                 parse_name(str(holder.value or "")), cfg)
+            if comp.relation not in ("FORM_CONFLICT", "CORE_FUZZY"):
+                continue
+            corrs = _k3(ctx, str(holder.value or ""), cfg)
+            cc = claims.get("company.country")
+            derived.append({
+                "check_id": "C-NAME-02", "a": str(legal.value or ""),
+                "source_a": "form", "b": str(holder.value or ""),
+                "source_b": "bank",
+                "country": str(cc.value) if cc is not None and cc.value else "",
+                "subject": f.subject, "corroborators": corrs,
+                "deterministic": {"core_similarity": comp.core_sim,
+                                  "legal_form_relation": comp.form_rel}})
     reports = []
-    for req in list(getattr(ctx, "adjudications", [])):
+    for req in derived:
         if str(req.get("check_id", "")).startswith("C-SAN"):
             reports.append(
                 {"check_id": req.get("check_id"), "skipped": "sanctions-never-adjudicated"}

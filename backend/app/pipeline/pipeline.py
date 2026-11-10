@@ -23,7 +23,6 @@ from backend.app.pipeline.checks import req as _req  # noqa: F401
 from backend.app.pipeline.checks import san as _san  # noqa: F401
 from backend.app.pipeline.checks import tax as _tax  # noqa: F401
 from backend.app.pipeline.checks import ver as _ver  # noqa: F401
-from backend.app.pipeline.context import CheckCache
 from backend.app.pipeline.context import RunContext
 from backend.app.pipeline.orchestrator import DagOrchestrator
 from backend.app.pipeline.stages.s0_intake import build_claims
@@ -35,6 +34,18 @@ def _load_policy() -> Policy:
 
 def _now_iso(clock: Clock) -> str:
     return clock.now().isoformat()
+
+
+def _sanctions_version() -> str:
+    import hashlib as _hl
+    from pathlib import Path as _Path
+
+    h = _hl.sha256()
+    for name in ("sanctions_mock.jsonl", "pep_mock.jsonl", "adverse_mock.jsonl"):
+        p = _Path("backend/app/screening/lists") / name
+        if p.exists():
+            h.update(p.read_bytes())
+    return h.hexdigest()[:16]
 
 
 def _map_freshness(rep: dict[str, Any], dtype: str, fields: dict[str, Any]) -> None:
@@ -61,17 +72,20 @@ async def run_full(
     clock: Clock | None = None,
     files: dict[str, tuple[str, bytes]] | None = None,
     llm: Any = None,
+    version: int = 1,
+    case_id: str | None = None,
 ) -> dict[str, Any]:
     from backend.app.llm.factory import llm_model
     from backend.app.llm.factory import make_llm
     from backend.app.network.graph import seed_master
+    from backend.app.persistence.cache import DbCheckCache
     from backend.app.pipeline.stages.s1_docs import ingest_document
 
     seed_master()
     submission = VendorSubmission.model_validate(payload)
     policy = _load_policy()
     clock = clock or RealClock()
-    case_id = uuid.uuid4().hex[:12]
+    case_id = case_id or uuid.uuid4().hex[:12]
     run_id = uuid.uuid4().hex[:12]
     events: list[dict[str, Any]] = []
 
@@ -86,7 +100,7 @@ async def run_full(
         adapters={},
         llm=llm or make_llm(),
         clock=clock,
-        cache=CheckCache(),
+        cache=DbCheckCache(),
         emit=emit,
     )
     for claim in build_claims(submission):
@@ -100,6 +114,20 @@ async def run_full(
 
     ctx.doc_reports = {}
     declared_by_id = {d.doc_id: d.doc_type.value for d in submission.documents}
+    import hashlib as _hl
+
+    _h = _hl.sha256()
+    for _did in sorted((files or {}).keys()):
+        _h.update(_did.encode())
+        _h.update((files or {})[_did][1])
+    ctx.add_claim(_mkclaim("docs.content_hash", _h.hexdigest(), _h.hexdigest()))
+    _dig = ";".join(
+        sorted(f"{d.doc_id}:{d.doc_type.value}" for d in submission.documents))
+    ctx.add_claim(_mkclaim("documents.digest", _dig, _dig))
+    ctx.add_claim(_mkclaim("clock.today", clock.now().date().isoformat(),
+                           clock.now().date().isoformat()))
+    ctx.add_claim(_mkclaim("lists.sanctions_version", _sanctions_version(),
+                           _sanctions_version()))
     for doc_id, (filename, data) in (files or {}).items():
         rep = ingest_document(
             doc_id, declared_by_id.get(doc_id, "UNKNOWN"), filename, data, clock.now().date()
@@ -156,7 +184,7 @@ async def run_full(
         prev = str(e["entry_hash"])
         audit.append(e)
 
-    log("submission.received", {"version": 1})
+    log("submission.received", {"version": version})
     log("run.started", {"run_id": run_id})
     for f in ctx.findings:
         log(
@@ -182,6 +210,8 @@ async def run_full(
         "run_id": run_id,
         "case_id": case_id,
         "mode": "FULL",
+        "version": version,
+        "payload": submission.model_dump(mode="json"),
         "requester": submission.requester.name,
         "submission_type": submission.submission_type.value,
         "existing_vendor_id": submission.existing_vendor_id,

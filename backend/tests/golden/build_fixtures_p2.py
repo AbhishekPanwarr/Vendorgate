@@ -208,34 +208,41 @@ def hp3high():
 
 clear_faults()
 CASES = {"ec-3a": ec3a(), "ec-3b": ec3b(), "ec-4a": ec4a(), "ec-4b": ec4b(), "hp-3-high": hp3high()}
-for name, payload in CASES.items():
-    r = asyncio.run(run_full(payload))
+
+
+def main() -> None:
+    for name, payload in CASES.items():
+        r = asyncio.run(run_full(payload))
+        d = r["decision"]
+        print(
+            name,
+            d["status"],
+            d["tier"],
+            d["score"]["total"],
+            d["reason_codes"],
+            "| route:",
+            d.get("approval_route"),
+        )
+        json.dump(
+            {"payload": payload, "decision": d, "findings": r["findings"]},
+            open(f"backend/tests/golden/fixtures/{name}.json", "w"),
+            indent=1,
+        )
+
+    # ec-4d: registry outage then restore
+    set_fault("registry", "TIMEOUT")
+    v = gb_vendor("Meridian Shipping Svcs LLC", "GB", 2021, spend=100000)
+    r = asyncio.run(run_full(v))
     d = r["decision"]
-    print(
-        name,
-        d["status"],
-        d["tier"],
-        d["score"]["total"],
-        d["reason_codes"],
-        "| route:",
-        d.get("approval_route"),
-    )
+    print("ec-4d-outage", d["status"], d["tier"], d["score"]["total"], d["reason_codes"])
     json.dump(
-        {"payload": payload, "decision": d, "findings": r["findings"]},
-        open(f"backend/tests/golden/fixtures/{name}.json", "w"),
+        {"payload": v, "decision": d, "findings": r["findings"]},
+        open("backend/tests/golden/fixtures/ec-4d-outage.json", "w"),
         indent=1,
     )
+    clear_faults()
+    print("fixtures written")
 
-# ec-4d: registry outage then restore
-set_fault("registry", "TIMEOUT")
-v = gb_vendor("Meridian Shipping Svcs LLC", "GB", 2021, spend=100000)
-r = asyncio.run(run_full(v))
-d = r["decision"]
-print("ec-4d-outage", d["status"], d["tier"], d["score"]["total"], d["reason_codes"])
-json.dump(
-    {"payload": v, "decision": d, "findings": r["findings"]},
-    open("backend/tests/golden/fixtures/ec-4d-outage.json", "w"),
-    indent=1,
-)
-clear_faults()
-print("fixtures written")
+
+if __name__ == "__main__":
+    main()

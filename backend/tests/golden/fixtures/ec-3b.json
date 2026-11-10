@@ -198,9 +198,9 @@
     "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "1cdd747f13a7ab4cc77010a3d87af2712efacf333422c3500b7be9b238217793"
+  "reproducibility_hash": "d717201ea490857092db385c0b5698f9b82303738a55519d90ec06f8cafdfd10"
  },
  "findings": [
   {
@@ -235,7 +235,7 @@
    "reads": [
     "bank.account_number"
    ],
-   "fingerprint": "84f487180370e63926433511d43b321e0adfec3a5b72d265b93da0a7987d48b3",
+   "fingerprint": "31351d24be45728dcf9f8e9855fafa17355354f6ec1de94f92b0ed4035807487",
    "score_tags": {
     "BANK_ID": 0.3
    },
@@ -256,7 +256,7 @@
     {
      "kind": "adapter",
      "ref": "irs",
-     "summary": "irs call 6a2a52b43d93",
+     "summary": "irs fixture irs-ec3b",
      "data": {}
     }
    ],
@@ -265,7 +265,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "1b48ceedce00c5d3374adb4cd139854496d9b3d608acaf973fd6e6a7b894b9a4",
+   "fingerprint": "b7c716cdac4fd2c0fec63e9bc706b2264cdeb9d8853057ce4c320b11013dbc29",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -284,7 +284,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call d86650c31cfa",
+     "summary": "bank fixture bank-ec3b-new",
      "data": {}
     }
    ],
@@ -293,7 +293,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "e2a6de5b39cb4ee7b8e959adec50109688d70560da6b15f8c9c75adeb0a78311",
+   "fingerprint": "ad7fc8c0a7798ffa93a5c94a485c013ceebc83f671608cfe3798e34896affbba",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -337,7 +337,7 @@
     "company.country",
     "bank.country"
    ],
-   "fingerprint": "28b2fde8998c14aad84e269ffc3287f04e2e4a109b737bf0e5563994442b1f31",
+   "fingerprint": "11bfcbe095282f3371df43b4fed668a547eb5ac012e2666048d9d6274928436e",
    "score_tags": {
     "GEO": 0.3
    },
@@ -376,7 +376,7 @@
    "reads": [
     "bank.country"
    ],
-   "fingerprint": "269236419a7ede3e6a4e11d87a54f5ae65848f7ad4e933a142cf0bafa4124606",
+   "fingerprint": "8e144ffb6c9efaa0ef170af198f7bb962b22c2707e83bfeeeeda4f89eead008e",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

@@ -145,9 +145,9 @@
   "required_actions": [],
   "approval_route": [],
   "counterfactuals": [],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "45937defe633d9f31c14c63922fc5c082a3cf8fb29b6d7ed4f984611a78b3a4f"
+  "reproducibility_hash": "b49605133c6271ae15c08a0f6bee5019bf4758eadde8da6a0495d6103574c5b9"
  },
  "findings": [
   {
@@ -164,7 +164,7 @@
     {
      "kind": "adapter",
      "ref": "irs",
-     "summary": "irs call 364f89152732",
+     "summary": "irs fixture irs-hp1",
      "data": {}
     }
    ],
@@ -173,7 +173,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "39c9651e040cc2f78a1504bd9ac86cf1564902e98ef4669154036e24ddfc4a8c",
+   "fingerprint": "e6c0db1b70dcc757befe418d27d303e336fdec9b8540f152501c8b8933916c48",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -192,7 +192,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call e4f1b414068c",
+     "summary": "bank fixture bank-hp1",
      "data": {}
     }
    ],
@@ -201,7 +201,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "5a8290e315444a6a52feacb60599d77c078ff02f15b88ed60a93f0b5cd13f61a",
+   "fingerprint": "712e73761e9d5497cc9c0cb269f55647e00b53ecfca468c7aeb602822df5dbfd",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

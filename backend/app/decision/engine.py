@@ -132,6 +132,7 @@ def decide(
         if (status == Status.PENDING and Awaiting.VENDOR in awaiting)
         else []
     )
+    cfs = sorted(cfs, key=lambda c: (c.status.value, c.fix_set))
 
     required = [f.fix for f in blocking if f.fix]
     repro = sha256_hex(

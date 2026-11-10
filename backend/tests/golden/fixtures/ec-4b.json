@@ -176,9 +176,9 @@
   ],
   "approval_route": [],
   "counterfactuals": [],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "83a601e22eeaba6f45ed92ce08aeceed34c3d41b25116b32ece37190bd251bdb"
+  "reproducibility_hash": "46617289a9ebbf2470ba81a020074b79a6d1de7713bbf9191b4069a89f63f28c"
  },
  "findings": [
   {
@@ -206,7 +206,7 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "496b9b6116e1dc1933ba623cba624c0b6b3e7b181793af5280c2194c8ae9baf6",
+   "fingerprint": "20db29a768b9a353f530f6a58616f2fbf34c3bca0fb9eb1e0404e7797882d622",
    "score_tags": {},
    "duration_ms": 7,
    "cached": false
@@ -225,7 +225,7 @@
     {
      "kind": "adapter",
      "ref": "vies",
-     "summary": "vies call cff3158c0d26",
+     "summary": "vies fixture vies-gb",
      "data": {}
     }
    ],
@@ -234,10 +234,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "acec2fa16cd9acc93857df1380df43245646ba4385d5d321e9239d3452a6c207",
+   "fingerprint": "09a055e23992699d649014d50ef3df25d64fed28a6ddb4d5303b1ca7ea26ac12",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-04",
@@ -253,7 +253,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call 00217176cc68",
+     "summary": "registry fixture reg-meridian-gb",
      "data": {}
     }
    ],
@@ -262,7 +262,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "072d289f2c98f23a35dbc3c6f19273afd90320524aabf6bb419ef67044fba38d",
+   "fingerprint": "39f8a297f9b6137075487cb245f1fc672e6619874bbbfb53fef7236bd9b8552a",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -299,7 +299,7 @@
    "reads": [
     "bank.account_number"
    ],
-   "fingerprint": "6f8bd1d4ec37b1e4d9ccc4ee168da83a0dfe2ef9311037503983f6cdd9df6183",
+   "fingerprint": "4ecdbd36f5dbff08c175c97ea8f2214a1a4a1c83fc4eecd4018bd47e0ed50d4c",
    "score_tags": {
     "BANK_ID": 0.5
    },
@@ -345,7 +345,7 @@
     "company.country",
     "tax.country"
    ],
-   "fingerprint": "e6104d0c9c965ab508564d083b9e48c1092aa3e907f7c57a51f0fc7d7c2c5485",
+   "fingerprint": "1870fbb6d29b1e7c88bcdfdffe3db115901d63f78a08fd37eda68c8100a61560",
    "score_tags": {
     "GEO": 0.3
    },

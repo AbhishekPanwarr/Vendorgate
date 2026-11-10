@@ -217,7 +217,7 @@
     {
      "kind": "adapter",
      "ref": "irs",
-     "summary": "irs call a43fd55193ef",
+     "summary": "irs fixture irs-ec1",
      "data": {}
     }
    ],
@@ -226,10 +226,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "36d6cf3d2ab65b770565c16c5cd80931af8c43eed0ea989c4371e8450bc5ff3e",
+   "fingerprint": "cac45d3ca6504d258655b9abd5dd8510141a587edddf56d76b18fe0bbdaa5c6b",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-05",
@@ -245,7 +245,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call b1642f0888e9",
+     "summary": "bank fixture bank-hp1",
      "data": {}
     }
    ],
@@ -254,10 +254,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "060cb4be721746a30f531839e89822532cf7c9639ddd5dc33ff94cbb874b01b6",
+   "fingerprint": "712e73761e9d5497cc9c0cb269f55647e00b53ecfca468c7aeb602822df5dbfd",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-ID-04",
@@ -291,7 +291,7 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "7947a7a3c933286a98fdb2a7fbf03a8a5a4a4d9466e3eb966b0273ce3f92411c",
+   "fingerprint": "52c159fd396096e92c42904ead5e75ea9aeb25891dd9454fb0d7dee12b4ed81e",
    "score_tags": {
     "BANK_ID": 0.3
    },

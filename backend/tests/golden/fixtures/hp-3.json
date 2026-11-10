@@ -161,9 +161,9 @@
    "AP_ANALYST"
   ],
   "counterfactuals": [],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "ded3501dd264aac17455b7cc7fdc626fd1d3bc877378c29121a327cd0a6992dd"
+  "reproducibility_hash": "a9fe2ee2150a3b9463b05482e5fa768dd9add907a010b7366caab60391fc19f7"
  },
  "findings": [
   {
@@ -180,7 +180,7 @@
     {
      "kind": "adapter",
      "ref": "vies",
-     "summary": "vies call 1eca06505234",
+     "summary": "vies fixture vies-hp3",
      "data": {}
     }
    ],
@@ -189,7 +189,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "ed8e5660068f23982504a06dbc851ed27d64614d9319ffaa83e4b176f5d64b1e",
+   "fingerprint": "bcd0743bf2ac7af76e4acef34c404e30ebacde53e6476f260e699a31ca510fed",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -208,7 +208,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call 215b6d0d16cb",
+     "summary": "registry fixture reg-hafen",
      "data": {}
     }
    ],
@@ -217,7 +217,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "f2355ab91eae430005b321307fe9fefe0ef6e87920984afd39b5159b31b22d6d",
+   "fingerprint": "d10cc9ae1030cf3d95c4189efc42363857ee9a8db6bc1848469c7079d9a2535c",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -236,7 +236,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call 3c7f6e90686f",
+     "summary": "bank fixture bank-hp3",
      "data": {}
     }
    ],
@@ -245,7 +245,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6bd6e1c44ab8aa65318f7ece4c6f2d58d25f4397554e364429b2a92f8e838536",
+   "fingerprint": "006e71eb30e372c54cd41d63ca88e08ddd04faac4f1c8dd082b0903df93ce48c",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

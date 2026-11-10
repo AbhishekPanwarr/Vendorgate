@@ -81,7 +81,8 @@ async def geo_matrix(ctx: Any) -> list[Finding]:
     stage="S5",
     version=1,
     mandatory=True,
-    reads=("company.registered_address", "company.remit_to_address"),
+    reads=("company.registered_address", "company.remit_to_address",
+        "declarations.remit_address_justification"),
 )
 async def remit_justification(ctx: Any) -> list[Finding]:
     reg = str(ctx.value("company.registered_address") or "")
@@ -139,9 +140,9 @@ async def po_box(ctx: Any) -> list[Finding]:
 @check(
     id="C-ID-01",
     stage="S5",
-    version=1,
+    version=2,
     mandatory=False,
-    reads=("company.website", "company.primary_contact.email"),
+    reads=("company.website", "company.primary_contact.email", "company.legal_name"),
 )
 async def domain_checks(ctx: Any) -> list[Finding]:
     findings: list[Finding] = []
@@ -207,7 +208,7 @@ async def domain_checks(ctx: Any) -> list[Finding]:
     return findings
 
 
-@check(id="C-CRD-01", stage="S5", version=1, mandatory=True, reads=("company.incorporation_date",))
+@check(id="C-CRD-01", stage="S5", version=2, mandatory=True, reads=("company.incorporation_date", "clock.today"))
 async def entity_age(ctx: Any) -> list[Finding]:
     from datetime import date
 

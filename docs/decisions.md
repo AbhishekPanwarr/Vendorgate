@@ -184,3 +184,39 @@ limits). No change.
 - Known limitation: unidecode collisions on exotic unicode can pass substring
   grounding (Latin-script corpus unaffected; see non-Latin L-03).
 - Phase 0 stays RED (Render pending); Phase 1/2 gates unaffected.
+
+## Phase 4 note (check-cache staleness)
+
+Debug runs showed a stale C-REQ-01 FAIL served from `check_cache` after
+check logic changed without a version bump (fingerprint covers check version
++ policy slice + reads + adapters + faults, not code). Rule restated: any
+check-logic change MUST bump that check's `version`. Dev `check_cache` was
+wiped after the incident. E17 determinism relies on this discipline.
+
+## OQ-P3-1 — W9 full-schema over-caution
+
+- Hypothesis: full 8-field W9 L1 schema returns all-null when the address
+  field is absent (2-field schema on the same doc works).
+- Reproduction: any W9 fixture missing address.line2 triggers the null.
+- Impact: Phase 5 datagen realism only; no Phase 4 impact.
+
+## Phase 3 → Phase 4 handoff (V-4.1..V-4.5)
+
+- V-4.1: OQ-P3-1 logged above.
+- V-4.2: migration 0002 adds cases.{run_id, requester, submission_type,
+  existing_vendor_id, reason_codes, current_version}, runs.result,
+  run_events, case_docs; UNIQUE(case_id, version) on submission_versions.
+- V-4.3: no /resubmit route existed; Phase 4 adds it.
+- V-4.4: clock_state was empty; initialized on first advance, never silent.
+- V-4.5: case_events was empty (in-memory era); pipeline now writes rows.
+
+## D-4.0 notes (SQLite swap)
+
+- STORE partitions now SQLite-backed (same call sites). Normalized writes:
+  submission_versions, case_events, messages, check_cache, docs on every run.
+- W-4.1 fix verified live: C-DUP-05 served a stale FAIL across vendors
+  before existing_vendor_id entered reads. Full reads audit: every check's
+  reads now cover all inputs incl. docs.content_hash, documents.digest,
+  clock.today, lists.sanctions_version; S10 bypasses cache (reads findings).
+- Known limitation: C-DUP-04/06 depend on repo growth (shared DB state);
+  documented, E17-stable (history constant within an eval run).

@@ -181,9 +181,9 @@
     "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "3e282e7d2760e4f921c07beb0f80d9e4c00307fe29c69146665c85265163e33d"
+  "reproducibility_hash": "1ba0d1b64cd058574edd2d7b39d82dd4fad37f298ef77db217d16ffdb67872ee"
  },
  "findings": [
   {
@@ -226,7 +226,7 @@
     "tax.tax_id",
     "tax.secondary_ids.PAN"
    ],
-   "fingerprint": "70314bb2151711e9233eaf2a5b54e39db46f1bdc9c65040287ea6a5f9c699661",
+   "fingerprint": "fe1dbb5f5160652ca4dd14c425610f55ed4e7e5b12ccbdc1da9084f08c9dec50",
    "score_tags": {
     "BANK_ID": 0.3
    },
@@ -247,7 +247,7 @@
     {
      "kind": "adapter",
      "ref": "gst",
-     "summary": "gst call ff28838c44be",
+     "summary": "gst fixture gst-hp2",
      "data": {}
     }
    ],
@@ -256,10 +256,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "18c9133434115452d24d3523182d0abb09775df59fab85eeec4aba27a4c954d6",
+   "fingerprint": "07035b346a856a6b76c6a0d1501585b40586d5cd3d641787f11e0f3d3960fd3e",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-04",
@@ -275,7 +275,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call a9300737019a",
+     "summary": "registry fixture reg-nimbus",
      "data": {}
     }
    ],
@@ -284,10 +284,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "fingerprint": "6531c357fd88b6ba8bb0a2952423a8239063034770a78d6e715bc53b5d728465",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-05",
@@ -303,7 +303,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call 61b53309266b",
+     "summary": "bank fixture bank-hp2",
      "data": {}
     }
    ],
@@ -312,10 +312,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
+   "fingerprint": "f3682ce432dacd5d7289e05657f02ae09e328e14eda5d348a668b3167c64ad7c",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   }
  ]
 }

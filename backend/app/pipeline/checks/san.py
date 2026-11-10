@@ -89,9 +89,10 @@ def _map_screened(
 @check(
     id="C-SAN-01",
     stage="S7",
-    version=1,
+    version=2,
     mandatory=True,
-    reads=("company.legal_name", "company.country"),
+    reads=("company.legal_name", "company.country", "company.incorporation_date",
+           "lists.sanctions_version"),
 )
 async def san_entity(ctx: Any) -> list[Finding]:
     legal = sstr(ctx.value("company.legal_name"))
@@ -103,7 +104,7 @@ async def san_entity(ctx: Any) -> list[Finding]:
     )
 
 
-@check(id="C-SAN-02", stage="S7", version=1, mandatory=True, reads=("company.owners.0.name",))
+@check(id="C-SAN-02", stage="S7", version=1, mandatory=True, reads=("company.owners.0.name", "company.country", "company.incorporation_date", "lists.sanctions_version"))
 async def san_owners(ctx: Any) -> list[Finding]:
     findings: list[Finding] = []
     i = 0
@@ -124,7 +125,7 @@ async def san_owners(ctx: Any) -> list[Finding]:
 
 
 @check(
-    id="C-SAN-03", stage="S7", version=1, mandatory=True, reads=("company.country", "bank.country")
+    id="C-SAN-03", stage="S7", version=2, mandatory=True, reads=("company.country", "bank.country", "lists.sanctions_version")
 )
 async def embargo(ctx: Any) -> list[Finding]:
     for path in ("company.country", "bank.country"):
@@ -147,7 +148,7 @@ async def embargo(ctx: Any) -> list[Finding]:
     return []
 
 
-@check(id="C-SAN-04", stage="S7", version=1, mandatory=True, reads=("company.owners.0.name",))
+@check(id="C-SAN-04", stage="S7", version=1, mandatory=True, reads=("company.owners.0.name", "company.country", "company.incorporation_date", "lists.sanctions_version"))
 async def pep(ctx: Any) -> list[Finding]:
     findings: list[Finding] = []
     i = 0
@@ -180,7 +181,7 @@ async def pep(ctx: Any) -> list[Finding]:
     return findings
 
 
-@check(id="C-SAN-05", stage="S7", version=1, mandatory=True, reads=("company.legal_name",))
+@check(id="C-SAN-05", stage="S7", version=1, mandatory=True, reads=("company.legal_name", "lists.sanctions_version"))
 async def adverse(ctx: Any) -> list[Finding]:
     legal = sstr(ctx.value("company.legal_name")).lower()
     for entry in san.adverse_entries():
@@ -226,7 +227,7 @@ async def adverse(ctx: Any) -> list[Finding]:
     return []
 
 
-@check(id="C-SAN-06", stage="S7", version=1, mandatory=True, reads=("company.owners.0.name",))
+@check(id="C-SAN-06", stage="S7", version=1, mandatory=True, reads=("company.owners.0.name", "company.country", "company.incorporation_date", "lists.sanctions_version"))
 async def sanctioned_ownership(ctx: Any) -> list[Finding]:
     pct = 0.0
     i = 0

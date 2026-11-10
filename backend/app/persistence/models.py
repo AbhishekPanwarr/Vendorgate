@@ -5,7 +5,9 @@ from datetime import datetime
 from datetime import timezone
 
 from sqlalchemy import DateTime
+from sqlalchemy import Index
 from sqlalchemy import JSON
+from sqlalchemy import LargeBinary
 from sqlalchemy import String
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
@@ -41,6 +43,12 @@ class Case(Base):
     due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     closed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     source: Mapped[str] = mapped_column(String(32), default="manual")
+    run_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    requester: Mapped[str] = mapped_column(String(256), default="")
+    submission_type: Mapped[str] = mapped_column(String(32), default="NEW_VENDOR")
+    existing_vendor_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    reason_codes: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    current_version: Mapped[int] = mapped_column(default=1)
 
 
 class SubmissionVersion(Base):
@@ -52,6 +60,10 @@ class SubmissionVersion(Base):
     payload_hash: Mapped[str] = mapped_column(String(128), default="")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     created_by: Mapped[str] = mapped_column(String(64), default="system")
+
+    __table_args__ = (
+        Index("ix_submission_versions_case_version", "case_id", "version", unique=True),
+    )
 
 
 class Document(Base):
@@ -82,6 +94,7 @@ class Run(Base):
     cache_misses: Mapped[int] = mapped_column(default=0)
     llm_tokens: Mapped[int] = mapped_column(default=0)
     llm_cost_usd: Mapped[float] = mapped_column(default=0.0)
+    result: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
 
 
 class ClaimRow(Base):
@@ -285,4 +298,25 @@ class IdempotencyKey(Base):
     key: Mapped[str] = mapped_column(String(128), primary_key=True)
     case_id: Mapped[str] = mapped_column(String(64))
     run_id: Mapped[str] = mapped_column(String(64))
+    response: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+
+class RunEvent(Base):
+    __tablename__ = "run_events"
+    id: Mapped[str] = mapped_column(String(64), primary_key=True, default=_uid)
+    run_id: Mapped[str] = mapped_column(String(64))
+    seq: Mapped[int] = mapped_column(default=0)
+    type: Mapped[str] = mapped_column(String(64))
+    data: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+
+
+class CaseDoc(Base):
+    __tablename__ = "case_docs"
+    id: Mapped[str] = mapped_column(String(64), primary_key=True, default=_uid)
+    case_id: Mapped[str] = mapped_column(String(64))
+    run_id: Mapped[str] = mapped_column(String(64))
+    doc_id: Mapped[str] = mapped_column(String(64))
+    filename: Mapped[str] = mapped_column(String(256), default="")
+    sha256: Mapped[str] = mapped_column(String(128), default="")
+    data: Mapped[bytes] = mapped_column(LargeBinary, default=b"")

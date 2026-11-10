@@ -203,6 +203,19 @@
   "counterfactuals": [
    {
     "fix_set": [
+     "PROVIDE_GSTIN"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 35.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by MISSING_DOC, MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
      "PROVIDE_PAN"
     ],
     "status": "PENDING",
@@ -212,19 +225,6 @@
      "VENDOR"
     ],
     "note": "still blocked by GSTIN_NOT_FOUND, MISSING_DOC, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
-    "score_delta": null
-   },
-   {
-    "fix_set": [
-     "UPLOAD_INCORP_CERT"
-    ],
-    "status": "PENDING",
-    "tier": "LOW",
-    "score": 35.0,
-    "awaiting": [
-     "VENDOR"
-    ],
-    "note": "still blocked by GSTIN_NOT_FOUND, MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
     "score_delta": null
    },
    {
@@ -255,7 +255,7 @@
    },
    {
     "fix_set": [
-     "PROVIDE_GSTIN"
+     "UPLOAD_INCORP_CERT"
     ],
     "status": "PENDING",
     "tier": "LOW",
@@ -263,13 +263,13 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by MISSING_DOC, MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
+    "note": "still blocked by GSTIN_NOT_FOUND, MISSING_FIELD, TAX_FORMAT_INVALID, TAX_FORMAT_MISMATCH",
     "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "12808148c66ec300612ca565937db9ffddd7917bbf8007214d5be412cd209a32"
+  "reproducibility_hash": "a68cbc7b7f23cd6abb267e62c0a1e205d9c841fa8a69006fa73b9c607a2c5794"
  },
  "findings": [
   {
@@ -304,7 +304,7 @@
    "reads": [
     "tax.secondary_ids.PAN"
    ],
-   "fingerprint": "f0ebebefe99b079ba2826a1f0adeba9a26b5c464919606f218cae3a3545e6b06",
+   "fingerprint": "f1f956a32456f970fdf15d37baf4aa36e21219187915d12ed8085c3595e7f60e",
    "score_tags": {
     "DOCS": 0.1
    },
@@ -339,7 +339,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "f6d4b2b3952f8a20104c5f14100e6908ea8d24d4ee0ee2b648c6d72f0bac6ce2",
+   "fingerprint": "7bb55856c8612e1a7c890dec963cbb07053bfa2a4940a3dfd620e00646b7ce3e",
    "score_tags": {
     "DOCS": 0.5
    },
@@ -378,7 +378,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "8a53d601013a15dec7dba47093e4022eefea3cdc724f28711d2603daa1fc7114",
+   "fingerprint": "9970e768eab4bdee505822950430c3924b5afa63c94626648b326fa714894f06",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -423,7 +423,7 @@
     "tax.tax_id",
     "tax.country"
    ],
-   "fingerprint": "0bd3c875ee9c0cb11ab7c442b2d9ce86fea267ec1353e66ed1730c8aa1ef7a1f",
+   "fingerprint": "fa7add5e4d97479c23c636598d87635f0c16a68467bca0e238b201ce07b3eb84",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -460,7 +460,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "a1521aef16e50b197315db37bdedf47d9d8695f1bf9b2687ff923d72e776b6e8",
+   "fingerprint": "4f2b1404e9a548ad30e99ebe68583c028f1eb4f2f269ec36dd9b999b6c876618",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -479,7 +479,7 @@
     {
      "kind": "adapter",
      "ref": "registry",
-     "summary": "registry call 719ad53e7154",
+     "summary": "registry fixture reg-nimbus",
      "data": {}
     }
    ],
@@ -488,10 +488,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6987f2c20eb6b5f8846fc536957eb1944fbb2e3ee74300899fe7f8942f89d33a",
+   "fingerprint": "6531c357fd88b6ba8bb0a2952423a8239063034770a78d6e715bc53b5d728465",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-05",
@@ -507,7 +507,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call e2147299ffb9",
+     "summary": "bank fixture bank-hp2",
      "data": {}
     }
    ],
@@ -516,10 +516,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "89c8419170a8416097f04f648fb86834a6d3f4fbbf0ae0839da8f9363e8a9bfd",
+   "fingerprint": "f3682ce432dacd5d7289e05657f02ae09e328e14eda5d348a668b3167c64ad7c",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   }
  ]
 }

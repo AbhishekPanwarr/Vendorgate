@@ -116,6 +116,11 @@ class DagOrchestrator:
         from backend.app.domain.models import Finding
 
         reads = {p: ctx.value(p) for p in spec.reads}
+        # Fault state participates in the fingerprint: a cached PASS must
+        # never be served while its adapter is faulted (fail-closed).
+        from backend.app.adapters import faults as _faults
+
+        fault_state = {f"fault:{a}": _faults.FAULTS.get(a, "OK") for a in spec.adapters}
         fp = fingerprint(
             check_id=spec.id,
             version=spec.version,
@@ -123,9 +128,11 @@ class DagOrchestrator:
             policy_hash=ctx.policy.hash_for(spec.id),
             reads=reads,
             adapters={a: getattr(ctx.adapters.get(a), "version", "?") for a in spec.adapters},
-            lists={},
+            lists=fault_state,
         )
-        if (hit := ctx.cache.get(fp)) is not None:
+        if (hit := ctx.cache.get(fp)) is not None and spec.stage != "S10":
+            # S10 checks read other findings (e.g. C-POL-02 reads C-DUP-05),
+            # which fingerprints cannot capture: always re-run S10.
             for f in hit:
                 ctx.findings.append(f.model_copy(update={"cached": True}))
                 ctx.emit(

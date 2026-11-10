@@ -32,7 +32,7 @@ def _name_rel(ctx: Any, other_name: str) -> str:
     return compare_names(parse_name(legal), parse_name(other_name), cfg).relation
 
 
-@check(id="C-DUP-01", stage="S6", version=1, mandatory=True, reads=("tax.tax_id", "tax.country"))
+@check(id="C-DUP-01", stage="S6", version=2, mandatory=True, reads=("tax.tax_id", "tax.country", "company.legal_name", "existing_vendor_id"))
 async def tin_reuse(ctx: Any) -> list[Finding]:
     tin = sstr(ctx.value("tax.tax_id"))
     existing = str(ctx.value("existing_vendor_id") or "") or None
@@ -94,7 +94,7 @@ async def tin_reuse(ctx: Any) -> list[Finding]:
 @check(
     id="C-DUP-02",
     stage="S6",
-    version=1,
+    version=2,
     mandatory=True,
     reads=(
         "bank.account_number",
@@ -102,6 +102,7 @@ async def tin_reuse(ctx: Any) -> list[Finding]:
         "bank.routing_number",
         "bank.ifsc",
         "bank.swift_bic",
+        "existing_vendor_id",
     ),
 )
 async def bank_reuse(ctx: Any) -> list[Finding]:
@@ -129,9 +130,9 @@ async def bank_reuse(ctx: Any) -> list[Finding]:
 @check(
     id="C-DUP-05",
     stage="S6",
-    version=1,
+    version=2,
     mandatory=True,
-    reads=("bank.account_number", "bank.country"),
+    reads=("bank.account_number", "bank.country", "existing_vendor_id"),
 )
 async def bank_change(ctx: Any) -> list[Finding]:
     existing = str(ctx.value("existing_vendor_id") or "")

@@ -172,9 +172,9 @@
     "score_delta": null
    }
   ],
-  "policy_version": "619db0756f26084bea40daabe336b81f8abf7869fbdb9033588a9aa327c79995",
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "f63365cb2f80532c68242c5f5f0a16d219f294359fb6278c3f5f8f9f00cfee39"
+  "reproducibility_hash": "d954e2b56278bd8553dc85ac2ab18f79899813e38c77d0f879fd514d6c24e53a"
  },
  "findings": [
   {
@@ -209,7 +209,7 @@
    "reads": [
     "tax.form_type"
    ],
-   "fingerprint": "f3891cb1c1c32f93de3c42c8c4a077cb183df7351d0fa834f49a4627cbde56c4",
+   "fingerprint": "e3431dafafe685cedbe93d09f53e1202d54c740fd2b2b06071083e30e4a08fa4",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -228,7 +228,7 @@
     {
      "kind": "adapter",
      "ref": "irs",
-     "summary": "irs call c6fb94b6ffb0",
+     "summary": "irs fixture irs-hp1",
      "data": {}
     }
    ],
@@ -237,10 +237,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "39c9651e040cc2f78a1504bd9ac86cf1564902e98ef4669154036e24ddfc4a8c",
+   "fingerprint": "e6c0db1b70dcc757befe418d27d303e336fdec9b8540f152501c8b8933916c48",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   },
   {
    "check_id": "C-VER-05",
@@ -256,7 +256,7 @@
     {
      "kind": "adapter",
      "ref": "bank",
-     "summary": "bank call e332619a87b9",
+     "summary": "bank fixture bank-hp1",
      "data": {}
     }
    ],
@@ -265,10 +265,10 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "5a8290e315444a6a52feacb60599d77c078ff02f15b88ed60a93f0b5cd13f61a",
+   "fingerprint": "712e73761e9d5497cc9c0cb269f55647e00b53ecfca468c7aeb602822df5dbfd",
    "score_tags": {},
    "duration_ms": 0,
-   "cached": false
+   "cached": true
   }
  ]
 }

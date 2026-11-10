@@ -98,6 +98,8 @@ def grounding_ok(value: str | None, quote: str | None, page_text: str) -> bool:
 
     if value is None:
         return True
+    if not _canon(value):
+        return False
     if not quote or not page_text:
         return False
     if fuzz.partial_ratio(_canon(quote), _canon(page_text)) < 92:

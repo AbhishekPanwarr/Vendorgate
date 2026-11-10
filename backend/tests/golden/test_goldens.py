@@ -77,6 +77,7 @@ def test_golden(name, request):
             json.dump(
                 {
                     "payload": fx["payload"],
+                    "files": fx.get("files", {}),
                     "decision": result["decision"],
                     "findings": result["findings"],
                 },
