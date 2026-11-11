@@ -1,0 +1,528 @@
+[
+ {
+  "id": "C-00",
+  "members": [
+   {
+    "vendor_id": "G-US-006",
+    "legal_name": "Rhein Shipping Inc",
+    "bank": {
+     "account_number": "677496499091",
+     "country": "US",
+     "currency": "USD",
+     "routing_number": "318699938"
+    },
+    "phone": "+15550134404"
+   },
+   {
+    "vendor_id": "G-IN-030",
+    "legal_name": "Nimbus Shipping Limited",
+    "bank": {
+     "account_number": "677496499091",
+     "country": "US",
+     "currency": "USD",
+     "routing_number": "318699938"
+    },
+    "phone": "+15550134404"
+   }
+  ]
+ },
+ {
+  "id": "C-01",
+  "members": [
+   {
+    "vendor_id": "G-IN-018",
+    "legal_name": "Brightline Supply Limited",
+    "bank": {
+     "account_number": "439735989334",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0779794"
+    },
+    "phone": "+91981008353"
+   },
+   {
+    "vendor_id": "G-US-036",
+    "legal_name": "Rhein Freight LLC",
+    "bank": {
+     "account_number": "439735989334",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0779794"
+    },
+    "phone": "+91981008353"
+   },
+   {
+    "vendor_id": "G-US-027",
+    "legal_name": "Omnitech Technologies Corp",
+    "bank": {
+     "account_number": "439735989334",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0779794"
+    },
+    "phone": "+91981008353"
+   }
+  ]
+ },
+ {
+  "id": "C-02",
+  "members": [
+   {
+    "vendor_id": "G-GB-033",
+    "legal_name": "Nimbus Holdings PLC",
+    "bank": {
+     "account_number": "3755344902",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB15LYOX32573755344902"
+    },
+    "phone": "+442071236010"
+   },
+   {
+    "vendor_id": "G-US-009",
+    "legal_name": "Redwood Holdings Inc",
+    "bank": {
+     "account_number": "3755344902",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB15LYOX32573755344902"
+    },
+    "phone": "+442071236010"
+   }
+  ]
+ },
+ {
+  "id": "C-03",
+  "members": [
+   {
+    "vendor_id": "G-US-025",
+    "legal_name": "Omnitech Systems Inc",
+    "bank": {
+     "account_number": "788861015819",
+     "country": "US",
+     "currency": "USD",
+     "routing_number": "475412126"
+    },
+    "phone": "+15550136315"
+   },
+   {
+    "vendor_id": "G-IN-020",
+    "legal_name": "Kappa Systems Pvt Ltd",
+    "bank": {
+     "account_number": "788861015819",
+     "country": "US",
+     "currency": "USD",
+     "routing_number": "475412126"
+    },
+    "phone": "+15550136315"
+   }
+  ]
+ },
+ {
+  "id": "C-04",
+  "members": [
+   {
+    "vendor_id": "G-DE-023",
+    "legal_name": "Delta Freight GmbH",
+    "bank": {
+     "account_number": "9323123426",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE59591408499323123426"
+    },
+    "phone": "+4930122969"
+   },
+   {
+    "vendor_id": "G-US-007",
+    "legal_name": "Northwind Freight LLC",
+    "bank": {
+     "account_number": "9323123426",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE59591408499323123426"
+    },
+    "phone": "+4930122969"
+   },
+   {
+    "vendor_id": "G-IN-015",
+    "legal_name": "Delta Container LLP",
+    "bank": {
+     "account_number": "9323123426",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE59591408499323123426"
+    },
+    "phone": "+4930122969"
+   }
+  ]
+ },
+ {
+  "id": "C-05",
+  "members": [
+   {
+    "vendor_id": "G-IN-025",
+    "legal_name": "Apex Systems Pvt Ltd",
+    "bank": {
+     "account_number": "822239431290",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0949619"
+    },
+    "phone": "+91981009992"
+   },
+   {
+    "vendor_id": "G-DE-010",
+    "legal_name": "Meridian Ventures UG",
+    "bank": {
+     "account_number": "822239431290",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0949619"
+    },
+    "phone": "+91981009992"
+   },
+   {
+    "vendor_id": "G-GB-001",
+    "legal_name": "Bluefin Trading Ltd",
+    "bank": {
+     "account_number": "822239431290",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0949619"
+    },
+    "phone": "+91981009992"
+   },
+   {
+    "vendor_id": "G-US-001",
+    "legal_name": "Apex Systems Inc",
+    "bank": {
+     "account_number": "822239431290",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0949619"
+    },
+    "phone": "+91981009992"
+   }
+  ]
+ },
+ {
+  "id": "C-06",
+  "members": [
+   {
+    "vendor_id": "G-DE-007",
+    "legal_name": "Acme Trading AG",
+    "bank": {
+     "account_number": "6560945653",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE53132114716560945653"
+    },
+    "phone": "+4930121516"
+   },
+   {
+    "vendor_id": "G-GB-020",
+    "legal_name": "Meridian Holdings Ltd",
+    "bank": {
+     "account_number": "6560945653",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE53132114716560945653"
+    },
+    "phone": "+4930121516"
+   },
+   {
+    "vendor_id": "G-GB-004",
+    "legal_name": "Apex Shipping PLC",
+    "bank": {
+     "account_number": "6560945653",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE53132114716560945653"
+    },
+    "phone": "+4930121516"
+   }
+  ]
+ },
+ {
+  "id": "C-07",
+  "members": [
+   {
+    "vendor_id": "G-IN-026",
+    "legal_name": "Nimbus Shipping Pvt Ltd",
+    "bank": {
+     "account_number": "314913577594",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0703904"
+    },
+    "phone": "+91981003496"
+   },
+   {
+    "vendor_id": "G-GB-021",
+    "legal_name": "Beacon Trading Ltd",
+    "bank": {
+     "account_number": "314913577594",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0703904"
+    },
+    "phone": "+91981003496"
+   },
+   {
+    "vendor_id": "G-US-032",
+    "legal_name": "Cobalt Foods Inc",
+    "bank": {
+     "account_number": "314913577594",
+     "country": "IN",
+     "currency": "INR",
+     "ifsc": "HDFC0703904"
+    },
+    "phone": "+91981003496"
+   }
+  ]
+ },
+ {
+  "id": "C-08",
+  "members": [
+   {
+    "vendor_id": "G-DE-001",
+    "legal_name": "Pinnacle Container AG",
+    "bank": {
+     "account_number": "6265062292",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE80722660256265062292"
+    },
+    "phone": "+4930129097"
+   },
+   {
+    "vendor_id": "G-US-030",
+    "legal_name": "Kappa Holdings Inc",
+    "bank": {
+     "account_number": "6265062292",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE80722660256265062292"
+    },
+    "phone": "+4930129097"
+   }
+  ]
+ },
+ {
+  "id": "C-09",
+  "members": [
+   {
+    "vendor_id": "G-DE-016",
+    "legal_name": "Pinnacle Ventures GmbH",
+    "bank": {
+     "account_number": "1901707568",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE28461540211901707568"
+    },
+    "phone": "+4930128753"
+   },
+   {
+    "vendor_id": "G-IN-013",
+    "legal_name": "Omnitech Holdings Pvt Ltd",
+    "bank": {
+     "account_number": "1901707568",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE28461540211901707568"
+    },
+    "phone": "+4930128753"
+   },
+   {
+    "vendor_id": "G-GB-014",
+    "legal_name": "Helios Freight Ltd",
+    "bank": {
+     "account_number": "1901707568",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE28461540211901707568"
+    },
+    "phone": "+4930128753"
+   }
+  ]
+ },
+ {
+  "id": "C-10",
+  "members": [
+   {
+    "vendor_id": "G-DE-013",
+    "legal_name": "Omnitech Supply GmbH",
+    "bank": {
+     "account_number": "5057661945",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE89726032145057661945"
+    },
+    "phone": "+4930125350"
+   },
+   {
+    "vendor_id": "G-US-008",
+    "legal_name": "Northwind Labs Inc",
+    "bank": {
+     "account_number": "5057661945",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE89726032145057661945"
+    },
+    "phone": "+4930125350"
+   },
+   {
+    "vendor_id": "G-DE-000",
+    "legal_name": "Brightline Medical UG",
+    "bank": {
+     "account_number": "5057661945",
+     "country": "DE",
+     "currency": "EUR",
+     "iban": "DE89726032145057661945"
+    },
+    "phone": "+4930125350"
+   }
+  ]
+ },
+ {
+  "id": "C-11",
+  "members": [
+   {
+    "vendor_id": "G-GB-007",
+    "legal_name": "Beacon Supply PLC",
+    "bank": {
+     "account_number": "3520904217",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB23FMLE73543520904217"
+    },
+    "phone": "+442071238593"
+   },
+   {
+    "vendor_id": "G-US-020",
+    "legal_name": "Beacon Medical Corp",
+    "bank": {
+     "account_number": "3520904217",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB23FMLE73543520904217"
+    },
+    "phone": "+442071238593"
+   },
+   {
+    "vendor_id": "G-DE-033",
+    "legal_name": "Apex Supply AG",
+    "bank": {
+     "account_number": "3520904217",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB23FMLE73543520904217"
+    },
+    "phone": "+442071238593"
+   },
+   {
+    "vendor_id": "G-IN-022",
+    "legal_name": "Zenith Logistics Pvt Ltd",
+    "bank": {
+     "account_number": "3520904217",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB23FMLE73543520904217"
+    },
+    "phone": "+442071238593"
+   }
+  ]
+ },
+ {
+  "id": "C-12",
+  "members": [
+   {
+    "vendor_id": "G-GB-012",
+    "legal_name": "Redwood Holdings Ltd",
+    "bank": {
+     "account_number": "2044397359",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB46TGJX36262044397359"
+    },
+    "phone": "+442071234103"
+   },
+   {
+    "vendor_id": "G-IN-008",
+    "legal_name": "Nimbus Ventures LLP",
+    "bank": {
+     "account_number": "2044397359",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB46TGJX36262044397359"
+    },
+    "phone": "+442071234103"
+   }
+  ]
+ },
+ {
+  "id": "C-13",
+  "members": [
+   {
+    "vendor_id": "G-GB-018",
+    "legal_name": "Kappa Supply Ltd",
+    "bank": {
+     "account_number": "8725686211",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB42FVGP41678725686211"
+    },
+    "phone": "+442071238790"
+   },
+   {
+    "vendor_id": "G-US-034",
+    "legal_name": "Pinnacle Foods Inc",
+    "bank": {
+     "account_number": "8725686211",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB42FVGP41678725686211"
+    },
+    "phone": "+442071238790"
+   },
+   {
+    "vendor_id": "G-DE-005",
+    "legal_name": "Kappa Freight AG",
+    "bank": {
+     "account_number": "8725686211",
+     "country": "GB",
+     "currency": "GBP",
+     "iban": "GB42FVGP41678725686211"
+    },
+    "phone": "+442071238790"
+   }
+  ]
+ },
+ {
+  "id": "C-14",
+  "members": [
+   {
+    "vendor_id": "G-US-010",
+    "legal_name": "Hafen Holdings Inc",
+    "bank": {
+     "account_number": "562328588424",
+     "country": "US",
+     "currency": "USD",
+     "routing_number": "047095214"
+    },
+    "phone": "+15550138894"
+   },
+   {
+    "vendor_id": "G-GB-034",
+    "legal_name": "Kappa Labs PLC",
+    "bank": {
+     "account_number": "562328588424",
+     "country": "US",
+     "currency": "USD",
+     "routing_number": "047095214"
+    },
+    "phone": "+15550138894"
+   }
+  ]
+ }
+]

@@ -7,6 +7,7 @@ PATTERNS = {
     "PAN": re.compile(r"\b[A-Z]{5}\d{4}[A-Z]\b"),
     "EIN": re.compile(r"\b\d{2}-\d{7}\b"),
     "IBAN": re.compile(r"\b[A-Z]{2}\d{2}[A-Z0-9]{11,30}\b"),
+    "VATID": re.compile(r"\b(?:GB|DE)\d{9}\b"),
     "IFSC": re.compile(r"\b[A-Z]{4}0[A-Z0-9]{6}\b"),
     "ROUTING": re.compile(r"\bRouting[:\s#]*(\d{9})\b", re.IGNORECASE),
     "DATE": re.compile(r"\b(\d{4}-\d{2}-\d{2}|\d{2}/\d{2}/\d{4})\b"),
