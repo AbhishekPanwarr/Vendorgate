@@ -220,3 +220,35 @@ wiped after the incident. E17 determinism relies on this discipline.
   clock.today, lists.sanctions_version; S10 bypasses cache (reads findings).
 - Known limitation: C-DUP-04/06 depend on repo growth (shared DB state);
   documented, E17-stable (history constant within an eval run).
+
+## Phase 4 Evidence
+
+- E17: 500/500 delta==full (median cached ratio 95.8% over 100-edit sample;
+  gate needs ≥70%). Cached ratio counts checks, not findings (fixed mid-phase:
+  cached append sat inside the findings loop, so empty-result checks never
+  counted — honest accounting now).
+- W-4.1 reads audit: every check's reads now cover all inputs
+  (docs.content_hash, documents.digest, clock.today,
+  lists.sanctions_version); S10 bypasses cache (reads other findings);
+  versions bumped where reads changed (REQ-01/02, DUP-01/02/05, SAN-01..06,
+  GEO-02, ID-01, CRD-01, NAME-03). Verified live: C-DUP-05 served a stale
+  cross-vendor FAIL before existing_vendor_id entered reads.
+- D-4.0: SQLite-backed STORE (same call sites); 0002 migration
+  (current_version, run result, run_events, case_docs, UNIQUE(case_id,
+  version), rebuilt stub tables); fault state in fingerprints (fail-closed
+  across fault toggles); S8 derivation moved out of check bodies so cache
+  hits adjudicate identically; counterfactuals sorted (order-independent).
+- Delta goldens: hp-1-delta APPROVED 7.5 (rerun 3/cached 45); ec-1-delta
+  APPROVED 9.75 (rerun 12/cached 36, resolved [C-NAME-02]). Note: counts are
+  check-level, not the finding-level estimates in the brief (~1/~19, ~4/~15).
+- EC-13: 4th same-code submit → REJECTED RETRY_LIMIT_EXCEEDED → appeal →
+  PENDING(INTERNAL). EC-14: nudges day 1/3/7/10 + day-15 ABANDONED.
+  EC-3b-delta: bad callback → CALLBACK_NOT_INDEPENDENT; master number →
+  cleared. Deadline immutable (resubmit never extends due_at). Scheduler
+  idempotent (bulk == split advances). Appeal 3-role SoD enforced.
+- Status codes: 202/409/412/403 resubmit; Idempotent-Replayed header on
+  replay. Full suite: 257 passed, 13 skipped (e2e; 13/13 pass live).
+  Coverage 12 pkgs ≥90%. mypy strict clean (97 files); ruff clean.
+- openapi.json: +resubmit/appeal/clock/events routes only.
+- Screenshots: shot-resubmit-409, shot-nudge-history, shot-appeals (+ prior).
+- Phase 0 stays RED (Render pending); Render parallel track unchanged.
