@@ -39,15 +39,20 @@ def result_of(case: dict, pack: dict, seconds: float) -> dict:
                 if f.get("outcome") == "FAIL" and f.get("severity", 0) >= 1]
     has_cf = bool(dec.get("counterfactuals"))
     exp = case["expected"]
+    status = str(dec["status"]).upper()
+    if status not in ("APPROVED", "PENDING", "REJECTED"):
+        status = "ERROR"
+    awaiting = [a for a in (str(x).upper() for x in dec.get("awaiting", []))
+                if a in ("VENDOR", "INTERNAL")]
     return {
         "op": case["op"], "vendor_id": case["vendor_id"],
-        "slice": None,
+        "slice": case.get("slice"),
         "expected_status": exp["status"],
         "expected_awaiting": exp["awaiting"],
         "expected_codes": exp["blocking_reason_codes"],
         "expected_critical": exp["critical"],
-        "actual_status": dec["status"],
-        "actual_awaiting": dec.get("awaiting", []),
+        "actual_status": status,
+        "actual_awaiting": awaiting,
         "actual_codes": dec.get("reason_codes", []),
         "tier": dec.get("tier"), "score": dec.get("score", {}).get("total", 0),
         "has_counterfactual": has_cf,
@@ -70,9 +75,21 @@ def llm_only(case: dict, llm_mode: str) -> dict:
 
     payload = json.dumps(case["payload"], default=str)[:12000]
     t0 = time.time()
-    out = asyncio.run(llm.structured(
-        task="llm-only baseline", model=llm_model(), system=LLM_ONLY_SYSTEM,
-        user=llm_only_user(payload), schema=LlmOnlyVerdict, max_tokens=1024))
+    last = None
+    out = None
+    for _ in range(3):
+        try:
+            out = asyncio.run(llm.structured(
+                task="llm-only baseline", model=llm_model(), system=LLM_ONLY_SYSTEM,
+                user=llm_only_user(payload), schema=LlmOnlyVerdict, max_tokens=4096))
+            break
+        except Exception as e:  # noqa: BLE001 - baseline must not crash eval
+            last = e
+    if out is None:
+        out = LlmOnlyVerdict(status="ERROR", awaiting=[],
+                             reason_codes=["BASELINE_ERROR"],
+                             rationale=f"3 attempts failed: {last}")
+    tokens = int(getattr(out, "_tokens_used", 0) or 0)
     return {"decision": {"status": out.status,
                          "awaiting": out.awaiting,
                          "reason_codes": out.reason_codes,
@@ -81,7 +98,8 @@ def llm_only(case: dict, llm_mode: str) -> dict:
                          "counterfactuals": [],
                          "decision_id": None},
             "findings": [], "run_id": None,
-            "_seconds": round(time.time() - t0, 2)}
+            "_seconds": round(time.time() - t0, 2),
+            "_tokens": tokens}
 
 
 def main() -> None:
@@ -94,48 +112,17 @@ def main() -> None:
     ap.add_argument("--llm-mode", default="replay")
     ap.add_argument("--out", default="")
     args = ap.parse_args()
-    check_frozen(args.split)
-    cases = load_split(args.split)
-    total = len(cases)
-    if args.offset:
-        cases = cases[args.offset:]
-    if args.limit:
-        cases = cases[: args.limit]
-    llm_mode = "off" if args.mode == "rules-only" else args.llm_mode
-    results = []
-    lat = []
-    for i, case in enumerate(cases):
-        t0 = time.time()
-        if args.mode == "llm-only":
-            pack = llm_only(case, llm_mode)
-            sec = pack.pop("_seconds")
-        else:
-            pack = run_case(case, llm_mode=llm_mode)
-            sec = round(time.time() - t0, 2)
-        lat.append(sec)
-        r = result_of(case, pack, sec)
-        results.append(r)
-        print(f"[{args.offset + i + 1}/{total}] {case['op']} {case['vendor_id']} "
-              f"exp={r['expected_status']} got={r['actual_status']} {sec:.1f}s")
-    report = compute(results)
-    import statistics
+    from eval.ablation import run_mode as _run_mode
 
-    report["E18_latency"] = {
-        "p50": round(statistics.median(lat), 2),
-        "p95": round(sorted(lat)[max(0, int(len(lat) * 0.95) - 1)], 2),
-        "mode": args.mode}
-    report["E19_cost"] = {"tokens": 0, "note": "replay/off: no live tokens"}
-    report["meta"] = {"split": args.split, "mode": args.mode,
-                      "llm_mode": llm_mode, "n": len(results)}
+    data = _run_mode(args.mode, args.split, args.limit, args.llm_mode,
+                     offset=args.offset)
     OUT.mkdir(parents=True, exist_ok=True)
     name = args.out or f"{args.split}-{args.mode}-latest.json"
-    (OUT / name).write_text(json.dumps({"results": results, "metrics": report},
-                                        indent=1))
+    (OUT / name).write_text(json.dumps({"results": data["results"],
+                                        "metrics": data["metrics"]}, indent=1))
     print(f"wrote eval/reports/{name}")
-    m = report
+    m = data["metrics"]
     print(f"E1={m['E1_critical_false_approve']} E3={m['E3_false_reject']} "
           f"E5={m['E5_status_accuracy']['rate']:.3f}")
 
 
-if __name__ == "__main__":
-    main()

@@ -112,6 +112,10 @@ async def tin_reuse(ctx: Any) -> list[Finding]:
     ),
 )
 async def bank_reuse(ctx: Any) -> list[Finding]:
+    import os as _os4
+
+    if _os4.environ.get("NO_NETWORK") == "1":
+        return []  # ablation -network
     existing = str(ctx.value("existing_vendor_id") or "") or None
     hits = net.find_bank_reuse(_submitter_bank_key(ctx), exclude=existing)
     if not hits:
@@ -200,6 +204,10 @@ async def near_duplicate(ctx: Any) -> list[Finding]:
     id="C-DUP-04", stage="S6", version=1, mandatory=False, reads=("company.primary_contact.phone",)
 )
 async def attr_cluster(ctx: Any) -> list[Finding]:
+    import os as _os5
+
+    if _os5.environ.get("NO_NETWORK") == "1":
+        return []  # ablation -network
     from backend.app.persistence import repo
 
     phone = sstr(ctx.value("company.primary_contact.phone"))

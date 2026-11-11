@@ -41,7 +41,13 @@ def apply_resolutions(findings: list[Finding], resolutions: list[Resolution]) ->
 def is_blocking(f: Finding, policy: object) -> bool:
     if f.outcome == Outcome.FAIL:
         return True
-    return bool(f.outcome == Outcome.UNVERIFIABLE and f.mandatory)
+    if f.outcome == Outcome.UNVERIFIABLE and f.mandatory:
+        import os as _os
+
+        if _os.environ.get("FAILOPEN") == "1":
+            return False  # ablation -fail-closed: UNVERIFIABLE treated as PASS
+        return True
+    return False
 
 
 def approvers_for(tier: str, policy: object) -> list[str]:
@@ -129,10 +135,16 @@ def decide(
         else:
             route = approvers_for(tier.value, policy)
 
+    import os as _os2
+
     cfs = (
-        _counterfactuals(blocking, policy, risk)
-        if (status == Status.PENDING and Awaiting.VENDOR in awaiting)
-        else []
+        []
+        if _os2.environ.get("NO_COUNTERFACTUAL") == "1"
+        else (
+            _counterfactuals(blocking, policy, risk)
+            if (status == Status.PENDING and Awaiting.VENDOR in awaiting)
+            else []
+        )
     )
     cfs = sorted(cfs, key=lambda c: (c.status.value, c.fix_set))
 

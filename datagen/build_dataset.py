@@ -378,13 +378,16 @@ def main(seed=SEED) -> None:
     for key, items in groups.items():
         if key[0] == "adversarial":
             for sl, case in items:
+                case["slice"] = sl
                 test.append(case)
             continue
         rng.shuffle(items)
         n_test = max(1, int(len(items) * 0.4)) if len(items) > 2 else 0
         for sl, case in items[: len(items) - n_test]:
+            case["slice"] = sl
             dev.append(case)
         for sl, case in items[len(items) - n_test:]:
+            case["slice"] = sl
             test.append(case)
     blob_dev = json.dumps(dev, sort_keys=True)
     blob_test = json.dumps(test, sort_keys=True)

@@ -22,7 +22,8 @@ def confusion(results: list[dict]) -> dict[str, dict[str, int]]:
     cats = ["APPROVED", "PENDING", "REJECTED"]
     m = {e: {a: 0 for a in cats} for e in cats}
     for r in results:
-        m[r["expected_status"]][r["actual_status"]] += 1
+        if r["expected_status"] in cats and r["actual_status"] in cats:
+            m[r["expected_status"]][r["actual_status"]] += 1
     return m
 
 
