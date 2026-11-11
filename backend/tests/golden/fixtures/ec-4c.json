@@ -89,8 +89,8 @@
  "decision": {
   "status": "PENDING",
   "awaiting": [
-   "INTERNAL",
-   "VENDOR"
+   "VENDOR",
+   "INTERNAL"
   ],
   "tier": "MEDIUM",
   "score": {
@@ -289,7 +289,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "623260cd8520f4241112fe881f0728c4fa14e31d0fcca000007a63812fe86079",
+   "fingerprint": "c04ef26969967bbd76de3d2dd24b99849a1d34521980020d28d846673110601d",
    "score_tags": {
     "DOCS": 0.5
    },
@@ -358,7 +358,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "09a055e23992699d649014d50ef3df25d64fed28a6ddb4d5303b1ca7ea26ac12",
+   "fingerprint": "9fa68ac17b0afe6544eeea3ce61ff64a2f796ebd9698b79b054b1395db1fafa0",
    "score_tags": {},
    "duration_ms": 0,
    "cached": true
@@ -395,7 +395,7 @@
    "reads": [
     "company.legal_name"
    ],
-   "fingerprint": "34bbe6b1a514230268f3894d2d2a45f59246488d72b95b74ab5984ba106d7a10",
+   "fingerprint": "bf4e4f8f2ffbace6a79a3f9647fbfea07e0c6a36e695798149b2f6aef0b331b0",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

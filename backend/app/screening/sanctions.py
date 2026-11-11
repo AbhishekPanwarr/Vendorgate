@@ -101,12 +101,18 @@ def screen(
 
 
 def sanctions_entries() -> list[dict[str, Any]]:
-    return _load("sanctions_mock.jsonl")
+    return _load("sanctions_mock.jsonl") + list(_EXTRA_SANCTIONS)
 
 
 def pep_entries() -> list[dict[str, Any]]:
-    return _load("pep_mock.jsonl")
+    return _load("pep_mock.jsonl") + list(_EXTRA_PEP)
 
 
 def adverse_entries() -> list[dict[str, Any]]:
-    return _load("adverse_mock.jsonl")
+    return _load("adverse_mock.jsonl") + list(_EXTRA_ADVERSE)
+
+
+# Per-case overlays for eval/fool-it.
+_EXTRA_SANCTIONS: list[dict[str, Any]] = []
+_EXTRA_PEP: list[dict[str, Any]] = []
+_EXTRA_ADVERSE: list[dict[str, Any]] = []

@@ -154,7 +154,9 @@
    "total": 30.5,
    "band": "LOW"
   },
-  "reason_codes": [],
+  "reason_codes": [
+   "TIER_APPROVAL_REQUIRED"
+  ],
   "blocking_finding_ids": [],
   "required_actions": [],
   "approval_route": [
@@ -189,7 +191,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "bcd0743bf2ac7af76e4acef34c404e30ebacde53e6476f260e699a31ca510fed",
+   "fingerprint": "55d6ec02040becb6838b41e7d0d9ab453939c72442932b76c15f8ae743b2421a",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -217,7 +219,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "d10cc9ae1030cf3d95c4189efc42363857ee9a8db6bc1848469c7079d9a2535c",
+   "fingerprint": "e65caba0cb21c1ae66604c2dd38fd15fa835e0eb67bebbc96d1f05d2348fd42e",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

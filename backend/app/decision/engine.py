@@ -117,6 +117,8 @@ def decide(
         status, tier, awaiting = Status.APPROVED, Tier.LOW, set()
     else:
         status, tier, awaiting = Status.PENDING, Tier(risk.band.value), {Awaiting.INTERNAL}
+        if "TIER_APPROVAL_REQUIRED" not in reason_codes:
+            reason_codes = [*reason_codes, "TIER_APPROVAL_REQUIRED"]
 
     route: list[str] = []
     if status == Status.PENDING and Awaiting.INTERNAL in awaiting:

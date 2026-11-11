@@ -319,7 +319,7 @@
    "score_tags": {
     "GEO": 0.5
    },
-   "duration_ms": 8,
+   "duration_ms": 7,
    "cached": false
   },
   {
@@ -358,7 +358,7 @@
    "score_tags": {
     "GEO": 0.3
    },
-   "duration_ms": 3,
+   "duration_ms": 2,
    "cached": false
   },
   {
@@ -467,7 +467,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "bcd61836df6624af5ea38344f088fe7db1922cad3c19331fa47efa05e90a2b56",
+   "fingerprint": "8701a37f7791fcbb37fe64257549d5fae5c88ca990922edd5bebc46380785c76",
    "score_tags": {
     "DOCS": 0.5
    },
@@ -497,7 +497,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "75b40448cae21237ab1af5f0a077a0b924be20b7603b09947c5d689f669c4cc6",
+   "fingerprint": "e920cec69dc1804002e3d18a610336848a534a64050370b71cc93b3227f5635b",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -525,7 +525,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "602798290da8a46ccc029ebc7c643b9c5434c7356455ab455d7ddaa6701653b2",
+   "fingerprint": "7613827250bbe15e4ee8bac7d425f087102b7bb1a9122992fba661a03d4a50bf",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

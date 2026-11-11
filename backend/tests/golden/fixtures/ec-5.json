@@ -205,7 +205,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "174ddc824f284d61bbf0042ac25615c038f7c8dc44374c23de58166f243a83be",
+   "fingerprint": "127007244a8fecf3a0224195168f1e005b8ff42c930eb0c581b845b8447b3c82",
    "score_tags": {
     "DOCS": 0.3
    },
@@ -235,7 +235,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "e6c0db1b70dcc757befe418d27d303e336fdec9b8540f152501c8b8933916c48",
+   "fingerprint": "9536f38904e105adf0072444307cfa82cf864ae02fddfe59d13bc59f51c14a5d",
    "score_tags": {},
    "duration_ms": 0,
    "cached": true

@@ -38,10 +38,14 @@ seed:
 	python -c "print('seed: Phase 1+')"
 
 datagen:
-	python -c "print('datagen: Phase 5')"
+	PYTHONPATH=. python3 datagen/world.py SEED 42
+	PYTHONPATH=. python3 datagen/build_dataset.py
 
-eval:
-	python -c "print('eval: Phase 5')"
+eval-dev:
+	LLM_MODE=replay python3 -m eval.run_eval --split dev --mode hybrid
+
+eval-test:
+	LLM_MODE=replay python3 -m eval.run_eval --split test --mode hybrid
 
 demo:
 	docker compose up --build

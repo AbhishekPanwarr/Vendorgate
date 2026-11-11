@@ -13,6 +13,9 @@ from backend.app.adapters.faults import guarded_call
 
 _FIX_DIR = Path(__file__).parent / "fixtures"
 
+# Per-case overlay for eval/fool-it: {(adapter_name, key): row}. Checked first.
+_OVERLAY: dict[tuple[str, str], dict[str, Any]] = {}
+
 
 class MockVerifier:
     name = "mock"
@@ -32,9 +35,11 @@ class MockVerifier:
 
     async def verify(self, req: dict[str, Any], *, timeout: float = 5.0) -> VerifierResult[Any]:
         async def _do() -> VerifierResult[Any]:
-            rows = self._rows()
             key = str(req.get(self.key_field, ""))
-            row = rows.get(key)
+            row = _OVERLAY.get((self.name, key))
+            if row is None:
+                rows = self._rows()
+                row = rows.get(key)
             if row is None:
                 return VerifierResult(
                     status=VerifierStatus.NOT_FOUND,

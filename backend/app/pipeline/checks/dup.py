@@ -175,7 +175,7 @@ async def near_duplicate(ctx: Any) -> list[Finding]:
 
     legal = sstr(ctx.value("company.legal_name"))
     phone = sstr(ctx.value("company.primary_contact.phone"))
-    for vid, v in net.VENDORS.items():
+    for vid, v in net._all_vendors().items():
         sim = core_similarity(legal.lower(), str(v.get("name_core", "")).lower())
         if sim >= 0.90 or (sim >= 0.80 and phone and phone == v.get("phone")):
             return [

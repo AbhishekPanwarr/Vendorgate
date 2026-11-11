@@ -60,10 +60,12 @@ def _fail(
     )
 
 
-@check(id="C-TAX-01", stage="S3", version=1, mandatory=True, reads=("tax.tax_id", "tax.country"))
+@check(id="C-TAX-01", stage="S3", version=2, mandatory=True, reads=("tax.tax_id", "tax.country"))
 async def tax_format(ctx: Any) -> list[Finding]:
     country = str(ctx.value("tax.country"))
     tax_id = str(ctx.value("tax.tax_id") or "")
+    if not tax_id:
+        return []  # empty is C-REQ-01 MISSING_FIELD; no pile-on (catalog M-01)
     findings: list[Finding] = []
     if country == "US":
         res = validate_ein(tax_id)
@@ -107,10 +109,12 @@ async def tax_format(ctx: Any) -> list[Finding]:
     return findings
 
 
-@check(id="C-TAX-02", stage="S3", version=1, mandatory=True, reads=("tax.tax_id", "tax.country"))
+@check(id="C-TAX-02", stage="S3", version=2, mandatory=True, reads=("tax.tax_id", "tax.country"))
 async def tax_checksum(ctx: Any) -> list[Finding]:
     country = str(ctx.value("tax.country"))
     tax_id = str(ctx.value("tax.tax_id") or "")
+    if not tax_id:
+        return []  # empty is C-REQ-01 MISSING_FIELD; no pile-on (catalog M-01)
     findings: list[Finding] = []
     if country == "IN":
         res = validate_gstin(tax_id)

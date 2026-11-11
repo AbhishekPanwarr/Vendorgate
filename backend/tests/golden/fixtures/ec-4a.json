@@ -185,7 +185,7 @@
    "score_tags": {
     "GEO": 0.1
    },
-   "duration_ms": 8,
+   "duration_ms": 7,
    "cached": false
   },
   {
@@ -211,7 +211,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "09a055e23992699d649014d50ef3df25d64fed28a6ddb4d5303b1ca7ea26ac12",
+   "fingerprint": "9fa68ac17b0afe6544eeea3ce61ff64a2f796ebd9698b79b054b1395db1fafa0",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -239,7 +239,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "198027fab1e781dd44c6ef5e38d1fbfb7a95ea85aead3594b958698dc08199ef",
+   "fingerprint": "3e365673d54ae3f38a41e6e0db1195c1713ea10189bff0a4c0157cdc9d2ead08",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false

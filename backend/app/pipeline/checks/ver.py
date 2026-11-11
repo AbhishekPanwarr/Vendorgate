@@ -59,7 +59,7 @@ def _pass(
 @check(
     id="C-VER-01",
     stage="S4",
-    version=1,
+    version=2,
     mandatory=True,
     reads=("tax.tax_id", "tax.country"),
     adapters=("irs",),
@@ -68,6 +68,8 @@ async def tin_match(ctx: Any) -> list[Finding]:
     if sstr(ctx.value("tax.country")) != "US":
         return []
     tax_id = sstr(ctx.value("tax.tax_id"))
+    if not tax_id:
+        return []  # empty is C-REQ-01 MISSING_FIELD (catalog M-01)
     try:
         res = await IrsMock().verify({"tax_id": tax_id}, timeout=5.0)
     except AdapterUnavailable as e:
@@ -151,7 +153,7 @@ async def tin_match(ctx: Any) -> list[Finding]:
 @check(
     id="C-VER-02",
     stage="S4",
-    version=1,
+    version=2,
     mandatory=True,
     reads=("tax.tax_id", "tax.country"),
     adapters=("gst",),
@@ -160,6 +162,8 @@ async def gst_registry(ctx: Any) -> list[Finding]:
     if sstr(ctx.value("tax.country")) != "IN":
         return []
     gstin = sstr(ctx.value("tax.tax_id"))
+    if not gstin:
+        return []  # empty is C-REQ-01 MISSING_FIELD (catalog M-01)
     try:
         res = await GstMock().verify({"gstin": gstin}, timeout=5.0)
     except AdapterUnavailable as e:
@@ -204,7 +208,7 @@ async def gst_registry(ctx: Any) -> list[Finding]:
 @check(
     id="C-VER-03",
     stage="S4",
-    version=1,
+    version=2,
     mandatory=True,
     reads=("tax.tax_id", "tax.country"),
     adapters=("vies",),
@@ -214,6 +218,8 @@ async def vies_check(ctx: Any) -> list[Finding]:
     if country not in ("GB", "DE"):
         return []
     vat_id = sstr(ctx.value("tax.tax_id"))
+    if not vat_id:
+        return []  # empty is C-REQ-01 MISSING_FIELD (catalog M-01)
     try:
         res = await ViesMock().verify({"vat_id": vat_id}, timeout=5.0)
     except AdapterUnavailable as e:
@@ -244,6 +250,7 @@ async def vies_check(ctx: Any) -> list[Finding]:
     version=2,
     mandatory=True,
     reads=("company.legal_name", "company.country", "company.entity_type",
+           "company.incorporation_date",
            "requester.expected_annual_spend_usd", "requester.category"),
     adapters=("registry",),
 )
@@ -286,7 +293,30 @@ async def registry_check(ctx: Any) -> list[Finding]:
         ]
     status = (res.data or {}).get("status")
     if status == "Active":
-        return [_pass("C-VER-04", "Entity active", "registry", res.call_id, res.fixture_id)]
+        out = [_pass("C-VER-04", "Entity active", "registry", res.call_id, res.fixture_id)]
+        reg_year = (res.data or {}).get("incorporation_year")
+        reg_country = str((res.data or {}).get("country") or "")
+        form_country = sstr(ctx.value("company.country"))
+        # cross-registry hits (e.g. PA vendor matching a GB record) can't
+        # adjudicate the incorporation date; skip rather than mis-fire
+        if reg_country and reg_country.upper() != form_country.upper():
+            return out
+        form_date = sstr(ctx.value("company.incorporation_date"))
+        try:
+            form_year = int(form_date[:4])
+        except ValueError:
+            form_year = 0
+        if reg_year and form_year and int(reg_year) != form_year:
+            out.append(make_finding(
+                ctx, "C-VER-04", "S4", 1, outcome=Outcome.FAIL,
+                severity=Severity.SOFT, reason_code="INCORP_DATE_MISMATCH",
+                title="Incorporation date differs from registry",
+                detail=f"Form says {form_year}, registry says {reg_year}.",
+                claim_paths=["company.incorporation_date"],
+                fix=FixAction(code="UPLOAD_INCORP_CERT",
+                              field_paths=["company.incorporation_date"]),
+                fixed_by=FixedBy.VENDOR))
+        return out
     if status in ("Dissolved", "StruckOff"):
         return [
             make_finding(

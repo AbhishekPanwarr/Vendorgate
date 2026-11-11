@@ -152,11 +152,13 @@
   },
   "reason_codes": [
    "GSTIN_NOT_FOUND",
+   "INCORP_DATE_MISMATCH",
    "TAX_CHECKSUM_INVALID"
   ],
   "blocking_finding_ids": [
    "C-TAX-02",
-   "C-VER-02"
+   "C-VER-02",
+   "C-VER-04"
   ],
   "required_actions": [
    {
@@ -174,6 +176,14 @@
     ],
     "doc_type": null,
     "params": {}
+   },
+   {
+    "code": "UPLOAD_INCORP_CERT",
+    "field_paths": [
+     "company.incorporation_date"
+    ],
+    "doc_type": null,
+    "params": {}
    }
   ],
   "approval_route": [],
@@ -188,7 +198,7 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by TAX_CHECKSUM_INVALID",
+    "note": "still blocked by INCORP_DATE_MISMATCH, TAX_CHECKSUM_INVALID",
     "score_delta": null
    },
    {
@@ -201,13 +211,26 @@
     "awaiting": [
      "VENDOR"
     ],
-    "note": "still blocked by GSTIN_NOT_FOUND",
+    "note": "still blocked by GSTIN_NOT_FOUND, INCORP_DATE_MISMATCH",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_INCORP_CERT"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by GSTIN_NOT_FOUND, TAX_CHECKSUM_INVALID",
     "score_delta": null
    }
   ],
   "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
   "engine_version": "1.0.0",
-  "reproducibility_hash": "db9b78d025cbc36d3b3e36ded23b5d2373721e8d5b345ac8e411c76bf3452426"
+  "reproducibility_hash": "d783778746ec850583d014aa36fe0ab938e5395a5f54b231e4e69979d132b5aa"
  },
  "findings": [
   {
@@ -242,7 +265,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "381a333c63bb4e401a3c85ec21244e07ac141e709b60a46c832a1d08922e5491",
+   "fingerprint": "5a7fc2ed9a35a3488e702bc8890ae3c369c7bbd1929ffb148f090f751c50a77b",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -279,7 +302,7 @@
    "reads": [
     "tax.tax_id"
    ],
-   "fingerprint": "7ba70ccfb94d952f19268d67593e0abf8413c685544db3260c1c8b2d57fa1fb2",
+   "fingerprint": "8a86b537dfcd089c30f8b24e356f84d118b04734b53d7f54da23c6552584c6d7",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -307,7 +330,44 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6531c357fd88b6ba8bb0a2952423a8239063034770a78d6e715bc53b5d728465",
+   "fingerprint": "e708aee442077203cc5b57f1527af90c98dec2cf59ace1618bd051647827ee4a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "INCORP_DATE_MISMATCH",
+   "title": "Incorporation date differs from registry",
+   "detail": "Form says 2019, registry says 2024.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.incorporation_date",
+     "summary": "claim company.incorporation_date",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_INCORP_CERT",
+    "field_paths": [
+     "company.incorporation_date"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.incorporation_date"
+   ],
+   "fingerprint": "e708aee442077203cc5b57f1527af90c98dec2cf59ace1618bd051647827ee4a",
    "score_tags": {},
    "duration_ms": 0,
    "cached": true

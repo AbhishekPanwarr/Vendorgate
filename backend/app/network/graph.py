@@ -12,6 +12,15 @@ SALT = os.environ.get("BANK_HASH_SALT", "dev-salt")
 # Seeded master (hand fixtures; Phase 5 generates from truth store).
 VENDORS: dict[str, dict[str, Any]] = {}
 
+# Per-case overlay for eval/fool-it (extra master rows for this case only).
+_EXTRA_VENDORS: dict[str, dict[str, Any]] = {}
+
+
+def _all_vendors() -> dict[str, dict[str, Any]]:
+    merged = dict(VENDORS)
+    merged.update(_EXTRA_VENDORS)
+    return merged
+
 
 def bank_key(country: str, routing: str, account: str) -> str:
     raw = f"{country}|{routing}|{account}|{SALT}"
@@ -50,17 +59,17 @@ def attr_keys(attrs: dict[str, Any]) -> dict[str, str]:
 
 
 def find_bank_reuse(bkey: str, exclude: str | None = None) -> list[dict[str, Any]]:
-    return [v for vid, v in VENDORS.items() if v.get("bank") == bkey and vid != exclude]
+    return [v for vid, v in _all_vendors().items() if v.get("bank") == bkey and vid != exclude]
 
 
 def find_tin_reuse(tin: str, exclude: str | None = None) -> list[dict[str, Any]]:
-    return [v for vid, v in VENDORS.items() if v.get("tax_id") == tin and vid != exclude]
+    return [v for vid, v in _all_vendors().items() if v.get("tax_id") == tin and vid != exclude]
 
 
 def build_graph(cases: list[dict[str, Any]]) -> nx.Graph:
     g = nx.Graph()
     nodes: dict[str, dict[str, Any]] = {}
-    for v in list(VENDORS.values()) + cases:
+    for v in list(_all_vendors().values()) + cases:
         vid = v.get("vendor_id") or v.get("case_id", "case")
         nodes[vid] = v
         g.add_node(vid, kind="vendor")

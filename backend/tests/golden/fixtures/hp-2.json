@@ -151,7 +151,9 @@
    "total": 37.5,
    "band": "LOW"
   },
-  "reason_codes": [],
+  "reason_codes": [
+   "TIER_APPROVAL_REQUIRED"
+  ],
   "blocking_finding_ids": [],
   "required_actions": [],
   "approval_route": [
@@ -186,7 +188,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "07035b346a856a6b76c6a0d1501585b40586d5cd3d641787f11e0f3d3960fd3e",
+   "fingerprint": "64ff7003434d5434b0cf0ee22c57cf06c0ede9941c61cf7209fc5fe32781631a",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -214,7 +216,7 @@
    "mandatory": true,
    "deterministic": true,
    "reads": [],
-   "fingerprint": "6531c357fd88b6ba8bb0a2952423a8239063034770a78d6e715bc53b5d728465",
+   "fingerprint": "59e63600af3368fff6c006e3cde6f1be09d67fb08029b29b40e6139bb37e9f71",
    "score_tags": {},
    "duration_ms": 0,
    "cached": false
@@ -272,7 +274,7 @@
    "reads": [
     "company.incorporation_date"
    ],
-   "fingerprint": "59fa2da511c305ede7f877abd2050fccfcbb31d674436a191daef0862a8c0f16",
+   "fingerprint": "41d55ebb8db8d4aacbc9fe8b7d7c7bf922b6e5b6d739026209ea4733095359f7",
    "score_tags": {
     "REGISTRY_MEDIA": 0.2
    },
