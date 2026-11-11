@@ -141,6 +141,8 @@ async def req_fields(ctx: Any) -> list[Finding]:
         "company.entity_type",
         "requester.category",
         "requester.expected_annual_spend_usd",
+        "bank.country",
+        "tax.form_type",
         "documents.digest",
     ),
 )

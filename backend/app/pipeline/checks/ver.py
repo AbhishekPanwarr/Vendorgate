@@ -241,9 +241,10 @@ async def vies_check(ctx: Any) -> list[Finding]:
 @check(
     id="C-VER-04",
     stage="S4",
-    version=1,
+    version=2,
     mandatory=True,
-    reads=("company.legal_name", "company.country", "company.entity_type"),
+    reads=("company.legal_name", "company.country", "company.entity_type",
+           "requester.expected_annual_spend_usd", "requester.category"),
     adapters=("registry",),
 )
 async def registry_check(ctx: Any) -> list[Finding]:

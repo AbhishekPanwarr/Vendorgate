@@ -252,3 +252,12 @@ wiped after the incident. E17 determinism relies on this discipline.
 - openapi.json: +resubmit/appeal/clock/events routes only.
 - Screenshots: shot-resubmit-409, shot-nudge-history, shot-appeals (+ prior).
 - Phase 0 stays RED (Render pending); Render parallel track unchanged.
+
+## D-5.0 pre-flight notes
+
+- ADR-0012 (fault state in fingerprints), ADR-0013 (check-level delta counts).
+- test_reads_audit.py added; fixed 4 real gaps on first run (C-DUP-06
+  existing_vendor_id, C-REQ-02 bank.country/tax.form_type, C-VER-04
+  spend/category, indexed doc paths covered by documents.digest).
+- Makefile deploy already targets RENDER_DEPLOY_HOOK. Render provisioning
+  itself remains manual (parallel track).
