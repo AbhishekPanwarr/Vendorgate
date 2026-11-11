@@ -55,6 +55,22 @@
  },
  "openapi": "3.1.0",
  "paths": {
+  "/api/v1/admin/clock/advance": {
+   "post": {
+    "operationId": "clock_advance_api_v1_admin_clock_advance_post",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Clock Advance"
+   }
+  },
   "/api/v1/admin/reset": {
    "post": {
     "operationId": "admin_reset_api_v1_admin_reset_post",
@@ -160,6 +176,43 @@
      }
     },
     "summary": "Get Case"
+   }
+  },
+  "/api/v1/cases/{case_id}/appeal": {
+   "post": {
+    "operationId": "appeal_api_v1_cases__case_id__appeal_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "case_id",
+      "required": true,
+      "schema": {
+       "title": "Case Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "202": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Appeal"
    }
   },
   "/api/v1/cases/{case_id}/approvals": {
@@ -354,6 +407,43 @@
      }
     },
     "summary": "Get Doc"
+   }
+  },
+  "/api/v1/cases/{case_id}/events": {
+   "get": {
+    "operationId": "get_case_events_api_v1_cases__case_id__events_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "case_id",
+      "required": true,
+      "schema": {
+       "title": "Case Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Get Case Events"
    }
   },
   "/api/v1/cases/{case_id}/messages": {

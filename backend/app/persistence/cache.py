@@ -15,15 +15,17 @@ class DbCheckCache:
             return [Finding.model_validate(f) for f in row.result]
 
     def put(self, fp: str, findings: list[Finding]) -> None:
+        from typing import Any
+
         from backend.app.persistence import models
 
         with session() as s:
             row = s.get(models.CheckCacheRow, fp)
-            data = [f.model_dump(mode="json") for f in findings]
+            data: list[Any] = [f.model_dump(mode="json") for f in findings]
             check_id = findings[0].check_id if findings else ""
             if row is None:
                 s.add(models.CheckCacheRow(fingerprint=fp, check_id=check_id,
                                            result=data))
             else:
-                row.result = data
-                row.check_id = check_id
+                setattr(row, "result", data)
+                setattr(row, "check_id", check_id)

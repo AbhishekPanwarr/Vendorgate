@@ -64,21 +64,23 @@ def create_app() -> FastAPI:
         return out
 
     @app.post("/api/v1/cases/{case_id}/resubmit", status_code=202)
-    async def resubmit(case_id: str, request: Request,  # noqa: ANN201
-                       idempotency_key: str | None = Header(default=None),
-                       if_match: str | None = Header(default=None, alias="If-Match")):
+    async def resubmit(
+        case_id: str,
+        request: Request,  # noqa: ANN201
+        idempotency_key: str | None = Header(default=None),
+        if_match: str | None = Header(default=None, alias="If-Match"),
+    ):
         from backend.app.core.hashing import canonical_json
         from backend.app.core.hashing import sha256_hex
         from backend.app.persistence.store import append_case_event
-        from backend.app.pipeline.pipeline import run_full
 
         case = repo.STORE["cases"].get(case_id)
         if not case:
             return JSONResponse(status_code=404, content={"type": "not-found"})
         if case.get("status") != "PENDING":
-            return JSONResponse(status_code=403,
-                                content={"type": "NOT_RESUBMITTABLE",
-                                         "status": case.get("status")})
+            return JSONResponse(
+                status_code=403, content={"type": "NOT_RESUBMITTABLE", "status": case.get("status")}
+            )
         current = int(case.get("current_version", 1))
         if idempotency_key and idempotency_key in repo.STORE["idempotency"]:
             return JSONResponse(
@@ -87,9 +89,9 @@ def create_app() -> FastAPI:
                 headers={"Idempotent-Replayed": "true"},
             )
         if if_match is not None and if_match != str(current):
-            return JSONResponse(status_code=412,
-                                content={"type": "VERSION_MISMATCH",
-                                         "current_version": current})
+            return JSONResponse(
+                status_code=412, content={"type": "VERSION_MISMATCH", "current_version": current}
+            )
         form = await request.form()
         raw = form.get("payload", "{}")
         try:
@@ -108,25 +110,33 @@ def create_app() -> FastAPI:
         with open_db_session() as s:
             from backend.app.persistence import models as _m
 
-            row = (s.query(_m.SubmissionVersion)
-                   .filter_by(case_id=case_id, version=current).first())
+            row = s.query(_m.SubmissionVersion).filter_by(case_id=case_id, version=current).first()
             cur_hash = row.payload_hash if row else ""
         if new_hash == cur_hash:
-            return JSONResponse(status_code=409,
-                                content={"type": "NO_CHANGES",
-                                         "current_version": current})
+            return JSONResponse(
+                status_code=409, content={"type": "NO_CHANGES", "current_version": current}
+            )
         files: dict[str, tuple[str, bytes]] = {}
         for key, item in form.items():
             if key.startswith("file:") and hasattr(item, "read"):
                 data = await item.read()
                 files[key[5:]] = (item.filename or key[5:], bytes(data))
-        result = await run_full(payload, files=files or None, version=current + 1,
-                                case_id=case_id)
+        from backend.app.pipeline.pipeline import run_delta
+
+        prev_run = repo.STORE["runs"].get(case.get("run_id", ""), {})
+        result = await run_delta(
+            prev_run.get("payload", {}),
+            prev_run.get("findings", []),
+            payload,
+            files=files or None,
+            version=current + 1,
+            case_id=case_id,
+        )
         for code in result["decision"].get("reason_codes", []):
-            append_case_event(case_id, "attempt.recorded",
-                              {"reason_code": code, "version": current + 1})
-        out = {"case_id": case_id, "run_id": result["run_id"],
-               "new_version": current + 1}
+            append_case_event(
+                case_id, "attempt.recorded", {"reason_code": code, "version": current + 1}
+            )
+        out = {"case_id": case_id, "run_id": result["run_id"], "new_version": current + 1}
         if idempotency_key:
             repo.STORE["idempotency"][idempotency_key] = out
         return out
@@ -169,6 +179,14 @@ def create_app() -> FastAPI:
             return JSONResponse(status_code=404, content={"type": "not-found"})
         run = repo.STORE["runs"].get(case["run_id"], {})
         return run.get("audit", [])
+
+    @app.get("/api/v1/cases/{case_id}/events")
+    def get_case_events(case_id: str):  # noqa: ANN201
+        from backend.app.persistence.store import case_events
+
+        if not repo.STORE["cases"].get(case_id):
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        return case_events(case_id)
 
     @app.get("/api/v1/cases/{case_id}/audit/verify")
     def verify_audit(case_id: str):  # noqa: ANN201
@@ -255,6 +273,46 @@ def create_app() -> FastAPI:
             "cleared": ["BANK_CHANGE_REQUIRES_CALLBACK", "CALLBACK_REQUIRED"],
         }
 
+    @app.post("/api/v1/cases/{case_id}/appeal", status_code=202)
+    async def appeal(case_id: str, request: Request):  # noqa: ANN201
+        from backend.app.decision.routing import check_appeal_sod
+        from backend.app.persistence.store import append_case_event
+        from backend.app.persistence.store import case_events
+        from backend.app.persistence.store import session as _session
+
+        case = repo.STORE["cases"].get(case_id)
+        if not case:
+            return JSONResponse(status_code=404, content={"type": "not-found"})
+        if case.get("status") != "REJECTED":
+            return JSONResponse(
+                status_code=403, content={"type": "NOT_APPEALABLE", "status": case.get("status")}
+            )
+        body = await request.json()
+        actor = request.headers.get("X-Actor", body.get("actor", ""))
+        prior = [
+            e["actor"]
+            for e in case_events(case_id)
+            if e["actor"] and e["type"] in ("submission.received", "approval.recorded")
+        ]
+        prior.append(case.get("requester", ""))
+        if not check_appeal_sod(case.get("requester", ""), prior, actor):
+            return JSONResponse(
+                status_code=403, content={"type": "SEGREGATION_OF_DUTIES_VIOLATION"}
+            )
+        append_case_event(
+            case_id,
+            "appeal.received",
+            {"reason": body.get("reason", ""), "reviewer": actor},
+            actor=actor,
+        )
+        with _session() as s:
+            from backend.app.persistence import models as _m
+
+            row = s.get(_m.Case, case_id)
+            if row is not None:
+                row.status = "PENDING"
+        return {"case_id": case_id, "status": "PENDING", "awaiting": ["INTERNAL"]}
+
     @app.get("/api/v1/vendors")
     def list_vendors():  # noqa: ANN202
         return [c for c in repo.STORE["cases"].values() if c.get("vendor_id")]
@@ -286,12 +344,15 @@ def create_app() -> FastAPI:
 
     @app.get("/api/v1/approvals")
     def approvals_queue(role: str = ""):  # noqa: ANN201, ANN001
+        from backend.app.persistence.store import case_events
+
         out = []
         for c in repo.STORE["cases"].values():
             run = repo.STORE["runs"].get(c.get("run_id", ""), {})
             route = (run.get("decision", {}) or {}).get("approval_route", [])
-            if not role or role in route:
-                out.append({**c, "approval_route": route})
+            appealed = any(e["type"] == "appeal.received" for e in case_events(c["case_id"]))
+            if not role or role in route or (role == "COMPLIANCE" and appealed):
+                out.append({**c, "approval_route": route, "appealed": appealed})
         return out
 
     @app.post("/api/v1/cases/{case_id}/retry-verification")
@@ -330,6 +391,20 @@ def create_app() -> FastAPI:
     def admin_reset():  # noqa: ANN202
         ms = repo.reset_store()
         return {"ok": True, "duration_ms": ms}
+
+    @app.post("/api/v1/admin/clock/advance")
+    async def clock_advance(request: Request):  # noqa: ANN201
+        from backend.app.core.virtual_clock import advance_virtual_now
+        from backend.app.scheduler.jobs import run_scheduler
+
+        try:
+            body = await request.json()
+            days = int(body.get("days", 0))
+            now = advance_virtual_now(days)
+        except ValueError:
+            return JSONResponse(status_code=400, content={"type": "bad-days"})
+        jobs = run_scheduler(now)
+        return {"now": now.isoformat(), "jobs_fired": jobs}
 
     dist = Path("frontend/dist")
     if dist.exists():

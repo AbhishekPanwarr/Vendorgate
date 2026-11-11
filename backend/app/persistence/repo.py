@@ -82,6 +82,8 @@ def save_run(result: dict[str, Any]) -> None:
         "run_id": run_id,
         "case_id": case_id,
         "mode": result.get("mode", "FULL"),
+        "version": result.get("version", 1),
+        "payload": result.get("payload", {}),
         "decision": decision,
         "findings": result.get("findings", []),
         "claims": result.get("claims", []),
@@ -89,6 +91,7 @@ def save_run(result: dict[str, Any]) -> None:
         "vendor_id": result.get("vendor_id"),
         "message": result.get("message", {}),
         "adjudications": result.get("adjudications", []),
+        "delta": result.get("delta"),
     }
     STORE["cases"][case_id] = {
         "case_id": case_id,
@@ -111,8 +114,7 @@ def save_run(result: dict[str, Any]) -> None:
         seq += 1
         seq_events.append({"seq": seq, "type": item.get("type"), "data": item.get("payload")})
     seq_events.append(
-        {"seq": seq + 1, "type": "decision.made",
-         "data": {"status": decision.get("status")}}
+        {"seq": seq + 1, "type": "decision.made", "data": {"status": decision.get("status")}}
     )
     seq_events.append({"seq": seq + 2, "type": "run.completed", "data": {}})
     STORE["events"][run_id] = seq_events
@@ -137,22 +139,32 @@ def _write_submission_version(result: dict[str, Any]) -> None:
             .first()
         )
         if existing is None:
-            s.add(models.SubmissionVersion(
-                case_id=str(result["case_id"]), version=version, payload=payload,
-                payload_hash=sha256_hex(canonical_json(payload)),
-                created_by=str(result.get("requester", "system"))))
+            s.add(
+                models.SubmissionVersion(
+                    case_id=str(result["case_id"]),
+                    version=version,
+                    payload=payload,
+                    payload_hash=sha256_hex(canonical_json(payload)),
+                    created_by=str(result.get("requester", "system")),
+                )
+            )
 
 
 def _write_case_events(case_id: str, audit: Any) -> None:
     with session() as s:
         for e in audit if isinstance(audit, list) else []:
             item = _as_dict(e)
-            s.add(models.CaseEvent(
-                case_id=case_id, seq=int(item.get("seq", 0)),
-                actor=str(item.get("actor", "system")), type=str(item.get("type", "")),
-                payload=_as_dict(item.get("payload")),
-                prev_hash=str(item.get("prev_hash", "GENESIS")),
-                entry_hash=str(item.get("entry_hash", ""))))
+            s.add(
+                models.CaseEvent(
+                    case_id=case_id,
+                    seq=int(item.get("seq", 0)),
+                    actor=str(item.get("actor", "system")),
+                    type=str(item.get("type", "")),
+                    payload=_as_dict(item.get("payload")),
+                    prev_hash=str(item.get("prev_hash", "GENESIS")),
+                    entry_hash=str(item.get("entry_hash", "")),
+                )
+            )
 
 
 def _write_message(case_id: str, run_id: str, message: Any, decision: dict[str, Any]) -> None:
@@ -162,8 +174,14 @@ def _write_message(case_id: str, run_id: str, message: Any, decision: dict[str, 
     status = str(decision.get("status", "PENDING"))
     kind = {"APPROVED": "APPROVED", "REJECTED": "REJECTED"}.get(status, "PENDING")
     with session() as s:
-        s.add(models.Message(
-            case_id=case_id, run_id=run_id, audience="VENDOR", kind=kind,
-            subject=str(msg.get("subject", ""))[:512],
-            body=str(msg.get("body", ""))[:8192],
-            items={"items": msg.get("items", [])}))
+        s.add(
+            models.Message(
+                case_id=case_id,
+                run_id=run_id,
+                audience="VENDOR",
+                kind=kind,
+                subject=str(msg.get("subject", ""))[:512],
+                body=str(msg.get("body", ""))[:8192],
+                items={"items": msg.get("items", [])},
+            )
+        )

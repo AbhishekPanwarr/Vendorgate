@@ -67,6 +67,34 @@ def _map_freshness(rep: dict[str, Any], dtype: str, fields: dict[str, Any]) -> N
                 break
 
 
+async def run_delta(
+    previous_payload: dict[str, Any],
+    previous_findings: list[dict[str, Any]],
+    payload: dict[str, Any],
+    clock: Clock | None = None,
+    files: dict[str, tuple[str, bytes]] | None = None,
+    llm: Any = None,
+    version: int = 2,
+    case_id: str | None = None,
+) -> dict[str, Any]:
+    from backend.app.pipeline.delta import changed_paths as _changed
+    from backend.app.pipeline.delta import compute_delta as _compute
+
+    changed = _changed(previous_payload, payload)
+    result = await run_full(
+        payload, clock=clock, files=files, llm=llm, version=version, case_id=case_id
+    )
+    findings = result["findings"]
+    stats = result.get("check_stats", {})
+    rerun = len(stats.get("rerun", []))
+    cached = len(stats.get("cached", []))
+    result["mode"] = "DELTA"
+    result["delta"] = _compute(previous_findings, findings, changed, rerun, cached)
+    result["delta"]["changed_paths"] = sorted(changed)
+    repo.save_run(result)
+    return result
+
+
 async def run_full(
     payload: dict[str, Any],
     clock: Clock | None = None,
@@ -121,13 +149,12 @@ async def run_full(
         _h.update(_did.encode())
         _h.update((files or {})[_did][1])
     ctx.add_claim(_mkclaim("docs.content_hash", _h.hexdigest(), _h.hexdigest()))
-    _dig = ";".join(
-        sorted(f"{d.doc_id}:{d.doc_type.value}" for d in submission.documents))
+    _dig = ";".join(sorted(f"{d.doc_id}:{d.doc_type.value}" for d in submission.documents))
     ctx.add_claim(_mkclaim("documents.digest", _dig, _dig))
-    ctx.add_claim(_mkclaim("clock.today", clock.now().date().isoformat(),
-                           clock.now().date().isoformat()))
-    ctx.add_claim(_mkclaim("lists.sanctions_version", _sanctions_version(),
-                           _sanctions_version()))
+    ctx.add_claim(
+        _mkclaim("clock.today", clock.now().date().isoformat(), clock.now().date().isoformat())
+    )
+    ctx.add_claim(_mkclaim("lists.sanctions_version", _sanctions_version(), _sanctions_version()))
     for doc_id, (filename, data) in (files or {}).items():
         rep = ingest_document(
             doc_id, declared_by_id.get(doc_id, "UNKNOWN"), filename, data, clock.now().date()
@@ -226,6 +253,7 @@ async def run_full(
         "vendor_id": vendor_id,
         "message": message,
         "adjudications": adjudications,
+        "check_stats": {"rerun": ctx.rerun_checks, "cached": ctx.cached_checks},
         "events": events,
     }
     repo.save_run(result)

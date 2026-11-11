@@ -52,7 +52,27 @@ def _active(items: list[dict[str, object]], ectx: dict[str, object]) -> list[dic
     return out
 
 
-@check(id="C-REQ-01", stage="S2", version=2, mandatory=True, reads=("tax.tax_id", "tax.country", "company.country", "company.entity_type", "requester.category", "requester.expected_annual_spend_usd", "bank.country", "tax.form_type", "tax.secondary_ids.PAN", "bank.ifsc", "declarations.bank_country_justification", "declarations.remit_address_justification", "documents.digest"))
+@check(
+    id="C-REQ-01",
+    stage="S2",
+    version=2,
+    mandatory=True,
+    reads=(
+        "tax.tax_id",
+        "tax.country",
+        "company.country",
+        "company.entity_type",
+        "requester.category",
+        "requester.expected_annual_spend_usd",
+        "bank.country",
+        "tax.form_type",
+        "tax.secondary_ids.PAN",
+        "bank.ifsc",
+        "declarations.bank_country_justification",
+        "declarations.remit_address_justification",
+        "documents.digest",
+    ),
+)
 async def req_fields(ctx: Any) -> list[Finding]:
     req = ctx.policy.requirements(
         str(ctx.value("company.country")),
@@ -110,7 +130,20 @@ async def req_fields(ctx: Any) -> list[Finding]:
     return findings
 
 
-@check(id="C-REQ-02", stage="S2", version=2, mandatory=True, reads=("tax.country", "company.country", "company.entity_type", "requester.category", "requester.expected_annual_spend_usd", "documents.digest"))
+@check(
+    id="C-REQ-02",
+    stage="S2",
+    version=2,
+    mandatory=True,
+    reads=(
+        "tax.country",
+        "company.country",
+        "company.entity_type",
+        "requester.category",
+        "requester.expected_annual_spend_usd",
+        "documents.digest",
+    ),
+)
 async def req_docs(ctx: Any) -> list[Finding]:
     req = ctx.policy.requirements(
         str(ctx.value("company.country")),

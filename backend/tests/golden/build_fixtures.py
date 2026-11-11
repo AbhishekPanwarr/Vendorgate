@@ -2,7 +2,6 @@
 
 from backend.tests.golden.fixture_payloads import base_in  # noqa: F401
 
-from backend.tests.golden.fixture_payloads import base_in
 from backend.tests.golden.fixture_payloads import ec18
 from backend.tests.golden.fixture_payloads import ec1
 from backend.tests.golden.fixture_payloads import ec2a

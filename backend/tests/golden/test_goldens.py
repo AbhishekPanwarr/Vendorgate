@@ -27,6 +27,8 @@ NAMES = [
     "ec-6",
     "ec-16",
     "ec-18",
+    "hp-1-delta",
+    "ec-1-delta",
 ]
 
 

@@ -1,0 +1,22 @@
+{
+ "case_id": "c020cbb89cb0",
+ "status": "PENDING",
+ "cb_bad": {
+  "ok": false,
+  "reason": "CALLBACK_NOT_INDEPENDENT"
+ },
+ "cb_good": {
+  "ok": true,
+  "case_id": "c020cbb89cb0",
+  "cleared": [
+   "BANK_CHANGE_REQUIRES_CALLBACK",
+   "CALLBACK_REQUIRED"
+  ]
+ },
+ "approval": {
+  "ok": true,
+  "case_id": "c020cbb89cb0",
+  "actor": "Priya Nair",
+  "role": "CONTROLLER"
+ }
+}

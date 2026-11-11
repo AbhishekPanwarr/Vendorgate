@@ -115,7 +115,9 @@ def main() -> None:
         json.dump(
             {
                 "payload": payload,
-                "files": {k: [fn, base64.b64encode(data).decode()] for k, (fn, data) in files.items()},
+                "files": {
+                    k: [fn, base64.b64encode(data).decode()] for k, (fn, data) in files.items()
+                },
                 "decision": d,
                 "findings": r["findings"],
             },

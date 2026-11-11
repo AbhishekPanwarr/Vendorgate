@@ -1,7 +1,5 @@
 """Test isolation: each test gets a fresh SQLite file."""
 
-import os
-
 import pytest
 
 

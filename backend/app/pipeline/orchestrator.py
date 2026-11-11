@@ -133,6 +133,7 @@ class DagOrchestrator:
         if (hit := ctx.cache.get(fp)) is not None and spec.stage != "S10":
             # S10 checks read other findings (e.g. C-POL-02 reads C-DUP-05),
             # which fingerprints cannot capture: always re-run S10.
+            ctx.cached_checks.append(spec.id)
             for f in hit:
                 ctx.findings.append(f.model_copy(update={"cached": True}))
                 ctx.emit(
@@ -176,6 +177,7 @@ class DagOrchestrator:
             self._validate(f)
         if all(f.outcome != Outcome.UNVERIFIABLE for f in findings):
             ctx.cache.put(fp, findings)
+        ctx.rerun_checks.append(spec.id)
         ctx.findings.extend(findings)
         ctx.emit(
             {

@@ -4,10 +4,9 @@ from typing import Any
 
 from backend.app.decision.adjudication import apply_adjudication
 from backend.app.decision.adjudication import corroborator_evidence
-from backend.app.domain.models import Evidence
 
 
-def _k3(ctx: Any, variant: str, cfg: dict) -> list[dict[str, str]]:
+def _k3(ctx: Any, variant: str, cfg: dict[str, Any]) -> list[dict[str, str]]:
     """K3: official registration doc whose grounded legal name ~= variant."""
     from backend.app.matching.name_compare import compare_names as _cmp
     from backend.app.matching.name_compare import parse_name as _parse
@@ -51,7 +50,11 @@ async def resolve_request(ctx: Any, req: dict[str, Any], model: str) -> dict[str
     try:
         v1 = await adjudicate(ctx.llm, model, u1)
         v2 = await adjudicate(ctx.llm, model, u2)
-    except Exception:
+    except Exception as e:
+        from backend.app.llm.client import ReplayMiss
+
+        if isinstance(e, ReplayMiss):
+            raise  # fail loudly: new pair never adjudicated; record it, don't fake it
         return {"verdict": None, "llm_unavailable": True}
     d1 = v1.model_dump()
     d2 = v2.model_dump()
@@ -80,27 +83,38 @@ async def run_s8(ctx: Any) -> list[dict[str, Any]]:
     derived: list[dict[str, Any]] = []
     for f in ctx.findings:
         if f.check_id == "C-NAME-02" and f.reason_code in (
-                "LEGAL_FORM_UNCONFIRMED", "NAME_UNCONFIRMED"):
+            "LEGAL_FORM_UNCONFIRMED",
+            "NAME_UNCONFIRMED",
+        ):
             claims = {c.path: c for c in ctx.claims.values()}
             legal = claims.get("company.legal_name")
             holder = claims.get("bank.account_holder_name")
             if legal is None or holder is None:
                 continue
             cfg = dict(ctx.policy.raw["base"]["matching"]["name"])
-            comp = compare_names(parse_name(str(legal.value or "")),
-                                 parse_name(str(holder.value or "")), cfg)
+            comp = compare_names(
+                parse_name(str(legal.value or "")), parse_name(str(holder.value or "")), cfg
+            )
             if comp.relation not in ("FORM_CONFLICT", "CORE_FUZZY"):
                 continue
             corrs = _k3(ctx, str(holder.value or ""), cfg)
             cc = claims.get("company.country")
-            derived.append({
-                "check_id": "C-NAME-02", "a": str(legal.value or ""),
-                "source_a": "form", "b": str(holder.value or ""),
-                "source_b": "bank",
-                "country": str(cc.value) if cc is not None and cc.value else "",
-                "subject": f.subject, "corroborators": corrs,
-                "deterministic": {"core_similarity": comp.core_sim,
-                                  "legal_form_relation": comp.form_rel}})
+            derived.append(
+                {
+                    "check_id": "C-NAME-02",
+                    "a": str(legal.value or ""),
+                    "source_a": "form",
+                    "b": str(holder.value or ""),
+                    "source_b": "bank",
+                    "country": str(cc.value) if cc is not None and cc.value else "",
+                    "subject": f.subject,
+                    "corroborators": corrs,
+                    "deterministic": {
+                        "core_similarity": comp.core_sim,
+                        "legal_form_relation": comp.form_rel,
+                    },
+                }
+            )
     reports = []
     for req in derived:
         if str(req.get("check_id", "")).startswith("C-SAN"):
@@ -120,14 +134,14 @@ async def run_s8(ctx: Any) -> list[dict[str, Any]]:
             )
             reports.append({"check_id": req.get("check_id"), "llm_unavailable": True})
             continue
-        corrs = [
+        corrs_ev = [
             corroborator_evidence(c["name"], c["summary"]) for c in req.get("corroborators", [])
         ]
         for i, f in enumerate(ctx.findings):
             if f.check_id == req.get("check_id") and (f.subject or "") == (
                 req.get("subject") or ""
             ):
-                ctx.findings[i] = apply_adjudication(f, verdict, corrs)
+                ctx.findings[i] = apply_adjudication(f, verdict, corrs_ev)
         ctx.emit(
             {
                 "type": "adjudication.completed",

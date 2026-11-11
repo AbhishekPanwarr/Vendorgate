@@ -103,8 +103,13 @@ async def name_bank(ctx: Any) -> list[Finding]:
     stage="S5",
     version=2,
     mandatory=True,
-    reads=("company.legal_name", "company.country", "company.entity_type",
-           "requester.expected_annual_spend_usd", "requester.category"),
+    reads=(
+        "company.legal_name",
+        "company.country",
+        "company.entity_type",
+        "requester.expected_annual_spend_usd",
+        "requester.category",
+    ),
 )
 async def name_registry(ctx: Any) -> list[Finding]:
     from backend.app.adapters.mocks.verifiers import RegistryMock
@@ -232,7 +237,13 @@ async def callback_required(ctx: Any) -> list[Finding]:
     return []
 
 
-@check(id="C-NAME-01", stage="S5", version=1, mandatory=True, reads=("company.legal_name", "docs.content_hash"))
+@check(
+    id="C-NAME-01",
+    stage="S5",
+    version=1,
+    mandatory=True,
+    reads=("company.legal_name", "docs.content_hash"),
+)
 async def name_taxdoc(ctx: Any) -> list[Finding]:
     legal = str(ctx.value("company.legal_name") or "")
     docs = [

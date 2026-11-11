@@ -33,7 +33,7 @@ class RunContext:
         adapters: Mapping[str, Verifier[Any, Any]],
         llm: Any,
         clock: Clock,
-        cache: CheckCache,
+        cache: Any,
         emit: Callable[[dict[str, object]], None],
     ) -> None:
         self.case_id = case_id
@@ -49,6 +49,8 @@ class RunContext:
         self.findings: list[Finding] = []
         self.doc_reports: dict[str, Any] = {}
         self.adjudications: list[dict[str, Any]] = []
+        self.rerun_checks: list[str] = []
+        self.cached_checks: list[str] = []
         self.mode = submission.submission_type.value
 
     def add_claim(self, claim: Claim) -> None:

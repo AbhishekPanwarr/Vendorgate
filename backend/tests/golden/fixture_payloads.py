@@ -15,9 +15,6 @@ def hp1():
     return _hp1()
 
 
-
-
-
 def in_ids(pan="AAPCA1234F", state="29"):
     base = (state + pan + "1Z")[:14]
     return base + gstin_check_char(base), pan
@@ -191,5 +188,3 @@ def ec18():
     e = copy.deepcopy(_hp1())
     e["tax"]["form_type"] = "W8BEN"
     return e
-
-

@@ -1,10 +1,10 @@
 """Phase 4: current_version pointer, run result JSON, run events, case docs."""
 
-revision = "0002_phase4_persistence"
-down_revision = "0001_initial"
-
 from alembic import op
 import sqlalchemy as sa
+
+revision = "0002_phase4_persistence"
+down_revision = "0001_initial"
 
 
 def _str(n):
@@ -22,9 +22,7 @@ def upgrade() -> None:
     with op.batch_alter_table("runs") as b:
         b.add_column(sa.Column("result", sa.JSON, nullable=True))
     with op.batch_alter_table("submission_versions") as b:
-        b.create_index(
-            "ix_submission_versions_case_version", ["case_id", "version"], unique=True
-        )
+        b.create_index("ix_submission_versions_case_version", ["case_id", "version"], unique=True)
     with op.batch_alter_table("idempotency_keys") as b:
         b.add_column(sa.Column("response", sa.JSON, nullable=True))
     op.create_table(
@@ -47,8 +45,7 @@ def upgrade() -> None:
     )
     # 0001 created these as (id, payload) stubs; the app writes full rows.
     # No production rows can exist (in-memory era), so rebuild to model shape.
-    for t in ("callbacks", "messages", "approvals", "resolutions",
-              "clock_state", "adapter_faults"):
+    for t in ("callbacks", "messages", "approvals", "resolutions", "clock_state", "adapter_faults"):
         op.drop_table(t)
     op.create_table(
         "callbacks",
@@ -110,11 +107,13 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    for t in ("adapter_faults", "clock_state", "resolutions", "approvals",
-              "messages", "callbacks"):
+    for t in ("adapter_faults", "clock_state", "resolutions", "approvals", "messages", "callbacks"):
         op.drop_table(t)
-        op.create_table(t, sa.Column("id", _str(64), primary_key=True),
-                        sa.Column("payload", sa.JSON, nullable=True))
+        op.create_table(
+            t,
+            sa.Column("id", _str(64), primary_key=True),
+            sa.Column("payload", sa.JSON, nullable=True),
+        )
     op.drop_table("case_docs")
     op.drop_table("run_events")
     with op.batch_alter_table("submission_versions") as b:

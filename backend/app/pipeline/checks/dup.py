@@ -32,7 +32,13 @@ def _name_rel(ctx: Any, other_name: str) -> str:
     return compare_names(parse_name(legal), parse_name(other_name), cfg).relation
 
 
-@check(id="C-DUP-01", stage="S6", version=2, mandatory=True, reads=("tax.tax_id", "tax.country", "company.legal_name", "existing_vendor_id"))
+@check(
+    id="C-DUP-01",
+    stage="S6",
+    version=2,
+    mandatory=True,
+    reads=("tax.tax_id", "tax.country", "company.legal_name", "existing_vendor_id"),
+)
 async def tin_reuse(ctx: Any) -> list[Finding]:
     tin = sstr(ctx.value("tax.tax_id"))
     existing = str(ctx.value("existing_vendor_id") or "") or None
@@ -248,3 +254,36 @@ async def change_velocity(ctx: Any) -> list[Finding]:
             )
         ]
     return []
+
+
+@check(id="C-POL-03", stage="S10", version=1, mandatory=True, reads=())
+async def retry_limit(ctx: Any) -> list[Finding]:
+    from backend.app.persistence.store import case_events
+
+    max_attempts = int(ctx.policy.raw["base"]["lifecycle"].get("max_vendor_attempts", 3))
+    counts: dict[str, int] = {}
+    for e in case_events(ctx.case_id, "attempt.recorded"):
+        code = str(e["payload"].get("reason_code", ""))
+        counts[code] = counts.get(code, 0) + 1
+    out = []
+    blocking_codes = {
+        f.reason_code for f in ctx.findings if f.outcome.value == "FAIL" and f.reason_code
+    }
+    for code in sorted(blocking_codes):
+        if counts.get(code, 0) >= max_attempts:
+            out.append(
+                make_finding(
+                    ctx,
+                    "C-POL-03",
+                    "S10",
+                    1,
+                    outcome=Outcome.FAIL,
+                    severity=Severity.HARD,
+                    reason_code="RETRY_LIMIT_EXCEEDED",
+                    title="Retry limit exceeded",
+                    detail=f"{code} unresolved after {max_attempts} attempts.",
+                    claim_paths=[],
+                    fixed_by=FixedBy.NONE,
+                )
+            )
+    return out

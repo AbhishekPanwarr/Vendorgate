@@ -8,6 +8,13 @@ def check_sod(case_requester: str, actor: str, role: str) -> bool:
     return True
 
 
+def check_appeal_sod(case_requester: str, prior_actors: list[str], actor: str) -> bool:
+    """Appeal reviewer/resolver/approver must all differ from requester,
+    submitter, and each other (3-role SoD)."""
+    seen = {case_requester} | set(prior_actors)
+    return actor not in seen
+
+
 def resolve_allowed(reason_code: str, role: str, policy: object) -> bool:
     table = policy.raw["base"].get("resolvable_by", {})  # type: ignore[attr-defined]
     allowed = table.get(reason_code)

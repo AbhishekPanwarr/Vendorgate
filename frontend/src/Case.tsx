@@ -12,10 +12,25 @@ export default function CasePage() {
   const [msg, setMsg] = useState<any>(null);
   const [cb, setCb] = useState({ number: "", source: "VENDOR_MASTER", outcome: "verified", attested: false });
   const [cbResult, setCbResult] = useState<any>(null);
+  const [toast, setToast] = useState("");
+  const [events, setEvents] = useState<any[]>([]);
   useEffect(() => {
     fetch(`/api/v1/cases/${caseId}`).then((r) => r.json()).then(setData);
     fetch(`/api/v1/cases/${caseId}/messages`).then((r) => r.json()).then(setMsg);
+    fetch(`/api/v1/cases/${caseId}/events`).then((r) => r.json()).then(setEvents).catch(() => {});
   }, [caseId]);
+  async function resubmitSame() {
+    const run = data.run ?? {};
+    const body = new FormData();
+    body.append("payload", JSON.stringify(run.payload ?? {}));
+    const r = await fetch(`/api/v1/cases/${caseId}/resubmit`, {
+      method: "POST", headers: { "If-Match": String(data.current_version ?? 1) }, body,
+    }).then((x) => x.json().then((j) => ({ status: x.status, body: j })));
+    if (r.status === 409) setToast("No changes detected");
+    else if (r.status === 412) setToast("Version mismatch — reloading");
+    else if (r.status === 403) setToast("Not resubmittable");
+    else setToast(`Resubmitted as v${r.body.new_version}`);
+  }
   if (!data) return <div>Loading…</div>;
   const d = data.run?.decision ?? {};
   const findings: Finding[] = data.run?.findings ?? [];
@@ -48,6 +63,10 @@ export default function CasePage() {
       {tab === "message" && (
         <div>
           <h2>Message</h2>
+          {(d.awaiting ?? []).includes("VENDOR") && d.status === "PENDING" && (
+            <div><button onClick={resubmitSame}>Resubmit unchanged (expect 409)</button></div>
+          )}
+          {toast && <div role="status">{toast}</div>}
           {msg ? <div><h3>{msg.subject}</h3><pre style={{ whiteSpace: "pre-wrap" }}>{msg.body}</pre>
             <p>rendered from template (LLM polish runs best-effort only)</p>
             <p>checker: {(msg.checker_errors ?? []).length === 0 ? "✅ clean" : `⛔ ${(msg.checker_errors ?? []).join("; ")}`}</p>
@@ -74,6 +93,10 @@ export default function CasePage() {
           <h2>Audit</h2>
           <button onClick={verifyChain}>Verify chain</button>
           {verify && <div role="status">{verify.ok ? `✅ chain ok (${verify.length} events)` : `⛔ broken at ${verify.broken_at}`}</div>}
+          <h3>Case events</h3>
+          <ul>{events.filter((e: any) => ["nudge.sent", "appeal.received", "case.closed", "attempt.recorded"].includes(e.type)).map((e: any, i: number) => (
+            <li key={i}>{e.type} — {JSON.stringify(e.payload)}</li>
+          ))}</ul>
         </div>
       )}
       {(d.awaiting ?? []).map((a: string) => <span key={a} style={{ border: "1px solid", padding: "2px 8px", marginRight: 8 }}>awaiting {a}</span>)}

@@ -1,0 +1,11 @@
+{
+ "case_id": "743dda13185b",
+ "status": "REJECTED",
+ "appeal": {
+  "case_id": "743dda13185b",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ]
+ }
+}

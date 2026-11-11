@@ -56,6 +56,7 @@ function Run() {
   const q = new URLSearchParams(window.location.search);
   const [events, setEvents] = useState<string[]>([]);
   const [decision, setDecision] = useState("");
+  const [delta, setDelta] = useState<any>(null);
   useEffect(() => {
     const es = new EventSource(`/api/v1/runs/${runId}/events`);
     es.onmessage = (m) => {
@@ -63,6 +64,9 @@ function Run() {
       try {
         const j = JSON.parse(m.data);
         if (j.type === "decision.made") setDecision(JSON.stringify(j.data));
+        if (j.type === "run.completed") {
+          fetch(`/api/v1/runs/${runId}`).then((r) => r.json()).then((run) => setDelta(run.delta ?? null));
+        }
       } catch { /* ignore */ }
     };
     void q;
@@ -72,6 +76,13 @@ function Run() {
     <div>
       <h1>Run {runId}</h1>
       {decision && <div role="status">{decision}</div>}
+      {delta && (
+        <div style={{ border: "1px solid", padding: 8, margin: "8px 0" }}>
+          <b>Delta run</b> — Re-ran: {delta.rerun} · Served from cache: {delta.cached}
+          {(delta.resolved ?? []).length > 0 && <div>✓ Resolved: {delta.resolved.join(", ")}</div>}
+          {(delta.introduced ?? []).length > 0 && <div>⚠ Introduced: {delta.introduced.join(", ")}</div>}
+        </div>
+      )}
       <ul>{events.map((e, i) => <li key={i}>{e}</li>)}</ul>
     </div>
   );

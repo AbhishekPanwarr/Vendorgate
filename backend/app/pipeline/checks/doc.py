@@ -45,7 +45,13 @@ def _fail(
     )
 
 
-@check(id="C-DOC-00", stage="S1", version=1, mandatory=True, reads=("docs.content_hash", "documents.digest", "clock.today"))
+@check(
+    id="C-DOC-00",
+    stage="S1",
+    version=1,
+    mandatory=True,
+    reads=("docs.content_hash", "documents.digest", "clock.today"),
+)
 async def upload_safety(ctx: Any) -> list[Finding]:
     out = []
     for rep in _reports(ctx):
@@ -66,7 +72,13 @@ async def upload_safety(ctx: Any) -> list[Finding]:
     return out
 
 
-@check(id="C-DOC-03", stage="S1", version=1, mandatory=True, reads=("docs.content_hash", "documents.digest", "clock.today"))
+@check(
+    id="C-DOC-03",
+    stage="S1",
+    version=1,
+    mandatory=True,
+    reads=("docs.content_hash", "documents.digest", "clock.today"),
+)
 async def doc_type(ctx: Any) -> list[Finding]:
     out = []
     for rep in _reports(ctx):
@@ -90,7 +102,13 @@ async def doc_type(ctx: Any) -> list[Finding]:
     return out
 
 
-@check(id="C-DOC-04", stage="S1", version=1, mandatory=True, reads=("docs.content_hash", "documents.digest", "clock.today"))
+@check(
+    id="C-DOC-04",
+    stage="S1",
+    version=1,
+    mandatory=True,
+    reads=("docs.content_hash", "documents.digest", "clock.today"),
+)
 async def freshness(ctx: Any) -> list[Finding]:
     out = []
     today = ctx.clock.now().date()
@@ -129,7 +147,13 @@ async def freshness(ctx: Any) -> list[Finding]:
     return out
 
 
-@check(id="C-DOC-05", stage="S1", version=1, mandatory=True, reads=("docs.content_hash", "documents.digest", "clock.today"))
+@check(
+    id="C-DOC-05",
+    stage="S1",
+    version=1,
+    mandatory=True,
+    reads=("docs.content_hash", "documents.digest", "clock.today"),
+)
 async def w9_signed(ctx: Any) -> list[Finding]:
     out = []
     for rep in _reports(ctx):
@@ -150,7 +174,13 @@ async def w9_signed(ctx: Any) -> list[Finding]:
     return out
 
 
-@check(id="C-DOC-07", stage="S1", version=1, mandatory=True, reads=("docs.content_hash", "documents.digest", "clock.today"))
+@check(
+    id="C-DOC-07",
+    stage="S1",
+    version=1,
+    mandatory=True,
+    reads=("docs.content_hash", "documents.digest", "clock.today"),
+)
 async def unreadable(ctx: Any) -> list[Finding]:
     out = []
     for rep in _reports(ctx):
@@ -193,7 +223,13 @@ async def unreadable(ctx: Any) -> list[Finding]:
     return out
 
 
-@check(id="C-DOC-08", stage="S1", version=1, mandatory=True, reads=("docs.content_hash", "documents.digest", "clock.today"))
+@check(
+    id="C-DOC-08",
+    stage="S1",
+    version=1,
+    mandatory=True,
+    reads=("docs.content_hash", "documents.digest", "clock.today"),
+)
 async def injection(ctx: Any) -> list[Finding]:
     out = []
     for rep in _reports(ctx):
