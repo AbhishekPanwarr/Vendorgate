@@ -64,36 +64,41 @@ def compute(results: list[dict]) -> dict:
     e3 = rate(sum(1 for r in appr_exp if r["actual_status"] == "REJECTED"), len(appr_exp))
     e4 = rate(sum(1 for r in clean_low if r["actual_status"] == "PENDING"), len(clean_low))
     e5_ok = sum(1 for r in results if r["expected_status"] == r["actual_status"])
-    e5 = {**rate(e5_ok, len(results)),
-          "confusion": confusion(results)}
+    e5 = {**rate(e5_ok, len(results)), "confusion": confusion(results)}
     prf = micro_prf(results)
-    exact = sum(1 for r in results
-                if set(r["expected_codes"]) == set(r["actual_codes"]))
+    exact = sum(1 for r in results if set(r["expected_codes"]) == set(r["actual_codes"]))
     e6 = {"micro": prf, "exact_set": rate(exact, len(results))}
-    e7 = rate(sum(1 for r in results
-                  if sorted(r["expected_awaiting"]) == sorted(r["actual_awaiting"])),
-              len(results))
+    e7 = rate(
+        sum(1 for r in results if sorted(r["expected_awaiting"]) == sorted(r["actual_awaiting"])),
+        len(results),
+    )
     # E8: remediation actionability proxy
-    pend_v = [r for r in results
-              if r["actual_status"] == "PENDING" and "VENDOR" in r["actual_awaiting"]]
+    pend_v = [
+        r for r in results if r["actual_status"] == "PENDING" and "VENDOR" in r["actual_awaiting"]
+    ]
     with_fix = sum(1 for r in pend_v if r.get("has_counterfactual"))
     e8 = {"proxy_actionable": rate(with_fix, len(pend_v))}
-    e9 = {"proxy_success1": rate(with_fix, len(pend_v)),
-          "note": "proxy: counterfactual present; vendor simulator in Phase 6"}
+    e9 = {
+        "proxy_success1": rate(with_fix, len(pend_v)),
+        "note": "proxy: counterfactual present; vendor simulator in Phase 6",
+    }
     e10 = rate(0, len(results))
     e13_rej = [r for r in results if r.get("op") in ("M-30", "M-33", "M-34")]
-    e13 = {"sanctions_recall": rate(
-        sum(1 for r in e13_rej if r["actual_status"] == "REJECTED"), len(e13_rej)),
+    e13 = {
+        "sanctions_recall": rate(
+            sum(1 for r in e13_rej if r["actual_status"] == "REJECTED"), len(e13_rej)
+        ),
         "decoy_hold": rate(
-        sum(1 for r in results if r.get("op") == "M-31"
-             and r["actual_status"] != "APPROVED"),
-        sum(1 for r in results if r.get("op") == "M-31"))}
+            sum(1 for r in results if r.get("op") == "M-31" and r["actual_status"] != "APPROVED"),
+            sum(1 for r in results if r.get("op") == "M-31"),
+        ),
+    }
     e14_net = [r for r in results if r.get("op") in ("M-26", "M-28")]
-    e14 = {"recall": rate(
-        sum(1 for r in e14_net if r["actual_status"] == "REJECTED"), len(e14_net))}
+    e14 = {
+        "recall": rate(sum(1 for r in e14_net if r["actual_status"] == "REJECTED"), len(e14_net))
+    }
     e16_cases = [r for r in results if r.get("op") in ("M-44", "M-45")]
-    e16 = rate(sum(1 for r in e16_cases if r["actual_status"] == "APPROVED"),
-               len(e16_cases))
+    e16 = rate(sum(1 for r in e16_cases if r["actual_status"] == "APPROVED"), len(e16_cases))
     bad_tier = sum(1 for r in appr if r.get("tier") in ("HIGH", "CRITICAL"))
     e22 = rate(len(appr) - bad_tier, len(appr))
     rej_scores = [r.get("score", 0) for r in results]

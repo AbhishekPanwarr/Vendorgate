@@ -3,8 +3,6 @@
 import argparse
 import json
 import os
-import subprocess
-import sys
 from pathlib import Path
 
 from eval.metrics import compute
@@ -22,14 +20,12 @@ MODES = {
 }
 
 
-def run_mode(mode: str, split: str, limit: int, llm_mode: str,
-           offset: int = 0) -> dict:
+def run_mode(mode: str, split: str, limit: int, llm_mode: str, offset: int = 0) -> dict:
     from eval.case_runner import run_case
     from eval.run_eval import check_frozen, load_split, result_of
 
     check_frozen(split)
     cases = load_split(split)
-    total = len(cases)
     if offset:
         cases = cases[offset:]
     if limit:
@@ -56,8 +52,11 @@ def run_mode(mode: str, split: str, limit: int, llm_mode: str,
                 sec = pack.pop("_seconds")
                 tokens[0] += pack.pop("_tokens", 0)
                 r = result_of(case, pack, sec)
-                print(f"[{mode} {idx + 1}/{len(cases)}] {case['op']} "
-                      f"exp={r['expected_status']} got={r['actual_status']}", flush=True)
+                print(
+                    f"[{mode} {idx + 1}/{len(cases)}] {case['op']} "
+                    f"exp={r['expected_status']} got={r['actual_status']}",
+                    flush=True,
+                )
                 return sec, r
 
             with ThreadPoolExecutor(max_workers=6) as ex:
@@ -72,8 +71,10 @@ def run_mode(mode: str, split: str, limit: int, llm_mode: str,
                 lat.append(sec)
                 r = result_of(case, pack, sec)
                 results.append(r)
-                print(f"[{mode} {i + 1}/{len(cases)}] {case['op']} "
-                      f"exp={r['expected_status']} got={r['actual_status']} {sec:.1f}s")
+                print(
+                    f"[{mode} {i + 1}/{len(cases)}] {case['op']} "
+                    f"exp={r['expected_status']} got={r['actual_status']} {sec:.1f}s"
+                )
     finally:
         os.environ.clear()
         os.environ.update(old)
@@ -83,9 +84,12 @@ def run_mode(mode: str, split: str, limit: int, llm_mode: str,
     report["E18_latency"] = {
         "p50": round(statistics.median(lat), 2),
         "p95": round(sorted(lat)[max(0, int(len(lat) * 0.95) - 1)], 2),
-        "mode": mode}
-    report["E19_cost"] = {"tokens": tokens[0],
-                          "note": "live baseline tokens" if tokens[0] else "replay/off"}
+        "mode": mode,
+    }
+    report["E19_cost"] = {
+        "tokens": tokens[0],
+        "note": "live baseline tokens" if tokens[0] else "replay/off",
+    }
     report["meta"] = {"split": split, "mode": mode, "n": len(results)}
     return {"results": results, "metrics": report}
 
@@ -101,7 +105,8 @@ def main() -> None:
     for mode in args.modes.split(","):
         data = run_mode(mode.strip(), args.split, args.limit, args.llm_mode)
         (OUT / f"ablation-{mode.strip().lstrip('-') or 'hybrid'}-{args.split}.json").write_text(
-            json.dumps(data, indent=1))
+            json.dumps(data, indent=1)
+        )
         m = data["metrics"]
         table[mode] = {
             "E1": m["E1_critical_false_approve"],
@@ -114,5 +119,5 @@ def main() -> None:
     print(json.dumps(table, indent=1))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

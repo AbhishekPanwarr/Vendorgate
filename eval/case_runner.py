@@ -46,9 +46,12 @@ def build_store(case, files):
             sa, sb = ("form", "bank") if not swap else ("bank", "form")
             u = adjudication_user(x, sa, y, sb, country, det)
             key = llm_client.cache_key(llm_model(), L3_SYSTEM, u, AdjudicationVerdict)
-            store[key] = {"label": label, "confidence": conf,
-                          "rationale": "dataset fixture",
-                          "order_swap_consistent": True}
+            store[key] = {
+                "label": label,
+                "confidence": conf,
+                "rationale": "dataset fixture",
+                "order_swap_consistent": True,
+            }
     return store
 
 
@@ -107,7 +110,6 @@ def run_case(case, mode="hybrid", llm_mode="replay"):
         files = files_of(case)
         store = build_store(case, files)
         llm = make_llm(store=store)
-        return asyncio.run(run_full(case["payload"], files=files, llm=llm,
-                                    case_id="eval"))
+        return asyncio.run(run_full(case["payload"], files=files, llm=llm, case_id="eval"))
     finally:
         clear()

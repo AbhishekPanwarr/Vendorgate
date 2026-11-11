@@ -25,7 +25,7 @@ export default function Dashboard() {
             <td>{c.status}</td><td>{c.tier}</td><td>{c.score}</td><td>{(c.reason_codes ?? []).join(", ")}</td></tr>
         ))}</tbody>
       </table>
-      <p><Link to="/submit">New submission</Link></p>
+      <p><Link to="/submit">New submission</Link> · <Link to="/benchmark">Benchmark</Link> · <Link to="/foolit">Fool-it Lab</Link> · <Link to="/policy">Policy</Link></p>
     </div>
   );
 }

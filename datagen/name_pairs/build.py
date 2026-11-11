@@ -28,14 +28,18 @@ def build(seed=42):
         name = v["legal_name"]
         for a, b in variant_of.items():
             if name.lower().endswith(a):
-                true_v.append({"a": name,
-                               "b": name[: -len(a)].rstrip() + " " + b.upper()
-                               if b.isupper() or len(b) <= 4 else name[: -len(a)].rstrip() + " " + b.title(),
-                               "label": "SAME"})
+                true_v.append(
+                    {
+                        "a": name,
+                        "b": name[: -len(a)].rstrip() + " " + b.upper()
+                        if b.isupper() or len(b) <= 4
+                        else name[: -len(a)].rstrip() + " " + b.title(),
+                        "label": "SAME",
+                    }
+                )
                 break
         else:
-            true_v.append({"a": name, "b": name.replace(" ", "  "),
-                           "label": "SAME"})
+            true_v.append({"a": name, "b": name.replace(" ", "  "), "label": "SAME"})
     names = [v["legal_name"] for v in vendors]
     for _ in range(150):
         a, b = rng.sample(names, 2)
@@ -45,17 +49,27 @@ def build(seed=42):
     amb = []
     for i in range(100):
         a, b = rng.sample(names, 2)
-        amb.append({"a": a, "b": b, "label": None, "labeler1": None,
-                    "labeler2": None, "id": f"AMB-{i:03d}"})
+        amb.append(
+            {
+                "a": a,
+                "b": b,
+                "label": None,
+                "labeler1": None,
+                "labeler2": None,
+                "id": f"AMB-{i:03d}",
+            }
+        )
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, rows in (("true_variants.jsonl", true_v),
-                       ("hard_negatives.jsonl", hard_neg),
-                       ("ambiguous.jsonl", amb)):
+    for name, rows in (
+        ("true_variants.jsonl", true_v),
+        ("hard_negatives.jsonl", hard_neg),
+        ("ambiguous.jsonl", amb),
+    ):
         with open(OUT / name, "w") as fh:
             for r in rows:
                 fh.write(json.dumps(r) + "\n")
     print(f"name pairs: {len(true_v)}/{len(hard_neg)}/{len(amb)}")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     build()

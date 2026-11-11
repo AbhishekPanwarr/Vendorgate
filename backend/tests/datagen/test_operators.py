@@ -33,13 +33,15 @@ def test_operator_matches_expected(op_id):
     exp = CATALOG[op_id]["expected"]
     assert dec["status"] == exp["status"], (
         f"{op_id}: status {dec['status']} != {exp['status']}; "
-        f"awaiting={dec['awaiting']} codes={dec['reason_codes']}")
+        f"awaiting={dec['awaiting']} codes={dec['reason_codes']}"
+    )
     assert sorted(dec["awaiting"]) == sorted(exp["awaiting"]), op_id
     # recall: every expected code must fire; extra codes are defense-in-depth
     # (measured separately as E6 exact-set) and must not change status/awaiting
     assert set(exp["blocking_reason_codes"]) <= set(dec["reason_codes"]), (
         f"{op_id}: missing {set(exp['blocking_reason_codes']) - set(dec['reason_codes'])} "
-        f"in {dec['reason_codes']}")
+        f"in {dec['reason_codes']}"
+    )
 
 
 def test_control_operators_approve():
@@ -52,14 +54,13 @@ def test_control_operators_approve():
         case = build_case(op_id, _pick(WORLD, rng, COUNTRY_OF.get(op_id)), WORLD, rng)
         pack = run_case(case)
         assert pack["decision"]["status"] == "APPROVED", (
-            f"{op_id}: {pack['decision']['status']} "
-            f"{pack['decision']['reason_codes']}")
+            f"{op_id}: {pack['decision']['status']} {pack['decision']['reason_codes']}"
+        )
     # M-11 is vendor-sensitive by construction; sweep 5 vendors
     for seed in range(5):
         rng = random.Random(100 + seed)
-        case = build_case("M-11", _pick(WORLD, rng, COUNTRY_OF.get("M-11")),
-                          WORLD, rng)
+        case = build_case("M-11", _pick(WORLD, rng, COUNTRY_OF.get("M-11")), WORLD, rng)
         pack = run_case(case)
         assert pack["decision"]["status"] == "APPROVED", (
-            f"M-11 seed {seed}: {pack['decision']['status']} "
-            f"{pack['decision']['reason_codes']}")
+            f"M-11 seed {seed}: {pack['decision']['status']} {pack['decision']['reason_codes']}"
+        )

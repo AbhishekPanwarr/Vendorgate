@@ -22,11 +22,18 @@ def build(seed=42):
             used.add(m["vendor_id"])
         anchor = members[0]
         # plant: share bank account + phone with anchor
-        cluster = {"id": f"C-{i:02d}",
-                   "members": [{"vendor_id": m["vendor_id"],
-                                "legal_name": m["legal_name"],
-                                "bank": anchor["bank"], "phone": anchor["phone"]}
-                               for m in members]}
+        cluster = {
+            "id": f"C-{i:02d}",
+            "members": [
+                {
+                    "vendor_id": m["vendor_id"],
+                    "legal_name": m["legal_name"],
+                    "bank": anchor["bank"],
+                    "phone": anchor["phone"],
+                }
+                for m in members
+            ],
+        }
         clusters.append(cluster)
     OUT.mkdir(parents=True, exist_ok=True)
     with open(OUT / "clusters.json", "w") as fh:
@@ -34,5 +41,5 @@ def build(seed=42):
     print(f"network set: {len(clusters)} clusters")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     build()

@@ -57,4 +57,6 @@ class LlmOnlyVerdict(BaseModel):
 
 
 def llm_only_user(payload_json: str) -> str:
-    return f"Vendor submission:\n{payload_json}\nDecide APPROVED/PENDING/REJECTED with reason codes."
+    return (
+        f"Vendor submission:\n{payload_json}\nDecide APPROVED/PENDING/REJECTED with reason codes."
+    )

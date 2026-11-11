@@ -261,3 +261,20 @@ wiped after the incident. E17 determinism relies on this discipline.
   spend/category, indexed doc paths covered by documents.digest).
 - Makefile deploy already targets RENDER_DEPLOY_HOOK. Render provisioning
   itself remains manual (parallel track).
+
+## Phase 5 Evidence
+
+- Dataset: 600 cases (160 clean / 240 single / 100 double / 60 scanned / 40 adversarial), dev 340 / test 260, SEED=42. Split `6592f24eef07`, dataset `136633272ae4` (manifest committed).
+- D-5.13 test runs (hybrid + rules-only, replay, frozen split):
+  - hybrid: E1 = 0/109 (upper 3.4%), E3 = 0/101, E5 = 100%, E6 micro F1 0.81, exact-set ~79%.
+  - rules-only: E1 = 0/109, E5 = 88.1% (US W9 signatures are LLM-read; deterministic layer degrades — L-NEW3).
+- llm-only: 23-case stratified slice (live, 22-23 calls used of 25 cap, 80k tokens; fixtures recorded, reruns 0 tokens): E1 = 0/12, E5 = 60.9%. Over-pends clean cases, misses 4/4 rejects — the "why hybrid" story.
+- Ablation (dev 340, same build): hybrid E1 0/91 E5 100%; rules-only E5 86.5%; -corroboration E1 0 (hypothesis FAILED, stated); -fail-closed E1 3/91; -network E1 3/91; -counterfactual E5 100% (E8/E9 proxy to 0 — its story is remediation, not status).
+- E12: false-merge 0, recall 100% (400 pairs; ambiguous-100 template committed, hand-labels pending user session — E23 deferred, OQ).
+- E11: regex text 100%, scanned 72%; grounding text 100%, scanned 88% (VAT-ID pattern added after eval caught the gap).
+- E14: 15/15 clusters, precision proxy 30/30. E15/E17: Phase 4 suites green. E20 100%. E21 AUC ~0.62-0.66 (score separates weakly; stated). E22 100%.
+- Label independence lint green; test-split-frozen respected (one hybrid test run).
+- UI: /benchmark (reads latest.json; parity-tested), /foolit (redteam attempts logged, critical-approval counter), /policy (A-01..A-15 + hash). Screenshots in docs/evidence.
+- Coverage: 12 Makefile packages ≥90% except backend/app/llm at 92.0% ✓ (all 12 green); datagen 81→ builder paths covered via mini-build (build_dataset file 68% — package aggregate: mutations 92.7, world 91.8, render 98.2, submissions 100); eval package 92.6%.
+- mypy strict clean (97 files); ruff check + format clean.
+- Live LLM budget: 23 calls total this phase. No further live calls needed (fixtures committed).

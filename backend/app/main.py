@@ -374,6 +374,174 @@ def create_app() -> FastAPI:
             "note": "clear the adapter fault and resubmit; delta re-run is Phase 4",
         }
 
+    @app.get("/api/v1/eval/latest")
+    def eval_latest():  # noqa: ANN202
+        import json as _json
+
+        out = {}
+        for name in (
+            "latest.json",
+            "sets.json",
+            "ablation-dev.json",
+            "ablation-llm-only-test25.json",
+        ):
+            _p = Path("eval/reports") / name
+            if _p.exists():
+                out[name] = _json.loads(_p.read_text())
+        return out
+
+    @app.get("/api/v1/policy")
+    def get_policy():  # noqa: ANN202
+        import hashlib as _hl
+
+        import yaml as _yaml
+
+        base = Path("policy/base.yaml").read_bytes()
+        assumptions = (
+            _yaml.safe_load(Path("policy/assumptions.yaml").read_text())
+            if Path("policy/assumptions.yaml").exists()
+            else []
+        )
+        return {"assumptions": assumptions, "policy_hash": _hl.sha256(base).hexdigest()}
+
+    @app.get("/api/v1/foolit/operators")
+    def foolit_operators():  # noqa: ANN202
+        import yaml as _yaml
+
+        cat = _yaml.safe_load(Path("datagen/mutations/catalog.yaml").read_text())
+        return [
+            {
+                "id": o["id"],
+                "name": o["name"],
+                "description": o.get("description", o["name"]),
+                "expected": o["expected"],
+            }
+            for o in cat["operators"]
+        ]
+
+    @app.post("/api/v1/foolit/run")
+    async def foolit_run(request: Request):  # noqa: ANN201
+        import asyncio as _asyncio
+        import json as _json
+        import random as _random
+
+        body = await request.json()
+        vendor_id = str(body.get("vendor_id", ""))
+        op_ids = [str(o) for o in body.get("ops", [])]
+        world = _json.loads(Path("datagen/out/world.json").read_text())
+        vendor = next((v for v in world["vendors"] if v["vendor_id"] == vendor_id), None)
+        payload = None
+        if vendor is None:
+            bases = {
+                "HP-1": "hp-1",
+                "HP-2": None,
+                "HP-3": "hp-3",
+                "HP-3-HIGH": "hp-3-high",
+                "EC-1": "ec-1-run-1",
+                "EC-3a": "ec-3a",
+                "EC-3b": "ec-3b",
+                "EC-4a": "ec-4a",
+                "EC-4b": "ec-4b",
+            }
+            key = bases.get(vendor_id)
+            if key is None and vendor_id == "HP-2":
+                payload = _json.loads(Path("backend/tests/fixtures/hp2_payload.json").read_text())
+            elif key is not None:
+                payload = _json.loads(
+                    Path(f"backend/tests/golden/fixtures/{key}.json").read_text()
+                )["payload"]
+            if payload is None:
+                return JSONResponse(status_code=404, content={"type": "unknown-vendor"})
+            vendor = {
+                "vendor_id": vendor_id,
+                "country": payload["company"]["country"],
+                "legal_name": payload["company"]["legal_name"],
+                "tax": {"tax_id": payload["tax"]["tax_id"]},
+                "bank": payload["bank"],
+                "truth": {"incorporation_year": 2020},
+            }
+        from datagen.build_dataset import _ctx, _l3_entries, _merge_files, _truth_mocks
+        from datagen.mutations.apply import OPS
+        from eval.case_runner import run_case
+
+        rng = _random.Random(0)
+        ctx = _ctx()
+        from datagen.submissions import submission_for
+
+        if payload is None and vendor is not None:
+            payload = submission_for(vendor)
+        for op_id in op_ids:
+            if op_id not in OPS:
+                return JSONResponse(
+                    status_code=400, content={"type": "unknown-operator", "op": op_id}
+                )
+            OPS[op_id](payload, vendor, world, rng, ctx, None)
+        _truth_mocks(ctx, vendor, payload)
+        files, l1, deg = _merge_files(ctx, payload, op_ids, rng)
+        import yaml as _yaml
+
+        catalog = {
+            o["id"]: o
+            for o in _yaml.safe_load(Path("datagen/mutations/catalog.yaml").read_text())[
+                "operators"
+            ]
+        }
+        order = {"APPROVED": 0, "PENDING": 1, "REJECTED": 2}
+        exps = [catalog[o]["expected"] for o in op_ids]
+        worse = max(exps, key=lambda e: order[e["status"]]) if exps else None
+        case = {
+            "op": op_ids,
+            "vendor_id": vendor_id,
+            "payload": payload,
+            "expected": {
+                "status": worse["status"] if worse else "APPROVED",
+                "awaiting": sorted({a for e in exps for a in e["awaiting"]}),
+                "blocking_reason_codes": sorted(
+                    {c for e in exps for c in e["blocking_reason_codes"]}
+                ),
+                "critical": any(e["critical"] for e in exps),
+            }
+            if exps
+            else {
+                "status": "APPROVED",
+                "awaiting": [],
+                "blocking_reason_codes": [],
+                "critical": False,
+            },
+            "mocks": {f"{a}|{k}": v for (a, k), v in ctx["mocks"].items()},
+            "master": ctx["master"],
+            "sanctions": ctx["sanctions"],
+            "pep": ctx["pep"],
+            "adverse": ctx["adverse"],
+            "faults": ctx["faults"],
+            "setup_cases": ctx["setup_cases"],
+            "l3": _l3_entries(payload),
+            "files": files,
+            "l1_rendered": l1,
+            "degraded": deg,
+        }
+        pack = await _asyncio.to_thread(run_case, case)
+        dec = pack["decision"]
+        actual = {
+            "status": dec["status"],
+            "awaiting": dec.get("awaiting", []),
+            "reason_codes": dec.get("reason_codes", []),
+        }
+        attempt = {
+            "vendor_id": vendor_id,
+            "ops": op_ids,
+            "expected": case["expected"],
+            "actual": actual,
+            "source": "redteam",
+        }
+        with open("eval/reports/redteam.jsonl", "a") as _fh:
+            _fh.write(_json.dumps(attempt) + "\n")
+        return {
+            "expected": case["expected"],
+            "actual": actual,
+            "match": (case["expected"]["status"] == actual["status"]),
+        }
+
     @app.get("/api/v1/metrics/dashboard")
     def dashboard_metrics():  # noqa: ANN202
         cases = list(repo.STORE["cases"].values())

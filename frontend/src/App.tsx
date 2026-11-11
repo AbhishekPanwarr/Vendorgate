@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate, useParams, Link } from "react-router-dom";
 import CasePage from "./Case";
 import Dashboard from "./Dashboard";
+import Benchmark from "./Benchmark";
+import FoolIt from "./FoolIt";
+import Policy from "./Policy";
 import Approvals from "./Approvals";
 
 function Submit() {
@@ -105,6 +108,9 @@ export default function App() {
         <Route path="/cases/:caseId" element={<CasePage />} />
         <Route path="/approvals" element={<Approvals />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/benchmark" element={<Benchmark />} />
+        <Route path="/foolit" element={<FoolIt />} />
+        <Route path="/policy" element={<Policy />} />
       </Routes>
     </BrowserRouter>
   );

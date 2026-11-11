@@ -29,9 +29,17 @@ def _ctx():
     with open("backend/tests/fixtures/hp1_payload.json") as fh:
         sub = VendorSubmission.model_validate(json.load(fh))
     accessed: list[str] = []
-    ctx = RunContext(case_id="c", run_id="r", submission=sub,
-                     policy=load_policy("policy"), adapters={}, llm=None,
-                     clock=RealClock(), cache=CheckCache(), emit=lambda e: None)
+    ctx = RunContext(
+        case_id="c",
+        run_id="r",
+        submission=sub,
+        policy=load_policy("policy"),
+        adapters={},
+        llm=None,
+        clock=RealClock(),
+        cache=CheckCache(),
+        emit=lambda e: None,
+    )
     for cl in build_claims(sub):
         ctx.add_claim(cl)
     orig_value = ctx.value

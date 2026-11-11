@@ -35,4 +35,5 @@ def test_labels_from_operator_expected():
                 e = exp[0]
                 assert sorted(case["expected"]["awaiting"]) == sorted(e["awaiting"])
                 assert sorted(case["expected"]["blocking_reason_codes"]) == sorted(
-                    e["blocking_reason_codes"])
+                    e["blocking_reason_codes"]
+                )

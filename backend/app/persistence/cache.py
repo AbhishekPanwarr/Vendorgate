@@ -24,8 +24,7 @@ class DbCheckCache:
             data: list[Any] = [f.model_dump(mode="json") for f in findings]
             check_id = findings[0].check_id if findings else ""
             if row is None:
-                s.add(models.CheckCacheRow(fingerprint=fp, check_id=check_id,
-                                           result=data))
+                s.add(models.CheckCacheRow(fingerprint=fp, check_id=check_id, result=data))
             else:
                 setattr(row, "result", data)
                 setattr(row, "check_id", check_id)

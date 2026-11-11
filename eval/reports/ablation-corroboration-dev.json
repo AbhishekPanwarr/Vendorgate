@@ -3,7 +3,7 @@
   {
    "op": null,
    "vendor_id": "G-DE-018",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -16,12 +16,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.27
+   "seconds": 0.18
   },
   {
    "op": null,
    "vendor_id": "G-GB-004",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -39,7 +39,7 @@
   {
    "op": null,
    "vendor_id": "G-DE-013",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -52,12 +52,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-IN-038",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -70,12 +70,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-IN-025",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -88,12 +88,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.16
   },
   {
    "op": null,
    "vendor_id": "G-US-030",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -106,12 +106,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.19
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-IN-028",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -124,12 +124,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.16
   },
   {
    "op": null,
    "vendor_id": "G-IN-032",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -142,12 +142,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-IN-036",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -160,12 +160,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-US-018",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -178,12 +178,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.15
   },
   {
    "op": null,
    "vendor_id": "G-IN-021",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -196,12 +196,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-US-003",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -214,12 +214,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-GB-000",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -232,12 +232,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.21
   },
   {
    "op": null,
    "vendor_id": "G-US-003-B",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -250,12 +250,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.21
   },
   {
    "op": null,
    "vendor_id": "G-US-015",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -268,12 +268,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-US-033",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -286,12 +286,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-021",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -304,12 +304,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-IN-003",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -322,12 +322,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": null,
    "vendor_id": "G-DE-007",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -340,12 +340,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-IN-022",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -358,12 +358,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-IN-011",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -376,12 +376,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -394,12 +394,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.18
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-US-028",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -412,12 +412,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-US-022",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -430,12 +430,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-DE-030",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -448,12 +448,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-DE-026",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -466,12 +466,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-US-017",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -484,12 +484,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-GB-023",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -502,12 +502,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-US-020-B",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -520,12 +520,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-DE-015",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -538,12 +538,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-DE-002",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -556,12 +556,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-US-020",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -574,12 +574,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.31
   },
   {
    "op": null,
    "vendor_id": "G-US-026",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -592,12 +592,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-IN-008",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -610,12 +610,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.28
   },
   {
    "op": null,
    "vendor_id": "G-IN-037-B",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -628,12 +628,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-DE-034",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -646,12 +646,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-US-025",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -664,12 +664,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-GB-034",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -682,12 +682,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-GB-017-B",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -700,12 +700,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-US-002",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -718,12 +718,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-GB-007",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -736,12 +736,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-DE-022",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -754,12 +754,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-GB-022",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -772,12 +772,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-US-029",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -790,12 +790,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.18
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-004",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -808,12 +808,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-GB-001",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -826,12 +826,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-031",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -844,12 +844,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-GB-026",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -862,12 +862,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-031",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -880,12 +880,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-024",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -898,12 +898,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.28
   },
   {
    "op": null,
    "vendor_id": "G-DE-017",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -916,12 +916,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-IN-019",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -934,12 +934,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-009",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -952,12 +952,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-US-001",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -970,12 +970,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "op": null,
    "vendor_id": "G-DE-033",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -988,12 +988,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-US-008",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1006,12 +1006,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.28
   },
   {
    "op": null,
    "vendor_id": "G-GB-025",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1024,12 +1024,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   {
    "op": null,
    "vendor_id": "G-IN-012",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1042,12 +1042,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.33
   },
   {
    "op": null,
    "vendor_id": "G-IN-010",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1060,12 +1060,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": null,
    "vendor_id": "G-IN-017",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1078,12 +1078,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": null,
    "vendor_id": "G-GB-008",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1096,12 +1096,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.21
   },
   {
    "op": null,
    "vendor_id": "G-US-000",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1114,12 +1114,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-GB-021",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1132,12 +1132,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-DE-018-B",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1150,12 +1150,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-GB-013",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1168,12 +1168,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1186,12 +1186,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-GB-032",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1204,12 +1204,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-023",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1222,12 +1222,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-US-019",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1240,12 +1240,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-US-011",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1258,12 +1258,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-GB-011",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1276,12 +1276,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.18
+   "seconds": 0.22
   },
   {
    "op": null,
    "vendor_id": "G-DE-028",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1294,12 +1294,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-GB-010",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1312,12 +1312,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-013",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1330,12 +1330,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-IN-020",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1348,12 +1348,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-US-005",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1366,12 +1366,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": null,
    "vendor_id": "G-IN-015",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1384,12 +1384,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-020",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1402,12 +1402,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-IN-023",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1420,12 +1420,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.37
   },
   {
    "op": null,
    "vendor_id": "G-US-038",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1438,12 +1438,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-027",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1456,12 +1456,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.22
   },
   {
    "op": null,
    "vendor_id": "G-IN-030",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1474,12 +1474,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-000",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1492,12 +1492,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-IN-037",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1510,12 +1510,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-008",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1528,12 +1528,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-007",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1546,12 +1546,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-US-034",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1564,12 +1564,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-IN-035",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1582,12 +1582,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.25
   },
   {
    "op": null,
    "vendor_id": "G-DE-019",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1600,12 +1600,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-IN-000",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1618,12 +1618,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": null,
    "vendor_id": "G-US-010",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1636,12 +1636,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-DE-032-B",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1654,12 +1654,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-DE-004",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1672,12 +1672,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-IN-016",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1690,12 +1690,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": null,
    "vendor_id": "G-GB-009",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1708,12 +1708,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": null,
    "vendor_id": "G-GB-005",
-   "slice": null,
+   "slice": "clean",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -1726,12 +1726,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.29
   },
   {
    "op": "M-01",
    "vendor_id": "G-IN-035",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1752,12 +1752,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": "M-01",
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1778,12 +1778,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.24
   },
   {
    "op": "M-01",
    "vendor_id": "G-IN-007",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1804,12 +1804,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": "M-02",
    "vendor_id": "G-DE-009",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1830,12 +1830,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.12
+   "seconds": 0.24
   },
   {
    "op": "M-02",
    "vendor_id": "G-GB-031",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1856,12 +1856,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.24
   },
   {
    "op": "M-02",
    "vendor_id": "G-US-006",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1882,12 +1882,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.12
+   "seconds": 0.27
   },
   {
    "op": "M-03",
    "vendor_id": "G-IN-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1909,12 +1909,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.13
+   "seconds": 0.3
   },
   {
    "op": "M-03",
    "vendor_id": "G-US-008",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1937,12 +1937,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.2
+   "seconds": 0.34
   },
   {
    "op": "M-03",
    "vendor_id": "G-US-039",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1965,12 +1965,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.13
+   "seconds": 0.36
   },
   {
    "op": "M-04",
    "vendor_id": "G-IN-029",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -1991,12 +1991,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.24
   },
   {
    "op": "M-04",
    "vendor_id": "G-IN-015",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2017,12 +2017,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.21
   },
   {
    "op": "M-04",
    "vendor_id": "G-IN-012",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2043,12 +2043,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.22
   },
   {
    "op": "M-05",
    "vendor_id": "G-IN-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2071,12 +2071,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": "M-05",
    "vendor_id": "G-IN-018",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2099,12 +2099,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.13
+   "seconds": 0.26
   },
   {
    "op": "M-05",
    "vendor_id": "G-IN-004",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2127,12 +2127,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.13
+   "seconds": 0.25
   },
   {
    "op": "M-06",
    "vendor_id": "G-IN-032",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2153,12 +2153,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.23
   },
   {
    "op": "M-06",
    "vendor_id": "G-IN-008",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2179,12 +2179,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.28
   },
   {
    "op": "M-06",
    "vendor_id": "G-IN-038",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2205,12 +2205,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": "M-07",
    "vendor_id": "G-IN-036",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2231,12 +2231,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": "M-07",
    "vendor_id": "G-IN-027",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2257,12 +2257,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": "M-07",
    "vendor_id": "G-IN-032",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2283,12 +2283,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": "M-08",
    "vendor_id": "G-US-024",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2301,12 +2301,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": "M-08",
    "vendor_id": "G-DE-020",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2319,12 +2319,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.3
   },
   {
    "op": "M-08",
    "vendor_id": "G-US-006",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2337,12 +2337,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.25
   },
   {
    "op": "M-09",
    "vendor_id": "G-DE-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2359,12 +2359,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": "M-09",
    "vendor_id": "G-GB-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2381,12 +2381,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": "M-09",
    "vendor_id": "G-IN-007",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2403,12 +2403,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": "M-10",
    "vendor_id": "G-US-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2421,12 +2421,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.3
   },
   {
    "op": "M-10",
    "vendor_id": "G-GB-022",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2439,12 +2439,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.27
   },
   {
    "op": "M-10",
    "vendor_id": "G-GB-002",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2457,12 +2457,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.29
   },
   {
    "op": "M-11",
    "vendor_id": "G-US-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2475,12 +2475,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": "M-11",
    "vendor_id": "G-GB-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2493,12 +2493,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.24
   },
   {
    "op": "M-11",
    "vendor_id": "G-DE-024",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2511,12 +2511,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.25
   },
   {
    "op": "M-12",
    "vendor_id": "G-IN-020",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2537,12 +2537,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.25
   },
   {
    "op": "M-12",
    "vendor_id": "G-GB-027",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2563,12 +2563,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.26
   },
   {
    "op": "M-12",
    "vendor_id": "G-US-004",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2589,12 +2589,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": "M-13",
    "vendor_id": "G-IN-016",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2615,12 +2615,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": "M-13",
    "vendor_id": "G-GB-023",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2641,12 +2641,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.22
   },
   {
    "op": "M-13",
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2667,12 +2667,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": "M-14",
    "vendor_id": "G-GB-034",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2685,12 +2685,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.2
+   "seconds": 0.25
   },
   {
    "op": "M-14",
    "vendor_id": "G-DE-030",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2703,12 +2703,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.16
+   "seconds": 0.24
   },
   {
    "op": "M-14",
    "vendor_id": "G-US-030",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -2721,12 +2721,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.17
+   "seconds": 0.26
   },
   {
    "op": "M-15",
    "vendor_id": "G-IN-031",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -2752,12 +2752,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-15",
    "vendor_id": "G-GB-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -2783,12 +2783,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": "M-15",
    "vendor_id": "G-IN-038",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -2814,12 +2814,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": "M-16",
    "vendor_id": "G-GB-013",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2841,12 +2841,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.24
   },
   {
    "op": "M-16",
    "vendor_id": "G-GB-015",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2868,12 +2868,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.23
   },
   {
    "op": "M-16",
    "vendor_id": "G-GB-003",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2895,12 +2895,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": "M-17",
    "vendor_id": "G-US-031",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2921,12 +2921,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.26
   },
   {
    "op": "M-17",
    "vendor_id": "G-US-025",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2947,12 +2947,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.26
   },
   {
    "op": "M-17",
    "vendor_id": "G-US-003",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -2973,12 +2973,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.17
+   "seconds": 0.28
   },
   {
    "op": "M-18",
    "vendor_id": "G-US-021",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3000,12 +3000,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.15
+   "seconds": 0.25
   },
   {
    "op": "M-18",
    "vendor_id": "G-US-015",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3027,12 +3027,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.28
   },
   {
    "op": "M-18",
    "vendor_id": "G-US-038",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3054,12 +3054,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-19",
    "vendor_id": "G-US-036",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3080,12 +3080,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.35
   },
   {
    "op": "M-19",
    "vendor_id": "G-US-006",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3106,12 +3106,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.18
+   "seconds": 0.31
   },
   {
    "op": "M-19",
    "vendor_id": "G-US-029",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3132,12 +3132,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.25
   },
   {
    "op": "M-20",
    "vendor_id": "G-IN-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3154,12 +3154,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.27
   },
   {
    "op": "M-20",
    "vendor_id": "G-IN-005",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3176,12 +3176,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-20",
    "vendor_id": "G-IN-009",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3198,12 +3198,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.32
   },
   {
    "op": "M-21",
    "vendor_id": "G-US-020",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3221,12 +3221,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.34
   },
   {
    "op": "M-21",
    "vendor_id": "G-IN-009",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3244,12 +3244,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.42
   },
   {
    "op": "M-21",
    "vendor_id": "G-IN-027",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3267,12 +3267,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-22",
    "vendor_id": "G-US-035",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3293,12 +3293,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.12
+   "seconds": 0.29
   },
   {
    "op": "M-22",
    "vendor_id": "G-GB-027",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3319,12 +3319,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.12
+   "seconds": 0.27
   },
   {
    "op": "M-22",
    "vendor_id": "G-IN-015",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3345,12 +3345,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.12
+   "seconds": 0.35
   },
   {
    "op": "M-23",
    "vendor_id": "G-GB-006",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3371,12 +3371,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.31
   },
   {
    "op": "M-23",
    "vendor_id": "G-DE-022",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3397,12 +3397,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.31
   },
   {
    "op": "M-23",
    "vendor_id": "G-IN-023",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3423,12 +3423,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-24",
    "vendor_id": "G-US-036",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3449,12 +3449,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   {
    "op": "M-24",
    "vendor_id": "G-US-035",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3475,12 +3475,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.32
   },
   {
    "op": "M-24",
    "vendor_id": "G-US-034",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3501,12 +3501,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-25",
    "vendor_id": "G-US-034",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3527,12 +3527,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.18
+   "seconds": 0.31
   },
   {
    "op": "M-25",
    "vendor_id": "G-US-008",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3553,12 +3553,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-25",
    "vendor_id": "G-US-005",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -3579,12 +3579,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-26",
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3602,12 +3602,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   {
    "op": "M-26",
    "vendor_id": "G-US-032",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3625,12 +3625,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.15
+   "seconds": 0.32
   },
   {
    "op": "M-26",
    "vendor_id": "G-GB-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3648,12 +3648,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-27",
    "vendor_id": "G-GB-011",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3670,12 +3670,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.13
+   "seconds": 0.32
   },
   {
    "op": "M-27",
    "vendor_id": "G-IN-012",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3693,12 +3693,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   {
    "op": "M-27",
    "vendor_id": "G-DE-025",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3715,12 +3715,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   {
    "op": "M-28",
    "vendor_id": "G-IN-027",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3737,12 +3737,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.3
   },
   {
    "op": "M-28",
    "vendor_id": "G-GB-012",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3759,12 +3759,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.36
   },
   {
    "op": "M-28",
    "vendor_id": "G-IN-023",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3781,12 +3781,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-29",
    "vendor_id": "G-GB-033",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -3807,12 +3807,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.32
   },
   {
    "op": "M-29",
    "vendor_id": "G-GB-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -3833,12 +3833,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-29",
    "vendor_id": "G-DE-002",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -3859,12 +3859,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.41
   },
   {
    "op": "M-30",
    "vendor_id": "G-US-031",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3881,12 +3881,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.44
   },
   {
    "op": "M-30",
    "vendor_id": "G-DE-023",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3903,12 +3903,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.19
+   "seconds": 0.3
   },
   {
    "op": "M-30",
    "vendor_id": "G-US-012",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -3925,12 +3925,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.28
   },
   {
    "op": "M-31",
    "vendor_id": "G-IN-011",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -3943,12 +3943,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-31",
    "vendor_id": "G-GB-016",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -3961,12 +3961,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-31",
    "vendor_id": "G-DE-002",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -3979,12 +3979,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.32
   },
   {
    "op": "M-32",
    "vendor_id": "G-US-012",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4005,12 +4005,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.32
   },
   {
    "op": "M-32",
    "vendor_id": "G-US-003",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4031,12 +4031,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-32",
    "vendor_id": "G-US-020",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4057,12 +4057,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.33
   },
   {
    "op": "M-33",
    "vendor_id": "G-DE-026",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -4080,12 +4080,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.16
+   "seconds": 0.36
   },
   {
    "op": "M-33",
    "vendor_id": "G-US-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -4103,12 +4103,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.17
+   "seconds": 0.35
   },
   {
    "op": "M-33",
    "vendor_id": "G-US-018",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -4126,12 +4126,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.17
+   "seconds": 0.36
   },
   {
    "op": "M-34",
    "vendor_id": "G-US-002",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -4149,12 +4149,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   {
    "op": "M-34",
    "vendor_id": "G-IN-020",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -4171,12 +4171,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.31
   },
   {
    "op": "M-34",
    "vendor_id": "G-GB-015",
-   "slice": null,
+   "slice": "single",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -4193,12 +4193,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.39
   },
   {
    "op": "M-35",
    "vendor_id": "G-DE-002",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4219,12 +4219,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.16
+   "seconds": 0.34
   },
   {
    "op": "M-35",
    "vendor_id": "G-IN-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4245,12 +4245,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.16
+   "seconds": 0.32
   },
   {
    "op": "M-35",
    "vendor_id": "G-GB-032",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4271,12 +4271,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.19
+   "seconds": 0.32
   },
   {
    "op": "M-36",
    "vendor_id": "G-GB-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4297,12 +4297,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.32
   },
   {
    "op": "M-36",
    "vendor_id": "G-DE-032",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4323,12 +4323,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-36",
    "vendor_id": "G-DE-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4349,12 +4349,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.33
   },
   {
    "op": "M-37",
    "vendor_id": "G-DE-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4377,12 +4377,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.13
+   "seconds": 0.35
   },
   {
    "op": "M-37",
    "vendor_id": "G-US-025",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4405,12 +4405,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.17
+   "seconds": 0.33
   },
   {
    "op": "M-37",
    "vendor_id": "G-US-016",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4433,12 +4433,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.14
+   "seconds": 0.3
   },
   {
    "op": "M-38",
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4461,12 +4461,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.25
+   "seconds": 0.54
   },
   {
    "op": "M-38",
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4489,12 +4489,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.27
+   "seconds": 0.51
   },
   {
    "op": "M-38",
    "vendor_id": "G-DE-022",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4517,12 +4517,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.26
+   "seconds": 0.57
   },
   {
    "op": "M-39",
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4535,12 +4535,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.34
   },
   {
    "op": "M-39",
    "vendor_id": "G-DE-004",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4553,12 +4553,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.13
+   "seconds": 0.35
   },
   {
    "op": "M-39",
    "vendor_id": "G-IN-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4571,12 +4571,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.14
+   "seconds": 0.41
   },
   {
    "op": "M-40",
    "vendor_id": "G-US-016",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4597,12 +4597,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.52
   },
   {
    "op": "M-40",
    "vendor_id": "G-DE-014",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4623,12 +4623,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.19
+   "seconds": 0.41
   },
   {
    "op": "M-40",
    "vendor_id": "G-IN-034",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4649,12 +4649,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.18
+   "seconds": 0.26
   },
   {
    "op": "M-41",
    "vendor_id": "G-IN-002",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4675,12 +4675,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.19
+   "seconds": 0.29
   },
   {
    "op": "M-41",
    "vendor_id": "G-GB-006",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4701,12 +4701,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.17
+   "seconds": 0.34
   },
   {
    "op": "M-41",
    "vendor_id": "G-IN-024",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4727,12 +4727,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.19
+   "seconds": 0.31
   },
   {
    "op": "M-42",
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4753,12 +4753,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.18
+   "seconds": 0.33
   },
   {
    "op": "M-42",
    "vendor_id": "G-DE-026",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4779,12 +4779,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.34
   },
   {
    "op": "M-42",
    "vendor_id": "G-US-005",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -4805,12 +4805,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.34
   },
   {
    "op": "M-43",
    "vendor_id": "G-US-000",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4831,12 +4831,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.31
   },
   {
    "op": "M-43",
    "vendor_id": "G-GB-009",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4857,12 +4857,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.14
+   "seconds": 0.37
   },
   {
    "op": "M-43",
    "vendor_id": "G-DE-026",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -4883,12 +4883,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.15
+   "seconds": 0.3
   },
   {
    "op": "M-44",
    "vendor_id": "G-GB-019",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4901,12 +4901,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 9.82
+   "seconds": 9.07
   },
   {
    "op": "M-44",
    "vendor_id": "G-US-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4919,12 +4919,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 9.31
+   "seconds": 9.02
   },
   {
    "op": "M-44",
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4937,12 +4937,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 14.94
+   "seconds": 9.08
   },
   {
    "op": "M-45",
    "vendor_id": "G-DE-022",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4955,12 +4955,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.26
+   "seconds": 0.14
   },
   {
    "op": "M-45",
    "vendor_id": "G-IN-016",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4973,12 +4973,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.28
+   "seconds": 0.14
   },
   {
    "op": "M-45",
    "vendor_id": "G-IN-022",
-   "slice": null,
+   "slice": "single",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -4991,12 +4991,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.26
+   "seconds": 0.14
   },
   {
    "op": "M-46",
    "vendor_id": "G-GB-014",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5017,12 +5017,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.28
+   "seconds": 0.13
   },
   {
    "op": "M-46",
    "vendor_id": "G-US-001",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5043,12 +5043,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.37
+   "seconds": 0.15
   },
   {
    "op": "M-46",
    "vendor_id": "G-DE-001",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5069,12 +5069,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": "M-47",
    "vendor_id": "G-US-018",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5095,12 +5095,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.36
+   "seconds": 0.16
   },
   {
    "op": "M-47",
    "vendor_id": "G-IN-033",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5121,12 +5121,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.26
+   "seconds": 0.21
   },
   {
    "op": "M-47",
    "vendor_id": "G-IN-032",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5147,12 +5147,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.22
+   "seconds": 0.17
   },
   {
    "op": "M-48",
    "vendor_id": "G-US-015",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5173,12 +5173,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.24
+   "seconds": 0.22
   },
   {
    "op": "M-48",
    "vendor_id": "G-GB-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5199,12 +5199,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.26
+   "seconds": 0.16
   },
   {
    "op": "M-48",
    "vendor_id": "G-US-028",
-   "slice": null,
+   "slice": "single",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5225,7 +5225,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.28
+   "seconds": 0.16
   },
   {
    "op": [
@@ -5233,7 +5233,7 @@
     "M-06"
    ],
    "vendor_id": "G-IN-018",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -5246,8 +5246,8 @@
    "expected_critical": true,
    "actual_status": "PENDING",
    "actual_awaiting": [
-    "VENDOR",
-    "INTERNAL"
+    "INTERNAL",
+    "VENDOR"
    ],
    "actual_codes": [
     "DOC_INJECTION_SUSPECTED",
@@ -5258,7 +5258,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.26
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5266,7 +5266,7 @@
     "M-16"
    ],
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5290,7 +5290,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.24
+   "seconds": 0.13
   },
   {
    "op": [
@@ -5298,7 +5298,7 @@
     "M-21"
    ],
    "vendor_id": "G-US-031",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5320,7 +5320,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.25
+   "seconds": 0.15
   },
   {
    "op": [
@@ -5328,7 +5328,7 @@
     "M-43"
    ],
    "vendor_id": "G-IN-026",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "INTERNAL"
@@ -5349,7 +5349,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.24
+   "seconds": 0.16
   },
   {
    "op": [
@@ -5357,7 +5357,7 @@
     "M-13"
    ],
    "vendor_id": "G-GB-018",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5378,7 +5378,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.32
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5386,7 +5386,7 @@
     "M-47"
    ],
    "vendor_id": "G-IN-010",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5407,7 +5407,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 2.48
+   "seconds": 2.39
   },
   {
    "op": [
@@ -5415,7 +5415,7 @@
     "M-07"
    ],
    "vendor_id": "G-IN-008",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -5428,8 +5428,8 @@
    "expected_critical": true,
    "actual_status": "PENDING",
    "actual_awaiting": [
-    "VENDOR",
-    "INTERNAL"
+    "INTERNAL",
+    "VENDOR"
    ],
    "actual_codes": [
     "DOC_FORM_MISMATCH",
@@ -5441,7 +5441,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.27
+   "seconds": 0.15
   },
   {
    "op": [
@@ -5449,7 +5449,7 @@
     "M-43"
    ],
    "vendor_id": "G-DE-020",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "INTERNAL"
@@ -5470,7 +5470,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.27
+   "seconds": 0.15
   },
   {
    "op": [
@@ -5478,7 +5478,7 @@
     "M-11"
    ],
    "vendor_id": "G-IN-039",
-   "slice": null,
+   "slice": "double",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -5491,7 +5491,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.24
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5499,7 +5499,7 @@
     "M-16"
    ],
    "vendor_id": "G-GB-009",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5522,7 +5522,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.26
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5530,7 +5530,7 @@
     "M-25"
    ],
    "vendor_id": "G-US-030",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -5558,7 +5558,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 5,
-   "seconds": 0.26
+   "seconds": 0.15
   },
   {
    "op": [
@@ -5566,7 +5566,7 @@
     "M-26"
    ],
    "vendor_id": "G-DE-029",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5588,7 +5588,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.24
+   "seconds": 0.13
   },
   {
    "op": [
@@ -5596,7 +5596,7 @@
     "M-06"
    ],
    "vendor_id": "G-GB-017",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5621,7 +5621,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.22
+   "seconds": 0.16
   },
   {
    "op": [
@@ -5629,7 +5629,7 @@
     "M-44"
    ],
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -5650,7 +5650,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 2.49
+   "seconds": 2.39
   },
   {
    "op": [
@@ -5658,7 +5658,7 @@
     "M-21"
    ],
    "vendor_id": "G-DE-004",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5680,7 +5680,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.27
+   "seconds": 0.13
   },
   {
    "op": [
@@ -5688,7 +5688,7 @@
     "M-44"
    ],
    "vendor_id": "G-GB-019",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5710,7 +5710,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 2.56
+   "seconds": 2.42
   },
   {
    "op": [
@@ -5718,7 +5718,7 @@
     "M-43"
    ],
    "vendor_id": "G-GB-014",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "INTERNAL"
@@ -5739,7 +5739,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.35
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5747,7 +5747,7 @@
     "M-17"
    ],
    "vendor_id": "G-US-015",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -5772,7 +5772,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.32
+   "seconds": 0.15
   },
   {
    "op": [
@@ -5780,7 +5780,7 @@
     "M-27"
    ],
    "vendor_id": "G-IN-031",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5801,7 +5801,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.35
+   "seconds": 0.15
   },
   {
    "op": [
@@ -5809,7 +5809,7 @@
     "M-28"
    ],
    "vendor_id": "G-IN-028",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -5828,7 +5828,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5836,7 +5836,7 @@
     "M-13"
    ],
    "vendor_id": "G-GB-022",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5859,7 +5859,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.31
+   "seconds": 0.12
   },
   {
    "op": [
@@ -5867,7 +5867,7 @@
     "M-01"
    ],
    "vendor_id": "G-IN-007",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -5892,7 +5892,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5900,7 +5900,7 @@
     "M-12"
    ],
    "vendor_id": "G-GB-005",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5923,7 +5923,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.36
+   "seconds": 0.12
   },
   {
    "op": [
@@ -5931,7 +5931,7 @@
     "M-20"
    ],
    "vendor_id": "G-IN-024",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -5952,7 +5952,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.35
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5960,7 +5960,7 @@
     "M-45"
    ],
    "vendor_id": "G-IN-009",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -5983,7 +5983,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.32
+   "seconds": 0.14
   },
   {
    "op": [
@@ -5991,7 +5991,7 @@
     "M-26"
    ],
    "vendor_id": "G-IN-035",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -6012,7 +6012,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.29
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6020,7 +6020,7 @@
     "M-40"
    ],
    "vendor_id": "G-US-039",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6043,7 +6043,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.36
+   "seconds": 0.13
   },
   {
    "op": [
@@ -6051,7 +6051,7 @@
     "M-18"
    ],
    "vendor_id": "G-US-026",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6075,7 +6075,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.31
+   "seconds": 0.12
   },
   {
    "op": [
@@ -6083,7 +6083,7 @@
     "M-36"
    ],
    "vendor_id": "G-US-037",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -6107,7 +6107,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.32
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6115,7 +6115,7 @@
     "M-07"
    ],
    "vendor_id": "G-IN-038",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6140,7 +6140,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": [
@@ -6148,7 +6148,7 @@
     "M-12"
    ],
    "vendor_id": "G-GB-025",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6169,7 +6169,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.54
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6177,7 +6177,7 @@
     "M-01"
    ],
    "vendor_id": "G-IN-019",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6202,7 +6202,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.39
+   "seconds": 0.18
   },
   {
    "op": [
@@ -6210,7 +6210,7 @@
     "M-03"
    ],
    "vendor_id": "G-GB-014",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6236,7 +6236,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.38
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6244,7 +6244,7 @@
     "M-20"
    ],
    "vendor_id": "G-IN-032",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -6265,7 +6265,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.35
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6273,7 +6273,7 @@
     "M-35"
    ],
    "vendor_id": "G-DE-024",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "INTERNAL"
@@ -6294,7 +6294,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.35
+   "seconds": 0.16
   },
   {
    "op": [
@@ -6302,7 +6302,7 @@
     "M-44"
    ],
    "vendor_id": "G-DE-022",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [],
    "expected_codes": [
@@ -6320,7 +6320,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 2.73
+   "seconds": 2.39
   },
   {
    "op": [
@@ -6328,7 +6328,7 @@
     "M-40"
    ],
    "vendor_id": "G-DE-014",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6353,7 +6353,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.41
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6361,7 +6361,7 @@
     "M-32"
    ],
    "vendor_id": "G-IN-016",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6389,7 +6389,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 5,
-   "seconds": 0.25
+   "seconds": 0.13
   },
   {
    "op": [
@@ -6397,7 +6397,7 @@
     "M-16"
    ],
    "vendor_id": "G-GB-030",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6421,7 +6421,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.25
+   "seconds": 0.12
   },
   {
    "op": [
@@ -6429,7 +6429,7 @@
     "M-41"
    ],
    "vendor_id": "G-IN-022",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6450,7 +6450,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.32
+   "seconds": 0.19
   },
   {
    "op": [
@@ -6458,7 +6458,7 @@
     "M-48"
    ],
    "vendor_id": "G-GB-033",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -6479,7 +6479,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.37
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6487,7 +6487,7 @@
     "M-44"
    ],
    "vendor_id": "G-IN-027",
-   "slice": null,
+   "slice": "double",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -6500,7 +6500,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 2.62
+   "seconds": 2.42
   },
   {
    "op": [
@@ -6508,7 +6508,7 @@
     "M-45"
    ],
    "vendor_id": "G-IN-019",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6529,7 +6529,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.32
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6537,7 +6537,7 @@
     "M-29"
    ],
    "vendor_id": "G-IN-000",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -6559,7 +6559,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.32
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6567,7 +6567,7 @@
     "M-38"
    ],
    "vendor_id": "G-IN-001",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6580,8 +6580,8 @@
    "expected_critical": true,
    "actual_status": "PENDING",
    "actual_awaiting": [
-    "VENDOR",
-    "INTERNAL"
+    "INTERNAL",
+    "VENDOR"
    ],
    "actual_codes": [
     "BANK_CHANGE_REQUIRES_CALLBACK",
@@ -6593,7 +6593,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.32
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6601,7 +6601,7 @@
     "M-45"
    ],
    "vendor_id": "G-US-027",
-   "slice": null,
+   "slice": "double",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -6614,7 +6614,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6622,7 +6622,7 @@
     "M-14"
    ],
    "vendor_id": "G-US-015",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6643,7 +6643,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.33
+   "seconds": 0.17
   },
   {
    "op": [
@@ -6651,7 +6651,7 @@
     "M-35"
    ],
    "vendor_id": "G-IN-037",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL"
@@ -6674,7 +6674,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.37
+   "seconds": 0.16
   },
   {
    "op": [
@@ -6682,7 +6682,7 @@
     "M-37"
    ],
    "vendor_id": "G-US-012",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6710,7 +6710,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 6,
-   "seconds": 0.36
+   "seconds": 0.15
   },
   {
    "op": [
@@ -6718,7 +6718,7 @@
     "M-22"
    ],
    "vendor_id": "G-US-020",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6742,7 +6742,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.31
+   "seconds": 0.12
   },
   {
    "op": [
@@ -6750,7 +6750,7 @@
     "M-18"
    ],
    "vendor_id": "G-US-004",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6774,7 +6774,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.29
+   "seconds": 0.12
   },
   {
    "op": [
@@ -6782,7 +6782,7 @@
     "M-42"
    ],
    "vendor_id": "G-GB-007",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -6804,7 +6804,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.35
+   "seconds": 0.16
   },
   {
    "op": [
@@ -6812,7 +6812,7 @@
     "M-46"
    ],
    "vendor_id": "G-GB-031",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6838,7 +6838,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.3
+   "seconds": 0.12
   },
   {
    "op": [
@@ -6846,7 +6846,7 @@
     "M-35"
    ],
    "vendor_id": "G-DE-008",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6871,7 +6871,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 2,
-   "seconds": 0.34
+   "seconds": 0.16
   },
   {
    "op": [
@@ -6879,7 +6879,7 @@
     "M-38"
    ],
    "vendor_id": "G-US-038",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6892,8 +6892,8 @@
    "expected_critical": true,
    "actual_status": "PENDING",
    "actual_awaiting": [
-    "VENDOR",
-    "INTERNAL"
+    "INTERNAL",
+    "VENDOR"
    ],
    "actual_codes": [
     "BANK_CHANGE_REQUIRES_CALLBACK",
@@ -6905,7 +6905,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6913,7 +6913,7 @@
     "M-07"
    ],
    "vendor_id": "G-IN-022",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "INTERNAL",
@@ -6926,8 +6926,8 @@
    "expected_critical": true,
    "actual_status": "PENDING",
    "actual_awaiting": [
-    "VENDOR",
-    "INTERNAL"
+    "INTERNAL",
+    "VENDOR"
    ],
    "actual_codes": [
     "DOC_FORM_MISMATCH",
@@ -6939,7 +6939,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6947,7 +6947,7 @@
     "M-42"
    ],
    "vendor_id": "G-IN-002",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -6972,7 +6972,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 4,
-   "seconds": 0.35
+   "seconds": 0.14
   },
   {
    "op": [
@@ -6980,7 +6980,7 @@
     "M-13"
    ],
    "vendor_id": "G-GB-027",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -7002,7 +7002,7 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.31
+   "seconds": 0.14
   },
   {
    "op": [
@@ -7010,7 +7010,7 @@
     "M-34"
    ],
    "vendor_id": "G-US-002",
-   "slice": null,
+   "slice": "double",
    "expected_status": "REJECTED",
    "expected_awaiting": [
     "VENDOR"
@@ -7032,7 +7032,7 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 3,
-   "seconds": 0.33
+   "seconds": 0.16
   },
   {
    "op": [
@@ -7040,7 +7040,7 @@
     "M-09"
    ],
    "vendor_id": "G-IN-027",
-   "slice": null,
+   "slice": "double",
    "expected_status": "PENDING",
    "expected_awaiting": [
     "VENDOR"
@@ -7062,12 +7062,12 @@
    "has_counterfactual": true,
    "has_audit": true,
    "n_blocking": 1,
-   "seconds": 0.29
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-DE-025",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7080,12 +7080,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-GB-008",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7098,12 +7098,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.19
   },
   {
    "op": null,
    "vendor_id": "G-GB-000",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7116,12 +7116,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.45
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-DE-009",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7134,12 +7134,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.5
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-IN-022",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7152,12 +7152,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.3
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-DE-027",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7170,12 +7170,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.24
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-IN-019",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7188,12 +7188,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7206,12 +7206,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.36
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-DE-032-B",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7224,12 +7224,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.36
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-DE-022",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7242,12 +7242,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-US-021",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7260,12 +7260,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.38
+   "seconds": 0.17
   },
   {
    "op": null,
    "vendor_id": "G-GB-007",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7278,12 +7278,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.29
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-IN-038",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7296,12 +7296,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.34
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-DE-026",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7314,12 +7314,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.37
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-DE-017",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7332,12 +7332,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-DE-001",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7350,12 +7350,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.3
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-US-030",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7368,12 +7368,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.34
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-DE-018-B",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7386,12 +7386,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.38
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-IN-015",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7404,12 +7404,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.31
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-IN-024",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7422,12 +7422,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-US-025",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7440,12 +7440,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.34
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-GB-004",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7458,12 +7458,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.3
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-IN-009",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7476,12 +7476,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-DE-006",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7494,12 +7494,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.29
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-GB-028",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7512,12 +7512,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-DE-010",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7530,12 +7530,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.18
   },
   {
    "op": null,
    "vendor_id": "G-IN-026",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7548,12 +7548,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.34
+   "seconds": 0.13
   },
   {
    "op": null,
    "vendor_id": "G-US-002",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7566,12 +7566,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.33
+   "seconds": 0.14
   },
   {
    "op": null,
    "vendor_id": "G-GB-024",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7584,12 +7584,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.31
+   "seconds": 0.13
   },
   {
    "op": "M-14",
    "vendor_id": "G-GB-012",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7602,12 +7602,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.32
+   "seconds": 0.15
   },
   {
    "op": "M-08",
    "vendor_id": "G-US-024",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7620,12 +7620,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.4
+   "seconds": 0.14
   },
   {
    "op": "M-08",
    "vendor_id": "G-DE-020",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7638,12 +7638,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.35
+   "seconds": 0.14
   },
   {
    "op": "M-44",
    "vendor_id": "G-GB-019",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7656,12 +7656,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 9.26
+   "seconds": 9.05
   },
   {
    "op": "M-44",
    "vendor_id": "G-IN-018",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7674,12 +7674,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 9.3
+   "seconds": 9.13
   },
   {
    "op": "M-10",
    "vendor_id": "G-GB-010",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7692,12 +7692,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 2.99
+   "seconds": 2.42
   },
   {
    "op": "M-10",
    "vendor_id": "G-US-017",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7710,12 +7710,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 2.4
+   "seconds": 2.42
   },
   {
    "op": "M-39",
    "vendor_id": "G-IN-018",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7728,12 +7728,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.14
   },
   {
    "op": "M-39",
    "vendor_id": "G-IN-014",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7746,12 +7746,12 @@
    "has_counterfactual": false,
    "has_audit": true,
    "n_blocking": 0,
-   "seconds": 0.15
+   "seconds": 0.14
   },
   {
    "op": "M-11",
    "vendor_id": "G-DE-010",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7769,7 +7769,7 @@
   {
    "op": "M-45",
    "vendor_id": "G-IN-027",
-   "slice": null,
+   "slice": "scanned",
    "expected_status": "APPROVED",
    "expected_awaiting": [],
    "expected_codes": [],
@@ -7809,10 +7809,10 @@
   },
   "E4_friction": {
    "k": 0,
-   "n": 0,
+   "n": 96,
    "rate": 0.0,
    "lo": 0.0,
-   "hi": 1.0
+   "hi": 0.03847694748481595
   },
   "E5_status_accuracy": {
    "k": 337,
@@ -7939,8 +7939,8 @@
   },
   "n": 340,
   "E18_latency": {
-   "p50": 0.15,
-   "p95": 0.39,
+   "p50": 0.25,
+   "p95": 0.42,
    "mode": "-corroboration"
   },
   "E19_cost": {

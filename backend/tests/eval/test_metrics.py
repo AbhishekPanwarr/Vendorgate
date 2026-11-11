@@ -10,22 +10,41 @@ def test_wilson_reference():
     assert 0.40 < lo < 0.41 and 0.59 < hi < 0.60
 
 
-def _r(exp_status, actual_status, codes_e=(), codes_a=(),
-       awaiting_e=(), awaiting_a=(), critical=False, op=None, tier="LOW"):
-    return {"expected_status": exp_status, "actual_status": actual_status,
-            "expected_codes": list(codes_e), "actual_codes": list(codes_a),
-            "expected_awaiting": list(awaiting_e),
-            "actual_awaiting": list(awaiting_a),
-            "expected_critical": critical, "op": op, "tier": tier,
-            "score": 10, "has_counterfactual": False, "has_audit": True,
-            "n_blocking": len(codes_a), "seconds": 0.1}
+def _r(
+    exp_status,
+    actual_status,
+    codes_e=(),
+    codes_a=(),
+    awaiting_e=(),
+    awaiting_a=(),
+    critical=False,
+    op=None,
+    tier="LOW",
+):
+    return {
+        "expected_status": exp_status,
+        "actual_status": actual_status,
+        "expected_codes": list(codes_e),
+        "actual_codes": list(codes_a),
+        "expected_awaiting": list(awaiting_e),
+        "actual_awaiting": list(awaiting_a),
+        "expected_critical": critical,
+        "op": op,
+        "tier": tier,
+        "score": 10,
+        "has_counterfactual": False,
+        "has_audit": True,
+        "n_blocking": len(codes_a),
+        "seconds": 0.1,
+    }
 
 
 def test_e1_e5_reference():
-    results = ([_r("PENDING", "PENDING", ("A",), ("A",), ("VENDOR",), ("VENDOR",))]
-               + [_r("APPROVED", "APPROVED", (), (), (), ())]
-               + [_r("REJECTED", "APPROVED", ("X",), (), (), (),
-                      critical=True, op="M-30")])
+    results = (
+        [_r("PENDING", "PENDING", ("A",), ("A",), ("VENDOR",), ("VENDOR",))]
+        + [_r("APPROVED", "APPROVED", (), (), (), ())]
+        + [_r("REJECTED", "APPROVED", ("X",), (), (), (), critical=True, op="M-30")]
+    )
     m = compute(results)
     assert m["E1_critical_false_approve"]["k"] == 1
     assert m["E1_critical_false_approve"]["n"] == 1

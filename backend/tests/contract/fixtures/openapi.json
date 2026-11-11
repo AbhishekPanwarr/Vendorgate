@@ -626,6 +626,54 @@
     "summary": "Retry Verification"
    }
   },
+  "/api/v1/eval/latest": {
+   "get": {
+    "operationId": "eval_latest_api_v1_eval_latest_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Eval Latest"
+   }
+  },
+  "/api/v1/foolit/operators": {
+   "get": {
+    "operationId": "foolit_operators_api_v1_foolit_operators_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Foolit Operators"
+   }
+  },
+  "/api/v1/foolit/run": {
+   "post": {
+    "operationId": "foolit_run_api_v1_foolit_run_post",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Foolit Run"
+   }
+  },
   "/api/v1/metrics/dashboard": {
    "get": {
     "operationId": "dashboard_metrics_api_v1_metrics_dashboard_get",
@@ -640,6 +688,22 @@
      }
     },
     "summary": "Dashboard Metrics"
+   }
+  },
+  "/api/v1/policy": {
+   "get": {
+    "operationId": "get_policy_api_v1_policy_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Get Policy"
    }
   },
   "/api/v1/runs/{run_id}": {

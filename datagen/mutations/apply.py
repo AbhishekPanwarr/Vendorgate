@@ -5,9 +5,6 @@ master (vendor rows), sanctions/pep/adverse overlays, faults, l3 verdicts.
 Labels ALWAYS come from catalog.yaml expected (see test_label_independence).
 """
 
-import copy
-import random
-
 from datagen.render_docs import doc_sha
 from datagen.render_docs import l1_entry
 from datagen.render_docs import render_pdf
@@ -16,16 +13,25 @@ US_EIN_POOL = ["84-1000001", "52-2000002", "12-3000003"]
 
 
 def _ctx():
-    return {"files": {}, "l1": {}, "mocks": {}, "master": [], "sanctions": [],
-            "pep": [], "adverse": [], "faults": {}, "l3": [], "setup_cases": []}
+    return {
+        "files": {},
+        "l1": {},
+        "mocks": {},
+        "master": [],
+        "sanctions": [],
+        "pep": [],
+        "adverse": [],
+        "faults": {},
+        "l3": [],
+        "setup_cases": [],
+    }
 
 
 def _doc(ctx, p, doc_id, doc_type, filename, values):
     pdf = render_pdf(doc_type, values)
     ctx["files"][doc_id] = (filename, pdf)
     ctx["l1"][(doc_type, doc_id)] = (l1_entry(doc_type, values), pdf)
-    entry = {"doc_id": doc_id, "doc_type": doc_type, "filename": filename,
-             "sha256": doc_sha(pdf)}
+    entry = {"doc_id": doc_id, "doc_type": doc_type, "filename": filename, "sha256": doc_sha(pdf)}
     for i, d in enumerate(p["documents"]):
         if d["doc_id"] == doc_id:
             p["documents"][i] = entry
@@ -39,31 +45,55 @@ def _tax_docs(ctx, p, vendor):
     """Attach standard tax+bank docs. Truth mocks come from the builder."""
     c = vendor["country"]
     if c == "US":
-        w9 = {"business_name": p["company"]["legal_name"],
-              "tax_classification": "Limited Liability Company",
-              "tin": p["tax"]["tax_id"],
-              "signature_present": "/s/ Owner", "signature_date": "2026-10-01",
-              "form_revision": "March 2024"}
+        w9 = {
+            "business_name": p["company"]["legal_name"],
+            "tax_classification": "Limited Liability Company",
+            "tin": p["tax"]["tax_id"],
+            "signature_present": "/s/ Owner",
+            "signature_date": "2026-10-01",
+            "form_revision": "March 2024",
+        }
         _doc(ctx, p, "d1", "W9", "w9.pdf", w9)
 
     elif c == "IN":
-        gst = {"legal_name": p["company"]["legal_name"], "trade_name": p["company"]["legal_name"],
-               "gstin": p["tax"]["tax_id"], "state": p["tax"]["tax_id"][:2],
-               "registration_date": "2020-05-01", "status": "Active", "address": "x"}
+        gst = {
+            "legal_name": p["company"]["legal_name"],
+            "trade_name": p["company"]["legal_name"],
+            "gstin": p["tax"]["tax_id"],
+            "state": p["tax"]["tax_id"][:2],
+            "registration_date": "2020-05-01",
+            "status": "Active",
+            "address": "x",
+        }
         _doc(ctx, p, "d1", "GST_CERT", "gst.pdf", gst)
 
     else:
-        vat = {"legal_name": p["company"]["legal_name"], "registration_no": "1",
-               "incorporation_date": "2016-04-12", "registered_address": "x",
-               "status": "Active"}
+        vat = {
+            "legal_name": p["company"]["legal_name"],
+            "registration_no": "1",
+            "incorporation_date": "2016-04-12",
+            "registered_address": "x",
+            "status": "Active",
+        }
         _doc(ctx, p, "d1", "VAT_CERT", "vat.pdf", vat)
 
     bank_holder = p["bank"]["account_holder_name"]
-    _doc(ctx, p, "d2", "BANK_LETTER", "bank.pdf", {
-        "account_holder": bank_holder,
-        "account_number": p["bank"].get("account_number", "000123456789"),
-        "routing": p["bank"].get("routing_number") or p["bank"].get("ifsc") or p["bank"].get("iban", ""),
-        "letter_date": "2026-09-15", "signatory": "Branch Manager"})
+    _doc(
+        ctx,
+        p,
+        "d2",
+        "BANK_LETTER",
+        "bank.pdf",
+        {
+            "account_holder": bank_holder,
+            "account_number": p["bank"].get("account_number", "000123456789"),
+            "routing": p["bank"].get("routing_number")
+            or p["bank"].get("ifsc")
+            or p["bank"].get("iban", ""),
+            "letter_date": "2026-09-15",
+            "signatory": "Branch Manager",
+        },
+    )
     return p
 
 
@@ -82,7 +112,9 @@ def op_M01(p, vendor, world, rng, ctx=None, master=None):
 
 
 def op_M02(p, vendor, world, rng, ctx=None, master=None):
-    p["documents"] = [d for d in p["documents"] if d["doc_type"] not in ("W9", "GST_CERT", "VAT_CERT")]
+    p["documents"] = [
+        d for d in p["documents"] if d["doc_type"] not in ("W9", "GST_CERT", "VAT_CERT")
+    ]
     return p
 
 
@@ -117,9 +149,13 @@ def op_M06(p, vendor, world, rng, ctx=None, master=None):
 def op_M07(p, vendor, world, rng, ctx=None, master=None):
     from datagen.world import gstin_check_char
 
-    pan = ("AAA" + "P" + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-           + "".join(str(rng.randint(0, 9)) for _ in range(4))
-           + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+    pan = (
+        "AAA"
+        + "P"
+        + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        + "".join(str(rng.randint(0, 9)) for _ in range(4))
+        + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    )
     p["tax"]["secondary_ids"] = {"PAN": pan}
     state = p["tax"]["tax_id"][:2]
     base = (state + pan + rng.choice("123456789ABCDEF") + "Z")[:14]
@@ -133,10 +169,14 @@ def op_M08(p, vendor, world, rng, ctx=None, master=None):
 
     cfg = dict(load_policy("policy").raw["base"]["matching"]["name"])
     name = vendor["legal_name"]
-    cands = [name.replace("Pvt Ltd", "Private Limited"),
-             name.replace("LLC", "L.L.C."), name.replace("Ltd", "Limited"),
-             name.replace("Corp", "Corporation"), name.replace("Inc", "Incorporated"),
-             name.replace("GmbH", "G.m.b.H.")]
+    cands = [
+        name.replace("Pvt Ltd", "Private Limited"),
+        name.replace("LLC", "L.L.C."),
+        name.replace("Ltd", "Limited"),
+        name.replace("Corp", "Corporation"),
+        name.replace("Inc", "Incorporated"),
+        name.replace("GmbH", "G.m.b.H."),
+    ]
     for cand in cands:
         if cand == name:
             continue
@@ -150,9 +190,19 @@ def op_M08(p, vendor, world, rng, ctx=None, master=None):
 
 def op_M09(p, vendor, world, rng, ctx=None, master=None):
     name = vendor["legal_name"]
-    swap = {"LLC": "Inc", "Inc": "LLC", "Corp": "LLC", "Ltd": "PLC",
-            "PLC": "Ltd", "GmbH": "AG", "AG": "GmbH", "UG": "GmbH",
-            "LLP": "Pvt Ltd", "Pvt Ltd": "LLP", "Limited": "PLC"}
+    swap = {
+        "LLC": "Inc",
+        "Inc": "LLC",
+        "Corp": "LLC",
+        "Ltd": "PLC",
+        "PLC": "Ltd",
+        "GmbH": "AG",
+        "AG": "GmbH",
+        "UG": "GmbH",
+        "LLP": "Pvt Ltd",
+        "Pvt Ltd": "LLP",
+        "Limited": "PLC",
+    }
     for form, other in swap.items():
         if name.endswith(form):
             p["bank"]["account_holder_name"] = name[: -len(form)].rstrip() + " " + other
@@ -166,9 +216,20 @@ def op_M10(p, vendor, world, rng, ctx=None, master=None):
     p = op_M09(p, vendor, world, rng)
     holder = p["bank"]["account_holder_name"]
     _tax_docs(ctx, p, vendor)
-    _doc(ctx, p, "d9", "INCORP_CERT", "inc.pdf", {
-        "legal_name": holder, "registration_no": "1",
-        "incorporation_date": "2016-04-12", "registered_address": "x", "status": "Active"})
+    _doc(
+        ctx,
+        p,
+        "d9",
+        "INCORP_CERT",
+        "inc.pdf",
+        {
+            "legal_name": holder,
+            "registration_no": "1",
+            "incorporation_date": "2016-04-12",
+            "registered_address": "x",
+            "status": "Active",
+        },
+    )
     ctx["l3"].append((p["company"]["legal_name"], holder, "SAME"))
     return p
 
@@ -179,11 +240,20 @@ def op_M11(p, vendor, world, rng, ctx=None, master=None):
 
     cfg = dict(load_policy("policy").raw["base"]["matching"]["name"])
     name = vendor["legal_name"]
-    abbr = {"Services": "Svcs", "Service": "Svc", "Foods": "Food",
-            "Technologies": "Tech", "Corporation": "Corp", "Incorporated": "Inc"}
+    abbr = {
+        "Services": "Svcs",
+        "Service": "Svc",
+        "Foods": "Food",
+        "Technologies": "Tech",
+        "Corporation": "Corp",
+        "Incorporated": "Inc",
+    }
     cands = [name.replace(long, short) for long, short in abbr.items() if long in name]
-    cands.append(name.replace("Pvt Ltd", "Private Limited")
-                 .replace("LLC", "L.L.C.").replace("Ltd", "Limited"))
+    cands.append(
+        name.replace("Pvt Ltd", "Private Limited")
+        .replace("LLC", "L.L.C.")
+        .replace("Ltd", "Limited")
+    )
     for cand in cands:
         if cand == name:
             continue
@@ -214,9 +284,13 @@ def op_M14(p, vendor, world, rng, ctx=None, master=None):
     p["bank"]["account_holder_name"] = owner
     if vendor["country"] == "IN":
         # sole proprietor: PAN 4th char P + GSTIN embedding it
-        pan = ("AAA" + "P" + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-               + "".join(str(rng.randint(0, 9)) for _ in range(4))
-               + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        pan = (
+            "AAA"
+            + "P"
+            + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            + "".join(str(rng.randint(0, 9)) for _ in range(4))
+            + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        )
         p["tax"]["secondary_ids"] = {"PAN": pan}
         state = p["tax"]["tax_id"][:2]
         base = (state + pan + rng.choice("123456789ABCDEF") + "Z")[:14]
@@ -249,14 +323,18 @@ def op_M18(p, vendor, world, rng, ctx=None, master=None):
 
 def op_M19(p, vendor, world, rng, ctx=None, master=None):
     ctx["mocks"][("irs", "111111111")] = {
-        "status": "MISMATCH", "data": {"code": 3, "name": "Registered Legal Name LLC"}}
+        "status": "MISMATCH",
+        "data": {"code": 3, "name": "Registered Legal Name LLC"},
+    }
     p["tax"]["tax_id"] = "11-1111111"
     return p
 
 
 def op_M20(p, vendor, world, rng, ctx=None, master=None):
     ctx["mocks"][("gst", p["tax"]["tax_id"])] = {
-        "status": "MISMATCH", "data": {"state": "Cancelled"}}
+        "status": "MISMATCH",
+        "data": {"state": "Cancelled"},
+    }
     return p
 
 
@@ -264,17 +342,26 @@ def op_M21(p, vendor, world, rng, ctx=None, master=None):
     from backend.app.matching.normalize import canon_text
 
     key, _ = canon_text(vendor["legal_name"])
-    ctx["mocks"][("registry", key)] = {
-        "status": "MISMATCH", "data": {"status": "Dissolved"}}
+    ctx["mocks"][("registry", key)] = {"status": "MISMATCH", "data": {"status": "Dissolved"}}
     p["requester"]["expected_annual_spend"] = {"amount": 120000, "currency": "USD"}
     return p
 
 
 def op_M22(p, vendor, world, rng, ctx=None, master=None):
-    _doc(ctx, p, "d3", "COI", "coi.pdf", {
-        "insured_name": vendor["legal_name"], "insurer": "Test General",
-        "policy_no": "GL-1", "expiry_date": "2020-01-01",
-        "certificate_holder": "Buyer Corp"})
+    _doc(
+        ctx,
+        p,
+        "d3",
+        "COI",
+        "coi.pdf",
+        {
+            "insured_name": vendor["legal_name"],
+            "insurer": "Test General",
+            "policy_no": "GL-1",
+            "expiry_date": "2020-01-01",
+            "certificate_holder": "Buyer Corp",
+        },
+    )
     p["requester"]["category"] = "LOGISTICS"
     return p
 
@@ -283,33 +370,65 @@ def op_M23(p, vendor, world, rng, ctx=None, master=None):
     _tax_docs(ctx, p, vendor)
     # stale bank letter: rewrite letter_date old
     p["documents"] = [d for d in p["documents"] if d["doc_type"] != "BANK_LETTER"]
-    _doc(ctx, p, "d2", "BANK_LETTER", "bank.pdf", {
-        "account_holder": vendor["legal_name"],
-        "account_number": vendor["bank"].get("account_number", "000123456789"),
-        "routing": "2020-01-01", "letter_date": "2020-01-01", "signatory": "Branch Manager"})
+    _doc(
+        ctx,
+        p,
+        "d2",
+        "BANK_LETTER",
+        "bank.pdf",
+        {
+            "account_holder": vendor["legal_name"],
+            "account_number": vendor["bank"].get("account_number", "000123456789"),
+            "routing": "2020-01-01",
+            "letter_date": "2020-01-01",
+            "signatory": "Branch Manager",
+        },
+    )
     return p
 
 
 def op_M24(p, vendor, world, rng, ctx=None, master=None):
     _tax_docs(ctx, p, vendor)
     p["documents"] = [d for d in p["documents"] if d["doc_type"] != "W9"]
-    _doc(ctx, p, "d1", "W9", "w9.pdf", {
-        "business_name": vendor["legal_name"],
-        "tax_classification": "Limited Liability Company",
-        "tin": vendor["tax"]["tax_id"], "signature_present": None,
-        "signature_date": None, "form_revision": "March 2024"})
+    _doc(
+        ctx,
+        p,
+        "d1",
+        "W9",
+        "w9.pdf",
+        {
+            "business_name": vendor["legal_name"],
+            "tax_classification": "Limited Liability Company",
+            "tin": vendor["tax"]["tax_id"],
+            "signature_present": None,
+            "signature_date": None,
+            "form_revision": "March 2024",
+        },
+    )
     return p
 
 
 def op_M25(p, vendor, world, rng, ctx=None, master=None):
     _tax_docs(ctx, p, vendor)
-    p["documents"] = [d for d in p["documents"] if d["doc_type"] not in ("W9", "GST_CERT", "VAT_CERT")]
+    p["documents"] = [
+        d for d in p["documents"] if d["doc_type"] not in ("W9", "GST_CERT", "VAT_CERT")
+    ]
     other = "99-9999999" if vendor["country"] == "US" else vendor["tax"]["tax_id"]
-    _doc(ctx, p, "d1", "W9", "w9.pdf", {
-        "business_name": vendor["legal_name"],
-        "tax_classification": "Limited Liability Company", "tin": other,
-        "signature_present": "/s/ O", "signature_date": "2026-10-01",
-        "form_revision": "March 2024"})
+    _doc(
+        ctx,
+        p,
+        "d1",
+        "W9",
+        "w9.pdf",
+        {
+            "business_name": vendor["legal_name"],
+            "tax_classification": "Limited Liability Company",
+            "tin": other,
+            "signature_present": "/s/ O",
+            "signature_date": "2026-10-01",
+            "form_revision": "March 2024",
+        },
+    )
     return p
 
 
@@ -345,7 +464,8 @@ def op_M28(p, vendor, world, rng, ctx=None, master=None):
         key = f"{c}||{digits}"
     ctx["mocks"][("bank", key)] = {
         "status": "OK",
-        "data": {"holder_name": m["legal_name"], "verified": True}}
+        "data": {"holder_name": m["legal_name"], "verified": True},
+    }
     return p
 
 
@@ -358,16 +478,29 @@ def op_M29(p, vendor, world, rng, ctx=None, master=None):
 
 
 def _sanction_hit(ctx, vendor, name=None, country=None, year=None, reg=""):
-    entry = {"id": "S-EVAL", "type": "entity", "names": [name or vendor["legal_name"]],
-             "aliases": [], "country": country or "", "reg_no": reg,
-             "incorporation_year": year or 0, "addresses": [], "program": "MOCK-SDN"}
+    entry = {
+        "id": "S-EVAL",
+        "type": "entity",
+        "names": [name or vendor["legal_name"]],
+        "aliases": [],
+        "country": country or "",
+        "reg_no": reg,
+        "incorporation_year": year or 0,
+        "addresses": [],
+        "program": "MOCK-SDN",
+    }
     ctx["sanctions"].append(entry)
     return entry
 
 
 def op_M30(p, vendor, world, rng, ctx=None, master=None):
-    _sanction_hit(ctx, vendor, country=vendor["country"],
-                  year=vendor["truth"]["incorporation_year"], reg="R-1")
+    _sanction_hit(
+        ctx,
+        vendor,
+        country=vendor["country"],
+        year=vendor["truth"]["incorporation_year"],
+        reg="R-1",
+    )
     p["company"]["owners"] = []
     return p
 
@@ -378,22 +511,36 @@ def op_M31(p, vendor, world, rng, ctx=None, master=None):
 
 
 def op_M32(p, vendor, world, rng, ctx=None, master=None):
-    entry = {"id": "S-EVAL", "type": "entity",
-             "names": [vendor["legal_name"]], "aliases": [],
-             "country": "XX", "reg_no": "", "incorporation_year": 0,
-             "addresses": [], "program": "MOCK-SDN"}
+    entry = {
+        "id": "S-EVAL",
+        "type": "entity",
+        "names": [vendor["legal_name"]],
+        "aliases": [],
+        "country": "XX",
+        "reg_no": "",
+        "incorporation_year": 0,
+        "addresses": [],
+        "program": "MOCK-SDN",
+    }
     ctx["sanctions"].append(entry)
     return p
 
 
 def op_M33(p, vendor, world, rng, ctx=None, master=None):
-    p["company"]["owners"] = [{"name": "Sanctioned Person", "ownership_pct": 60,
-                               "role": "OWNER"}]
-    ctx["sanctions"].append({"id": "S-EVAL", "type": "person",
-                             "names": ["Sanctioned Person"], "aliases": [],
-                             "country": vendor["country"], "reg_no": "",
-                             "incorporation_year": 0,
-                             "addresses": [], "program": "MOCK-SDN"})
+    p["company"]["owners"] = [{"name": "Sanctioned Person", "ownership_pct": 60, "role": "OWNER"}]
+    ctx["sanctions"].append(
+        {
+            "id": "S-EVAL",
+            "type": "person",
+            "names": ["Sanctioned Person"],
+            "aliases": [],
+            "country": vendor["country"],
+            "reg_no": "",
+            "incorporation_year": 0,
+            "addresses": [],
+            "program": "MOCK-SDN",
+        }
+    )
     return p
 
 
@@ -406,18 +553,33 @@ def op_M34(p, vendor, world, rng, ctx=None, master=None):
 
 
 def op_M35(p, vendor, world, rng, ctx=None, master=None):
-    p["company"]["owners"] = [{"name": "Official Person 0", "ownership_pct": 10,
-                               "role": "DIRECTOR"}]
-    ctx["pep"].append({"id": "P-EVAL", "type": "person",
-                       "names": ["Official Person 0"], "aliases": [],
-                       "country": vendor["country"], "role": "official"})
+    p["company"]["owners"] = [
+        {"name": "Official Person 0", "ownership_pct": 10, "role": "DIRECTOR"}
+    ]
+    ctx["pep"].append(
+        {
+            "id": "P-EVAL",
+            "type": "person",
+            "names": ["Official Person 0"],
+            "aliases": [],
+            "country": vendor["country"],
+            "role": "official",
+        }
+    )
     return p
 
 
 def op_M36(p, vendor, world, rng, ctx=None, master=None):
-    ctx["adverse"].append({"id": "A-EVAL", "subject": vendor["legal_name"].lower(),
-                           "category": "FRAUD", "severity": "HIGH",
-                           "date": "2025-06-01", "summary": "fraud investigation"})
+    ctx["adverse"].append(
+        {
+            "id": "A-EVAL",
+            "subject": vendor["legal_name"].lower(),
+            "category": "FRAUD",
+            "severity": "HIGH",
+            "date": "2025-06-01",
+            "summary": "fraud investigation",
+        }
+    )
     return p
 
 
@@ -438,7 +600,8 @@ def op_M37(p, vendor, world, rng, ctx=None, master=None):
         key = f"{c}||999999999999"
     ctx["mocks"][("bank", key)] = {
         "status": "OK",
-        "data": {"holder_name": m["legal_name"], "verified": True}}
+        "data": {"holder_name": m["legal_name"], "verified": True},
+    }
     return p
 
 
@@ -473,9 +636,16 @@ def op_M42(p, vendor, world, rng, ctx=None, master=None):
 
 def op_M43(p, vendor, world, rng, ctx=None, master=None):
     _tax_docs(ctx, p, vendor)
-    pdf = render_pdf("BANK_LETTER", {
-        "account_holder": vendor["legal_name"], "account_number": "1",
-        "routing": "x", "letter_date": "2026-09-15", "signatory": "B"})
+    pdf = render_pdf(
+        "BANK_LETTER",
+        {
+            "account_holder": vendor["legal_name"],
+            "account_number": "1",
+            "routing": "x",
+            "letter_date": "2026-09-15",
+            "signatory": "B",
+        },
+    )
     import io as _io
 
     from reportlab.lib.pagesizes import letter
@@ -494,8 +664,14 @@ def op_M43(p, vendor, world, rng, ctx=None, master=None):
     ctx["files"]["inj"] = ("bank_inj.pdf", pdf)
     from datagen.render_docs import doc_sha
 
-    p["documents"].append({"doc_id": "inj", "doc_type": "BANK_LETTER",
-                           "filename": "bank_inj.pdf", "sha256": doc_sha(pdf)})
+    p["documents"].append(
+        {
+            "doc_id": "inj",
+            "doc_type": "BANK_LETTER",
+            "filename": "bank_inj.pdf",
+            "sha256": doc_sha(pdf),
+        }
+    )
     return p
 
 
@@ -524,22 +700,73 @@ def op_M46(p, vendor, world, rng, ctx=None, master=None):
 def op_M47(p, vendor, world, rng, ctx=None, master=None):
     p["company"]["incorporation_date"] = "1990-01-01"
     p["requester"]["expected_annual_spend"] = {"amount": 120000, "currency": "USD"}
-    p["documents"].append({"doc_id": "d9", "doc_type": "INCORP_CERT",
-                           "filename": "inc.pdf", "sha256": "x"})
+    p["documents"].append(
+        {"doc_id": "d9", "doc_type": "INCORP_CERT", "filename": "inc.pdf", "sha256": "x"}
+    )
     return p
 
 
 def op_M48(p, vendor, world, rng, ctx=None, master=None):
     p["requester"]["expected_annual_spend"] = {"amount": 600000, "currency": "USD"}
-    p["documents"].append({"doc_id": "d9", "doc_type": "INCORP_CERT",
-                           "filename": "inc.pdf", "sha256": "x"})
+    p["documents"].append(
+        {"doc_id": "d9", "doc_type": "INCORP_CERT", "filename": "inc.pdf", "sha256": "x"}
+    )
     return p
 
 
-OPS = {f"M-{i:02d}": fn for i, fn in enumerate(
-    [op_M01, op_M02, op_M03, op_M04, op_M05, op_M06, op_M07, op_M08, op_M09,
-     op_M10, op_M11, op_M12, op_M13, op_M14, op_M15, op_M16, op_M17, op_M18,
-     op_M19, op_M20, op_M21, op_M22, op_M23, op_M24, op_M25, op_M26, op_M27,
-     op_M28, op_M29, op_M30, op_M31, op_M32, op_M33, op_M34, op_M35, op_M36,
-     op_M37, op_M38, op_M39, op_M40, op_M41, op_M42, op_M43, op_M44, op_M45,
-     op_M46, op_M47, op_M48], start=1)}
+OPS = {
+    f"M-{i:02d}": fn
+    for i, fn in enumerate(
+        [
+            op_M01,
+            op_M02,
+            op_M03,
+            op_M04,
+            op_M05,
+            op_M06,
+            op_M07,
+            op_M08,
+            op_M09,
+            op_M10,
+            op_M11,
+            op_M12,
+            op_M13,
+            op_M14,
+            op_M15,
+            op_M16,
+            op_M17,
+            op_M18,
+            op_M19,
+            op_M20,
+            op_M21,
+            op_M22,
+            op_M23,
+            op_M24,
+            op_M25,
+            op_M26,
+            op_M27,
+            op_M28,
+            op_M29,
+            op_M30,
+            op_M31,
+            op_M32,
+            op_M33,
+            op_M34,
+            op_M35,
+            op_M36,
+            op_M37,
+            op_M38,
+            op_M39,
+            op_M40,
+            op_M41,
+            op_M42,
+            op_M43,
+            op_M44,
+            op_M45,
+            op_M46,
+            op_M47,
+            op_M48,
+        ],
+        start=1,
+    )
+}

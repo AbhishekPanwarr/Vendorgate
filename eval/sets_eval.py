@@ -1,6 +1,5 @@
 """E11/E12/E14 from the dedicated test sets."""
 
-import binascii
 import json
 from pathlib import Path
 
@@ -23,8 +22,7 @@ def name_pairs() -> dict:
     n_same_recall = 0
     n_same = 0
     for r in rows:
-        rel = compare_names(parse_name(r["a"].lower()),
-                            parse_name(r["b"].lower()), cfg).relation
+        rel = compare_names(parse_name(r["a"].lower()), parse_name(r["b"].lower()), cfg).relation
         merged = rel in ("EXACT", "EQUIVALENT")
         if r["label"] == "SAME":
             n_same += 1
@@ -38,9 +36,13 @@ def name_pairs() -> dict:
             fp += 1 if merged else 0
     from eval.metrics import rate
 
-    return {"E12": {"false_merge": rate(false_merge, n_diff),
-                    "recall": rate(n_same_recall, n_same),
-                    "confusion": {"tp": tp, "fp": fp, "tn": tn, "fn": fn}}}
+    return {
+        "E12": {
+            "false_merge": rate(false_merge, n_diff),
+            "recall": rate(n_same_recall, n_same),
+            "confusion": {"tp": tp, "fp": fp, "tn": tn, "fn": fn},
+        }
+    }
 
 
 def extraction() -> dict:
@@ -55,9 +57,11 @@ def extraction() -> dict:
     ground_hits = ground_n = 0
     sgn, sgh, tgn, tgh = [0], [0], [0], [0]
     for g in gt:
-        raw = (Path("datagen/extraction_set")
-               / ("scanned" if g["scanned"] else "text_layer")
-               / f"{g['id']}.pdf").read_bytes()
+        raw = (
+            Path("datagen/extraction_set")
+            / ("scanned" if g["scanned"] else "text_layer")
+            / f"{g['id']}.pdf"
+        ).read_bytes()
         pages, layered = extract_text_layer(raw)
         if not layered:
             try:
@@ -66,21 +70,34 @@ def extraction() -> dict:
                 pages = []
         text = "\n".join(pages)
         found = extract_regex.extract(text)
-        fields = {"W9": ["tin"], "GST_CERT": ["gstin"], "VAT_CERT": ["vat_id"],
-                  "BANK_LETTER": ["account_number", "letter_date"],
-                  "COI": ["expiry_date"], "INCORP_CERT": []}
+        fields = {
+            "W9": ["tin"],
+            "GST_CERT": ["gstin"],
+            "VAT_CERT": ["vat_id"],
+            "BANK_LETTER": ["account_number", "letter_date"],
+            "COI": ["expiry_date"],
+            "INCORP_CERT": [],
+        }
         # names/holders are L1-covered, not regex-covered; INCORP has no
         # regex-covered fields (tracked in Limitations, not in the rate)
         keys = fields.get(g["doc_type"], [])
         for k in keys:
-            want = str(g["truth"].get({
-                "tin": "tin", "gstin": "gstin", "vat_id": "vat_id",
-                "account_number": "account_number", "letter_date": "letter_date",
-                "expiry_date": "expiry_date"}[k], ""))
+            want = str(
+                g["truth"].get(
+                    {
+                        "tin": "tin",
+                        "gstin": "gstin",
+                        "vat_id": "vat_id",
+                        "account_number": "account_number",
+                        "letter_date": "letter_date",
+                        "expiry_date": "expiry_date",
+                    }[k],
+                    "",
+                )
+            )
             if not want:
                 continue
-            hit = any(want in (v or "") for vals in found.values()
-                      for v, _q in vals[:3])
+            hit = any(want in (v or "") for vals in found.values() for v, _q in vals[:3])
             if g["scanned"]:
                 scan_n += 1
                 scan_hits += 1 if hit else 0
@@ -99,11 +116,15 @@ def extraction() -> dict:
             else:
                 tgn[0] += 1
                 tgh[0] += 1 if vv in text else 0
-    return {"E11": {"text": rate(text_hits, text_n),
-                    "scanned": rate(scan_hits, scan_n),
-                    "grounding": rate(ground_hits, ground_n),
-                    "grounding_text": rate(tgh[0], tgn[0]),
-                    "grounding_scanned": rate(sgh[0], sgn[0])}}
+    return {
+        "E11": {
+            "text": rate(text_hits, text_n),
+            "scanned": rate(scan_hits, scan_n),
+            "grounding": rate(ground_hits, ground_n),
+            "grounding_text": rate(tgh[0], tgn[0]),
+            "grounding_scanned": rate(sgh[0], sgn[0]),
+        }
+    }
 
 
 def network() -> dict:
@@ -121,31 +142,38 @@ def network() -> dict:
         for m in cl["members"]:
             core, _ = canon_text(m["legal_name"])
             graph._EXTRA_VENDORS[m["vendor_id"]] = {
-                "vendor_id": m["vendor_id"], "legal_name": m["legal_name"],
-                "name_core": core, "tax_id": "X",
+                "vendor_id": m["vendor_id"],
+                "legal_name": m["legal_name"],
+                "name_core": core,
+                "tax_id": "X",
                 "bank": graph.bank_key("US", "0", m["bank"].get("account_number", "")),
-                "phone": m["phone"]}
+                "phone": m["phone"],
+            }
     detected = 0
     for cl in clusters:
         anchor = cl["members"][0]
         hits = graph.find_bank_reuse(
-            graph.bank_key("US", "0", anchor["bank"].get("account_number", "")))
+            graph.bank_key("US", "0", anchor["bank"].get("account_number", ""))
+        )
         ids = {h["vendor_id"] for h in hits}
         if {m["vendor_id"] for m in cl["members"]} <= ids:
             detected += 1
     # precision proxy: random outsiders should not match cluster banks
-    outsiders = [v for v in world["vendors"]
-                 if v["vendor_id"] not in graph._EXTRA_VENDORS][:30]
+    outsiders = [v for v in world["vendors"] if v["vendor_id"] not in graph._EXTRA_VENDORS][:30]
     fp = 0
     for v in outsiders:
         hits = graph.find_bank_reuse(
-            graph.bank_key(v["country"], "0",
-                           v["bank"].get("account_number", "")))
+            graph.bank_key(v["country"], "0", v["bank"].get("account_number", ""))
+        )
         if hits:
             fp += 1
     graph._EXTRA_VENDORS.clear()
-    return {"E14": {"recall": rate(detected, len(clusters)),
-                    "precision_proxy": rate(len(outsiders) - fp, len(outsiders))}}
+    return {
+        "E14": {
+            "recall": rate(detected, len(clusters)),
+            "precision_proxy": rate(len(outsiders) - fp, len(outsiders)),
+        }
+    }
 
 
 def main() -> None:
@@ -155,10 +183,13 @@ def main() -> None:
     out.update(network())
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "sets.json").write_text(json.dumps(out, indent=1))
-    print(json.dumps({k: {m: v[m] for m in v} for k, v in out.items()
-                      for m in [next(iter(v))]}, indent=1)[:800])
+    print(
+        json.dumps(
+            {k: {m: v[m] for m in v} for k, v in out.items() for m in [next(iter(v))]}, indent=1
+        )[:800]
+    )
     print("wrote eval/reports/sets.json")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

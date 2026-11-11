@@ -249,9 +249,14 @@ async def vies_check(ctx: Any) -> list[Finding]:
     stage="S4",
     version=2,
     mandatory=True,
-    reads=("company.legal_name", "company.country", "company.entity_type",
-           "company.incorporation_date",
-           "requester.expected_annual_spend_usd", "requester.category"),
+    reads=(
+        "company.legal_name",
+        "company.country",
+        "company.entity_type",
+        "company.incorporation_date",
+        "requester.expected_annual_spend_usd",
+        "requester.category",
+    ),
     adapters=("registry",),
 )
 async def registry_check(ctx: Any) -> list[Finding]:
@@ -307,15 +312,24 @@ async def registry_check(ctx: Any) -> list[Finding]:
         except ValueError:
             form_year = 0
         if reg_year and form_year and int(reg_year) != form_year:
-            out.append(make_finding(
-                ctx, "C-VER-04", "S4", 1, outcome=Outcome.FAIL,
-                severity=Severity.SOFT, reason_code="INCORP_DATE_MISMATCH",
-                title="Incorporation date differs from registry",
-                detail=f"Form says {form_year}, registry says {reg_year}.",
-                claim_paths=["company.incorporation_date"],
-                fix=FixAction(code="UPLOAD_INCORP_CERT",
-                              field_paths=["company.incorporation_date"]),
-                fixed_by=FixedBy.VENDOR))
+            out.append(
+                make_finding(
+                    ctx,
+                    "C-VER-04",
+                    "S4",
+                    1,
+                    outcome=Outcome.FAIL,
+                    severity=Severity.SOFT,
+                    reason_code="INCORP_DATE_MISMATCH",
+                    title="Incorporation date differs from registry",
+                    detail=f"Form says {form_year}, registry says {reg_year}.",
+                    claim_paths=["company.incorporation_date"],
+                    fix=FixAction(
+                        code="UPLOAD_INCORP_CERT", field_paths=["company.incorporation_date"]
+                    ),
+                    fixed_by=FixedBy.VENDOR,
+                )
+            )
         return out
     if status in ("Dissolved", "StruckOff"):
         return [

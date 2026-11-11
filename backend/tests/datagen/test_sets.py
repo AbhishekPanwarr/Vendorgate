@@ -20,14 +20,19 @@ def test_name_pairs():
     same = _loadl("datagen/name_pairs/true_variants.jsonl")
     diff = _loadl("datagen/name_pairs/hard_negatives.jsonl")
     assert len(same) == 150 and len(diff) == 150
-    fm = sum(1 for r in diff
-             if compare_names(parse_name(r["a"].lower()),
-                              parse_name(r["b"].lower()), cfg).relation
-             in ("EXACT", "EQUIVALENT"))
+    fm = sum(
+        1
+        for r in diff
+        if compare_names(parse_name(r["a"].lower()), parse_name(r["b"].lower()), cfg).relation
+        in ("EXACT", "EQUIVALENT")
+    )
     assert rate(fm, len(diff))["rate"] <= 0.005
-    rec = sum(1 for r in same
-              if compare_names(parse_name(r["a"].lower()),
-                               parse_name(r["b"].lower()), cfg).relation != "DIFFERENT")
+    rec = sum(
+        1
+        for r in same
+        if compare_names(parse_name(r["a"].lower()), parse_name(r["b"].lower()), cfg).relation
+        != "DIFFERENT"
+    )
     assert rate(rec, len(same))["rate"] >= 0.95
 
 

@@ -236,7 +236,13 @@ async def attr_cluster(ctx: Any) -> list[Finding]:
     return []
 
 
-@check(id="C-DUP-06", stage="S6", version=2, mandatory=True, reads=("bank.account_number", "existing_vendor_id"))
+@check(
+    id="C-DUP-06",
+    stage="S6",
+    version=2,
+    mandatory=True,
+    reads=("bank.account_number", "existing_vendor_id"),
+)
 async def change_velocity(ctx: Any) -> list[Finding]:
     from backend.app.persistence import repo
 

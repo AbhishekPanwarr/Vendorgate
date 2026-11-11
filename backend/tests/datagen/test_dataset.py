@@ -9,8 +9,13 @@ def _load(name):
 
 def test_composition():
     m = _load("manifest.json")
-    assert m["counts"] == {"clean": 160, "single": 240, "double": 100,
-                           "scanned": 60, "adversarial": 40}
+    assert m["counts"] == {
+        "clean": 160,
+        "single": 240,
+        "double": 100,
+        "scanned": 60,
+        "adversarial": 40,
+    }
     assert m["seed"] == 42
 
 
@@ -28,8 +33,11 @@ def test_split_freeze():
     import subprocess
 
     m = _load("manifest.json")
-    out = subprocess.run(["git", "status", "--porcelain", "datagen/out/manifest.json"],
-                         capture_output=True, text=True).stdout
+    subprocess.run(
+        ["git", "status", "--porcelain", "datagen/out/manifest.json"],
+        capture_output=True,
+        text=True,
+    )
     with open("datagen/out/dataset_test.json", "rb") as fh:
         blob = fh.read()
     assert hashlib.sha256(blob).hexdigest() == m["test_split_sha256"]
@@ -39,6 +47,6 @@ def test_adversarial_all_in_test():
     import collections
 
     test = _load("dataset_test.json")
-    ops = collections.Counter(str(c["op"]) for c in test)
+    _ops = collections.Counter(str(c["op"]) for c in test)
     # 40 adversarial: 10 each of M-43/M-41/M-27/M-32 beyond single-slice shares
     assert sum(1 for c in test if c["op"] in ("M-43", "M-41", "M-27", "M-32")) >= 40

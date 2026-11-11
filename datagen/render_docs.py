@@ -11,41 +11,61 @@ FOOTER = "SYNTHETIC — NOT AN OFFICIAL FORM"
 
 # (label, field) per doc type; labels match classifier anchors.
 LAYOUTS: dict[str, list[tuple[str, str]]] = {
-    "W9": [("Request for Taxpayer Identification Number", None),
-           ("Form W-9 (Rev. March 2024)", "form_revision"),
-           ("Name of business", "business_name"),
-           ("Taxpayer Identification Number", "tin"),
-           ("Tax classification", "tax_classification"),
-           ("Signature", "signature_present"),
-           ("Date", "signature_date")],
-    "GST_CERT": [("Goods and Services Tax Registration Certificate", None),
-                 ("Legal Name", "legal_name"), ("Trade Name", "trade_name"),
-                 ("GSTIN", "gstin"), ("Registration Date", "registration_date"),
-                 ("Status", "status")],
-    "VAT_CERT": [("VAT registration certificate", None),
-                 ("Legal Name", "legal_name"),
-                 ("VAT identification number", "vat_id"),
-                 ("Effective Date", "effective_date")],
-    "INCORP_CERT": [("Certificate of Incorporation", None),
-                    ("Legal Name", "legal_name"),
-                    ("Registration No", "registration_no"),
-                    ("Incorporation Date", "incorporation_date"),
-                    ("Status", "status")],
-    "BANK_LETTER": [("Bank Letter", None),
-                    ("this is to certify that", None),
-                    ("Account Holder", "account_holder"),
-                    ("Account Number", "account_number"),
-                    ("Routing", "routing"),
-                    ("Letter Date", "letter_date"),
-                    ("Signatory", "signatory")],
-    "COI": [("Certificate of Liability Insurance", None),
-            ("Named Insured", "insured_name"), ("Insurer", "insurer"),
-            ("Policy No", "policy_no"), ("Expiry Date", "expiry_date"),
-            ("Certificate Holder", "certificate_holder")],
-    "W8BEN": [("Certificate of Foreign Status", None),
-              ("Form W-8BEN", None),
-              ("Name", "name"), ("Country of Residence", "country"),
-              ("Signature", "signature_present"), ("Date", "signature_date")],
+    "W9": [
+        ("Request for Taxpayer Identification Number", None),
+        ("Form W-9 (Rev. March 2024)", "form_revision"),
+        ("Name of business", "business_name"),
+        ("Taxpayer Identification Number", "tin"),
+        ("Tax classification", "tax_classification"),
+        ("Signature", "signature_present"),
+        ("Date", "signature_date"),
+    ],
+    "GST_CERT": [
+        ("Goods and Services Tax Registration Certificate", None),
+        ("Legal Name", "legal_name"),
+        ("Trade Name", "trade_name"),
+        ("GSTIN", "gstin"),
+        ("Registration Date", "registration_date"),
+        ("Status", "status"),
+    ],
+    "VAT_CERT": [
+        ("VAT registration certificate", None),
+        ("Legal Name", "legal_name"),
+        ("VAT identification number", "vat_id"),
+        ("Effective Date", "effective_date"),
+    ],
+    "INCORP_CERT": [
+        ("Certificate of Incorporation", None),
+        ("Legal Name", "legal_name"),
+        ("Registration No", "registration_no"),
+        ("Incorporation Date", "incorporation_date"),
+        ("Status", "status"),
+    ],
+    "BANK_LETTER": [
+        ("Bank Letter", None),
+        ("this is to certify that", None),
+        ("Account Holder", "account_holder"),
+        ("Account Number", "account_number"),
+        ("Routing", "routing"),
+        ("Letter Date", "letter_date"),
+        ("Signatory", "signatory"),
+    ],
+    "COI": [
+        ("Certificate of Liability Insurance", None),
+        ("Named Insured", "insured_name"),
+        ("Insurer", "insurer"),
+        ("Policy No", "policy_no"),
+        ("Expiry Date", "expiry_date"),
+        ("Certificate Holder", "certificate_holder"),
+    ],
+    "W8BEN": [
+        ("Certificate of Foreign Status", None),
+        ("Form W-8BEN", None),
+        ("Name", "name"),
+        ("Country of Residence", "country"),
+        ("Signature", "signature_present"),
+        ("Date", "signature_date"),
+    ],
 }
 
 
@@ -75,7 +95,7 @@ def degrade_pdf(pdf: bytes, seed: int = 0) -> bytes:
     import random
 
     import pdfplumber
-    from PIL import Image, ImageDraw
+    from PIL import Image
     import pytesseract  # noqa: F401 (ensures OCR available downstream)
 
     rng = random.Random(seed)

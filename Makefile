@@ -18,7 +18,7 @@ test:
 	pytest -q
 
 coverage:
-	pytest -q --cov=backend/app/validators --cov=backend/app/matching --cov=backend/app/risk --cov=backend/app/decision --cov=backend/app/adapters --cov=backend/app/network --cov=backend/app/comms --cov=backend/app/screening --cov=backend/app/ingest --cov=backend/app/llm --cov=backend/app/scheduler --cov=backend/app/pipeline --cov-report=term --cov-fail-under=90
+	pytest -q --cov=backend/app/validators --cov=backend/app/matching --cov=backend/app/risk --cov=backend/app/decision --cov=backend/app/adapters --cov=backend/app/network --cov=backend/app/comms --cov=backend/app/screening --cov=backend/app/ingest --cov=backend/app/llm --cov=backend/app/scheduler --cov=backend/app/pipeline --cov=datagen --cov=eval --cov-report=term --cov-fail-under=90
 
 test-all: test e2e
 
