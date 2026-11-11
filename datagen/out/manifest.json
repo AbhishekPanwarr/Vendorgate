@@ -1,0 +1,14 @@
+{
+ "seed": 42,
+ "counts": {
+  "clean": 160,
+  "single": 240,
+  "double": 100,
+  "scanned": 60,
+  "adversarial": 40
+ },
+ "dev": 340,
+ "test": 260,
+ "test_split_sha256": "136633272ae4cc0c531e1af9dff3f1fda2dbc78734e7511e842b3d6a10c381f3",
+ "dataset_sha256": "31fe128a188b4517cda6635aef4ca39d571e8a7eff71853ebdb77eee5af4b23a"
+}
