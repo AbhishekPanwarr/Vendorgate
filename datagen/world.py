@@ -26,8 +26,9 @@ PHONES = {"US": "+1555013", "IN": "+9198100", "GB": "+44207123", "DE": "+493012"
 
 
 def _gstin(rng, state="29"):
-    pan_letters = "".join(rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ") for _ in range(5))
-    pan = f"{pan_letters}{rng.randint(1000, 9999):04d}{rng.choice('CPFAT')}"
+    pan_letters = "".join(rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ") for _ in range(3))
+    pan_letters += "C" + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    pan = f"{pan_letters}{rng.randint(1000, 9999):04d}{rng.choice('CFAT')}"
     base = (state + pan + rng.choice("123456789ABCDEF") + "Z")[:14]
     return base + gstin_check_char(base), pan
 

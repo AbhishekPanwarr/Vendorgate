@@ -36,39 +36,34 @@ def _doc(ctx, p, doc_id, doc_type, filename, values):
 
 
 def _tax_docs(ctx, p, vendor):
-    """Attach standard tax+bank docs + truth mocks for a clean vendor."""
+    """Attach standard tax+bank docs. Truth mocks come from the builder."""
     c = vendor["country"]
     if c == "US":
-        w9 = {"business_name": vendor["legal_name"],
+        w9 = {"business_name": p["company"]["legal_name"],
               "tax_classification": "Limited Liability Company",
-              "tin": vendor["tax"]["tax_id"],
+              "tin": p["tax"]["tax_id"],
               "signature_present": "/s/ Owner", "signature_date": "2026-10-01",
               "form_revision": "March 2024"}
         _doc(ctx, p, "d1", "W9", "w9.pdf", w9)
-        ctx["mocks"][("irs", vendor["tax"]["tax_id"].replace("-", ""))] = {
-            "status": "OK", "data": {"code": 0, "name": vendor["legal_name"]}}
+
     elif c == "IN":
-        gst = {"legal_name": vendor["legal_name"], "trade_name": vendor["legal_name"],
-               "gstin": vendor["tax"]["tax_id"], "state": vendor["tax"]["tax_id"][:2],
+        gst = {"legal_name": p["company"]["legal_name"], "trade_name": p["company"]["legal_name"],
+               "gstin": p["tax"]["tax_id"], "state": p["tax"]["tax_id"][:2],
                "registration_date": "2020-05-01", "status": "Active", "address": "x"}
         _doc(ctx, p, "d1", "GST_CERT", "gst.pdf", gst)
-        ctx["mocks"][("gst", vendor["tax"]["tax_id"])] = {
-            "status": "OK", "data": {"state": "Active", "legal_name": vendor["legal_name"]}}
+
     else:
-        vat = {"legal_name": vendor["legal_name"], "registration_no": "1",
+        vat = {"legal_name": p["company"]["legal_name"], "registration_no": "1",
                "incorporation_date": "2016-04-12", "registered_address": "x",
                "status": "Active"}
         _doc(ctx, p, "d1", "VAT_CERT", "vat.pdf", vat)
-        ctx["mocks"][("vies", vendor["tax"]["tax_id"])] = {
-            "status": "OK", "data": {"valid": True, "name": vendor["legal_name"]}}
-    bank_holder = vendor["legal_name"]
+
+    bank_holder = p["bank"]["account_holder_name"]
     _doc(ctx, p, "d2", "BANK_LETTER", "bank.pdf", {
         "account_holder": bank_holder,
-        "account_number": vendor["bank"].get("account_number", "000123456789"),
-        "routing": vendor["bank"].get("routing_number") or vendor["bank"].get("ifsc") or vendor["bank"].get("iban", ""),
+        "account_number": p["bank"].get("account_number", "000123456789"),
+        "routing": p["bank"].get("routing_number") or p["bank"].get("ifsc") or p["bank"].get("iban", ""),
         "letter_date": "2026-09-15", "signatory": "Branch Manager"})
-    ctx["mocks"][("bank", _bank_key(vendor))] = {
-        "status": "OK", "data": {"holder_name": bank_holder, "verified": True}}
     return p
 
 
@@ -133,21 +128,37 @@ def op_M07(p, vendor, world, rng, ctx=None, master=None):
 
 
 def op_M08(p, vendor, world, rng, ctx=None, master=None):
+    from backend.app.core.policy import load_policy
+    from backend.app.matching.name_compare import compare_names, parse_name
+
+    cfg = dict(load_policy("policy").raw["base"]["matching"]["name"])
     name = vendor["legal_name"]
-    if name.endswith("Pvt Ltd"):
-        p["bank"]["account_holder_name"] = name.replace("Pvt Ltd", "Private Limited")
-    elif name.endswith("LLC"):
-        p["bank"]["account_holder_name"] = name.replace("LLC", "L.L.C.")
-    elif name.endswith("Ltd"):
-        p["bank"]["account_holder_name"] = name.replace("Ltd", "Limited")
-    else:
-        p["bank"]["account_holder_name"] = name + " Inc"
-        p["company"]["legal_name"] = name + " Incorporated"
+    cands = [name.replace("Pvt Ltd", "Private Limited"),
+             name.replace("LLC", "L.L.C."), name.replace("Ltd", "Limited"),
+             name.replace("Corp", "Corporation"), name.replace("Inc", "Incorporated"),
+             name.replace("GmbH", "G.m.b.H.")]
+    for cand in cands:
+        if cand == name:
+            continue
+        rel = compare_names(parse_name(cand.lower()), parse_name(name.lower()), cfg).relation
+        if rel == "EQUIVALENT":
+            p["bank"]["account_holder_name"] = cand
+            return p
+    p["bank"]["account_holder_name"] = name
     return p
 
 
 def op_M09(p, vendor, world, rng, ctx=None, master=None):
-    p["bank"]["account_holder_name"] = vendor["legal_name"] + (" Inc" if not vendor["legal_name"].endswith("Inc") else " LLC")
+    name = vendor["legal_name"]
+    swap = {"LLC": "Inc", "Inc": "LLC", "Corp": "LLC", "Ltd": "PLC",
+            "PLC": "Ltd", "GmbH": "AG", "AG": "GmbH", "UG": "GmbH",
+            "LLP": "Pvt Ltd", "Pvt Ltd": "LLP", "Limited": "PLC"}
+    for form, other in swap.items():
+        if name.endswith(form):
+            p["bank"]["account_holder_name"] = name[: -len(form)].rstrip() + " " + other
+            break
+    else:
+        p["bank"]["account_holder_name"] = name + " Inc"
     return p
 
 
@@ -163,10 +174,24 @@ def op_M10(p, vendor, world, rng, ctx=None, master=None):
 
 
 def op_M11(p, vendor, world, rng, ctx=None, master=None):
-    p["bank"]["account_holder_name"] = vendor["legal_name"].replace("Services", "Svcs").replace("International", "Intl")
-    if p["bank"]["account_holder_name"] == vendor["legal_name"]:
-        p["bank"]["account_holder_name"] = vendor["legal_name"] + " Svcs"
-        p["company"]["legal_name"] = vendor["legal_name"] + " Services"
+    from backend.app.core.policy import load_policy
+    from backend.app.matching.name_compare import compare_names, parse_name
+
+    cfg = dict(load_policy("policy").raw["base"]["matching"]["name"])
+    name = vendor["legal_name"]
+    abbr = {"Services": "Svcs", "Service": "Svc", "Foods": "Food",
+            "Technologies": "Tech", "Corporation": "Corp", "Incorporated": "Inc"}
+    cands = [name.replace(long, short) for long, short in abbr.items() if long in name]
+    cands.append(name.replace("Pvt Ltd", "Private Limited")
+                 .replace("LLC", "L.L.C.").replace("Ltd", "Limited"))
+    for cand in cands:
+        if cand == name:
+            continue
+        rel = compare_names(parse_name(cand.lower()), parse_name(name.lower()), cfg).relation
+        if rel == "EQUIVALENT":
+            p["bank"]["account_holder_name"] = cand
+            return p
+    p["bank"]["account_holder_name"] = name
     return p
 
 
@@ -181,10 +206,21 @@ def op_M13(p, vendor, world, rng, ctx=None, master=None):
 
 
 def op_M14(p, vendor, world, rng, ctx=None, master=None):
+    from datagen.world import gstin_check_char
+
     p["company"]["entity_type"] = "SOLE_PROP"
     owner = "Sam Owner"
     p["company"]["owners"] = [{"name": owner, "ownership_pct": 100, "role": "OWNER"}]
     p["bank"]["account_holder_name"] = owner
+    if vendor["country"] == "IN":
+        # sole proprietor: PAN 4th char P + GSTIN embedding it
+        pan = ("AAA" + "P" + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+               + "".join(str(rng.randint(0, 9)) for _ in range(4))
+               + rng.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        p["tax"]["secondary_ids"] = {"PAN": pan}
+        state = p["tax"]["tax_id"][:2]
+        base = (state + pan + rng.choice("123456789ABCDEF") + "Z")[:14]
+        p["tax"]["tax_id"] = base + gstin_check_char(base)
     return p
 
 
@@ -279,7 +315,7 @@ def op_M25(p, vendor, world, rng, ctx=None, master=None):
 
 def op_M26(p, vendor, world, rng, ctx=None, master=None):
     m = dict(master)
-    p["tax"]["tax_id"] = m["tax_id"]
+    p["tax"]["tax_id"] = m.get("tax_id_raw", m["tax_id"])
     p["company"]["legal_name"] = m["legal_name"]
     p["bank"]["account_holder_name"] = m["legal_name"]
     if vendor["country"] == "US":
@@ -289,7 +325,7 @@ def op_M26(p, vendor, world, rng, ctx=None, master=None):
 
 def op_M27(p, vendor, world, rng, ctx=None, master=None):
     m = dict(master)
-    p["tax"]["tax_id"] = m["tax_id"]
+    p["tax"]["tax_id"] = m.get("tax_id_raw", m["tax_id"])
     return p
 
 
@@ -390,7 +426,7 @@ def op_M37(p, vendor, world, rng, ctx=None, master=None):
     p["submission_type"] = "CHANGE_REQUEST"
     p["existing_vendor_id"] = m["vendor_id"]
     p["company"]["legal_name"] = m["legal_name"]
-    p["tax"]["tax_id"] = m["tax_id"]
+    p["tax"]["tax_id"] = m.get("tax_id_raw", m["tax_id"])
     p["bank"]["account_number"] = "999999999999"
     p["bank"]["account_holder_name"] = m["legal_name"]
     c = vendor["country"]

@@ -41,3 +41,20 @@ class ApproverBrief(BaseModel):
 
 
 L5_SYSTEM = """Summarize in <= 120 words for an approver. Cite only finding IDs from the list provided, in the form (F-12). Do not recommend approval or rejection. Return JSON {"summary": ...} only."""
+
+
+LLM_ONLY_SYSTEM = """You are a vendor-onboarding analyst. Given one vendor submission as JSON, decide:
+APPROVED (clean), PENDING (needs vendor fixes and/or internal review), or REJECTED (fraud/sanctions/duplicate).
+Return JSON {"status": ..., "awaiting": [...], "reason_codes": [...], "rationale": ...} only.
+reason_codes: short UPPER_SNAKE codes naming each blocking issue. awaiting: subset of ["VENDOR","INTERNAL"]."""
+
+
+class LlmOnlyVerdict(BaseModel):
+    status: str
+    awaiting: list[str] = []
+    reason_codes: list[str] = []
+    rationale: str = ""
+
+
+def llm_only_user(payload_json: str) -> str:
+    return f"Vendor submission:\n{payload_json}\nDecide APPROVED/PENDING/REJECTED with reason codes."

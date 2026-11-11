@@ -54,7 +54,9 @@ def render_pdf(doc_type: str, values: dict[str, str | None]) -> bytes:
     from reportlab.pdfgen import canvas
 
     buf = io.BytesIO()
-    c = canvas.Canvas(buf, pagesize=letter)
+    # uncompressed: avoids incidental byte patterns (e.g. /JS) tripping the
+    # upload active-content check; keeps text extraction byte-stable
+    c = canvas.Canvas(buf, pagesize=letter, pageCompression=0)
     c.setFont("Helvetica", 11)
     y = 750
     for label, field in LAYOUTS[doc_type]:

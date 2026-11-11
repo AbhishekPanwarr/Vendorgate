@@ -74,8 +74,16 @@ def _dtype_of(case, doc_id):
 
 
 def files_of(case):
-    return {doc_id: (fn, binascii.unhexlify(hexpdf))
-            for doc_id, (fn, hexpdf) in case.get("files", {}).items()}
+    from datagen.render_docs import degrade_pdf
+
+    out = {}
+    for doc_id, (fn, hexpdf) in case.get("files", {}).items():
+        raw = binascii.unhexlify(hexpdf)
+        seed = (case.get("degraded") or {}).get(doc_id)
+        if seed is not None:
+            raw = degrade_pdf(raw, seed=seed)
+        out[doc_id] = (fn, raw)
+    return out
 
 
 def clear():

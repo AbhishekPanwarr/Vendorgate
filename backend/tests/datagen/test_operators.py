@@ -54,3 +54,12 @@ def test_control_operators_approve():
         assert pack["decision"]["status"] == "APPROVED", (
             f"{op_id}: {pack['decision']['status']} "
             f"{pack['decision']['reason_codes']}")
+    # M-11 is vendor-sensitive by construction; sweep 5 vendors
+    for seed in range(5):
+        rng = random.Random(100 + seed)
+        case = build_case("M-11", _pick(WORLD, rng, COUNTRY_OF.get("M-11")),
+                          WORLD, rng)
+        pack = run_case(case)
+        assert pack["decision"]["status"] == "APPROVED", (
+            f"M-11 seed {seed}: {pack['decision']['status']} "
+            f"{pack['decision']['reason_codes']}")

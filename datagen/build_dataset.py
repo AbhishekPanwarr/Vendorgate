@@ -19,6 +19,22 @@ OUT = Path("datagen/out")
 SEED = 42
 
 NEEDS_MASTER = {"M-26", "M-27", "M-28", "M-29", "M-37"}
+# Doubles that silently break each other's preconditions (catalog conflicts_with
+# is frozen; these are builder-level composition guards).
+_TAX_IDS = {"M-04", "M-05", "M-06", "M-07", "M-14", "M-18", "M-19", "M-20",
+            "M-26", "M-27", "M-28", "M-37"}
+_NAME_DEP = {"M-26", "M-27", "M-29", "M-30", "M-31", "M-32", "M-41"}
+_DOC_SURGERY = {"M-02", "M-03", "M-22", "M-23", "M-24", "M-25", "M-43", "M-44"}
+
+
+def _conflicts(a, b):
+    if a in _TAX_IDS and b in _TAX_IDS:
+        return True
+    if a in _NAME_DEP and b in _NAME_DEP:
+        return True
+    if a in _DOC_SURGERY and b in _DOC_SURGERY:
+        return True
+    return False
 COUNTRY_OF = {"M-01": "IN", "M-04": "IN", "M-05": "IN", "M-06": "IN",
               "M-07": "IN", "M-20": "IN", "M-17": "US",
               "M-18": "US", "M-19": "US", "M-24": "US", "M-25": "US",
@@ -77,22 +93,26 @@ def _l3_entries(payload):
     from backend.app.llm.tasks_other import L3_SYSTEM, AdjudicationVerdict
     from backend.app.matching.name_compare import compare_names, parse_name
 
+    from backend.app.matching.normalize import canon_text
+
     cfg = dict(load_policy("policy").raw["base"]["matching"]["name"])
     entries = []
     pairs = [(payload["company"]["legal_name"], payload["bank"]["account_holder_name"])]
     for a, b in pairs:
-        la, lb = a.lower(), b.lower()
-        rel = compare_names(parse_name(la), parse_name(lb), cfg)
+        # S8 sends claim (canonical) values, not raw payload strings
+        ca, _ = canon_text(a)
+        cb, _ = canon_text(b)
+        rel = compare_names(parse_name(ca), parse_name(cb), cfg)
         label = {"EXACT": "SAME", "EQUIVALENT": "SAME", "FORM_CONFLICT": "SAME",
                  "CORE_FUZZY": "LIKELY_SAME"}.get(rel.relation, "DIFFERENT")
         conf = 0.9 if label == "SAME" else (0.75 if label == "LIKELY_SAME" else 0.8)
         det = {"core_similarity": rel.core_sim, "legal_form_relation": rel.form_rel}
-        entries.append([la, lb, payload["company"]["country"], det, label, conf])
+        entries.append([ca, cb, payload["company"]["country"], det, label, conf])
     return entries
 
 
 def _master_row(vendor):
-    from backend.app.matching.normalize import canon_text
+    from backend.app.matching.normalize import canon_id, canon_text
     from backend.app.network.graph import bank_key
 
     b = vendor["bank"]
@@ -100,14 +120,19 @@ def _master_row(vendor):
     digits = "".join(ch for ch in str(b.get("account_number", "")) if ch.isdigit())
     routing = b.get("routing_number") or b.get("ifsc") or b.get("swift_bic") or ""
     core, _ = canon_text(vendor["legal_name"])
+    from backend.app.validators.phone import validate_phone
+
+    ph = validate_phone(vendor["phone"], c)
+    phone = ph.normalized if ph.valid else vendor["phone"]
     return {"vendor_id": vendor["vendor_id"], "legal_name": vendor["legal_name"],
             "name_core": core,
-            "tax_id": vendor["tax"]["tax_id"],
+            "tax_id": canon_id(vendor["tax"]["tax_id"]),
+            "tax_id_raw": vendor["tax"]["tax_id"],
             "bank": bank_key(c, routing, digits),
             "account_number": b.get("account_number", ""),
             "routing_number": b.get("routing_number", ""),
-            "ifsc": b.get("ifsc", ""), "phone": vendor["phone"],
-            "domain": vendor["email"].split("@")[1]}
+            "ifsc": b.get("ifsc", ""), "phone": phone,
+            "domain": vendor["email"].split("@")[1].lower()}
 
 
 def _expected(op_id):
@@ -184,7 +209,7 @@ def build_case(op_id, vendor, world, rng, with_files=True):
             sp["bank"]["account_number"] = f"90000000000{i}"
             ctx["setup_cases"].append(sp)
     # files: operator-supplied custom docs win; render the rest
-    files, l1 = _merge_files(ctx, payload, op_id, rng)
+    files, l1, _deg = _merge_files(ctx, payload, op_id, rng)
     case = {"op": op_id, "vendor_id": vendor["vendor_id"], "payload": payload,
             "expected": _expected(op_id),
             "mocks": {f"{a}|{k}": v for (a, k), v in ctx["mocks"].items()},
@@ -193,7 +218,7 @@ def build_case(op_id, vendor, world, rng, with_files=True):
             "adverse": ctx["adverse"], "faults": ctx["faults"],
             "setup_cases": ctx["setup_cases"],
             "l3": _l3_entries(payload),
-            "files": files, "l1_rendered": l1}
+            "files": files, "l1_rendered": l1, "degraded": _deg}
     return case
 
 
@@ -204,7 +229,7 @@ def _merge_files(ctx, payload, op_id, rng):
     """
     from datagen.render_docs import degrade_pdf
 
-    files, l1 = {}, {}
+    files, l1, degraded = {}, {}, {}
     for doc_id, (fn, pdf) in ctx["files"].items():
         files[doc_id] = [fn, pdf.hex() if isinstance(pdf, bytes) else pdf]
     rendered = _render_files(ctx, payload) if not files else {}
@@ -216,17 +241,14 @@ def _merge_files(ctx, payload, op_id, rng):
     if op_id == "M-44":
         for doc_id, (fn, hexpdf) in list(files.items()):
             if fn == "bank.pdf":
-                import binascii
-
-                raw = binascii.unhexlify(hexpdf)
-                files[doc_id] = [fn, degrade_pdf(raw, seed=1).hex()]
+                degraded[doc_id] = 1
                 l1 = {k: v for k, v in l1.items() if not k.startswith("BANK_LETTER|")}
     # ctx["l1"] entries from operators (custom docs) keyed (dtype, doc_id);
     # values are either entry dicts or (entry, pdf) tuples
     for (dtype, doc_id), val in ctx["l1"].items():
         entry = val[0] if isinstance(val, tuple) else val
         l1[f"{dtype}|{doc_id}"] = entry
-    return files, l1
+    return files, l1, degraded
 
 
 def _pick(world, rng, country=None):
@@ -251,20 +273,27 @@ def build_dataset(seed=SEED):
     for i in range(100):
         a, b = rng.sample(op_ids, 2)
         cat = catalog
-        if b in cat[a].get("conflicts_with", []) or a in cat[b].get("conflicts_with", []):
-            b = "M-45"
+        if (b in cat[a].get("conflicts_with", [])
+                or a in cat[b].get("conflicts_with", []) or _conflicts(a, b)):
+            for _ in range(20):
+                b = rng.choice(op_ids)
+                if not (b in cat[a].get("conflicts_with", [])
+                        or a in cat[b].get("conflicts_with", [])
+                        or _conflicts(a, b)):
+                    break
+            else:
+                b = "M-45"
         cases.append(("double", _double_case(a, b, world, rng)))
-    # scanned: 30 clean + 30 single with degraded bank letter (OCR path)
-    for sl, case in rng.sample([c for c in cases if c[0] in ("clean", "single")], 60):
+    # scanned: degraded OCR path; sample ONLY APPROVED-expected cases
+    # (freshness findings need L1 ground truth, absent on the OCR path)
+    scan_pool = [c for c in cases
+                 if c[0] in ("clean", "single") and c[1]["expected"]["status"] == "APPROVED"]
+    for sl, case in rng.sample(scan_pool, 60):
         sc = copy.deepcopy(case)
-        from datagen.render_docs import degrade_pdf
-
+        sc.setdefault("degraded", {})
         for doc_id, (fn, hexpdf) in list(sc["files"].items()):
             if fn == "bank.pdf":
-                import binascii
-
-                sc["files"][doc_id] = [fn, degrade_pdf(
-                    binascii.unhexlify(hexpdf), seed=7).hex()]
+                sc["degraded"][doc_id] = 7
                 sc["l1_rendered"] = {k: v for k, v in sc["l1_rendered"].items()
                                      if not k.startswith("BANK_LETTER|")}
         cases.append(("scanned", sc))
@@ -287,6 +316,7 @@ def _clean(vendor, world, rng):
             "faults": {}, "setup_cases": [], "l3": _l3_entries(payload)}
     case["files"] = _render_files(ctx, payload)
     case["l1_rendered"] = {f"{a}|{b}": v for (a, b), v in ctx["l1_rendered"].items()}
+    case["degraded"] = {}
     return case
 
 
@@ -324,8 +354,10 @@ def _double_case(a, b, world, rng):
             "master": ctx["master"], "sanctions": ctx["sanctions"],
             "pep": ctx["pep"], "adverse": ctx["adverse"], "faults": ctx["faults"],
             "setup_cases": ctx["setup_cases"], "l3": _l3_entries(payload)}
-    case["files"] = _render_files(ctx, payload)
-    case["l1_rendered"] = {f"{a_}|{b_}": v for (a_, b_), v in ctx["l1_rendered"].items()}
+    files, l1, _ddeg = _merge_files(ctx, payload, [a, b], rng)
+    case["files"] = files
+    case["l1_rendered"] = l1
+    case["degraded"] = _ddeg
     return case
 
 
