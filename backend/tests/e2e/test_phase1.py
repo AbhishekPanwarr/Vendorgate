@@ -34,8 +34,8 @@ def test_case_page_smoke():
         page = p.chromium.launch().new_page()
         page.goto(f"{base}/cases/{r['case_id']}")
         page.get_by_text("APPROVED").first.wait_for(timeout=8000)
-        page.get_by_text("Score waterfall").wait_for(timeout=5000)
-        page.get_by_role("button", name="audit", exact=True).click()
+        page.get_by_text("Score Waterfall").wait_for(timeout=5000)
+        page.get_by_role("tab", name="Audit").click()
         page.get_by_role("button", name="Verify chain").click()
         page.get_by_text("chain ok").wait_for(timeout=5000)
         page.close()
@@ -50,7 +50,7 @@ def test_ec1_case():
         page = p.chromium.launch().new_page()
         page.goto(f"{base}/cases/{r['case_id']}")
         page.get_by_text("PENDING").first.wait_for(timeout=8000)
-        page.get_by_text("Blocking items").wait_for(timeout=5000)
+        page.get_by_text("Blocking Requirements").wait_for(timeout=5000)
         page.close()
 
 
@@ -59,6 +59,6 @@ def test_dashboard():
     with sync_playwright() as p:
         page = p.chromium.launch().new_page()
         page.goto(base + "/")
-        page.get_by_text("VendorGate dashboard").wait_for(timeout=8000)
-        page.get_by_text("Runs").wait_for(timeout=5000)
+        page.get_by_role("heading", name="Dashboard").wait_for(timeout=8000)
+        page.get_by_text("Recent Pipeline Runs").wait_for(timeout=5000)
         page.close()

@@ -47,7 +47,7 @@ def _shot(name, url, wait_text, tab=None):
         page = p.chromium.launch().new_page(viewport={"width": 1280, "height": 900})
         page.goto(base + url)
         if tab:
-            page.get_by_role("button", name=tab, exact=True).click()
+            page.get_by_role("tab", name=tab).click()
         page.get_by_text(wait_text).first.wait_for(timeout=8000)
         page.screenshot(path=f"/tmp/shot-{name}.png")
         page.close()
@@ -60,18 +60,20 @@ def test_ec3b_callback():
     cid = r["case_id"]
     with sync_playwright() as p:
         page = p.chromium.launch().new_page(viewport={"width": 1280, "height": 900})
-        page.goto(f"{os.environ['VG_BASE_URL']}/cases/{cid}")
-        page.get_by_text("PENDING").first.wait_for(timeout=8000)
+        page.goto(f"{os.environ['VG_BASE_URL']}/approvals")
+        page.get_by_text("Approvals Queue").wait_for(timeout=8000)
+        page.get_by_text("Beacon Retail Group Inc").first.click()
+        page.get_by_role("button", name="Open Callback Desk").click()
         page.get_by_label("callback number").fill("+442071234567")
-        page.get_by_label("number source").select_option("FROM_REQUEST")
-        page.get_by_role("checkbox").check()
-        page.get_by_role("button", name="Record callback").click()
+        page.get_by_text("From the request form").click()
+        page.get_by_text("I dialed this number myself").click()
+        page.get_by_role("button", name="Verify Callback").click()
         page.get_by_text("CALLBACK_NOT_INDEPENDENT").wait_for(timeout=5000)
         page.screenshot(path="/tmp/shot-ec3b-cb-bad.png")
         page.get_by_label("callback number").fill("+16145550100")
-        page.get_by_label("number source").select_option("VENDOR_MASTER")
-        page.get_by_role("button", name="Record callback").click()
-        page.get_by_text("independent").wait_for(timeout=5000)
+        page.get_by_text("Vendor master record").click()
+        page.get_by_role("button", name="Verify Callback").click()
+        page.get_by_text("independent", exact=False).first.wait_for(timeout=8000)
         page.screenshot(path="/tmp/shot-ec3b-cb-good.png")
         page.close()
 
@@ -80,7 +82,7 @@ def test_ec3a_network():
     with open("backend/tests/golden/fixtures/ec-3a.json") as fh:
         fx = json.load(fh)
     r = _submit(fx["payload"])
-    _shot("ec3a-network", f"/cases/{r['case_id']}", "Shared bank account", tab="network")
+    _shot("ec3a-network", f"/cases/{r['case_id']}", "shared across vendors", tab="Network")
 
 
 def test_ec4b_message():
@@ -91,7 +93,7 @@ def test_ec4b_message():
         page = p.chromium.launch().new_page(viewport={"width": 1280, "height": 900})
         page.goto(f"{os.environ['VG_BASE_URL']}/cases/{r['case_id']}")
         page.get_by_text("REJECTED").first.wait_for(timeout=8000)
-        page.get_by_role("button", name="message").click()
+        page.get_by_role("tab", name="Message").click()
         page.get_by_text("compliance review").wait_for(timeout=5000)
         page.screenshot(path="/tmp/shot-ec4b-msg.png")
         page.close()

@@ -13,7 +13,10 @@ def test_skeleton_smoke():
     with sync_playwright() as p:
         page = p.chromium.launch().new_page()
         page.goto(base + "/submit")
-        page.get_by_label("legal name").fill("Test Vendor")
-        page.get_by_role("button", name="Submit").click()
-        page.wait_for_url("**/runs/*", timeout=8000)
+        page.get_by_label("Legal entity name").fill("Test Vendor")
+        page.get_by_role("button", name="Continue to Documents").click()
+        page.get_by_role("button", name="Review Submission").click()
+        page.get_by_text("I confirm the information").click()
+        page.get_by_role("button", name="Submit vendor").click()
+        page.wait_for_url("**/runs/*", timeout=30000)
         page.close()

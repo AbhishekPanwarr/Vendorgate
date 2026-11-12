@@ -49,7 +49,10 @@ def _shot(name, url, wait_text, click=None):
         page = p.chromium.launch().new_page(viewport={"width": 1280, "height": 900})
         page.goto(base + url)
         if click:
-            page.get_by_role("button", name=click, exact=True).click()
+            if click.startswith("tab: "):
+                page.get_by_role("tab", name=click[5:]).click()
+            else:
+                page.get_by_role("button", name=click, exact=True).click()
         page.get_by_text(wait_text).first.wait_for(timeout=8000)
         page.screenshot(path=f"/tmp/shot-{name}.png")
         page.close()
@@ -66,7 +69,7 @@ def test_ec1_resubmit_delta():
         page = p.chromium.launch().new_page(viewport={"width": 1280, "height": 900})
         page.goto(f"{base}/cases/{cid}")
         page.get_by_text("PENDING").first.wait_for(timeout=8000)
-        page.get_by_role("button", name="message", exact=True).click()
+        page.get_by_role("tab", name="Message").click()
         page.get_by_role("button", name="Resubmit unchanged (expect 409)").click()
         page.get_by_text("No changes detected").wait_for(timeout=8000)
         page.screenshot(path="/tmp/shot-resubmit-409.png")
@@ -78,7 +81,7 @@ def test_nudge_history():
         payload = json.load(fh)["payload"]
     r = _submit(payload)
     _post("/api/v1/admin/clock/advance", {"days": 5})
-    _shot("nudge-history", f"/cases/{r['case_id']}", "nudge.sent", click="audit")
+    _shot("nudge-history", f"/cases/{r['case_id']}", "nudge.sent", click="tab: Audit")
 
 
 def test_appeals_queue():

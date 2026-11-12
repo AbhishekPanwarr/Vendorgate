@@ -1,0 +1,318 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource/jetbrains-mono";
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", monospace;
+
+  /* Surface */
+  --bg-canvas: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F4F4F5;
+  --bg-muted: #F9F9FA;
+
+  /* Border */
+  --border-subtle: #EFEFF1;
+  --border: #E4E4E7;
+  --border-strong: #D4D4D8;
+
+  /* Text */
+  --text-primary: #09090B;
+  --text-secondary: #3F3F46;
+  --text-tertiary: #52525B;
+  --text-inverted: #FFFFFF;
+
+  /* Accent */
+  --accent: #4338CA;
+  --accent-hover: #3730A3;
+  --accent-subtle: #EEF2FF;
+  --accent-fg: #312E81;
+
+  /* Semantic statuses */
+  --success: #047857;
+  --success-subtle: #ECFDF5;
+  --warning: #B45309;
+  --warning-subtle: #FFFBEB;
+  --danger: #B91C1C;
+  --danger-subtle: #FEF2F2;
+  --info: #1D4ED8;
+  --info-subtle: #EFF6FF;
+  --neutral-strong: #3F3F46;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows (Light Mode only) */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 0.12), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+
+  /* Motion */
+  --duration-instant: 60ms;
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 240ms;
+  --duration-slower: 360ms;
+  --duration-emphasis: 600ms;
+
+  --ease-out-quint: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+[data-theme="dark"], .dark {
+  /* Surface */
+  --bg-canvas: #09090B;
+  --bg-surface: #111113;
+  --bg-subtle: #18181B;
+  --bg-muted: #0C0C0E;
+
+  /* Border */
+  --border-subtle: #1F1F23;
+  --border: #27272A;
+  --border-strong: #3F3F46;
+
+  /* Text */
+  --text-primary: #FAFAFA;
+  --text-secondary: #D4D4D8;
+  --text-tertiary: #A1A1AA;
+  --text-inverted: #09090B;
+
+  /* Accent */
+  --accent: #818CF8;
+  --accent-hover: #A5B4FC;
+  --accent-subtle: #1E1B4B;
+  --accent-fg: #E0E7FF;
+
+  /* Semantic statuses */
+  --success: #34D399;
+  --success-subtle: #052E23;
+  --warning: #FBBF24;
+  --warning-subtle: #3D2A06;
+  --danger: #F87171;
+  --danger-subtle: #3D0D0D;
+  --info: #60A5FA;
+  --info-subtle: #0C1E3D;
+  --neutral-strong: #D4D4D8;
+
+  /* Dark mode: zero drop shadows on cards, use borders */
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+
+@theme {
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-subtle: var(--bg-subtle);
+  --color-muted: var(--bg-muted);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-inverted: var(--text-inverted);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-fg: var(--accent-fg);
+
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-info: var(--info);
+  --color-info-subtle: var(--info-subtle);
+  --color-neutral-strong: var(--neutral-strong);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Theme switch transition class */
+.theme-transitioning,
+.theme-transitioning * {
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease !important;
+}
+
+/* Tabular numbers everywhere */
+.tabular,
+[data-tabular="true"] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* 11-step typography scale */
+.text-t11 {
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.text-t12 {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.text-t13 {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.text-t14 {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.text-t16 {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.text-t18 {
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.text-t20 {
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.text-t24 {
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-t30 {
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-t36 {
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-t48 {
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-subtle) 25%,
+    var(--border-subtle) 50%,
+    var(--bg-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+/* Loop pulse for PENDING pill dot */
+@keyframes pendingPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.pending-dot-pulse {
+  animation: pendingPulse 2s ease-in-out infinite;
+}
+
+/* Button micro-interactions */
+.btn-press:active {
+  transform: translateY(0.5px);
+  transition: transform 60ms;
+}
+
+/* Accessibility focus ring */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Accessible skip link */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 16px;
+  background: var(--bg-surface);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accent);
+  z-index: 100;
+  font-weight: 500;
+  font-size: 13px;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Dot grid background for /submit */
+.dot-grid-pattern {
+  background-image: radial-gradient(var(--text-tertiary) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Prefers-reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .pending-dot-pulse {
+    animation: none !important;
+  }
+}
