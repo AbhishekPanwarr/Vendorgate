@@ -65,7 +65,7 @@ Expected output:
 
 - `cp` is silent.
 - `make setup` prints uv sync output, then npm install output (ending with an `npm audit` note), then `pre-commit: command not found` at most — the trailing `|| true` in the Makefile makes the hook optional.
-- `alembic upgrade head` prints `Running upgrade ... -> <rev>` on a fresh database.
+- `alembic upgrade head` prints `Running upgrade ... -> <rev>` on a fresh database, and nothing when already at head (the command in §3.2 runs against a fresh `data/`).
 - `uvicorn` prints `Uvicorn running on http://127.0.0.1:8000`.
 
 In a second shell for the UI:
