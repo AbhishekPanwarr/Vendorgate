@@ -1,0 +1,6392 @@
+{
+ "results": [
+  {
+   "op": null,
+   "vendor_id": "G-IN-027",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-018",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-002",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-012",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-002",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-029",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.17
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-018",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-028-B",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-012",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-006",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-006",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-028",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-003",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-010",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-024",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-029",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-013",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-039",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-026",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-026-B",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.16
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-033",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-035",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.17
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-037",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.18
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-021",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-027",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-009",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-005",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-023",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-007",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-034",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-006",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-016",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-024",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-006",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-029",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-014",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-019",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-032",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-011",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.17
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-001-B",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-001",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-007-B",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-039",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-016",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-031",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-027",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-014",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-005",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-020",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-031",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-025",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-015",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-032",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-030",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-016",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.13
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-004",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.17
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-012",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-001",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-024",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-014",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-003",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-036",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-033",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-009",
+   "slice": "clean",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-01",
+   "vendor_id": "G-IN-023",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "MISSING_FIELD"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "MISSING_FIELD"
+   ],
+   "tier": "LOW",
+   "score": 9.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.13
+  },
+  {
+   "op": "M-01",
+   "vendor_id": "G-IN-018",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "MISSING_FIELD"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "MISSING_FIELD"
+   ],
+   "tier": "LOW",
+   "score": 9.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-02",
+   "vendor_id": "G-GB-010",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "MISSING_DOC"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.12
+  },
+  {
+   "op": "M-02",
+   "vendor_id": "G-US-017",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "MISSING_DOC"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.13
+  },
+  {
+   "op": "M-03",
+   "vendor_id": "G-IN-013",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_WRONG_TYPE"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_WRONG_TYPE",
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 27.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.13
+  },
+  {
+   "op": "M-03",
+   "vendor_id": "G-IN-030",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_WRONG_TYPE"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_WRONG_TYPE",
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 27.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-04",
+   "vendor_id": "G-IN-021",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TAX_CHECKSUM_INVALID"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "TAX_CHECKSUM_INVALID"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-04",
+   "vendor_id": "G-IN-017",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TAX_CHECKSUM_INVALID"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "TAX_CHECKSUM_INVALID"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-05",
+   "vendor_id": "G-IN-004",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_NOT_FOUND",
+    "TAX_FORMAT_INVALID",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.17
+  },
+  {
+   "op": "M-05",
+   "vendor_id": "G-IN-014",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_NOT_FOUND",
+    "TAX_FORMAT_INVALID",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-06",
+   "vendor_id": "G-IN-013",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-06",
+   "vendor_id": "G-IN-016",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-07",
+   "vendor_id": "G-IN-024",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "PAN_ENTITY_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "PAN_ENTITY_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-07",
+   "vendor_id": "G-IN-003",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "PAN_ENTITY_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "PAN_ENTITY_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-08",
+   "vendor_id": "G-US-020",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-08",
+   "vendor_id": "G-US-008",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-09",
+   "vendor_id": "G-GB-030",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "tier": "LOW",
+   "score": 10.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-09",
+   "vendor_id": "G-US-000",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "tier": "LOW",
+   "score": 16.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-10",
+   "vendor_id": "G-GB-010",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "tier": "LOW",
+   "score": 10.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-10",
+   "vendor_id": "G-IN-010",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "tier": "LOW",
+   "score": 15.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-11",
+   "vendor_id": "G-DE-010",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-11",
+   "vendor_id": "G-IN-028",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-12",
+   "vendor_id": "G-GB-025",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "LOW",
+   "score": 10.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-12",
+   "vendor_id": "G-US-016",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "LOW",
+   "score": 16.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.19
+  },
+  {
+   "op": "M-13",
+   "vendor_id": "G-DE-004",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "LOW",
+   "score": 10.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.18
+  },
+  {
+   "op": "M-13",
+   "vendor_id": "G-US-028",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "LOW",
+   "score": 16.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-14",
+   "vendor_id": "G-GB-012",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-14",
+   "vendor_id": "G-US-013",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.17
+  },
+  {
+   "op": "M-15",
+   "vendor_id": "G-US-025",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_MISMATCH",
+    "CALLBACK_REQUIRED",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 28.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-15",
+   "vendor_id": "G-DE-030",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_MISMATCH",
+    "CALLBACK_REQUIRED",
+    "MISSING_CONDITIONAL"
+   ],
+   "tier": "LOW",
+   "score": 24.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-16",
+   "vendor_id": "G-GB-000",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_INCOHERENT"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_INCOHERENT"
+   ],
+   "tier": "LOW",
+   "score": 10.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-16",
+   "vendor_id": "G-GB-015",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_INCOHERENT"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_INCOHERENT"
+   ],
+   "tier": "LOW",
+   "score": 10.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-17",
+   "vendor_id": "G-US-010",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_CHECKSUM_INVALID"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_CHECKSUM_INVALID",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-17",
+   "vendor_id": "G-US-037",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_CHECKSUM_INVALID"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_CHECKSUM_INVALID",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-18",
+   "vendor_id": "G-US-025",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TAX_FORMAT_INVALID",
+    "TIN_NOT_ISSUED"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-18",
+   "vendor_id": "G-US-027",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TAX_FORMAT_INVALID",
+    "TIN_NOT_ISSUED"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-19",
+   "vendor_id": "G-US-021",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TIN_NAME_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_NAME_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 11.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-19",
+   "vendor_id": "G-US-002",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TIN_NAME_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_NAME_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 11.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-20",
+   "vendor_id": "G-IN-039",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "GSTIN_NOT_ACTIVE"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "GSTIN_NOT_ACTIVE"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-20",
+   "vendor_id": "G-IN-015",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "GSTIN_NOT_ACTIVE"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "GSTIN_NOT_ACTIVE"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-21",
+   "vendor_id": "G-US-021",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "ENTITY_NOT_ACTIVE"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "ENTITY_NOT_ACTIVE",
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 38.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.18
+  },
+  {
+   "op": "M-21",
+   "vendor_id": "G-US-039",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "ENTITY_NOT_ACTIVE"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "ENTITY_NOT_ACTIVE",
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 38.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-22",
+   "vendor_id": "G-IN-008",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_EXPIRED"
+   ],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 10.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.12
+  },
+  {
+   "op": "M-22",
+   "vendor_id": "G-DE-009",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_EXPIRED"
+   ],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 5.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.12
+  },
+  {
+   "op": "M-23",
+   "vendor_id": "G-DE-034",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_STALE"
+   ],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-23",
+   "vendor_id": "G-US-017",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_STALE"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-24",
+   "vendor_id": "G-US-028",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-24",
+   "vendor_id": "G-US-006",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-25",
+   "vendor_id": "G-US-033",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_FORM_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-25",
+   "vendor_id": "G-US-008",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_FORM_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-26",
+   "vendor_id": "G-IN-027",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "DUPLICATE_EXISTING"
+   ],
+   "expected_critical": false,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DUPLICATE_EXISTING",
+    "DUPLICATE_REVIEW",
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-26",
+   "vendor_id": "G-GB-028",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "DUPLICATE_EXISTING"
+   ],
+   "expected_critical": false,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DUPLICATE_EXISTING",
+    "DUPLICATE_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-GB-029",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-IN-031",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 12.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-28",
+   "vendor_id": "G-IN-027",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "BANK_SHARED_ACROSS_VENDORS"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_SHARED_ACROSS_VENDORS"
+   ],
+   "tier": "BLOCKED",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-28",
+   "vendor_id": "G-IN-021",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "BANK_SHARED_ACROSS_VENDORS"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_SHARED_ACROSS_VENDORS"
+   ],
+   "tier": "BLOCKED",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-29",
+   "vendor_id": "G-GB-021",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DUPLICATE_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DUPLICATE_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.17
+  },
+  {
+   "op": "M-29",
+   "vendor_id": "G-US-035",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DUPLICATE_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "DUPLICATE_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.17
+  },
+  {
+   "op": "M-30",
+   "vendor_id": "G-IN-036",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-30",
+   "vendor_id": "G-DE-011",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-31",
+   "vendor_id": "G-US-023",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 10.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-31",
+   "vendor_id": "G-DE-023",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 4.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-IN-039",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-GB-000",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.13
+  },
+  {
+   "op": "M-33",
+   "vendor_id": "G-GB-022",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONED_OWNERSHIP"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "SANCTIONED_OWNERSHIP",
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-33",
+   "vendor_id": "G-US-023",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONED_OWNERSHIP"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "SANCTIONED_OWNERSHIP",
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.17
+  },
+  {
+   "op": "M-34",
+   "vendor_id": "G-US-039",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "EMBARGOED_JURISDICTION"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "EMBARGOED_JURISDICTION",
+    "TAX_FORM_MISMATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-34",
+   "vendor_id": "G-IN-035",
+   "slice": "single",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "EMBARGOED_JURISDICTION"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "EMBARGOED_JURISDICTION"
+   ],
+   "tier": "BLOCKED",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.13
+  },
+  {
+   "op": "M-35",
+   "vendor_id": "G-IN-002",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "PEP_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "PEP_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-35",
+   "vendor_id": "G-GB-012",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "PEP_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "PEP_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-36",
+   "vendor_id": "G-DE-029",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "ADVERSE_MEDIA_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "ADVERSE_MEDIA_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-36",
+   "vendor_id": "G-GB-024",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "ADVERSE_MEDIA_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "ADVERSE_MEDIA_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-37",
+   "vendor_id": "G-DE-009",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "CALLBACK_REQUIRED",
+    "DUPLICATE_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 7.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-37",
+   "vendor_id": "G-IN-009",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "CALLBACK_REQUIRED",
+    "DUPLICATE_REVIEW",
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 16.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.19
+  },
+  {
+   "op": "M-38",
+   "vendor_id": "G-US-011",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "CHANGE_VELOCITY"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "CALLBACK_REQUIRED",
+    "CHANGE_VELOCITY",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.3
+  },
+  {
+   "op": "M-38",
+   "vendor_id": "G-IN-023",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "CHANGE_VELOCITY"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "CALLBACK_REQUIRED",
+    "CHANGE_VELOCITY"
+   ],
+   "tier": "LOW",
+   "score": 16.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-39",
+   "vendor_id": "G-IN-018",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 9.75,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-39",
+   "vendor_id": "G-GB-022",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 4.75,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-40",
+   "vendor_id": "G-DE-020",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "tier": "LOW",
+   "score": 5.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-40",
+   "vendor_id": "G-US-015",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "tier": "LOW",
+   "score": 11.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-IN-027",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-US-020",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.16
+  },
+  {
+   "op": "M-42",
+   "vendor_id": "G-US-033",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "REMIT_ADDRESS_UNJUSTIFIED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "REMIT_ADDRESS_UNJUSTIFIED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-42",
+   "vendor_id": "G-IN-019",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "REMIT_ADDRESS_UNJUSTIFIED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "REMIT_ADDRESS_UNJUSTIFIED"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-US-025",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 14.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.14
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-US-002",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 14.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.15
+  },
+  {
+   "op": "M-44",
+   "vendor_id": "G-IN-018",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 9.97
+  },
+  {
+   "op": "M-44",
+   "vendor_id": "G-US-029",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 10.19
+  },
+  {
+   "op": "M-45",
+   "vendor_id": "G-IN-031",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.24
+  },
+  {
+   "op": "M-45",
+   "vendor_id": "G-IN-027",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.28
+  },
+  {
+   "op": "M-46",
+   "vendor_id": "G-DE-001",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "VERIFIER_UNAVAILABLE"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "VERIFIER_UNAVAILABLE"
+   ],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.28
+  },
+  {
+   "op": "M-46",
+   "vendor_id": "G-IN-028",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "VERIFIER_UNAVAILABLE"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "VERIFIER_UNAVAILABLE"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.33
+  },
+  {
+   "op": "M-47",
+   "vendor_id": "G-GB-013",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "INCORP_DATE_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "INCORP_DATE_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 22.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-47",
+   "vendor_id": "G-GB-007",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "INCORP_DATE_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "INCORP_DATE_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 22.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-48",
+   "vendor_id": "G-IN-000",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "tier": "LOW",
+   "score": 32.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.27
+  },
+  {
+   "op": "M-48",
+   "vendor_id": "G-IN-001",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "tier": "LOW",
+   "score": 32.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-18",
+    "M-03"
+   ],
+   "vendor_id": "G-US-000",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_WRONG_TYPE",
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "DOC_WRONG_TYPE",
+    "MISSING_DOC",
+    "TAX_FORMAT_INVALID",
+    "TIN_NOT_ISSUED"
+   ],
+   "tier": "LOW",
+   "score": 31.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 5,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-12",
+    "M-38"
+   ],
+   "vendor_id": "G-IN-027",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "CHANGE_VELOCITY",
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "CALLBACK_REQUIRED",
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "LOW",
+   "score": 19.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-27",
+    "M-22"
+   ],
+   "vendor_id": "G-DE-023",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_EXPIRED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 5.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.26
+  },
+  {
+   "op": [
+    "M-27",
+    "M-25"
+   ],
+   "vendor_id": "G-US-037",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_FORM_MISMATCH",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-32",
+    "M-21"
+   ],
+   "vendor_id": "G-IN-006",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "ENTITY_NOT_ACTIVE",
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "ENTITY_NOT_ACTIVE",
+    "MISSING_DOC",
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "MEDIUM",
+   "score": 47.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-28",
+    "M-09"
+   ],
+   "vendor_id": "G-US-010",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "DOC_UNSIGNED",
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "tier": "BLOCKED",
+   "score": 16.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-13",
+    "M-30"
+   ],
+   "vendor_id": "G-GB-009",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "NAME_MISMATCH_BANK",
+    "SANCTIONS_MATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "NAME_MISMATCH_BANK",
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 10.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.23
+  },
+  {
+   "op": [
+    "M-39",
+    "M-14"
+   ],
+   "vendor_id": "G-GB-007",
+   "slice": "double",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 4.75,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-25",
+    "M-26"
+   ],
+   "vendor_id": "G-US-010",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_FORM_MISMATCH",
+    "DUPLICATE_EXISTING"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "DUPLICATE_EXISTING",
+    "DUPLICATE_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.22
+  },
+  {
+   "op": [
+    "M-27",
+    "M-43"
+   ],
+   "vendor_id": "G-IN-023",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "GSTIN_PAN_MISMATCH",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 18.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.26
+  },
+  {
+   "op": [
+    "M-35",
+    "M-06"
+   ],
+   "vendor_id": "G-IN-008",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "PEP_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "PEP_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 18.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-43",
+    "M-36"
+   ],
+   "vendor_id": "G-IN-036",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "ADVERSE_MEDIA_REVIEW",
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "ADVERSE_MEDIA_REVIEW",
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 23.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-28",
+    "M-12"
+   ],
+   "vendor_id": "G-DE-018",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "BLOCKED",
+   "score": 10.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-07",
+    "M-15"
+   ],
+   "vendor_id": "G-IN-011",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_MISMATCH",
+    "PAN_ENTITY_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_MISMATCH",
+    "CALLBACK_REQUIRED",
+    "MISSING_CONDITIONAL",
+    "PAN_ENTITY_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 29.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 5,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-08",
+    "M-30"
+   ],
+   "vendor_id": "G-US-034",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.28
+  },
+  {
+   "op": [
+    "M-18",
+    "M-23"
+   ],
+   "vendor_id": "G-US-032",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_STALE",
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TAX_FORMAT_INVALID",
+    "TIN_NOT_ISSUED"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.26
+  },
+  {
+   "op": [
+    "M-09",
+    "M-40"
+   ],
+   "vendor_id": "G-DE-021",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "LEGAL_FORM_UNCONFIRMED",
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "LEGAL_FORM_UNCONFIRMED",
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-31",
+    "M-48"
+   ],
+   "vendor_id": "G-IN-003",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "tier": "LOW",
+   "score": 34.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.37
+  },
+  {
+   "op": [
+    "M-36",
+    "M-39"
+   ],
+   "vendor_id": "G-GB-001",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "ADVERSE_MEDIA_REVIEW"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "ADVERSE_MEDIA_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 14.75,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.33
+  },
+  {
+   "op": [
+    "M-40",
+    "M-37"
+   ],
+   "vendor_id": "G-IN-037",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_CHANGE_REQUIRES_CALLBACK",
+    "CALLBACK_REQUIRED",
+    "DUPLICATE_REVIEW",
+    "GSTIN_PAN_MISMATCH",
+    "PO_BOX_REGISTERED_ADDRESS"
+   ],
+   "tier": "LOW",
+   "score": 19.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 5,
+   "seconds": 0.48
+  },
+  {
+   "op": [
+    "M-02",
+    "M-16"
+   ],
+   "vendor_id": "G-GB-012",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_INCOHERENT",
+    "MISSING_DOC"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_INCOHERENT",
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 20.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.26
+  },
+  {
+   "op": [
+    "M-28",
+    "M-24"
+   ],
+   "vendor_id": "G-US-029",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "DOC_UNSIGNED"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.22
+  },
+  {
+   "op": [
+    "M-40",
+    "M-05"
+   ],
+   "vendor_id": "G-IN-029",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "PO_BOX_REGISTERED_ADDRESS",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_NOT_FOUND",
+    "PO_BOX_REGISTERED_ADDRESS",
+    "TAX_FORMAT_INVALID",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 10.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.21
+  },
+  {
+   "op": [
+    "M-18",
+    "M-32"
+   ],
+   "vendor_id": "G-US-001",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW",
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "SANCTIONS_REVIEW",
+    "TAX_FORMAT_INVALID",
+    "TIN_NOT_ISSUED"
+   ],
+   "tier": "LOW",
+   "score": 27.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.3
+  },
+  {
+   "op": [
+    "M-18",
+    "M-34"
+   ],
+   "vendor_id": "G-US-031",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "EMBARGOED_JURISDICTION",
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "EMBARGOED_JURISDICTION",
+    "TAX_FORM_MISMATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.23
+  },
+  {
+   "op": [
+    "M-43",
+    "M-48"
+   ],
+   "vendor_id": "G-IN-004",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "TIER_APPROVAL_REQUIRED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 38.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.26
+  },
+  {
+   "op": [
+    "M-17",
+    "M-06"
+   ],
+   "vendor_id": "G-US-030",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_CHECKSUM_INVALID",
+    "GSTIN_PAN_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_CHECKSUM_INVALID",
+    "DOC_UNSIGNED",
+    "TAX_FORMAT_INVALID",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.27
+  },
+  {
+   "op": [
+    "M-25",
+    "M-31"
+   ],
+   "vendor_id": "G-US-014",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DOC_FORM_MISMATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 10.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-20",
+    "M-15"
+   ],
+   "vendor_id": "G-IN-014",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_MISMATCH",
+    "GSTIN_NOT_ACTIVE"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_MISMATCH",
+    "CALLBACK_REQUIRED",
+    "GSTIN_NOT_ACTIVE",
+    "MISSING_CONDITIONAL"
+   ],
+   "tier": "LOW",
+   "score": 29.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 5,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-06",
+    "M-42"
+   ],
+   "vendor_id": "G-IN-027",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "REMIT_ADDRESS_UNJUSTIFIED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "REMIT_ADDRESS_UNJUSTIFIED"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-15",
+    "M-13"
+   ],
+   "vendor_id": "G-US-037",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_MISMATCH",
+    "NAME_MISMATCH_BANK"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_MISMATCH",
+    "CALLBACK_REQUIRED",
+    "DOC_UNSIGNED",
+    "NAME_MISMATCH_BANK"
+   ],
+   "tier": "LOW",
+   "score": 34.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 5,
+   "seconds": 0.22
+  },
+  {
+   "op": [
+    "M-24",
+    "M-28"
+   ],
+   "vendor_id": "G-US-004",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "DOC_UNSIGNED"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "BANK_SHARED_ACROSS_VENDORS",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-01",
+    "M-34"
+   ],
+   "vendor_id": "G-IN-034",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "EMBARGOED_JURISDICTION",
+    "MISSING_FIELD"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "EMBARGOED_JURISDICTION"
+   ],
+   "tier": "BLOCKED",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": [
+    "M-02",
+    "M-08"
+   ],
+   "vendor_id": "G-IN-026",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "MISSING_DOC"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "MISSING_DOC"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.23
+  },
+  {
+   "op": [
+    "M-14",
+    "M-30"
+   ],
+   "vendor_id": "G-IN-025",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "NAME_MISMATCH_BANK",
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 15.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.23
+  },
+  {
+   "op": [
+    "M-16",
+    "M-09"
+   ],
+   "vendor_id": "G-GB-030",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "BANK_COUNTRY_INCOHERENT",
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "BANK_ACCOUNT_NOT_FOUND",
+    "BANK_COUNTRY_INCOHERENT",
+    "LEGAL_FORM_UNCONFIRMED"
+   ],
+   "tier": "LOW",
+   "score": 16.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 3,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-43",
+    "M-08"
+   ],
+   "vendor_id": "G-DE-029",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-29",
+    "M-05"
+   ],
+   "vendor_id": "G-IN-018",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "DUPLICATE_REVIEW",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL",
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DUPLICATE_REVIEW",
+    "GSTIN_NOT_FOUND",
+    "TAX_FORMAT_INVALID",
+    "TAX_FORMAT_MISMATCH"
+   ],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 4,
+   "seconds": 0.26
+  },
+  {
+   "op": [
+    "M-14",
+    "M-30"
+   ],
+   "vendor_id": "G-GB-003",
+   "slice": "double",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "SANCTIONS_MATCH"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "NAME_MISMATCH_BANK",
+    "SANCTIONS_MATCH"
+   ],
+   "tier": "BLOCKED",
+   "score": 10.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.24
+  },
+  {
+   "op": [
+    "M-36",
+    "M-46"
+   ],
+   "vendor_id": "G-GB-029",
+   "slice": "double",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "ADVERSE_MEDIA_REVIEW",
+    "VERIFIER_UNAVAILABLE"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "ADVERSE_MEDIA_REVIEW",
+    "VERIFIER_UNAVAILABLE"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.22
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-004",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.24
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-008",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.24
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-016",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.29
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-014",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-008",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.24
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-029",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-021",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-019",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.23
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-023",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.26
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-031",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.26
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-035",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-034",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.23
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-032",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.23
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-033",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.27
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-007",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.26
+  },
+  {
+   "op": null,
+   "vendor_id": "G-IN-030",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 7.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.25
+  },
+  {
+   "op": null,
+   "vendor_id": "G-GB-010",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.23
+  },
+  {
+   "op": null,
+   "vendor_id": "G-US-023",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.27
+  },
+  {
+   "op": null,
+   "vendor_id": "G-DE-020",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "APPROVED",
+   "actual_awaiting": [],
+   "actual_codes": [],
+   "tier": "LOW",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 0,
+   "seconds": 0.24
+  },
+  {
+   "op": "M-08",
+   "vendor_id": "G-US-008",
+   "slice": "scanned",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-IN-009",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.27
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-IN-035",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.32
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-IN-018",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-GB-012",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-IN-005",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.32
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-IN-037",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.34
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-US-003",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 14.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.39
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-DE-021",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.27
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-US-032",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED",
+    "DOC_UNSIGNED"
+   ],
+   "tier": "LOW",
+   "score": 14.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.23
+  },
+  {
+   "op": "M-43",
+   "vendor_id": "G-IN-030",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_INJECTION_SUSPECTED"
+   ],
+   "tier": "LOW",
+   "score": 13.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.2
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-US-011",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-US-013",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.27
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-DE-026",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 7.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-IN-034",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.24
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-US-032",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.24
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-DE-010",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 7.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-US-026",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-US-003",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 13.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-DE-031",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 7.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-41",
+   "vendor_id": "G-IN-032",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "HOMOGLYPH_SUSPECT"
+   ],
+   "tier": "LOW",
+   "score": 12.0,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-DE-005",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-GB-032",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-IN-007",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 12.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.3
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-IN-024",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 12.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-US-029",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.23
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-GB-022",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 2.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-US-018",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-US-013",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.27
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-US-038",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 8.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-27",
+   "vendor_id": "G-IN-037",
+   "slice": "adversarial",
+   "expected_status": "REJECTED",
+   "expected_awaiting": [],
+   "expected_codes": [
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "expected_critical": true,
+   "actual_status": "REJECTED",
+   "actual_awaiting": [],
+   "actual_codes": [
+    "GSTIN_PAN_MISMATCH",
+    "TIN_REUSE_DIFFERENT_NAME"
+   ],
+   "tier": "BLOCKED",
+   "score": 12.0,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.24
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-IN-023",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-US-030",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR",
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "DOC_UNSIGNED",
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 18.5,
+   "has_counterfactual": true,
+   "has_audit": true,
+   "n_blocking": 2,
+   "seconds": 0.29
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-DE-027",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-GB-026",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.24
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-IN-017",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-DE-018",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-GB-017",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-DE-000",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.26
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-GB-033",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 12.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.27
+  },
+  {
+   "op": "M-32",
+   "vendor_id": "G-IN-036",
+   "slice": "adversarial",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "INTERNAL"
+   ],
+   "expected_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "INTERNAL"
+   ],
+   "actual_codes": [
+    "SANCTIONS_REVIEW"
+   ],
+   "tier": "LOW",
+   "score": 17.5,
+   "has_counterfactual": false,
+   "has_audit": true,
+   "n_blocking": 1,
+   "seconds": 0.25
+  }
+ ],
+ "metrics": {
+  "E1_critical_false_approve": {
+   "k": 0,
+   "n": 109,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.03404418228738337
+  },
+  "E2_false_approve": {
+   "k": 0,
+   "n": 42,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.08380161250916197
+  },
+  "E3_false_reject": {
+   "k": 0,
+   "n": 101,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.03664194365595336
+  },
+  "E4_friction": {
+   "k": 18,
+   "n": 64,
+   "rate": 0.28125,
+   "lo": 0.18593226105484584,
+   "hi": 0.40134162399503504
+  },
+  "E5_status_accuracy": {
+   "k": 229,
+   "n": 260,
+   "rate": 0.8807692307692307,
+   "lo": 0.8357311004419575,
+   "hi": 0.9147191697201397,
+   "confusion": {
+    "APPROVED": {
+     "APPROVED": 73,
+     "PENDING": 28,
+     "REJECTED": 0
+    },
+    "PENDING": {
+     "APPROVED": 3,
+     "PENDING": 114,
+     "REJECTED": 0
+    },
+    "REJECTED": {
+     "APPROVED": 0,
+     "PENDING": 0,
+     "REJECTED": 42
+    }
+   }
+  },
+  "E6_reason_codes": {
+   "micro": {
+    "precision": 0.5506329113924051,
+    "recall": 0.9157894736842105,
+    "f1": 0.6877470355731227,
+    "tp": 174,
+    "fp": 142,
+    "fn": 16
+   },
+   "exact_set": {
+    "k": 150,
+    "n": 260,
+    "rate": 0.5769230769230769,
+    "lo": 0.5161778788860999,
+    "hi": 0.635428236298162
+   }
+  },
+  "E7_awaiting": {
+   "k": 208,
+   "n": 260,
+   "rate": 0.8,
+   "lo": 0.747168327023224,
+   "hi": 0.8440955221953982
+  },
+  "E8_remediation": {
+   "proxy_actionable": {
+    "k": 106,
+    "n": 106,
+    "rate": 1.0,
+    "lo": 0.9650260010779157,
+    "hi": 0.9999999999999998
+   }
+  },
+  "E9_remediation_success1": {
+   "proxy_success1": {
+    "k": 106,
+    "n": 106,
+    "rate": 1.0,
+    "lo": 0.9650260010779157,
+    "hi": 0.9999999999999998
+   },
+   "note": "proxy: counterfactual present; vendor simulator in Phase 6"
+  },
+  "E10_message_safety": {
+   "k": 0,
+   "n": 260,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.014560251302296528
+  },
+  "E13_sanctions": {
+   "sanctions_recall": {
+    "k": 6,
+    "n": 6,
+    "rate": 1.0,
+    "lo": 0.6096569663469354,
+    "hi": 1.0
+   },
+   "decoy_hold": {
+    "k": 1,
+    "n": 2,
+    "rate": 0.5,
+    "lo": 0.09452865480086611,
+    "hi": 0.905471345199134
+   }
+  },
+  "E14_network": {
+   "recall": {
+    "k": 4,
+    "n": 4,
+    "rate": 1.0,
+    "lo": 0.5100999795960008,
+    "hi": 1.0
+   }
+  },
+  "E16_invariance": {
+   "k": 3,
+   "n": 4,
+   "rate": 0.75,
+   "lo": 0.30063605244263664,
+   "hi": 0.9544139373553638
+  },
+  "E20_audit_chain": {
+   "k": 260,
+   "n": 260,
+   "rate": 1.0,
+   "lo": 0.9854397486977035,
+   "hi": 1.0
+  },
+  "E21_auc": {
+   "auc": 0.5743774574049804
+  },
+  "E22_tier_calibration": {
+   "k": 76,
+   "n": 76,
+   "rate": 1.0,
+   "lo": 0.9518847317689024,
+   "hi": 1.0
+  },
+  "n": 260,
+  "E18_latency": {
+   "p50": 0.16,
+   "p95": 0.29,
+   "mode": "rules-only"
+  },
+  "E19_cost": {
+   "tokens": 0,
+   "note": "replay/off"
+  },
+  "meta": {
+   "split": "test",
+   "mode": "rules-only",
+   "n": 260
+  }
+ }
+}

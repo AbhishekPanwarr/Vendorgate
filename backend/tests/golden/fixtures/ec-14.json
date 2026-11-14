@@ -1,0 +1,32 @@
+{
+ "case_id": "7d1450b07235",
+ "status": "REJECTED",
+ "nudges": [
+  {
+   "case_id": "7d1450b07235",
+   "nudge_day": 1
+  },
+  {
+   "case_id": "7d1450b07235",
+   "nudge_day": 3
+  },
+  {
+   "case_id": "7d1450b07235",
+   "nudge_day": 7
+  },
+  {
+   "case_id": "7d1450b07235",
+   "nudge_day": 10
+  }
+ ],
+ "closed": [
+  {
+   "case_id": "743dda13185b",
+   "reason": "ABANDONED"
+  },
+  {
+   "case_id": "7d1450b07235",
+   "reason": "ABANDONED"
+  }
+ ]
+}

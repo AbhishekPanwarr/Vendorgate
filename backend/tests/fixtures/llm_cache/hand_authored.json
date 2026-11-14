@@ -1,0 +1,452 @@
+{
+ "0e27e03560668228a1584fdd4622910cc0211cc4f30ee566b37428a970e46507": {
+  "name": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "business_name": {
+   "value": "Brightline Office Supply LLC",
+   "quote": "Name of business: Brightline Office Supply LLC",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "tax_classification": {
+   "value": "Limited Liability Company",
+   "quote": "Tax classification: Limited Liability Company",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "address": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "tin": {
+   "value": "84-1234567",
+   "quote": "Taxpayer Identification Number: 84-1234567",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signature_present": {
+   "value": "/s/ R. Khanna",
+   "quote": "Signature: /s/ R. Khanna",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signature_date": {
+   "value": "2026-10-01",
+   "quote": "Date: 2026-10-01",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "form_revision": {
+   "value": "March 2024",
+   "quote": "Form W-9 (Rev. March 2024)",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "9b3968b84b7c883a1572c29df6c8d5c329a511b5e4ce654366dae48bca8145ba": {
+  "name": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "business_name": {
+   "value": "Acme Trading Co.",
+   "quote": "Name of business: Acme Trading Co.",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "tax_classification": {
+   "value": "Limited Liability Company",
+   "quote": "Tax classification: Limited Liability Company",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "address": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "tin": {
+   "value": "84-7654321",
+   "quote": "Taxpayer Identification Number: 84-7654321",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signature_present": {
+   "value": "/s/ R. Khanna",
+   "quote": "Signature: /s/ R. Khanna",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signature_date": {
+   "value": "2026-10-01",
+   "quote": "Date: 2026-10-01",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "form_revision": {
+   "value": "March 2024",
+   "quote": "Form W-9 (Rev. March 2024)",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "d29300ddf2969c271822c3f19716e37f40b1059bf17545c9ee6266a9cc2ef92e": {
+  "bank_name": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "account_holder": {
+   "value": "Nimbus Technologies Pvt Ltd",
+   "quote": "Account Holder: Nimbus Technologies Pvt Ltd",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "account_number": {
+   "value": "123456789012",
+   "quote": "Account Number: 123456789012",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "routing": {
+   "value": "HDFC0001234",
+   "quote": "IFSC: HDFC0001234",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "letter_date": {
+   "value": "2026-09-15",
+   "quote": "Letter Date: 2026-09-15",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signatory": {
+   "value": "Branch Manager",
+   "quote": "Signatory: Branch Manager",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "letterhead_present": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "1e0147fa0753808368e59e5ad5fe78cc5eaf1236774a08e432839863c84a385c": {
+  "bank_name": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "account_holder": {
+   "value": "Hafen Logistik GmbH",
+   "quote": "Account Holder: Hafen Logistik GmbH",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "account_number": {
+   "value": "0532013000",
+   "quote": "Account Number: 0532013000",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "routing": {
+   "value": "DE89370400440532013000",
+   "quote": "IBAN: DE89370400440532013000",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "letter_date": {
+   "value": "2026-09-15",
+   "quote": "Letter Date: 2026-09-15",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "signatory": {
+   "value": "Branch Manager",
+   "quote": "Signatory: Branch Manager",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "letterhead_present": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "9f126dae8a4a91fdd57364c105ecb6ac511892035a4a894199046f4b855e00a4": {
+  "label": "SAME",
+  "confidence": 0.85,
+  "rationale": "Same core tokens; LLC is the declared legal form variant.",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "ffbc387d3889b185a3c3b0116312b85b892eaaf00eea8ad03133bb348037dcf7": {
+  "label": "SAME",
+  "confidence": 0.85,
+  "rationale": "Same core tokens; LLC is the declared legal form variant.",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "397cd645396c1c73ff1be22e4c6aa6228eab061df4345c602639a9964e0c787f": {
+  "label": "SAME",
+  "confidence": 0.85,
+  "rationale": "Same core tokens; LLC is the declared legal form variant.",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "0177b7a7fe3dffbe82fe6acbc1555b0842c39ce36d633fb5a5611589bbc5ad54": {
+  "label": "SAME",
+  "confidence": 0.85,
+  "rationale": "Same core tokens; LLC is the declared legal form variant.",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "3fd4e02243a2d5d87129cb3b642e2031570531714d1a4197e6fb615ed58b75c2": {
+  "legal_name": {
+   "value": "ACME TRADING COMPANY LLC",
+   "quote": "Legal Name: ACME TRADING COMPANY LLC",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "registration_no": {
+   "value": "OH-20160412",
+   "quote": "Registration No: OH-20160412",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "incorporation_date": {
+   "value": "2016-04-12",
+   "quote": "Incorporation Date: 2016-04-12",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "registered_address": {
+   "value": null,
+   "quote": null,
+   "page": null,
+   "confidence": 0.0
+  },
+  "status": {
+   "value": "Active",
+   "quote": "Status: Active",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "6617cd54658dbf434aaf48ed512e9d661f4e6c0b1ed010a6498010b054cebef2": {
+  "insured_name": {
+   "value": "Meridian Shipping Services Ltd",
+   "quote": "Named Insured: Meridian Shipping Services Ltd",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "insurer": {
+   "value": "Test General Insurance",
+   "quote": "Insurer: Test General Insurance",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "policy_no": {
+   "value": "GL-2026-0091",
+   "quote": "Policy No: GL-2026-0091",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "expiry_date": {
+   "value": "2026-09-01",
+   "quote": "Expiry Date: 2026-09-01",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "certificate_holder": {
+   "value": "Buyer Corp",
+   "quote": "Certificate Holder: Buyer Corp",
+   "page": 1,
+   "confidence": 1.0
+  },
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "f5eacec09b347bc7ea68c87c742d041699be9db2586a213ddaa2b7f3467fbbcd": {
+  "body": "Hi, thanks for submitting details for Acme Trading Co.\nPlease fix the following items:\n1. [[UPLOAD_DBA_PROOF]] Confirm your legal entity name.: They look like the same business but we need proof.\nPlease resubmit by in 14 days. [Resubmit \u2192 /resubmit]",
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "f9ef7bc0edc8de992590a784277bcaaff95ea7063fd6355d11cb8bc84bfc9545": {
+  "summary": "Case has 2 findings: name-form mismatch (F-1) awaiting vendor proof and verified bank check (F-2).",
+  "_tokens_used": 0,
+  "_hand_authored": true
+ },
+ "459c931436b8c92e60108b420139e1f7aba59293913f52574f2e0dbac127f0ca": {
+  "label": "SAME",
+  "confidence": 0.9,
+  "rationale": "rule-derived EXACT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "7c5b78969140f433ba6920e93799a27bd767cd492abf9fc92ec2bb52068c5526": {
+  "label": "SAME",
+  "confidence": 0.9,
+  "rationale": "rule-derived EXACT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "08c794305e19d94de3d040a58fbb832e9eea01b79bca62b610a00dc3ed33e45b": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "e7b41b33a0459af920674e060e3f8805793c41919f292f04be6322ab11d1d79e": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "043cca3a119fd1821c1c26127874841b2b8d246d5325c2a458f9245492f6db3a": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "b53579b5ad02f3d46b686994600a34526343ce49f0beb7c8a47b0bde27ed6b82": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "2c2f3646441a0cb489f5e784856c9b82c4aef62e2bd4bc64b6024fdba722038d": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "2d8f4bc6f4ab37ad7f90441ad5abb7653650d3e7f2bf459a3cc2304c09c27434": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "c38517d8a4b0ea05d1323667dbe9192d402ffca1e2c447f571c11ca6f1c73a9c": {
+  "label": "SAME",
+  "confidence": 0.9,
+  "rationale": "rule-derived FORM_CONFLICT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "b9072922643bb4c719b68facd847af3f30a8db94180abde86c59b01fdfd39497": {
+  "label": "SAME",
+  "confidence": 0.9,
+  "rationale": "rule-derived FORM_CONFLICT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "82335624fd42bb45b9a5aa8c80706239542761ffeb69f527528701ff51de8ab5": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "43a239b6873a7a86df6dc010bc6ceedded8e30d66ac0e3d2ee020ff761379361": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "ff0f12b0f8c6c2c07869f5158b34d854b752f9d3cc49cddba105c58e4fe609aa": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "e21fa1254f6821dd60662d0973ad83511568be66c28acf4fbefd048fe9a3ca86": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "0284bb1d88704a7b91562c515e5bb10df47aae9584111f4415b7475f24962d2c": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ },
+ "81577feedd95cbab824b84cfa5f778f453598f4419d53dda8d713b516f89907d": {
+  "label": "DIFFERENT",
+  "confidence": 0.8,
+  "rationale": "rule-derived DIFFERENT for eval pool",
+  "order_swap_consistent": true,
+  "_tokens_used": 0,
+  "_hand_authored": true,
+  "_eval_pool": true
+ }
+}

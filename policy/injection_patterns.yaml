@@ -1,0 +1,8 @@
+version: "1.0"
+patterns:
+  - "(ignore|disregard).{0,40}(previous|above|prior).{0,20}(instruction|rule|prompt)"
+  - "system prompt"
+  - "you are (now )?(an? )?(ai|assistant|model)"
+  - "(approve|verify|clear|whitelist) (this|the) vendor"
+  - "do not (flag|report|escalate)"
+  - "mark (as )?(approved|verified|low risk)"

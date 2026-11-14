@@ -1,0 +1,404 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 30000,
+    "currency": "USD"
+   },
+   "category": "CONSULTING",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Nimbus Technologies Pvt Ltd",
+   "trading_name": null,
+   "entity_type": "PVT_LTD",
+   "country": "IN",
+   "incorporation_date": "2019-03-10",
+   "registered_address": {
+    "line1": "44 Residency Rd",
+    "line2": null,
+    "city": "Bengaluru",
+    "region": "Karnataka",
+    "postal_code": "560025",
+    "country": "IN"
+   },
+   "remit_to_address": null,
+   "website": "https://nimbus-tech.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@nimbus-tech.example",
+    "phone": "+91 98765 43210"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@nimbus-tech.example",
+    "phone": "+91 98765 43211"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "IN",
+   "tax_id_type": "GSTIN",
+   "tax_id": "29AAPCA1234F1Z0",
+   "secondary_ids": {
+    "PAN": "AAPCA1234F"
+   },
+   "tax_classification": "PVT_LTD",
+   "form_type": "GST_CERT",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "IN",
+   "currency": "INR",
+   "account_holder_name": "Nimbus Technologies Pvt Ltd",
+   "bank_name": "Test Bank",
+   "account_number": "123456789012",
+   "routing_number": null,
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": "HDFC0001234",
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "GST_CERT",
+    "filename": "gst.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "inc.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.5,
+     "points": 12.5,
+     "drivers": [
+      "spend_usd=30000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.25,
+     "points": 5.0,
+     "drivers": [
+      "country=IN"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.4,
+     "points": 4.0,
+     "drivers": [
+      "category=CONSULTING"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 23.0,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "GSTIN_NOT_FOUND",
+   "INCORP_DATE_MISMATCH",
+   "TAX_CHECKSUM_INVALID"
+  ],
+  "blocking_finding_ids": [
+   "C-TAX-02",
+   "C-VER-02",
+   "C-VER-04"
+  ],
+  "required_actions": [
+   {
+    "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "UPLOAD_INCORP_CERT",
+    "field_paths": [
+     "company.incorporation_date"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [],
+  "counterfactuals": [
+   {
+    "fix_set": [
+     "PROVIDE_GSTIN"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by INCORP_DATE_MISMATCH, TAX_CHECKSUM_INVALID",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "PROVIDE_TAX_ID"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by GSTIN_NOT_FOUND, INCORP_DATE_MISMATCH",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_INCORP_CERT"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 23.0,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by GSTIN_NOT_FOUND, TAX_CHECKSUM_INVALID",
+    "score_delta": null
+   }
+  ],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "d783778746ec850583d014aa36fe0ab938e5395a5f54b231e4e69979d132b5aa"
+ },
+ "findings": [
+  {
+   "check_id": "C-TAX-02",
+   "stage": "S3",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "TAX_CHECKSUM_INVALID",
+   "title": "GSTIN checksum invalid",
+   "detail": "GSTIN '29AAPCA1234F1Z0' failed checksum.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.tax_id",
+     "summary": "claim tax.tax_id",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.tax_id"
+   ],
+   "fingerprint": "5a7fc2ed9a35a3488e702bc8890ae3c369c7bbd1929ffb148f090f751c50a77b",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "GSTIN_NOT_FOUND",
+   "title": "GSTIN not found",
+   "detail": "No GST registry record.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.tax_id",
+     "summary": "claim tax.tax_id",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.tax_id"
+   ],
+   "fingerprint": "8a86b537dfcd089c30f8b24e356f84d118b04734b53d7f54da23c6552584c6d7",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry fixture reg-nimbus",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "e708aee442077203cc5b57f1527af90c98dec2cf59ace1618bd051647827ee4a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "INCORP_DATE_MISMATCH",
+   "title": "Incorporation date differs from registry",
+   "detail": "Form says 2019, registry says 2024.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.incorporation_date",
+     "summary": "claim company.incorporation_date",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_INCORP_CERT",
+    "field_paths": [
+     "company.incorporation_date"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.incorporation_date"
+   ],
+   "fingerprint": "e708aee442077203cc5b57f1527af90c98dec2cf59ace1618bd051647827ee4a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-hp2",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "f3682ce432dacd5d7289e05657f02ae09e328e14eda5d348a668b3167c64ad7c",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+country: GB
+tax_ids: {primary: VAT, secondary: []}
+bank_countries_allowed: [GB]
+requirements:
+  docs:
+    - {doc_type: VAT_CERT, when: "true", fix: PROVIDE_VAT}
+    - {any_of: [BANK_LETTER, VOIDED_CHEQUE], when: "true", fix: UPLOAD_BANK_PROOF}
+    - {doc_type: COI, when: "category in ['LOGISTICS','CONSTRUCTION']", fix: UPLOAD_COI}
+    - {doc_type: INCORP_CERT, when: "entity_type != 'SOLE_PROP' and provisional_tier != 'LOW'", fix: UPLOAD_INCORP_CERT}
+  conditional:
+    - {id: BANK_COUNTRY_JUSTIFICATION, when: "bank.country != company.country", path: declarations.bank_country_justification}

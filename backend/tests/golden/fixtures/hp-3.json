@@ -1,0 +1,256 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 600000,
+    "currency": "USD"
+   },
+   "category": "LOGISTICS",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Hafen Logistik GmbH",
+   "trading_name": null,
+   "entity_type": "GMBH",
+   "country": "DE",
+   "incorporation_date": "2010-02-01",
+   "registered_address": {
+    "line1": "Am Sandtorkai 1",
+    "line2": null,
+    "city": "Hamburg",
+    "region": "Hamburg",
+    "postal_code": "20457",
+    "country": "DE"
+   },
+   "remit_to_address": null,
+   "website": "https://hafen-logistik.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@hafen-logistik.example",
+    "phone": "+49 40 123456"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@hafen-logistik.example",
+    "phone": "+49 40 123457"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "DE",
+   "tax_id_type": "VAT",
+   "tax_id": "DE812415868",
+   "secondary_ids": {},
+   "tax_classification": "GMBH",
+   "form_type": "VAT_CERT",
+   "vat_id": "DE812415868"
+  },
+  "bank": {
+   "country": "DE",
+   "currency": "EUR",
+   "account_holder_name": "Hafen Logistik GmbH",
+   "bank_name": "Test Bank",
+   "account_number": "4053201300",
+   "routing_number": null,
+   "iban": "DE89370400440532013000",
+   "swift_bic": "COBADEFF",
+   "ifsc": null,
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "VAT_CERT",
+    "filename": "vat.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "inc.pdf",
+    "sha256": "z"
+   },
+   {
+    "doc_id": "d4",
+    "doc_type": "COI",
+    "filename": "coi.pdf",
+    "sha256": "w"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 1.0,
+     "points": 25.0,
+     "drivers": [
+      "spend_usd=600000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": [
+      "country=DE"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.4,
+     "points": 4.0,
+     "drivers": [
+      "category=LOGISTICS"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 30.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "TIER_APPROVAL_REQUIRED"
+  ],
+  "blocking_finding_ids": [],
+  "required_actions": [],
+  "approval_route": [
+   "AP_ANALYST"
+  ],
+  "counterfactuals": [],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "a9fe2ee2150a3b9463b05482e5fa768dd9add907a010b7366caab60391fc19f7"
+ },
+ "findings": [
+  {
+   "check_id": "C-VER-03",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "VAT valid",
+   "detail": "VAT valid",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "vies",
+     "summary": "vies fixture vies-hp3",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "55d6ec02040becb6838b41e7d0d9ab453939c72442932b76c15f8ae743b2421a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry fixture reg-hafen",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "e65caba0cb21c1ae66604c2dd38fd15fa835e0eb67bebbc96d1f05d2348fd42e",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-hp3",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "006e71eb30e372c54cd41d63ca88e08ddd04faac4f1c8dd082b0903df93ce48c",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

@@ -1,0 +1,274 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 18000,
+    "currency": "USD"
+   },
+   "category": "OFFICE_SUPPLIES",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Brightline Office Supply LLC",
+   "trading_name": null,
+   "entity_type": "LLC",
+   "country": "US",
+   "incorporation_date": "2016-04-12",
+   "registered_address": {
+    "line1": "410 Market St",
+    "line2": null,
+    "city": "Columbus",
+    "region": "OH",
+    "postal_code": "43215",
+    "country": "US"
+   },
+   "remit_to_address": null,
+   "website": "https://brightline-office.example",
+   "primary_contact": {
+    "name": "Ravi Khanna",
+    "email": "ravi@brightline-office.example",
+    "phone": "+1 614 555 0142"
+   },
+   "ap_contact": {
+    "name": "Meera Das",
+    "email": "ap@brightline-office.example",
+    "phone": "+1 614 555 0143"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "US",
+   "tax_id_type": "EIN",
+   "tax_id": "84-1234567",
+   "secondary_ids": {},
+   "tax_classification": "LLC",
+   "form_type": "W8BEN",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "US",
+   "currency": "USD",
+   "account_holder_name": "Brightline Office Supply LLC",
+   "bank_name": "Synthetic National Bank",
+   "account_number": "000123456789",
+   "routing_number": "011000015",
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": null,
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "W9",
+    "filename": "w9.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.2,
+     "points": 5.0,
+     "drivers": [
+      "spend_usd=18000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": [
+      "country=US"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.1,
+     "points": 1.0,
+     "drivers": [
+      "category=OFFICE_SUPPLIES"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 7.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "TAX_FORM_MISMATCH"
+  ],
+  "blocking_finding_ids": [
+   "C-TAX-06"
+  ],
+  "required_actions": [
+   {
+    "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.form_type"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [],
+  "counterfactuals": [
+   {
+    "fix_set": [
+     "PROVIDE_TAX_ID"
+    ],
+    "status": "APPROVED",
+    "tier": "LOW",
+    "score": 0.0,
+    "awaiting": [],
+    "note": "assumes no new issues are found",
+    "score_delta": null
+   }
+  ],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "d954e2b56278bd8553dc85ac2ab18f79899813e38c77d0f879fd514d6c24e53a"
+ },
+ "findings": [
+  {
+   "check_id": "C-TAX-06",
+   "stage": "S3",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "TAX_FORM_MISMATCH",
+   "title": "Wrong tax form for US vendor",
+   "detail": "US vendors provide Form W-9, not a W-8.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.form_type",
+     "summary": "claim tax.form_type",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_TAX_ID",
+    "field_paths": [
+     "tax.form_type"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.form_type"
+   ],
+   "fingerprint": "e3431dafafe685cedbe93d09f53e1202d54c740fd2b2b06071083e30e4a08fa4",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs fixture irs-hp1",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "9536f38904e105adf0072444307cfa82cf864ae02fddfe59d13bc59f51c14a5d",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-hp1",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "712e73761e9d5497cc9c0cb269f55647e00b53ecfca468c7aeb602822df5dbfd",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  }
+ ]
+}

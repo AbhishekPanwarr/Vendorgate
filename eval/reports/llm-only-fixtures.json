@@ -1,0 +1,433 @@
+{
+ "dd9abfee21436cd8": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "INVALID_TAX_ID",
+   "INVALID_BANK_DETAILS",
+   "INVALID_EMAIL_DOMAIN",
+   "INVALID_WEBSITE",
+   "INVALID_PHONE",
+   "MISSING_OWNERS"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "92c6d839631505da": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "ENTITY_TYPE_MISMATCH",
+   "REGISTERED_ADDRESS_COUNTRY_MISMATCH",
+   "TAX_CLASSIFICATION_MISMATCH",
+   "BANK_HOLDER_MISMATCH",
+   "BANK_DETAILS_INCOMPLETE",
+   "INVALID_CONTACT_DOMAIN"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "a60c0c2f948a9b3f": {
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "ed7e324d55264dfd": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR",
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "LEGAL_NAME_DOMAIN_MISMATCH",
+   "ENTITY_TYPE_MISMATCH",
+   "REGISTERED_ADDRESS_COUNTRY_MISMATCH",
+   "TAX_ID_VAT_ID_MISMATCH",
+   "DUPLICATE_CONTACT_DETAILS",
+   "MISSING_SORT_CODE",
+   "MISSING_SWIFT_BIC",
+   "MISSING_BENEFICIAL_OWNERS"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "e9f93cb566e352e0": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "GSTIN_PAN_MISMATCH",
+   "TAX_CLASSIFICATION_ENTITY_MISMATCH",
+   "REGISTERED_ADDRESS_COUNTRY_MISMATCH",
+   "MISSING_BENEFICIAL_OWNERS",
+   "INVALID_CONTACT_PHONE",
+   "UNVERIFIABLE_EMAIL_DOMAIN",
+   "UNVERIFIABLE_WEBSITE_DOMAIN",
+   "PLACEHOLDER_BANK_NAME"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "1f361515150cdbc5": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REGISTERED_ADDRESS_MISMATCH",
+   "ENTITY_TYPE_MISMATCH",
+   "BANK_DETAILS_MISMATCH",
+   "MISSING_SORT_CODE",
+   "MISSING_UBO",
+   "DUPLICATE_CONTACT_INFO",
+   "INVALID_WEBSITE",
+   "MISSING_REQUIRED_DOCUMENTS"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "32ee9ffa03adc89c": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "ADDRESS_COUNTRY_MISMATCH",
+   "BANK_NAME_MISMATCH",
+   "INVALID_PHONE_FORMAT",
+   "DUPLICATE_CONTACT_INFO",
+   "DOCUMENT_TYPE_MISMATCH",
+   "MISSING_OWNERS",
+   "INVALID_WEBSITE",
+   "ENTITY_TYPE_MISMATCH"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "d3d8b49e62292797": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR",
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "ADDRESS_COUNTRY_MISMATCH",
+   "ENTITY_TYPE_MISMATCH",
+   "MISSING_OWNERS",
+   "INVALID_CONTACT_PHONE",
+   "DUPLICATE_CONTACT_INFO",
+   "PLACEHOLDER_BANK_NAME",
+   "BANK_IFSC_MISMATCH",
+   "INVALID_EMAIL_DOMAIN",
+   "INVALID_WEBSITE_DOMAIN",
+   "INSUFFICIENT_JUSTIFICATION"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "c2ee632eb4a5247b": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REGISTERED_ADDRESS_COUNTRY_MISMATCH",
+   "ENTITY_TYPE_MISMATCH",
+   "MISSING_SORT_CODE_SWIFT",
+   "DUPLICATE_CONTACT_EMAIL_PHONE",
+   "MISSING_UBO",
+   "UNVERIFIABLE_WEBSITE"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "895dcd2398639b1c": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "BANK_DETAILS_INCOMPLETE",
+   "INVALID_CONTACT_EMAIL",
+   "INVALID_PHONE",
+   "INVALID_WEBSITE",
+   "MISSING_UBO"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "c321353b13d470ff": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REGISTERED_ADDRESS_INVALID",
+   "PHONE_INVALID",
+   "ENTITY_CLASSIFICATION_MISMATCH",
+   "MISSING_BENEFICIAL_OWNERS",
+   "BANK_DETAILS_INVALID",
+   "BANK_COUNTRY_MISMATCH"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "ee1797c673858e37": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REGISTERED_ADDRESS_COUNTRY_MISMATCH",
+   "GSTIN_PAN_MISMATCH",
+   "DOMAIN_LEGAL_NAME_MISMATCH",
+   "DUPLICATE_CONTACT_DETAILS",
+   "MISSING_BENEFICIAL_OWNERS",
+   "BANK_NAME_IFSC_MISMATCH"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "73105c878d521463": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "MISSING_OWNERS",
+   "DUPLICATE_CONTACT_INFO",
+   "UNVERIFIABLE_WEBSITE",
+   "UNVERIFIABLE_BANK"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "3c26c8699266b5d6": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "MISSING_BENEFICIAL_OWNERS",
+   "UNVERIFIABLE_BUSINESS_DOMAIN",
+   "DUPLICATE_CONTACT_DETAILS",
+   "UNVERIFIABLE_BANK_NAME",
+   "INVALID_DOCUMENT_HASH"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "89e715eec2abbd58": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "ADDRESS_COUNTRY_MISMATCH",
+   "REMIT_JUSTIFICATION_MISSING",
+   "ENTITY_TYPE_MISMATCH",
+   "MISSING_OWNERS",
+   "INVALID_PHONE"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "7fa62ebf09e8ca3a": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR",
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "ADDRESS_COUNTRY_MISMATCH",
+   "INVALID_CONTACT_PHONE",
+   "DUPLICATE_CONTACT_INFO",
+   "MISSING_BENEFICIAL_OWNERS",
+   "ENTITY_TYPE_MISMATCH",
+   "UNVERIFIABLE_DOMAIN",
+   "SUSPECT_BANK_DETAILS",
+   "INSUFFICIENT_BUSINESS_JUSTIFICATION"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "6c6600bcfdb88459": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REGISTERED_ADDRESS_INVALID",
+   "BANK_DETAILS_INCOMPLETE",
+   "ENTITY_TYPE_MISMATCH"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "22653f7615ba1a96": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR",
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "ADDRESS_COUNTRY_MISMATCH",
+   "ENTITY_TYPE_MISMATCH",
+   "BANK_DETAILS_INCOMPLETE",
+   "NON_ROUTABLE_CONTACT_DOMAIN",
+   "INVALID_DOCUMENT_INTEGRITY",
+   "MISSING_BENEFICIAL_OWNERS",
+   "INSUFFICIENT_BUSINESS_JUSTIFICATION"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "4415314935b2e429": {
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "HOMOGLYPH_NAME_FRAUD"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "8ada4f8b09814b13": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "ADDRESS_COUNTRY_MISMATCH",
+   "IBAN_ACCOUNT_MISMATCH",
+   "MISSING_SORT_CODE",
+   "ENTITY_TYPE_MISMATCH",
+   "MISSING_UBO",
+   "INVALID_WEBSITE_DOMAIN"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "1fdd7fbb32fee06d": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REGISTERED_ADDRESS_MISMATCH",
+   "MISSING_BENEFICIAL_OWNERS",
+   "INVALID_CONTACT_PHONE",
+   "ENTITY_TYPE_MISMATCH",
+   "UNVERIFIED_BANK_DETAILS"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ },
+ "08714751371672ab": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "INVALID_TAX_ID",
+   "MISSING_W9_DOCUMENT",
+   "MISSING_OWNERSHIP_INFO"
+  ],
+  "tier": "MEDIUM",
+  "score": {
+   "total": 50
+  },
+  "counterfactuals": [],
+  "decision_id": null
+ }
+}

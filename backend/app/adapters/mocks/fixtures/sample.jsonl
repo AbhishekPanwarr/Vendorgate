@@ -1,0 +1,1 @@
+{"fixture_id": "sample-1", "adapter": "noop", "version": "0.0.0", "request_hash": "abc", "response": {"status": "OK", "data": null, "source": "noop", "adapter_version": "0.0.0", "retrieved_at": "2026-01-01T00:00:00+00:00", "latency_ms": 0, "call_id": "noop-1", "fixture_id": null}}

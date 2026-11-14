@@ -1,0 +1,266 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 18000,
+    "currency": "USD"
+   },
+   "category": "OFFICE_SUPPLIES",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Northwind Logistics Pvt Ltd",
+   "trading_name": null,
+   "entity_type": "PVT_LTD",
+   "country": "IN",
+   "incorporation_date": "2021-01-01",
+   "registered_address": {
+    "line1": "5 Port Rd",
+    "line2": null,
+    "city": "Mumbai",
+    "region": "Maharashtra",
+    "postal_code": "400001",
+    "country": "IN"
+   },
+   "remit_to_address": null,
+   "website": "https://northwind-logistics.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@northwind-logistics.example",
+    "phone": "+91 98765 00001"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@northwind-logistics.example",
+    "phone": "+91 98765 00002"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "IN",
+   "tax_id_type": "GSTIN",
+   "tax_id": "27BBBBB1111B1ZN",
+   "secondary_ids": {
+    "PAN": "BBBBB1111B"
+   },
+   "tax_classification": "PVT_LTD",
+   "form_type": "GST_CERT",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "IN",
+   "currency": "INR",
+   "account_holder_name": "Northwind Logistics Pvt Ltd",
+   "bank_name": "Test Bank",
+   "account_number": "987654321098",
+   "routing_number": null,
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": "HDFC0001234",
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "GST_CERT",
+    "filename": "g.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "b.pdf",
+    "sha256": "y"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "REJECTED",
+  "awaiting": [],
+  "tier": "BLOCKED",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.2,
+     "points": 5.0,
+     "drivers": [
+      "spend_usd=18000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.25,
+     "points": 5.0,
+     "drivers": [
+      "country=IN"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.1,
+     "points": 1.0,
+     "drivers": [
+      "category=OFFICE_SUPPLIES"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 12.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "BANK_SHARED_ACROSS_VENDORS",
+   "GSTIN_NOT_FOUND"
+  ],
+  "blocking_finding_ids": [
+   "C-DUP-02",
+   "C-VER-02"
+  ],
+  "required_actions": [
+   {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [],
+  "counterfactuals": [],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "6e99415ff47975e3a2dc74cbd61a07d85c6f2a6bd400e72dcd78ee45aa328678"
+ },
+ "findings": [
+  {
+   "check_id": "C-DUP-02",
+   "stage": "S6",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 3,
+   "reason_code": "BANK_SHARED_ACROSS_VENDORS",
+   "title": "Bank account shared across vendors",
+   "detail": "Account already used by V-000044.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "bank.account_number",
+     "summary": "claim bank.account_number",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "bank.account_number"
+   ],
+   "fingerprint": "2839d6489072e51f06b957a08bd9975d9f8f3e2404cee1a1698f8b5cd9dcbdc0",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "GSTIN_NOT_FOUND",
+   "title": "GSTIN not found",
+   "detail": "No GST registry record.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "tax.tax_id",
+     "summary": "claim tax.tax_id",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_GSTIN",
+    "field_paths": [
+     "tax.tax_id"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "tax.tax_id"
+   ],
+   "fingerprint": "72cc58c56fb8515cf3cf2c55478b58c331b8966d9360ed60ec1c52180333e1e9",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-helios",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "528bc74e5ddd22773225a348b2dfd1f9149d09a51047fb3a949ed14e4a7ea874",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

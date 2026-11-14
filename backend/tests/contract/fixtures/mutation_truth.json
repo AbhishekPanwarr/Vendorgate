@@ -1,0 +1,483 @@
+[
+ {
+  "id": "M-01",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "MISSING_FIELD"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-02",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "MISSING_DOC"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-03",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "DOC_WRONG_TYPE"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-04",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "TAX_CHECKSUM_INVALID"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-05",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "TAX_FORMAT_MISMATCH"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-06",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "GSTIN_PAN_MISMATCH"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-07",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "PAN_ENTITY_MISMATCH"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-08",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-09",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "LEGAL_FORM_UNCONFIRMED"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-10",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-11",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-12",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "NAME_MISMATCH_BANK"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-13",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "NAME_MISMATCH_BANK"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-14",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-15",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR",
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "BANK_COUNTRY_MISMATCH"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-16",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "BANK_COUNTRY_INCOHERENT"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-17",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "BANK_CHECKSUM_INVALID"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-18",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "TIN_NOT_ISSUED"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-19",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "TIN_NAME_MISMATCH"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-20",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "GSTIN_NOT_ACTIVE"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-21",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "ENTITY_NOT_ACTIVE"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-22",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "DOC_EXPIRED"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-23",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "DOC_STALE"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-24",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "DOC_UNSIGNED"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-25",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "DOC_FORM_MISMATCH"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-26",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "DUPLICATE_EXISTING"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-27",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "TIN_REUSE_DIFFERENT_NAME"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-28",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "BANK_SHARED_ACROSS_VENDORS"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-29",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "DUPLICATE_REVIEW"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-30",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "SANCTIONS_MATCH"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-31",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-32",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "SANCTIONS_REVIEW"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-33",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "SANCTIONED_OWNERSHIP"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-34",
+  "status": "REJECTED",
+  "awaiting": [],
+  "reason_codes": [
+   "EMBARGOED_JURISDICTION"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-35",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "PEP_REVIEW"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-36",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "ADVERSE_MEDIA_REVIEW"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-37",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "BANK_CHANGE_REQUIRES_CALLBACK"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-38",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "CHANGE_VELOCITY"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-39",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-40",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "PO_BOX_REGISTERED_ADDRESS"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-41",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "HOMOGLYPH_SUSPECT"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-42",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "REMIT_ADDRESS_UNJUSTIFIED"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-43",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "DOC_INJECTION_SUSPECTED"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-44",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-45",
+  "status": "APPROVED",
+  "awaiting": [],
+  "reason_codes": [],
+  "critical": false
+ },
+ {
+  "id": "M-46",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "VERIFIER_UNAVAILABLE"
+  ],
+  "critical": true
+ },
+ {
+  "id": "M-47",
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "reason_codes": [
+   "INCORP_DATE_MISMATCH"
+  ],
+  "critical": false
+ },
+ {
+  "id": "M-48",
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "reason_codes": [
+   "TIER_APPROVAL_REQUIRED"
+  ],
+  "critical": false
+ }
+]

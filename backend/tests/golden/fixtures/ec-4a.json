@@ -1,0 +1,276 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 30000,
+    "currency": "USD"
+   },
+   "category": "CONSULTING",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Meridian Shipping Svcs LLC",
+   "trading_name": null,
+   "entity_type": "LTD",
+   "country": "GB",
+   "incorporation_date": "2021-04-01",
+   "registered_address": {
+    "line1": "10 Harbour Rd",
+    "line2": null,
+    "city": "London",
+    "region": "London",
+    "postal_code": "E1 6AN",
+    "country": "GB"
+   },
+   "remit_to_address": null,
+   "website": "https://meridian-shipping.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@meridian-shipping.example",
+    "phone": "+442071234567"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@meridian-shipping.example",
+    "phone": "+442071234568"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "GB",
+   "tax_id_type": "VAT",
+   "tax_id": "GB999999973",
+   "secondary_ids": {},
+   "tax_classification": "LTD",
+   "form_type": "VAT_CERT",
+   "vat_id": "GB999999973"
+  },
+  "bank": {
+   "country": "GB",
+   "currency": "GBP",
+   "account_holder_name": "Meridian Shipping Svcs LLC",
+   "bank_name": "Test Bank",
+   "account_number": "31926819",
+   "routing_number": null,
+   "iban": "GB29NWBK60161331926819",
+   "swift_bic": "NWBKGB2L",
+   "ifsc": null,
+   "sort_code": "60-16-13"
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "VAT_CERT",
+    "filename": "v.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "b.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "i.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "APPROVED",
+  "awaiting": [],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.5,
+     "points": 12.5,
+     "drivers": [
+      "spend_usd=30000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.1,
+     "points": 2.0,
+     "drivers": [
+      "country=GB"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.4,
+     "points": 4.0,
+     "drivers": [
+      "category=CONSULTING"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 20.0,
+   "band": "LOW"
+  },
+  "reason_codes": [],
+  "blocking_finding_ids": [],
+  "required_actions": [],
+  "approval_route": [],
+  "counterfactuals": [],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "654994114393216647514be1b6af51769fbeded7d0fb1b16e70ca07ccb9dc56a"
+ },
+ "findings": [
+  {
+   "check_id": "C-SAN-01",
+   "stage": "S7",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Sanctions decoy cleared",
+   "detail": "High name similarity but contradicting identifiers.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.legal_name",
+     "summary": "claim company.legal_name",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.legal_name"
+   ],
+   "fingerprint": "651ee86a0f0dd73a22092515e1df62d02589bb3f921cbe01f483910df819bb84",
+   "score_tags": {
+    "GEO": 0.1
+   },
+   "duration_ms": 7,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-03",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "VAT valid",
+   "detail": "VAT valid",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "vies",
+     "summary": "vies fixture vies-gb",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "9fa68ac17b0afe6544eeea3ce61ff64a2f796ebd9698b79b054b1395db1fafa0",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry fixture reg-meridian-gb",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "3e365673d54ae3f38a41e6e0db1195c1713ea10189bff0a4c0157cdc9d2ead08",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-ec3b-new",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "ad7fc8c0a7798ffa93a5c94a485c013ceebc83f671608cfe3798e34896affbba",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  }
+ ]
+}

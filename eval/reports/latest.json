@@ -1,0 +1,558 @@
+{
+ "headline": {
+  "E1": {
+   "k": 0,
+   "n": 109,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.03404418228738337
+  }
+ },
+ "test_hybrid": {
+  "E1_critical_false_approve": {
+   "k": 0,
+   "n": 109,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.03404418228738337
+  },
+  "E2_false_approve": {
+   "k": 0,
+   "n": 42,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.08380161250916197
+  },
+  "E3_false_reject": {
+   "k": 0,
+   "n": 101,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.03664194365595336
+  },
+  "E4_friction": {
+   "k": 0,
+   "n": 64,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.056626022971156334
+  },
+  "E5_status_accuracy": {
+   "k": 260,
+   "n": 260,
+   "rate": 1.0,
+   "lo": 0.9854397486977035,
+   "hi": 1.0,
+   "confusion": {
+    "APPROVED": {
+     "APPROVED": 101,
+     "PENDING": 0,
+     "REJECTED": 0
+    },
+    "PENDING": {
+     "APPROVED": 0,
+     "PENDING": 117,
+     "REJECTED": 0
+    },
+    "REJECTED": {
+     "APPROVED": 0,
+     "PENDING": 0,
+     "REJECTED": 42
+    }
+   }
+  },
+  "E6_reason_codes": {
+   "micro": {
+    "precision": 0.7254901960784313,
+    "recall": 0.9736842105263158,
+    "f1": 0.8314606741573034,
+    "tp": 185,
+    "fp": 70,
+    "fn": 5
+   },
+   "exact_set": {
+    "k": 213,
+    "n": 260,
+    "rate": 0.8192307692307692,
+    "lo": 0.7679151708585595,
+    "hi": 0.8612502071561281
+   }
+  },
+  "E7_awaiting": {
+   "k": 246,
+   "n": 260,
+   "rate": 0.9461538461538461,
+   "lo": 0.9116577895507059,
+   "hi": 0.967657678518014
+  },
+  "E8_remediation": {
+   "proxy_actionable": {
+    "k": 74,
+    "n": 74,
+    "rate": 1.0,
+    "lo": 0.9506484964337834,
+    "hi": 0.9999999999999998
+   }
+  },
+  "E9_remediation_success1": {
+   "proxy_success1": {
+    "k": 74,
+    "n": 74,
+    "rate": 1.0,
+    "lo": 0.9506484964337834,
+    "hi": 0.9999999999999998
+   },
+   "note": "proxy: counterfactual present; vendor simulator in Phase 6"
+  },
+  "E10_message_safety": {
+   "k": 0,
+   "n": 260,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.014560251302296528
+  },
+  "E13_sanctions": {
+   "sanctions_recall": {
+    "k": 6,
+    "n": 6,
+    "rate": 1.0,
+    "lo": 0.6096569663469354,
+    "hi": 1.0
+   },
+   "decoy_hold": {
+    "k": 0,
+    "n": 2,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.6576280471103807
+   }
+  },
+  "E14_network": {
+   "recall": {
+    "k": 4,
+    "n": 4,
+    "rate": 1.0,
+    "lo": 0.5100999795960008,
+    "hi": 1.0
+   }
+  },
+  "E16_invariance": {
+   "k": 4,
+   "n": 4,
+   "rate": 1.0,
+   "lo": 0.5100999795960008,
+   "hi": 1.0
+  },
+  "E20_audit_chain": {
+   "k": 260,
+   "n": 260,
+   "rate": 1.0,
+   "lo": 0.9854397486977035,
+   "hi": 1.0
+  },
+  "E21_auc": {
+   "auc": 0.6152249890782001
+  },
+  "E22_tier_calibration": {
+   "k": 101,
+   "n": 101,
+   "rate": 1.0,
+   "lo": 0.9633580563440465,
+   "hi": 0.9999999999999998
+  },
+  "n": 260,
+  "E18_latency": {
+   "p50": 0.15,
+   "p95": 0.28,
+   "mode": "hybrid"
+  },
+  "E19_cost": {
+   "tokens": 0,
+   "note": "replay/off"
+  },
+  "meta": {
+   "split": "test",
+   "mode": "hybrid",
+   "n": 260
+  }
+ },
+ "sets": {
+  "E12": {
+   "false_merge": {
+    "k": 0,
+    "n": 150,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.02497113914571871
+   },
+   "recall": {
+    "k": 150,
+    "n": 150,
+    "rate": 1.0,
+    "lo": 0.9750288608542813,
+    "hi": 1.0
+   },
+   "confusion": {
+    "tp": 140,
+    "fp": 0,
+    "tn": 150,
+    "fn": 10
+   }
+  },
+  "E11": {
+   "text": {
+    "k": 60,
+    "n": 60,
+    "rate": 1.0,
+    "lo": 0.939826069522067,
+    "hi": 0.9999999999999998
+   },
+   "scanned": {
+    "k": 43,
+    "n": 60,
+    "rate": 0.7166666666666667,
+    "lo": 0.5923247495026484,
+    "hi": 0.8149332139569141
+   },
+   "grounding": {
+    "k": 518,
+    "n": 551,
+    "rate": 0.9401088929219601,
+    "lo": 0.9170836127073267,
+    "hi": 0.9570397406965998
+   },
+   "grounding_text": {
+    "k": 275,
+    "n": 275,
+    "rate": 1.0,
+    "lo": 0.9862230025935872,
+    "hi": 1.0
+   },
+   "grounding_scanned": {
+    "k": 243,
+    "n": 276,
+    "rate": 0.8804347826086957,
+    "lo": 0.8368405536425614,
+    "hi": 0.9135839722320763
+   }
+  },
+  "E14": {
+   "recall": {
+    "k": 15,
+    "n": 15,
+    "rate": 1.0,
+    "lo": 0.7961107336956521,
+    "hi": 1.0
+   },
+   "precision_proxy": {
+    "k": 30,
+    "n": 30,
+    "rate": 1.0,
+    "lo": 0.886482908609522,
+    "hi": 1.0
+   }
+  }
+ },
+ "ablation_dev": {
+  "hybrid": {
+   "E1": {
+    "k": 0,
+    "n": 91,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.04050543221539915
+   },
+   "E3": {
+    "k": 0,
+    "n": 163,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.023025432506041655
+   },
+   "E5": 1.0,
+   "E6_f1": 0.8075,
+   "p95": 0.22
+  },
+  "rules-only": {
+   "E1": {
+    "k": 0,
+    "n": 91,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.04050543221539915
+   },
+   "E3": {
+    "k": 0,
+    "n": 163,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.023025432506041655
+   },
+   "E5": 0.8647,
+   "E6_f1": 0.6644,
+   "p95": 0.31
+  },
+  "corroboration": {
+   "E1": {
+    "k": 0,
+    "n": 91,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.04050543221539915
+   },
+   "E3": {
+    "k": 0,
+    "n": 163,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.023025432506041655
+   },
+   "E5": 0.9912,
+   "E6_f1": 0.7985,
+   "p95": 0.39
+  },
+  "fail-closed": {
+   "E1": {
+    "k": 3,
+    "n": 91,
+    "rate": 0.03296703296703297,
+    "lo": 0.011274202463345793,
+    "hi": 0.09249460784774134
+   },
+   "E3": {
+    "k": 0,
+    "n": 163,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.023025432506041655
+   },
+   "E5": 0.9912,
+   "E6_f1": 0.7985,
+   "p95": 0.21
+  },
+  "network": {
+   "E1": {
+    "k": 3,
+    "n": 91,
+    "rate": 0.03296703296703297,
+    "lo": 0.011274202463345793,
+    "hi": 0.09249460784774134
+   },
+   "E3": {
+    "k": 0,
+    "n": 163,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.023025432506041655
+   },
+   "E5": 0.9882,
+   "E6_f1": 0.7962,
+   "p95": 0.29
+  },
+  "counterfactual": {
+   "E1": {
+    "k": 0,
+    "n": 91,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.04050543221539915
+   },
+   "E3": {
+    "k": 0,
+    "n": 163,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.023025432506041655
+   },
+   "E5": 1.0,
+   "E6_f1": 0.8075,
+   "p95": 0.36
+  }
+ },
+ "llm_only_test25": {
+  "E1_critical_false_approve": {
+   "k": 0,
+   "n": 12,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.2425007574992425
+  },
+  "E2_false_approve": {
+   "k": 0,
+   "n": 4,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.48990002040399916
+  },
+  "E3_false_reject": {
+   "k": 0,
+   "n": 5,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.43449149475208104
+  },
+  "E4_friction": {
+   "k": 3,
+   "n": 4,
+   "rate": 0.75,
+   "lo": 0.30063605244263664,
+   "hi": 0.9544139373553638
+  },
+  "E5_status_accuracy": {
+   "k": 14,
+   "n": 23,
+   "rate": 0.6086956521739131,
+   "lo": 0.40785179603745997,
+   "hi": 0.7784262201761787,
+   "confusion": {
+    "APPROVED": {
+     "APPROVED": 1,
+     "PENDING": 4,
+     "REJECTED": 0
+    },
+    "PENDING": {
+     "APPROVED": 0,
+     "PENDING": 13,
+     "REJECTED": 1
+    },
+    "REJECTED": {
+     "APPROVED": 0,
+     "PENDING": 4,
+     "REJECTED": 0
+    }
+   }
+  },
+  "E6_reason_codes": {
+   "micro": {
+    "precision": 0.015384615384615385,
+    "recall": 0.08695652173913043,
+    "f1": 0.026143790849673203,
+    "tp": 2,
+    "fp": 128,
+    "fn": 21
+   },
+   "exact_set": {
+    "k": 1,
+    "n": 23,
+    "rate": 0.043478260869565216,
+    "lo": 0.007716466962126739,
+    "hi": 0.20991586494059142
+   }
+  },
+  "E7_awaiting": {
+   "k": 9,
+   "n": 23,
+   "rate": 0.391304347826087,
+   "lo": 0.22157377982382145,
+   "hi": 0.5921482039625401
+  },
+  "E8_remediation": {
+   "proxy_actionable": {
+    "k": 0,
+    "n": 21,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.15464382326420195
+   }
+  },
+  "E9_remediation_success1": {
+   "proxy_success1": {
+    "k": 0,
+    "n": 21,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.15464382326420195
+   },
+   "note": "proxy: counterfactual present; vendor simulator in Phase 6"
+  },
+  "E10_message_safety": {
+   "k": 0,
+   "n": 23,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.14312112541726274
+  },
+  "E13_sanctions": {
+   "sanctions_recall": {
+    "k": 0,
+    "n": 0,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 1.0
+   },
+   "decoy_hold": {
+    "k": 0,
+    "n": 0,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 1.0
+   }
+  },
+  "E14_network": {
+   "recall": {
+    "k": 0,
+    "n": 3,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.5615060804490177
+   }
+  },
+  "E16_invariance": {
+   "k": 0,
+   "n": 0,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 1.0
+  },
+  "E20_audit_chain": {
+   "k": 0,
+   "n": 23,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.14312112541726274
+  },
+  "E21_auc": {
+   "auc": 1.0
+  },
+  "E22_tier_calibration": {
+   "k": 1,
+   "n": 1,
+   "rate": 1.0,
+   "lo": 0.20654329147389294,
+   "hi": 1.0
+  },
+  "n": 23,
+  "E19_cost": {
+   "tokens": 80470,
+   "note": "25-case slice, live once"
+  },
+  "meta": {
+   "split": "test-25",
+   "mode": "llm-only",
+   "n": 23
+  }
+ },
+ "manifest": {
+  "test_split_sha256": "6592f24eef0732fbce4ac864b2ddb8e9bfdacc2dc555c8dadd0d26664a1d96e6",
+  "dataset_sha256": "e20546bc85a030e7603e5633d7e282e36f32447c4cf7305d174a5b5c91fad612",
+  "seed": 42,
+  "counts": {
+   "clean": 160,
+   "single": 240,
+   "double": 100,
+   "scanned": 60,
+   "adversarial": 40
+  }
+ },
+ "limitations": [
+  "L-01..L-18 per solution B16 (rendered on page).",
+  "L-NEW1: VAT-ID regex covers GB/DE 9-digit forms; other VAT formats rely on L1 extraction.",
+  "L-NEW2: scanned-doc regex extraction 72% (OCR noise); L1 grounding on scanned 88%.",
+  "L-NEW3: signature presence is LLM-read; rules-only mode degrades on W9s (E5 86-88%).",
+  "L-NEW4: llm-only baseline measured on a 23-case stratified test slice (budget cap), not the full split.",
+  "L-NEW5: -corroboration shows no E1 change on dev: corroboration did not bind on this dataset slice.",
+  "L-NEW6: remediation E8/E9 are actionability proxies; vendor simulator lands in Phase 6.",
+  "L-NEW7: E23 human agreement deferred (needs two blind labelers); ambiguous-100 template committed.",
+  "L-NEW8: exact-set E6 rate ~80%: defense-in-depth emits extra codes by design; status/awaiting are the gates."
+ ]
+}

@@ -1,0 +1,31 @@
+# Assumptions A-01..A-15 (B §2.1, verbatim)
+- id: A-01
+  text: Buyer is a mid-size company onboarding dozens of vendors per quarter; single tenant.
+- id: A-02
+  text: 'Supported jurisdictions: US, IN, GB, DE. Adding a jurisdiction = adding a policy pack + validators, not changing the engine.'
+- id: A-03
+  text: All external verifiers (IRS TIN match, GST registry, VIES, company registries, bank penny-drop, sanctions, adverse media, domain intel) are mocked behind interfaces that mirror the real ones; fixtures are deterministic.
+- id: A-04
+  text: The sanctions list is fictional (plus a few generic embargoed-jurisdiction ISO codes). Real lists (OFAC SDN, EU, UN, UK OFSI; OpenSanctions where licensing allows) plug in via the same interface.
+- id: A-05
+  text: Thresholds (spend bands, score weights, tier cut-offs, similarity thresholds) are illustrative and tuned on the dev split only.
+- id: A-06
+  text: Amounts are converted to USD with a static FX table.
+- id: A-07
+  text: Vendor identity for portal access is a simulated magic link.
+- id: A-08
+  text: Email is simulated by an outbox table (optional SMTP sink such as MailHog).
+- id: A-09
+  text: Documents are synthetic. Document templates are simplified replicas, clearly watermarked "SYNTHETIC", not reproductions of official forms.
+- id: A-10
+  text: Time is controlled by a virtual clock so nudges, SLAs and expiries can be demonstrated in seconds.
+- id: A-11
+  text: ERP sync is a simulated outbox (erp_outbox) written on approval.
+- id: A-12
+  text: Internal roles (Requester, AP Analyst, Controller, Compliance) are simulated by a role switcher; segregation-of-duties is still enforced in code.
+- id: A-13
+  text: The bank "callback" is simulated by an internal user attesting which phone number they used; the system validates that the number is independent of the change request.
+- id: A-14
+  text: 1099 threshold is config ($2,000 for post-2025 NEC/MISC per PS_CONTEXT; re-verify before quoting).
+- id: A-15
+  text: The manual-review baseline (minutes per vendor) used in the impact model is an assumption, labeled as such.

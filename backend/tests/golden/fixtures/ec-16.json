@@ -1,0 +1,386 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 18000,
+    "currency": "USD"
+   },
+   "category": "OFFICE_SUPPLIES",
+   "data_access": false,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Brightline Office Supply LLC",
+   "trading_name": null,
+   "entity_type": "LLC",
+   "country": "US",
+   "incorporation_date": "2016-04-12",
+   "registered_address": {
+    "line1": "410 Market St",
+    "line2": null,
+    "city": "Columbus",
+    "region": "OH",
+    "postal_code": "43215",
+    "country": "US"
+   },
+   "remit_to_address": null,
+   "website": "https://brightline-office.example",
+   "primary_contact": {
+    "name": "Ravi Khanna",
+    "email": "ravi@brightline-office.example",
+    "phone": "+1 614 555 0142"
+   },
+   "ap_contact": {
+    "name": "Meera Das",
+    "email": "ap@brightline-office.example",
+    "phone": "+1 614 555 0143"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "US",
+   "tax_id_type": "EIN",
+   "tax_id": "84-1234567",
+   "secondary_ids": {},
+   "tax_classification": "LLC",
+   "form_type": "W9",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "US",
+   "currency": "USD",
+   "account_holder_name": "Brightline Office Supply LLC",
+   "bank_name": "Synthetic National Bank",
+   "account_number": "000123456789",
+   "routing_number": "011000015",
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": null,
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "w9",
+    "doc_type": "W9",
+    "filename": "blank.pdf",
+    "sha256": "x"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "files": {
+  "w9": [
+   "blank.pdf",
+   "JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0NvbnRlbnRzIDcgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCA2IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNiAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL0F1dGhvciAoYW5vbnltb3VzKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYxMTExMTA0MDA2KzA1JzAwJykgL0NyZWF0b3IgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjExMTExMDQwMDYrMDUnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIHd3dy5yZXBvcnRsYWIuY29tKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAodW50aXRsZWQpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDMgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDU5Cj4+CnN0cmVhbQpHYXBRaDBFPUYsMFVcSDNUXHBOWVReUUtrP3RjPklQLDtXI1UxXjIzaWhQRU1fUFAkTyEzXixDNVF+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDczIDAwMDAwIG4gCjAwMDAwMDAxMDQgMDAwMDAgbiAKMDAwMDAwMDIxMSAwMDAwMCBuIAowMDAwMDAwNDA0IDAwMDAwIG4gCjAwMDAwMDA0NzIgMDAwMDAgbiAKMDAwMDAwMDc2OCAwMDAwMCBuIAowMDAwMDAwODI3IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPGQ4MTI2MzkwNWM5ZTkyZjdlMDQ5MjQ4YzYxZTVlMjE1PjxkODEyNjM5MDVjOWU5MmY3ZTA0OTI0OGM2MWU1ZTIxNT5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChodHRwOi8vd3d3LnJlcG9ydGxhYi5jb20pCgovSW5mbyA1IDAgUgovUm9vdCA0IDAgUgovU2l6ZSA4Cj4+CnN0YXJ0eHJlZgo5NzUKJSVFT0YK"
+  ]
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "VENDOR"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.2,
+     "points": 5.0,
+     "drivers": [
+      "spend_usd=18000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": [
+      "country=US"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.7,
+     "points": 14.0,
+     "drivers": [
+      "doc_tags=0.7"
+     ]
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.1,
+     "points": 1.0,
+     "drivers": [
+      "category=OFFICE_SUPPLIES"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    }
+   },
+   "total": 21.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "DOC_UNREADABLE",
+   "DOC_UNSIGNED",
+   "MISSING_DOC"
+  ],
+  "blocking_finding_ids": [
+   "C-DOC-05",
+   "C-DOC-07",
+   "C-REQ-02"
+  ],
+  "required_actions": [
+   {
+    "code": "UPLOAD_W9",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "UPLOAD_CLEARER_COPY",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "UPLOAD_BANK_PROOF",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [],
+  "counterfactuals": [
+   {
+    "fix_set": [
+     "UPLOAD_BANK_PROOF"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 21.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by DOC_UNREADABLE, DOC_UNSIGNED",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_CLEARER_COPY"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 21.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by DOC_UNSIGNED, MISSING_DOC",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_W9"
+    ],
+    "status": "PENDING",
+    "tier": "LOW",
+    "score": 21.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by DOC_UNREADABLE, MISSING_DOC",
+    "score_delta": null
+   }
+  ],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "d3c0dbec6da63c2d1440b40d999cad331b9e3862d61d18b2af284e4ef730e405"
+ },
+ "findings": [
+  {
+   "check_id": "C-DOC-05",
+   "stage": "S1",
+   "check_version": 1,
+   "subject": "doc:w9",
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "DOC_UNSIGNED",
+   "title": "W-9 unsigned",
+   "detail": "w9 has no signature/date.",
+   "evidence": [
+    {
+     "kind": "rule",
+     "ref": "C-DOC-05",
+     "summary": "W-9 unsigned",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_W9",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "763eb5335eb3fc6acf07e2f46d901d6a0968abb70df3adaabb9fa41400782659",
+   "score_tags": {
+    "DOCS": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-DOC-07",
+   "stage": "S1",
+   "check_version": 1,
+   "subject": "doc:w9",
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "DOC_UNREADABLE",
+   "title": "Document unreadable",
+   "detail": "w9 yielded no text.",
+   "evidence": [
+    {
+     "kind": "rule",
+     "ref": "C-DOC-07",
+     "summary": "Document unreadable",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_CLEARER_COPY",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "99885920ef06c658f58a9cf23ba5ddd66a7ed67c82cb4d29bdb5cba066bfad8e",
+   "score_tags": {
+    "DOCS": 0.1
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-REQ-02",
+   "stage": "S2",
+   "check_version": 1,
+   "subject": "BANK_LETTER,VOIDED_CHEQUE",
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "MISSING_DOC",
+   "title": "Missing one of ['BANK_LETTER', 'VOIDED_CHEQUE']",
+   "detail": "Upload one of the accepted bank-proof documents.",
+   "evidence": [
+    {
+     "kind": "rule",
+     "ref": "C-REQ-02",
+     "summary": "Missing one of ['BANK_LETTER', 'VOIDED_CHEQUE']",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_BANK_PROOF",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "bfb9e0e8ab23e37a5da817eb3a5ee17adc2ab8e3610fda969854a1cd63413cf9",
+   "score_tags": {
+    "DOCS": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-01",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "TIN match",
+   "detail": "TIN match",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "irs",
+     "summary": "irs fixture irs-hp1",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "9536f38904e105adf0072444307cfa82cf864ae02fddfe59d13bc59f51c14a5d",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-hp1",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "712e73761e9d5497cc9c0cb269f55647e00b53ecfca468c7aeb602822df5dbfd",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": true
+  }
+ ]
+}

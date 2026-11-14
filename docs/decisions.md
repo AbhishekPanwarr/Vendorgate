@@ -1,0 +1,280 @@
+# ADR index
+
+**Phase 0 gate status: RED (as of 2026-11-10) — blockers G-1/G-3/G-8/G-15 (Render not provisioned). Phase 1 must not start.**
+- 0001 hybrid engine — accepted
+- 0002 fail-closed — accepted
+- 0003 record/replay — accepted
+- 0004 custom DAG — accepted
+- 0005 SQLite→Postgres — accepted
+- 0006 Verifier Protocol — accepted
+- 0007 npm-over-pnpm — accepted
+- 0008 python-runtime-pin — accepted
+
+## Open Questions — Phase 0
+- Render creds pending: Dockerfile + render.yaml committed but undeployed; G-1/G-3/G-8/G-15 expected red; Phase 1 blocked until provisioned.
+- GB/DE policy packs ship shape-only (empty lists).
+- catalog.yaml conflicts_with uses [] where brief is silent (no invented dependencies).
+
+## Phase 0 Evidence
+
+- Deployed URL: **none (Render creds pending)** — G-1/G-3/G-8/G-15 RED; Phase 1 blocked per rule 6.
+- `make ci` equivalent (lint + unit + property + contract + api + frontend), local:
+  - `ruff check .` → All checks passed!
+  - `ruff format --check .` → 58 files already formatted
+  - `mypy (strict, 5 packages)` → Success: no issues found in 18 source files
+  - `npm run typecheck` → clean; `npm run build` → ✓ built (dist 163.96 kB)
+  - `pytest -q` → **56 passed, 1 skipped (e2e, no VG_BASE_URL), 5 xfailed**
+- Invariants collected (5, all xfail strict): I1 approved_only_clean, I2 critical_rejects,
+  I3 deterministic_order_independent, I4 removal_never_worsens, I5 llm_needs_corroborator.
+- `pytest -q --runxfail backend/tests/golden/` → **5 failed** (all via
+  `NotImplementedError("Phase 1")` from `decide()` — real red, not typos).
+- Alembic: `upgrade head` → 23 tables (incl. `idempotency_keys`, `alembic_version`);
+  `downgrade -1` → clean; `upgrade head` → green again.
+- `/admin/reset` → 200, `duration_ms` 0.003 (< 5000 ms) via TestClient.
+- `openapi.json` snapshot committed at `backend/tests/contract/fixtures/openapi.json`;
+  contract test green (byte-for-byte after canonical JSON).
+- `catalog.yaml` → 48 rows; `test_mutation_catalog.py` green vs
+  `mutation_truth.json` (status/awaiting/reason_codes/critical diffed).
+- ADRs 0001–0008 merged, one page each, Context/Decision/Consequences/Alternatives.
+- `docs/process_map.md` (§5.2 diagram + stage table); `docs/assumptions.md` (A-01..A-15).
+- `mypy --strict` passes on domain/core/pipeline/decision/adapters.
+- Cold start: N/A (no deployed instance).
+- `grep -r NotImplementedError backend/app/api backend/app/pipeline/orchestrator.py`
+  → empty; stubs live only in `backend/app/decision/` (+ future `llm/`).
+
+## Phase 1 Evidence
+
+- Anchors: HP-1 APPROVED / LOW / **7.5** (SPEND 5.0, GEO 0, DOCS 0, BANK_ID 1.5,
+  CATEGORY 1.0, REGISTRY_MEDIA 0); worked-B PENDING / LOW / **37.5**
+  (20/5/0/1.5/9/2), awaiting INTERNAL, route [AP_ANALYST].
+- `pytest -q backend/tests/golden/test_invariants.py` → **5 passed, 0 xfail**
+  (markers removed in this phase).
+- Full suite: **113 passed, 4 skipped** (e2e only; pass with VG_BASE_URL set).
+  E2E vs localhost:8000 → **4 passed, 0 skipped**.
+- Coverage: validators 94.1%, matching 97.8%, risk 98.8%, decision 92.3%
+  (all ≥ 90; TOTAL 96%).
+- openapi.json: regenerated; diff vs Phase 0 = 9 new D-1.12 routes only;
+  SPA `/{path}` fallback uses `include_in_schema=False` (not in schema).
+- Goldens: hp-1, hp-2, hp-3 (LOW_GATED per OQ-P1-1 default b — spec §13 said
+  HIGH; deviation logged here), ec-1-run-1 (PENDING, LEGAL_FORM_UNCONFIRMED,
+  counterfactual → APPROVED), ec-2a, ec-2b, ec-2c, ec-18.
+- Screenshots: docs/evidence/shot-hp1.png (APPROVED 7.5),
+  shot-ec1.png (PENDING + counterfactual), shot-dash.png (dashboard).
+- SoD: same-actor approval → 403 SEGREGATION_OF_DUTIES_VIOLATION;
+  fresh case + different actor → 200.
+- Audit: HP-1 chain verifies; single-byte tamper → broken_at reported.
+- `mypy --strict` clean on 59 source files; ruff check + format clean.
+- V-1: no datetime.now/time.time outside core/clock.py (only hit is
+  `ctx.clock.now()` in geo.py). V-2: mixed_script on NFC raw pre-unidecode.
+  V-3: SoD test uses fresh case + second actor.
+- Phase 0 stays RED (G-1/G-3/G-8/G-15 need Render); Phase 1 gate is unaffected.
+
+## Phase 1 → Phase 2 handoff (P-1..P-5)
+
+- P-1: no approvals UI (frontend/src has App/Case/Dashboard/main only). D-2.11 builds it.
+- P-2: no Message/Network placeholders in Case.tsx. D-2.11 builds tabs fresh.
+- P-3: POST /cases/any/callback → 422 today. D-2.8 replaces with functional logic.
+- P-4: "callback" already in openapi.json snapshot. Phase 2 changes behavior only
+  for that route; snapshot regen needed only for new routes (retry-verification,
+  messages, approvals queue).
+- P-5: adapter_faults count = 0. D-2.14 populates for chaos tests.
+
+## Phase 2 mock fixture strategy
+
+Hand-crafted JSONL fixtures keyed by stable business key (tax_id, GSTIN, ...),
+NOT by request hash. Phase 5 datagen will replace with generated fixtures using
+the same schema. Mock adapter interface must not change.
+
+## Phase 2 Evidence
+
+- HP-1 APPROVED/LOW/7.5, HP-2 PENDING/LOW/37.5, HP-3 PENDING/LOW/30.5 — all
+  scores unchanged from Phase 1 (only policy_version/repro hashes + new PASS
+  findings in diffs).
+- HP-3-HIGH PENDING/HIGH/77.5, route [CONTROLLER, COMPLIANCE].
+  (OQ-P1-1 default b kept: base HP-3 stays LOW_GATED.)
+- EC-3a REJECTED/BLOCKED, BANK_SHARED_ACROSS_VENDORS (CRITICAL).
+- EC-3b PENDING, BANK_CHANGE_REQUIRES_CALLBACK + CALLBACK_REQUIRED;
+  request-number callback → CALLBACK_NOT_INDEPENDENT; vendor-master number
+  (60d old) → ok + cleared list.
+- EC-4a decoy → no sanctions finding, APPROVED. EC-4b → SANCTIONS_MATCH,
+  REJECTED/BLOCKED, vendor email neutral ("compliance review").
+- EC-4d (registry TIMEOUT fault) → VERIFIER_UNAVAILABLE, PENDING(INTERNAL).
+- Chaos: irs/bank TIMEOUT+ERROR → PENDING(INTERNAL), never APPROVED;
+  fault cleared → rerun APPROVED.
+- Message checker: exact-once, extra-item, forbidden-term, resubmit-link,
+  350-word properties green. Forbidden-term scan over EC-1/EC-3a/EC-4b
+  vendor emails: 0 hits.
+- Coverage: validators 94.6%, matching 97.8%, risk 98.8%, decision 93.1%,
+  adapters 94.3%, network 97.4%, comms 98.2%, screening 95.2% (all ≥ 90).
+- Full suite: 142 passed, 8 skipped (e2e; 8/8 pass with VG_BASE_URL set).
+  mypy strict clean (70 files); ruff check + format clean.
+- openapi.json: +3 routes (approvals queue, messages, retry-verification);
+  callback route behavior-only change; SPA fallback excluded via
+  include_in_schema=False.
+- Screenshots: docs/evidence/shot-ec3a-network.png,
+  shot-ec3b-cb-bad.png, shot-ec3b-cb-good.png, shot-ec4b-msg.png,
+  shot-approvals.png.
+- Route display change (decisions.md note): approval route now shows whenever
+  INTERNAL is awaiting, even with vendor items still open (approvers act after
+  vendor fixes). Spec §9.S10 had `and not blocking`; gate P2-G4 requires the
+  dual route visible on HP-3-HIGH.
+- Phase 0 stays RED (Render pending); unaffected by Phase 2.
+
+## Phase 2 fixture corrections (V-3.2)
+
+- EC-1 payload `tax.tax_id`: `84-1234567` → `84-7654321` (before/after).
+  Reason: the old value shared HP-1's EIN. Pre-S4 that was harmless; with S4
+  TIN matching, one EIN maps to one IRS name, so sharing it forces either
+  HP-1 or EC-1 to mismatch its tax record. Two different vendors sharing an
+  EIN is itself a fraud signal, so the shared value was the fixture bug.
+  EC-1 narrative (same company, three spellings) unchanged; new IRS row
+  `irs-ec1` returns the exact form name (EXACT match, no finding).
+- Adverse list A-002 subject: `acme trading co` → `apex trading co`. The old
+  subject collided with EC-1's vendor name and would have fired a spurious
+  low-severity hit on the headline demo. Mock-list fix, submission untouched.
+
+## Phase 3 LLM PoC notes (small call budget)
+
+- Provider: Meta Model API via OpenAI-compatible Chat Completions
+  (`https://api.meta.ai/v1`, `muse-spark-1.3`). Key in local `.env` only.
+- Findings: `response_format: json_object` mode returned all-null fields;
+  dropped it in favor of a JSON-only instruction + brace extraction (fixed in
+  `provider_meta.py`). Reasoning models need `max_tokens >= 2048` (small
+  budgets return empty content with `finish_reason=length`).
+- Live PoC calls used (~7 total): GST + bank full-schema extractions recorded
+  (grounded, committed as replay fixtures); W9 full 8-field schema returned
+  all-null twice (2-field schema works — likely over-caution on the absent
+  address field). Remaining replay fixtures are hand-authored with verbatim
+  quotes from the PDFs (grounded by construction; `grounding_ok` asserts on
+  all of them). Full-schema W9 prompt hardening deferred (OQ: needs more
+  live calls).
+
+## Phase 3 known limitation (grounding)
+
+Property testing found unidecode collisions on exotic unicode (e.g. a Cherokee
+letter canonicalizing into an ASCII digit) can pass the substring half of
+`grounding_ok`. Corpus docs are Latin-script; partial_ratio + substring holds
+for realistic inputs. Non-Latin scripts are already L-03 (name matching
+limits). No change.
+
+## Phase 3 Evidence
+
+- HP-1/HP-2/HP-3 scores unchanged (7.5/37.5/30.5); HP-3-HIGH unchanged (77.5).
+  New PASS findings (C-DOC-*, C-NAME-01, C-VER-*) in goldens, no score impact.
+- EC-1-resubmit APPROVED/LOW/9.75, WARN NAME_VARIANT_EXPLAINED, K3 cited.
+- EC-4c PENDING with awaiting VENDOR+INTERNAL (DOC_EXPIRED + SANCTIONS_REVIEW).
+- EC-5 (hidden + text variants) DOC_INJECTION_SUSPECTED, PENDING(INTERNAL).
+- EC-6 HOMOGLYPH_SUSPECT (raw pre-unidecode check). EC-16 DOC_UNREADABLE.
+- Asymmetric authority T1-T6 green; no ctx.llm in san/dup/routing.
+- Chaos: LLM off/budget/miss paths covered; adapter+LLM down still completes.
+- Replay determinism 5x5 green. Grounding precision on committed cache: 100%
+  of filled fields carry verbatim quotes (E11-style check in component test).
+- Injection scan: hidden tiny-text + visible instruction both fire; clean PDFs
+  silent. Corpus: 14 hand-authored PDFs, all classify correctly.
+- Coverage (10 pkgs): validators 94.6, matching 97.8, risk 98.8, decision
+  92.7, adapters 94.3, network 97.4, comms 98.2, screening 95.2, ingest 94.4,
+  llm 90.3 (all ≥ 90).
+- Full suite: 185 passed, 10 skipped (e2e; 10/10 pass with VG_BASE_URL set).
+  mypy strict clean (91 files); ruff clean.
+- Screenshots: docs/evidence/shot-ec1-resubmit.png (APPROVED 9.75 + SAME
+  badge), shot-ec5.png (PENDING + injection).
+- ADRs 0010 (Meta Model API pinning, max_tokens ≥ 2048) and 0011 (injection
+  patterns v1.0). Live LLM PoC ≈ 7 calls total (GST+bank recorded; W9
+  full-schema over-caution deferred as OQ; rest hand-authored, grounded).
+- Known limitation: unidecode collisions on exotic unicode can pass substring
+  grounding (Latin-script corpus unaffected; see non-Latin L-03).
+- Phase 0 stays RED (Render pending); Phase 1/2 gates unaffected.
+
+## Phase 4 note (check-cache staleness)
+
+Debug runs showed a stale C-REQ-01 FAIL served from `check_cache` after
+check logic changed without a version bump (fingerprint covers check version
++ policy slice + reads + adapters + faults, not code). Rule restated: any
+check-logic change MUST bump that check's `version`. Dev `check_cache` was
+wiped after the incident. E17 determinism relies on this discipline.
+
+## OQ-P3-1 — W9 full-schema over-caution
+
+- Hypothesis: full 8-field W9 L1 schema returns all-null when the address
+  field is absent (2-field schema on the same doc works).
+- Reproduction: any W9 fixture missing address.line2 triggers the null.
+- Impact: Phase 5 datagen realism only; no Phase 4 impact.
+
+## Phase 3 → Phase 4 handoff (V-4.1..V-4.5)
+
+- V-4.1: OQ-P3-1 logged above.
+- V-4.2: migration 0002 adds cases.{run_id, requester, submission_type,
+  existing_vendor_id, reason_codes, current_version}, runs.result,
+  run_events, case_docs; UNIQUE(case_id, version) on submission_versions.
+- V-4.3: no /resubmit route existed; Phase 4 adds it.
+- V-4.4: clock_state was empty; initialized on first advance, never silent.
+- V-4.5: case_events was empty (in-memory era); pipeline now writes rows.
+
+## D-4.0 notes (SQLite swap)
+
+- STORE partitions now SQLite-backed (same call sites). Normalized writes:
+  submission_versions, case_events, messages, check_cache, docs on every run.
+- W-4.1 fix verified live: C-DUP-05 served a stale FAIL across vendors
+  before existing_vendor_id entered reads. Full reads audit: every check's
+  reads now cover all inputs incl. docs.content_hash, documents.digest,
+  clock.today, lists.sanctions_version; S10 bypasses cache (reads findings).
+- Known limitation: C-DUP-04/06 depend on repo growth (shared DB state);
+  documented, E17-stable (history constant within an eval run).
+
+## Phase 4 Evidence
+
+- E17: 500/500 delta==full (median cached ratio 95.8% over 100-edit sample;
+  gate needs ≥70%). Cached ratio counts checks, not findings (fixed mid-phase:
+  cached append sat inside the findings loop, so empty-result checks never
+  counted — honest accounting now).
+- W-4.1 reads audit: every check's reads now cover all inputs
+  (docs.content_hash, documents.digest, clock.today,
+  lists.sanctions_version); S10 bypasses cache (reads other findings);
+  versions bumped where reads changed (REQ-01/02, DUP-01/02/05, SAN-01..06,
+  GEO-02, ID-01, CRD-01, NAME-03). Verified live: C-DUP-05 served a stale
+  cross-vendor FAIL before existing_vendor_id entered reads.
+- D-4.0: SQLite-backed STORE (same call sites); 0002 migration
+  (current_version, run result, run_events, case_docs, UNIQUE(case_id,
+  version), rebuilt stub tables); fault state in fingerprints (fail-closed
+  across fault toggles); S8 derivation moved out of check bodies so cache
+  hits adjudicate identically; counterfactuals sorted (order-independent).
+- Delta goldens: hp-1-delta APPROVED 7.5 (rerun 3/cached 45); ec-1-delta
+  APPROVED 9.75 (rerun 12/cached 36, resolved [C-NAME-02]). Note: counts are
+  check-level, not the finding-level estimates in the brief (~1/~19, ~4/~15).
+- EC-13: 4th same-code submit → REJECTED RETRY_LIMIT_EXCEEDED → appeal →
+  PENDING(INTERNAL). EC-14: nudges day 1/3/7/10 + day-15 ABANDONED.
+  EC-3b-delta: bad callback → CALLBACK_NOT_INDEPENDENT; master number →
+  cleared. Deadline immutable (resubmit never extends due_at). Scheduler
+  idempotent (bulk == split advances). Appeal 3-role SoD enforced.
+- Status codes: 202/409/412/403 resubmit; Idempotent-Replayed header on
+  replay. Full suite: 257 passed, 13 skipped (e2e; 13/13 pass live).
+  Coverage 12 pkgs ≥90%. mypy strict clean (97 files); ruff clean.
+- openapi.json: +resubmit/appeal/clock/events routes only.
+- Screenshots: shot-resubmit-409, shot-nudge-history, shot-appeals (+ prior).
+- Phase 0 stays RED (Render pending); Render parallel track unchanged.
+
+## D-5.0 pre-flight notes
+
+- ADR-0012 (fault state in fingerprints), ADR-0013 (check-level delta counts).
+- test_reads_audit.py added; fixed 4 real gaps on first run (C-DUP-06
+  existing_vendor_id, C-REQ-02 bank.country/tax.form_type, C-VER-04
+  spend/category, indexed doc paths covered by documents.digest).
+- Makefile deploy already targets RENDER_DEPLOY_HOOK. Render provisioning
+  itself remains manual (parallel track).
+
+## Phase 5 Evidence
+
+- Dataset: 600 cases (160 clean / 240 single / 100 double / 60 scanned / 40 adversarial), dev 340 / test 260, SEED=42. Split `6592f24eef07`, dataset `136633272ae4` (manifest committed).
+- D-5.13 test runs (hybrid + rules-only, replay, frozen split):
+  - hybrid: E1 = 0/109 (upper 3.4%), E3 = 0/101, E5 = 100%, E6 micro F1 0.81, exact-set ~79%.
+  - rules-only: E1 = 0/109, E5 = 88.1% (US W9 signatures are LLM-read; deterministic layer degrades — L-NEW3).
+- llm-only: 23-case stratified slice (live, 22-23 calls used of 25 cap, 80k tokens; fixtures recorded, reruns 0 tokens): E1 = 0/12, E5 = 60.9%. Over-pends clean cases, misses 4/4 rejects — the "why hybrid" story.
+- Ablation (dev 340, same build): hybrid E1 0/91 E5 100%; rules-only E5 86.5%; -corroboration E1 0 (hypothesis FAILED, stated); -fail-closed E1 3/91; -network E1 3/91; -counterfactual E5 100% (E8/E9 proxy to 0 — its story is remediation, not status).
+- E12: false-merge 0, recall 100% (400 pairs; ambiguous-100 template committed, hand-labels pending user session — E23 deferred, OQ).
+- E11: regex text 100%, scanned 72%; grounding text 100%, scanned 88% (VAT-ID pattern added after eval caught the gap).
+- E14: 15/15 clusters, precision proxy 30/30. E15/E17: Phase 4 suites green. E20 100%. E21 AUC ~0.62-0.66 (score separates weakly; stated). E22 100%.
+- Label independence lint green; test-split-frozen respected (one hybrid test run).
+- UI: /benchmark (reads latest.json; parity-tested), /foolit (redteam attempts logged, critical-approval counter), /policy (A-01..A-15 + hash). Screenshots in docs/evidence.
+- Coverage: 12 Makefile packages ≥90% except backend/app/llm at 92.0% ✓ (all 12 green); datagen 81→ builder paths covered via mini-build (build_dataset file 68% — package aggregate: mutations 92.7, world 91.8, render 98.2, submissions 100); eval package 92.6%.
+- mypy strict clean (97 files); ruff check + format clean.
+- Live LLM budget: 23 calls total this phase. No further live calls needed (fixtures committed).

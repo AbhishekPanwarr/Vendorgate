@@ -1,0 +1,15 @@
+country: IN
+tax_ids: {primary: GSTIN, secondary: [PAN]}
+bank_countries_allowed: [IN]
+requirements:
+  fields:
+    - {path: tax.tax_id, when: "true", fix: PROVIDE_GSTIN}
+    - {path: tax.secondary_ids.PAN, when: "true", fix: PROVIDE_PAN}
+    - {path: bank.ifsc, when: "bank.country == 'IN'", fix: PROVIDE_IFSC}
+  docs:
+    - {doc_type: GST_CERT, when: "true", fix: UPLOAD_GST_CERT}
+    - {any_of: [BANK_LETTER, VOIDED_CHEQUE], when: "true", fix: UPLOAD_BANK_PROOF}
+    - {doc_type: COI, when: "category in ['LOGISTICS','CONSTRUCTION']", fix: UPLOAD_COI}
+    - {doc_type: INCORP_CERT, when: "entity_type != 'SOLE_PROP' and provisional_tier != 'LOW'", fix: UPLOAD_INCORP_CERT}
+  conditional:
+    - {id: BANK_COUNTRY_JUSTIFICATION, when: "bank.country != company.country", path: declarations.bank_country_justification}

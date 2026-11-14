@@ -1,0 +1,84 @@
+PROVIDE_GSTIN:
+  IN: {what: "Your 15-character GSTIN", how: "Find it on your GST registration certificate (format 22AAAAA0000A1Z5)."}
+TAX_FORMAT_MISMATCH:
+  IN: {what: "Indian tax identifiers", how: "India vendors provide a GSTIN (15 characters) and a PAN (10 characters). The value entered looks like a US EIN."}
+UPLOAD_DBA_PROOF:
+  default: {what: "Proof of your trading name", how: "Upload a registration certificate or IRS letter showing the legal name and the name you trade under."}
+PROVIDE_TIN:
+  default: {what: "Your taxpayer ID", how: "Enter the exact name and TIN from your IRS records."}
+PROVIDE_TIN_LETTER:
+  default: {what: "IRS confirmation letter", how: "Upload your IRS EIN confirmation letter (CP 575)."}
+CONFIRM_TIN_NAME:
+  default: {what: "Exact legal name", how: "Enter the legal name exactly as it appears in IRS records."}
+PROVIDE_GST_CERT:
+  default: {what: "GST registration certificate", how: "Upload your GST registration certificate."}
+PROVIDE_PAN:
+  default: {what: "Your PAN", how: "Enter your 10-character PAN."}
+PROVIDE_IFSC:
+  default: {what: "Your IFSC", how: "Enter the 11-character IFSC from your cheque book."}
+UPLOAD_GST_CERT:
+  default: {what: "GST certificate", how: "Upload the certificate showing your GSTIN."}
+UPLOAD_BANK_PROOF:
+  default: {what: "Bank proof", how: "Upload a bank letter or voided cheque."}
+UPLOAD_W9:
+  default: {what: "Signed Form W-9", how: "Upload a signed, dated W-9 (Mar 2024 revision)."}
+UPLOAD_COI:
+  default: {what: "Insurance certificate", how: "Upload a current certificate of liability insurance."}
+UPLOAD_INCORP_CERT:
+  default: {what: "Certificate of incorporation", how: "Upload your registration certificate."}
+PROVIDE_VAT:
+  default: {what: "Your VAT ID", how: "Enter the VAT ID exactly as registered."}
+PROVIDE_BANK_DETAILS:
+  default: {what: "Bank details", how: "Enter complete, valid bank details."}
+PROVIDE_CONTACT:
+  default: {what: "Contact details", how: "Enter a valid email and phone number."}
+CONFIRM_BANK_HOLDER:
+  default: {what: "Bank account holder confirmation", how: "Confirm the account holder name matches your legal name."}
+CONFIRM_LEGAL_NAME:
+  default: {what: "Legal name confirmation", how: "Confirm the exact legal spelling."}
+PROVIDE_PHYSICAL_ADDRESS:
+  default: {what: "Physical address", how: "Provide a street address, not a PO box."}
+# Internal-only codes intentionally have no vendor hint:
+# SANCTIONS_MATCH, SANCTIONS_REVIEW, PEP_REVIEW, ADVERSE_MEDIA_REVIEW,
+# BANK_SHARED_ACROSS_VENDORS, TIN_REUSE_DIFFERENT_NAME, CLUSTER_REVIEW,
+# DUPLICATE_REVIEW, DUPLICATE_EXISTING, CALLBACK_REQUIRED,
+# BANK_CHANGE_REQUIRES_CALLBACK, CHANGE_VELOCITY, COMPLIANCE_REVIEW
+UPLOAD_INVALID_FILE:
+  default: {what: "A valid file", how: "Upload a PDF, PNG or JPG under 10 MB."}
+DOC_WRONG_TYPE:
+  default: {what: "The correct document", how: "Upload the document type requested."}
+DOC_EXPIRED:
+  default: {what: "A current document", how: "Upload a renewed, unexpired copy."}
+DOC_STALE:
+  default: {what: "A recent bank letter", how: "Upload a bank letter dated within 12 months."}
+DOC_UNSIGNED:
+  default: {what: "A signed form", how: "Upload a signed and dated copy."}
+DOC_OUTDATED_REVISION:
+  default: {what: "Current form revision", how: "Use the March 2024 revision."}
+DOC_UNREADABLE:
+  default: {what: "A clear copy", how: "Upload a sharper scan or the original PDF."}
+UPLOAD_CLEARER_COPY:
+  default: {what: "A clear copy", how: "Upload a sharper scan or the original PDF."}
+DOC_FORM_MISMATCH:
+  default: {what: "Matching documents", how: "Ensure the document shows the same details as the form."}
+UPLOAD_CORRECT_DOC:
+  default: {what: "The correct document", how: "Upload the document matching the declaration."}
+CONFIRM_BANK_HOLDER:
+  default: {what: "Account holder confirmation", how: "Confirm the holder name matches your legal name."}
+CONFIRM_LEGAL_NAME:
+  default: {what: "Legal name confirmation", how: "Confirm the exact legal spelling."}
+PROVIDE_FIELD:
+  default: {what: "The missing field", how: "Fill in the required field."}
+PROVIDE_JUSTIFICATION:
+  default: {what: "A justification", how: "Explain why this differs."}
+PROVIDE_PHYSICAL_ADDRESS:
+  default: {what: "A street address", how: "Provide a physical address."}
+PROVIDE_REMIT_JUSTIFICATION:
+  default: {what: "Remit-to justification", how: "Explain the different remit address."}
+PROVIDE_TIN:
+  default: {what: "Your tax ID", how: "Enter the exact ID from your tax records."}
+RECORD_CALLBACK:
+  default: {what: "A callback", how: "An analyst will call to verify."}
+COMPLIANCE_REVIEW:
+  default: {what: "Compliance review", how: "Our team will review."}
+# Internal-only (no vendor hint): DOC_INJECTION_SUSPECTED

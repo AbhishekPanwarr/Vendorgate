@@ -1,0 +1,2 @@
+{"fixture_id": "gst-hp2", "key": "29AAPCA1234F1ZR", "status": "OK", "data": {"state": "Active", "legal_name": "Nimbus Technologies Pvt Ltd", "trade_name": "Nimbus"}}
+{"fixture_id": "gst-cancelled", "key": "29AAAAA0000A1Z5", "status": "MISMATCH", "data": {"state": "Cancelled"}}

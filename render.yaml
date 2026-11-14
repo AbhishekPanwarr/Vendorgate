@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: vendorgate
+    runtime: docker
+    plan: starter
+    healthCheckPath: /readyz
+    disk:
+      name: vendorgate-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: LLM_MODE
+        value: replay
+      - key: CLOCK_MODE
+        value: virtual
+      - key: DATABASE_URL
+        value: sqlite:///data/vendorgate.db
+      - key: SEED_DEMO
+        value: 1

@@ -1,0 +1,6 @@
+{"fixture_id": "reg-ec4b", "key": "meridian shipping services ltd", "status": "OK", "data": {"status": "Active", "legal_name": "Meridian Shipping Services Ltd", "incorporation_year": 2009, "country": "GB", "officers": ["Jonas Weber"]}}
+{"fixture_id": "reg-dissolved", "key": "defunct trading co", "status": "MISMATCH", "data": {"status": "Dissolved"}}
+{"fixture_id": "reg-nimbus", "key": "nimbus technologies pvt ltd", "status": "OK", "data": {"status": "Active", "legal_name": "Nimbus Technologies Pvt Ltd", "incorporation_year": 2024, "country": "IN", "officers": ["A Rao"]}}
+{"fixture_id": "reg-hafen", "key": "hafen logistik gmbh", "status": "OK", "data": {"status": "Active", "legal_name": "Hafen Logistik GmbH", "incorporation_year": 2010, "country": "DE", "officers": ["J Weber"]}}
+{"fixture_id": "reg-meridian-gb", "key": "meridian shipping svcs llc", "status": "OK", "data": {"status": "Active", "legal_name": "Meridian Shipping Svcs LLC", "incorporation_year": 2021, "country": "GB", "officers": []}}
+{"fixture_id": "reg-rhein", "key": "rhein bau gmbh", "status": "OK", "data": {"status": "Active", "legal_name": "Rhein Bau GmbH", "incorporation_year": 2019, "country": "DE", "officers": ["Petra Hoffmann"]}}

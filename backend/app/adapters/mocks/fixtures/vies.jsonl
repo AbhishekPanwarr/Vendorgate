@@ -1,0 +1,3 @@
+{"fixture_id": "vies-hp3", "key": "DE812415868", "status": "OK", "data": {"valid": true, "name": "Hafen Logistik GmbH", "address": "Am Sandtorkai 1, Hamburg"}}
+{"fixture_id": "vies-rhein", "key": "DE761612490", "status": "OK", "data": {"valid": true, "name": "Rhein Bau GmbH", "address": "Hamburg"}}
+{"fixture_id": "vies-gb", "key": "GB999999973", "status": "OK", "data": {"valid": true, "name": "Meridian Shipping Svcs LLC", "address": "London"}}

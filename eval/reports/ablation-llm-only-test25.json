@@ -1,0 +1,241 @@
+{
+ "results": [
+  {
+   "op": "M-18",
+   "vendor_id": "G-US-027",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "X"
+   ],
+   "tier": "MEDIUM",
+   "score": 50,
+   "has_counterfactual": false,
+   "has_audit": false,
+   "n_blocking": 0,
+   "seconds": 0.0
+  },
+  {
+   "op": "M-18",
+   "vendor_id": "G-US-027",
+   "slice": "single",
+   "expected_status": "PENDING",
+   "expected_awaiting": [
+    "VENDOR"
+   ],
+   "expected_codes": [
+    "TIN_NOT_ISSUED"
+   ],
+   "expected_critical": true,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "X"
+   ],
+   "tier": "MEDIUM",
+   "score": 50,
+   "has_counterfactual": false,
+   "has_audit": false,
+   "n_blocking": 0,
+   "seconds": 0.0
+  },
+  {
+   "op": "M-14",
+   "vendor_id": "G-GB-012",
+   "slice": "single",
+   "expected_status": "APPROVED",
+   "expected_awaiting": [],
+   "expected_codes": [],
+   "expected_critical": false,
+   "actual_status": "PENDING",
+   "actual_awaiting": [
+    "VENDOR"
+   ],
+   "actual_codes": [
+    "X"
+   ],
+   "tier": "MEDIUM",
+   "score": 50,
+   "has_counterfactual": false,
+   "has_audit": false,
+   "n_blocking": 0,
+   "seconds": 0.0
+  }
+ ],
+ "metrics": {
+  "E1_critical_false_approve": {
+   "k": 0,
+   "n": 2,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.6576280471103807
+  },
+  "E2_false_approve": {
+   "k": 0,
+   "n": 0,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 1.0
+  },
+  "E3_false_reject": {
+   "k": 0,
+   "n": 1,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.7934567085261071
+  },
+  "E4_friction": {
+   "k": 0,
+   "n": 0,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 1.0
+  },
+  "E5_status_accuracy": {
+   "k": 2,
+   "n": 3,
+   "rate": 0.6666666666666666,
+   "lo": 0.20765495512648788,
+   "hi": 0.9385096847238393,
+   "confusion": {
+    "APPROVED": {
+     "APPROVED": 0,
+     "PENDING": 1,
+     "REJECTED": 0
+    },
+    "PENDING": {
+     "APPROVED": 0,
+     "PENDING": 2,
+     "REJECTED": 0
+    },
+    "REJECTED": {
+     "APPROVED": 0,
+     "PENDING": 0,
+     "REJECTED": 0
+    }
+   }
+  },
+  "E6_reason_codes": {
+   "micro": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 3,
+    "fn": 2
+   },
+   "exact_set": {
+    "k": 0,
+    "n": 3,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.5615060804490177
+   }
+  },
+  "E7_awaiting": {
+   "k": 2,
+   "n": 3,
+   "rate": 0.6666666666666666,
+   "lo": 0.20765495512648788,
+   "hi": 0.9385096847238393
+  },
+  "E8_remediation": {
+   "proxy_actionable": {
+    "k": 0,
+    "n": 3,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.5615060804490177
+   }
+  },
+  "E9_remediation_success1": {
+   "proxy_success1": {
+    "k": 0,
+    "n": 3,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 0.5615060804490177
+   },
+   "note": "proxy: counterfactual present; vendor simulator in Phase 6"
+  },
+  "E10_message_safety": {
+   "k": 0,
+   "n": 3,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.5615060804490177
+  },
+  "E13_sanctions": {
+   "sanctions_recall": {
+    "k": 0,
+    "n": 0,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 1.0
+   },
+   "decoy_hold": {
+    "k": 0,
+    "n": 0,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 1.0
+   }
+  },
+  "E14_network": {
+   "recall": {
+    "k": 0,
+    "n": 0,
+    "rate": 0.0,
+    "lo": 0.0,
+    "hi": 1.0
+   }
+  },
+  "E16_invariance": {
+   "k": 0,
+   "n": 0,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 1.0
+  },
+  "E20_audit_chain": {
+   "k": 0,
+   "n": 3,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.5615060804490177
+  },
+  "E21_auc": {
+   "auc": 1.0
+  },
+  "E22_tier_calibration": {
+   "k": 0,
+   "n": 0,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 1.0
+  },
+  "n": 3,
+  "E19_cost": {
+   "tokens": 15,
+   "note": "25-case slice, live once"
+  },
+  "meta": {
+   "split": "test-25",
+   "mode": "llm-only",
+   "n": 3
+  }
+ }
+}

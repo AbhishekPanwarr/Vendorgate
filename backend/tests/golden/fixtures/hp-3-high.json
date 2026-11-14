@@ -1,0 +1,645 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 600000,
+    "currency": "USD"
+   },
+   "category": "CONSTRUCTION",
+   "data_access": true,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Rhein Bau GmbH",
+   "trading_name": null,
+   "entity_type": "GMBH",
+   "country": "DE",
+   "incorporation_date": "2019-06-01",
+   "registered_address": {
+    "line1": "Am Sandtorkai 1",
+    "line2": null,
+    "city": "Hamburg",
+    "region": "Hamburg",
+    "postal_code": "20457",
+    "country": "DE"
+   },
+   "remit_to_address": null,
+   "website": "https://hafen-logistik.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@hafen-logistik.example",
+    "phone": "+49 40 123456"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@hafen-logistik.example",
+    "phone": "+49 40 123457"
+   },
+   "owners": [
+    {
+     "name": "Petra Hoffmann",
+     "ownership_pct": 100,
+     "role": "DIRECTOR"
+    }
+   ]
+  },
+  "tax": {
+   "country": "DE",
+   "tax_id_type": "VAT",
+   "tax_id": "DE761612490",
+   "secondary_ids": {},
+   "tax_classification": "GMBH",
+   "form_type": "VAT_CERT",
+   "vat_id": "DE761612490"
+  },
+  "bank": {
+   "country": "CH",
+   "currency": "CHF",
+   "account_holder_name": "Rhein Bau GmbH",
+   "bank_name": "Test Bank",
+   "account_number": "5271368760195207651",
+   "routing_number": null,
+   "iban": "CH5271368760195207651",
+   "swift_bic": "RAIFCH22",
+   "ifsc": null,
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "VAT_CERT",
+    "filename": "vat.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "inc.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL",
+   "VENDOR"
+  ],
+  "tier": "HIGH",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 1.0,
+     "points": 25.0,
+     "drivers": [
+      "spend_usd=600000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 1.0,
+     "points": 20.0,
+     "drivers": [
+      "country=DE",
+      "bank_country!=company_country +0.3"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.6,
+     "points": 12.0,
+     "drivers": [
+      "doc_tags=0.6"
+     ]
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.9,
+     "points": 9.0,
+     "drivers": [
+      "category=CONSTRUCTION",
+      "data_access +0.3"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 1.0,
+     "points": 10.0,
+     "drivers": []
+    }
+   },
+   "total": 77.5,
+   "band": "HIGH"
+  },
+  "reason_codes": [
+   "ADVERSE_MEDIA_REVIEW",
+   "BANK_COUNTRY_MISMATCH",
+   "CALLBACK_REQUIRED",
+   "MISSING_CONDITIONAL",
+   "MISSING_DOC",
+   "PEP_REVIEW",
+   "SANCTIONS_REVIEW"
+  ],
+  "blocking_finding_ids": [
+   "C-GEO-01",
+   "C-POL-02",
+   "C-REQ-02",
+   "C-REQ-03",
+   "C-SAN-01",
+   "C-SAN-04",
+   "C-SAN-05"
+  ],
+  "required_actions": [
+   {
+    "code": "PROVIDE_BANK_COUNTRY_JUSTIFICATION",
+    "field_paths": [
+     "declarations.bank_change_justification"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "RECORD_CALLBACK",
+    "field_paths": [
+     "bank.country"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "UPLOAD_COI",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "PROVIDE_JUSTIFICATION",
+    "field_paths": [
+     "declarations.bank_country_justification"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "COMPLIANCE_REVIEW",
+    "field_paths": [
+     "company.legal_name"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "COMPLIANCE_REVIEW",
+    "field_paths": [
+     "company.owners.0.name"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   {
+    "code": "COMPLIANCE_REVIEW",
+    "field_paths": [
+     "company.legal_name"
+    ],
+    "doc_type": null,
+    "params": {}
+   }
+  ],
+  "approval_route": [
+   "CONTROLLER",
+   "COMPLIANCE"
+  ],
+  "counterfactuals": [
+   {
+    "fix_set": [
+     "PROVIDE_BANK_COUNTRY_JUSTIFICATION"
+    ],
+    "status": "PENDING",
+    "tier": "HIGH",
+    "score": 77.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by ADVERSE_MEDIA_REVIEW, CALLBACK_REQUIRED, MISSING_CONDITIONAL, MISSING_DOC, PEP_REVIEW, SANCTIONS_REVIEW",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "PROVIDE_JUSTIFICATION"
+    ],
+    "status": "PENDING",
+    "tier": "HIGH",
+    "score": 77.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by ADVERSE_MEDIA_REVIEW, BANK_COUNTRY_MISMATCH, CALLBACK_REQUIRED, MISSING_DOC, PEP_REVIEW, SANCTIONS_REVIEW",
+    "score_delta": null
+   },
+   {
+    "fix_set": [
+     "UPLOAD_COI"
+    ],
+    "status": "PENDING",
+    "tier": "HIGH",
+    "score": 77.5,
+    "awaiting": [
+     "VENDOR"
+    ],
+    "note": "still blocked by ADVERSE_MEDIA_REVIEW, BANK_COUNTRY_MISMATCH, CALLBACK_REQUIRED, MISSING_CONDITIONAL, PEP_REVIEW, SANCTIONS_REVIEW",
+    "score_delta": null
+   }
+  ],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "ab13cb5d25a20c410ff0b07cb20dccef5ba9ca2fc2ee5f051773093eb87f4ce6"
+ },
+ "findings": [
+  {
+   "check_id": "C-SAN-01",
+   "stage": "S7",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "SANCTIONS_REVIEW",
+   "title": "Possible sanctions match",
+   "detail": "Compliance review required.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.legal_name",
+     "summary": "claim company.legal_name",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "COMPLIANCE_REVIEW",
+    "field_paths": [
+     "company.legal_name"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "INTERNAL",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.legal_name"
+   ],
+   "fingerprint": "2c5d5c3c063e7e49587c8f1e1749584ea5e8be90c69fe7baf945f88989d1f91a",
+   "score_tags": {
+    "GEO": 0.5
+   },
+   "duration_ms": 7,
+   "cached": false
+  },
+  {
+   "check_id": "C-SAN-04",
+   "stage": "S7",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "PEP_REVIEW",
+   "title": "PEP-linked owner",
+   "detail": "Enhanced diligence; not an auto-reject.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.owners.0.name",
+     "summary": "claim company.owners.0.name",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "COMPLIANCE_REVIEW",
+    "field_paths": [
+     "company.owners.0.name"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "INTERNAL",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.owners.0.name"
+   ],
+   "fingerprint": "724a8e272c7a75531b1445b4d4ff3544baa486e9f40b8e20c2ba9b077ea20fb1",
+   "score_tags": {
+    "GEO": 0.3
+   },
+   "duration_ms": 2,
+   "cached": false
+  },
+  {
+   "check_id": "C-SAN-05",
+   "stage": "S7",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "ADVERSE_MEDIA_REVIEW",
+   "title": "Adverse media hit",
+   "detail": "procurement enforcement action",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.legal_name",
+     "summary": "claim company.legal_name",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "COMPLIANCE_REVIEW",
+    "field_paths": [
+     "company.legal_name"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "INTERNAL",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.legal_name"
+   ],
+   "fingerprint": "baf7c71141a6f9be9e6a2597315856d9a90aefdc0302c7b2eeb57d6df23fb0cc",
+   "score_tags": {
+    "REGISTRY_MEDIA": 1.0
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-REQ-03",
+   "stage": "S2",
+   "check_version": 1,
+   "subject": "declarations.bank_country_justification",
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "MISSING_CONDITIONAL",
+   "title": "Missing conditional declarations.bank_country_justification",
+   "detail": "Conditional item declarations.bank_country_justification is required.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "declarations.bank_country_justification",
+     "summary": "claim declarations.bank_country_justification",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_JUSTIFICATION",
+    "field_paths": [
+     "declarations.bank_country_justification"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "declarations.bank_country_justification"
+   ],
+   "fingerprint": "85671a38fd6fe84cf869854ecb68337b0211787d051065d76b39867bc61279df",
+   "score_tags": {
+    "DOCS": 0.1
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-REQ-02",
+   "stage": "S2",
+   "check_version": 1,
+   "subject": "COI",
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "MISSING_DOC",
+   "title": "Missing document COI",
+   "detail": "Required document COI is missing.",
+   "evidence": [
+    {
+     "kind": "rule",
+     "ref": "C-REQ-02",
+     "summary": "Missing document COI",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "UPLOAD_COI",
+    "field_paths": [],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "8701a37f7791fcbb37fe64257549d5fae5c88ca990922edd5bebc46380785c76",
+   "score_tags": {
+    "DOCS": 0.5
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-03",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "VAT valid",
+   "detail": "VAT valid",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "vies",
+     "summary": "vies fixture vies-rhein",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "e920cec69dc1804002e3d18a610336848a534a64050370b71cc93b3227f5635b",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry fixture reg-rhein",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "7613827250bbe15e4ee8bac7d425f087102b7bb1a9122992fba661a03d4a50bf",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-rhein-ch",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "bb5ea5d9ff7ff90c75075d7453b3d3fc08c74c7b28be9799756bee25965b9c69",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-GEO-01",
+   "stage": "S5",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 1,
+   "reason_code": "BANK_COUNTRY_MISMATCH",
+   "title": "Bank country differs from company country",
+   "detail": "Company is DE but bank is CH. Justification required.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.country",
+     "summary": "claim company.country",
+     "data": {}
+    },
+    {
+     "kind": "claim",
+     "ref": "bank.country",
+     "summary": "claim bank.country",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "PROVIDE_BANK_COUNTRY_JUSTIFICATION",
+    "field_paths": [
+     "declarations.bank_change_justification"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "VENDOR",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.country",
+    "bank.country"
+   ],
+   "fingerprint": "c5ce60ee989e3bfe8b9337f373f8b17c4d6b81158646ae0b23e38a220bd11f81",
+   "score_tags": {
+    "GEO": 0.3
+   },
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-POL-02",
+   "stage": "S10",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "FAIL",
+   "severity": 2,
+   "reason_code": "CALLBACK_REQUIRED",
+   "title": "Independent callback required",
+   "detail": "Policy requires an independent callback before approval.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "bank.country",
+     "summary": "claim bank.country",
+     "data": {}
+    }
+   ],
+   "fix": {
+    "code": "RECORD_CALLBACK",
+    "field_paths": [
+     "bank.country"
+    ],
+    "doc_type": null,
+    "params": {}
+   },
+   "fixed_by": "INTERNAL",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "bank.country"
+   ],
+   "fingerprint": "2c992af23e2f8004e13a7c938d6d93657495e77f06a09295e9419076b6310e42",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}

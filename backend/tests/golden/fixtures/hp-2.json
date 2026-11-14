@@ -1,0 +1,285 @@
+{
+ "payload": {
+  "schema_version": "1.0",
+  "submission_type": "NEW_VENDOR",
+  "existing_vendor_id": null,
+  "requester": {
+   "name": "Dana Whitfield",
+   "email": "dana@buyer.example",
+   "department": "Facilities",
+   "business_justification": "Replaces expiring office-supply contract",
+   "expected_annual_spend": {
+    "amount": 120000,
+    "currency": "USD"
+   },
+   "category": "IT_SERVICES",
+   "data_access": true,
+   "one_time": false
+  },
+  "company": {
+   "legal_name": "Nimbus Technologies Pvt Ltd",
+   "trading_name": null,
+   "entity_type": "PVT_LTD",
+   "country": "IN",
+   "incorporation_date": "2024-06-01",
+   "registered_address": {
+    "line1": "44 Residency Rd",
+    "line2": null,
+    "city": "Bengaluru",
+    "region": "Karnataka",
+    "postal_code": "560025",
+    "country": "IN"
+   },
+   "remit_to_address": null,
+   "website": "https://nimbus-tech.example",
+   "primary_contact": {
+    "name": "A",
+    "email": "a@nimbus-tech.example",
+    "phone": "+91 98765 43210"
+   },
+   "ap_contact": {
+    "name": "B",
+    "email": "b@nimbus-tech.example",
+    "phone": "+91 98765 43211"
+   },
+   "owners": []
+  },
+  "tax": {
+   "country": "IN",
+   "tax_id_type": "GSTIN",
+   "tax_id": "29AAPCA1234F1ZR",
+   "secondary_ids": {
+    "PAN": "AAPCA1234F"
+   },
+   "tax_classification": "PVT_LTD",
+   "form_type": "GST_CERT",
+   "vat_id": null
+  },
+  "bank": {
+   "country": "IN",
+   "currency": "INR",
+   "account_holder_name": "Nimbus Technologies Pvt Ltd",
+   "bank_name": "Test Bank",
+   "account_number": "123456789012",
+   "routing_number": null,
+   "iban": null,
+   "swift_bic": null,
+   "ifsc": "HDFC0001234",
+   "sort_code": null
+  },
+  "documents": [
+   {
+    "doc_id": "d1",
+    "doc_type": "GST_CERT",
+    "filename": "gst.pdf",
+    "sha256": "x"
+   },
+   {
+    "doc_id": "d2",
+    "doc_type": "BANK_LETTER",
+    "filename": "bank.pdf",
+    "sha256": "y"
+   },
+   {
+    "doc_id": "d3",
+    "doc_type": "INCORP_CERT",
+    "filename": "inc.pdf",
+    "sha256": "z"
+   }
+  ],
+  "declarations": {
+   "aliases": [],
+   "bank_change_justification": null,
+   "remit_address_justification": null
+  },
+  "submitter_meta": {}
+ },
+ "decision": {
+  "status": "PENDING",
+  "awaiting": [
+   "INTERNAL"
+  ],
+  "tier": "LOW",
+  "score": {
+   "components": {
+    "SPEND": {
+     "weight": 25.0,
+     "raw": 0.8,
+     "points": 20.0,
+     "drivers": [
+      "spend_usd=120000.0"
+     ]
+    },
+    "GEO": {
+     "weight": 20.0,
+     "raw": 0.25,
+     "points": 5.0,
+     "drivers": [
+      "country=IN"
+     ]
+    },
+    "DOCS": {
+     "weight": 20.0,
+     "raw": 0.0,
+     "points": 0.0,
+     "drivers": []
+    },
+    "BANK_ID": {
+     "weight": 15.0,
+     "raw": 0.1,
+     "points": 1.5,
+     "drivers": [
+      "first_time_account +0.1"
+     ]
+    },
+    "CATEGORY": {
+     "weight": 10.0,
+     "raw": 0.9,
+     "points": 9.0,
+     "drivers": [
+      "category=IT_SERVICES",
+      "data_access +0.3"
+     ]
+    },
+    "REGISTRY_MEDIA": {
+     "weight": 10.0,
+     "raw": 0.2,
+     "points": 2.0,
+     "drivers": []
+    }
+   },
+   "total": 37.5,
+   "band": "LOW"
+  },
+  "reason_codes": [
+   "TIER_APPROVAL_REQUIRED"
+  ],
+  "blocking_finding_ids": [],
+  "required_actions": [],
+  "approval_route": [
+   "AP_ANALYST"
+  ],
+  "counterfactuals": [],
+  "policy_version": "ffd2e619ff57233721798398a1467813025ae677da299b77f97012ecf92b1509",
+  "engine_version": "1.0.0",
+  "reproducibility_hash": "30c44c5186e09f86e92b8f716ea316d0f99dc70155635946a62634be3797707f"
+ },
+ "findings": [
+  {
+   "check_id": "C-VER-02",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "GSTIN active",
+   "detail": "GSTIN active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "gst",
+     "summary": "gst fixture gst-hp2",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "64ff7003434d5434b0cf0ee22c57cf06c0ede9941c61cf7209fc5fe32781631a",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-04",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Entity active",
+   "detail": "Entity active",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "registry",
+     "summary": "registry fixture reg-nimbus",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "59e63600af3368fff6c006e3cde6f1be09d67fb08029b29b40e6139bb37e9f71",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-VER-05",
+   "stage": "S4",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "PASS",
+   "severity": 0,
+   "reason_code": null,
+   "title": "Bank ownership verified",
+   "detail": "Bank ownership verified",
+   "evidence": [
+    {
+     "kind": "adapter",
+     "ref": "bank",
+     "summary": "bank fixture bank-hp2",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [],
+   "fingerprint": "f3682ce432dacd5d7289e05657f02ae09e328e14eda5d348a668b3167c64ad7c",
+   "score_tags": {},
+   "duration_ms": 0,
+   "cached": false
+  },
+  {
+   "check_id": "C-CRD-01",
+   "stage": "S5",
+   "check_version": 1,
+   "subject": null,
+   "outcome": "WARN",
+   "severity": 0,
+   "reason_code": "ENTITY_RECENT",
+   "title": "Entity less than 3 years old",
+   "detail": "Incorporated 2024-06-01.",
+   "evidence": [
+    {
+     "kind": "claim",
+     "ref": "company.incorporation_date",
+     "summary": "claim company.incorporation_date",
+     "data": {}
+    }
+   ],
+   "fix": null,
+   "fixed_by": "NONE",
+   "mandatory": true,
+   "deterministic": true,
+   "reads": [
+    "company.incorporation_date"
+   ],
+   "fingerprint": "41d55ebb8db8d4aacbc9fe8b7d7c7bf922b6e5b6d739026209ea4733095359f7",
+   "score_tags": {
+    "REGISTRY_MEDIA": 0.2
+   },
+   "duration_ms": 0,
+   "cached": false
+  }
+ ]
+}
